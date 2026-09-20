@@ -107,7 +107,7 @@ table.entidades tr.sel{background:#2a2110}
 .resumoCard button{margin-top:12px;background:var(--a);color:#111;border:none;border-radius:6px;padding:7px 14px;font-weight:700;cursor:pointer}
 </style></head><body>
 <header><b>VISÃO DE ROTA · PAREDE DE MONITORES</b><span class=tag>SIMULAÇÃO — nenhuma câmera real está ligada</span>
-<a href="painel-gestor.html">← central de controle</a>
+<a href="app.html">← aplicativo</a>
 <div class=ctl><span style="color:var(--z)">telas:</span><span id=botoes></span></div></header>
 <div class=evrow><span class=lbl>eventos simuláveis:</span><span id=eventoBotoes></span></div>
 <div id=layout>
@@ -555,7 +555,7 @@ function laco(t){
     if(o.el.classList.contains('tem-video')) return;            // vídeo de verdade: não desenha nem simula por baixo
     if(EMB){                                                     // embutida: tela sem câmera fica PARADA (não gasta máquina)
       if(o._parada) return; desenhar2D(o); o._parada=true; o.el.style.opacity='.42';
-      const av=document.createElement('div'); av.textContent='sem câmera ligada'; av.style.cssText='position:absolute;inset:auto 0 42% 0;text-align:center;font:700 11px ui-monospace,monospace;color:#c9d6e6;letter-spacing:.06em;z-index:3;pointer-events:none'; o.el.appendChild(av);
+      const av=document.createElement('div'); av.className='sem-cam'; av.textContent='sem câmera ligada'; av.style.cssText='position:absolute;inset:auto 0 42% 0;text-align:center;font:700 11px ui-monospace,monospace;color:#c9d6e6;letter-spacing:.06em;z-index:3;pointer-events:none'; o.el.appendChild(av);
       return;
     }
     fisica(o,dt);desenhar2D(o)});
@@ -1091,7 +1091,7 @@ function carregarClipesSeExistir(){
         selo.className='selo-video';
         selo.textContent='VÍDEO PÚBLICO GRAVADO — '+(item.publicador||'fonte pública')+(item.gravado_em?' · '+item.gravado_em:'');
         o.el.appendChild(selo);
-        o.el.classList.add('tem-video');
+        o.el.style.opacity=''; var _sc=o.el.querySelector('.sem-cam'); if(_sc) _sc.remove(); o.el.classList.add('tem-video');
         o.el.addEventListener('click', function(ev){ ev.stopPropagation(); try{ window.parent.postMessage({tipo:'vr-clipe',indice:i},'*'); }catch(e){} }, true);
       });
     })
@@ -1153,7 +1153,7 @@ function montarTelaContinua(o,item,i){
   var hudEl=o.el.querySelector('.hud'); o.el.insertBefore(img,hudEl); o.el.insertBefore(cv,hudEl);
   var selo=document.createElement('div'); selo.className='selo-video'; selo.style.background='#16ae5e'; selo.style.color='#fff'; o.el.appendChild(selo);
   var pe=document.createElement('div'); pe.style.cssText='position:absolute;left:6px;bottom:6px;z-index:3;font:700 11px/1.35 ui-monospace,monospace;color:#fff;background:rgba(5,13,22,.78);padding:4px 7px;border-radius:6px;max-width:92%'; o.el.appendChild(pe);
-  o.el.classList.add('tem-video');
+  o.el.style.opacity=''; var _sc=o.el.querySelector('.sem-cam'); if(_sc) _sc.remove(); o.el.classList.add('tem-video');
   o.el.addEventListener('click',function(ev){ ev.stopPropagation(); if(item.url_origem && /^https:\/\//.test(item.url_origem)) window.open(item.url_origem,'_blank','noopener'); },true);
   var COR={automovel:'#3b82f6',moto:'#f59a21',onibus:'#a855f7',caminhao:'#ef4444',bicicleta:'#22c55e',pedestre:'#eab308'};
   function passo(){

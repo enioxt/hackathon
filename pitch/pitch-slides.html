@@ -64,102 +64,118 @@
     margin-bottom: 20px;
   }
 
-  /* ===== Slide 1 — Abertura ===== */
-  .s1content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; }
-  .s1bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.12; z-index: 0; }
-  .s1inner { position: relative; z-index: 1; }
-  .s1inner .frase { font-size: 142px; font-weight: 800; color: var(--navy); line-height: 1.1; max-width: 1750px; }
-  .s1inner .nome { margin-top: 54px; font-size: 60px; font-weight: 800; color: var(--blue); letter-spacing: 0.01em; }
-  .s1inner .sub { margin-top: 20px; font-size: 36px; color: var(--muted); }
-  .s1inner .bar { width: 180px; height: 10px; background: var(--amber); margin: 46px auto 0; border-radius: 5px; }
+  /* ===== Slide 1 — Impacto ===== */
+  .s1wrap { flex: 1; display: flex; align-items: stretch; }
+  .s1photo { position: relative; width: 620px; flex-shrink: 0; height: 100%; overflow: hidden; background: #000; }
+  .s1photo img { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); height: 104%; width: auto; }
+  .cammark { position: absolute; left: 37.0%; top: 7.9%; width: 90px; height: 90px; transform: translate(-50%,-50%); border: 6px solid var(--amber); border-radius: 50%; box-shadow: 0 0 0 6px rgba(245,185,66,0.25); }
+  .camlabel { position: absolute; left: 41%; top: 12.5%; background: var(--navy); color: #fff; font-size: 22px; font-weight: 700; padding: 12px 20px; border-radius: 10px; max-width: 380px; line-height: 1.3; box-shadow: 0 10px 24px rgba(0,0,0,0.3); }
+  .camlabel::before { content: ""; position: absolute; left: -14px; top: 18px; border: 8px solid transparent; border-right-color: var(--navy); }
+  .s1capleg { position: absolute; left: 0; right: 0; bottom: 0; background: rgba(11,42,74,0.82); color: #dbe9fb; font-size: 20px; padding: 16px 28px; text-align: center; font-style: italic; }
+  .s1right { flex: 1; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 0 90px; }
+  .s1right .frase { font-size: 118px; font-weight: 800; color: var(--navy); line-height: 1.12; }
+  .s1right .bar { width: 160px; height: 10px; background: var(--amber); margin: 40px 0; border-radius: 5px; }
+  .s1right .nome { font-size: 54px; font-weight: 800; color: var(--blue); }
+  .s1right .sub { margin-top: 16px; font-size: 32px; color: var(--muted); }
 
-  /* ===== Slide 2 — Problema ===== */
+  /* ===== Slide 2 — O que está em jogo ===== */
   .s2 h1 { font-size: 80px; font-weight: 800; color: var(--navy); line-height: 1.18; max-width: 1750px; }
-  .s2 .quemsofre { margin-top: 26px; font-size: 42px; color: var(--muted); max-width: 1700px; font-weight: 500; }
   .numgrid { display: flex; gap: 36px; margin-top: 56px; width: 100%; }
   .numcard { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 40px 36px 34px; }
   .numcard .num { font-size: 140px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -3px; }
   .numcard .num.tight { font-size: 118px; letter-spacing: -4px; }
   .numcard .num span.accent { color: var(--blue); }
   .numcard .desc { margin-top: 20px; font-size: 30px; color: #2b3648; font-weight: 700; line-height: 1.3; }
-  .numcard .fonte { margin-top: 18px; font-size: 24px; color: var(--muted); }
-  .footnote { margin-top: 36px; font-size: 26px; color: var(--muted); }
+  .numcard .fonte { margin-top: 18px; font-size: 22px; color: var(--muted); }
 
-  /* ===== Slide 3 — Por isso criamos ===== */
-  .s3 h1 { font-size: 74px; font-weight: 800; color: var(--navy); }
-  .s3 h1 .brand { color: var(--blue); }
-  .rows { margin-top: 48px; display: flex; flex-direction: column; gap: 24px; }
-  .row { display: flex; align-items: center; gap: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 34px 44px; }
-  .row .dor { flex: 1; font-size: 44px; color: var(--red); font-weight: 700; }
-  .row .seta { font-size: 56px; color: var(--amber); font-weight: 800; }
-  .row .func { flex: 1.3; font-size: 44px; color: var(--navy); font-weight: 700; }
-  .row.solo { justify-content: center; text-align: center; font-size: 48px; color: var(--navy); font-weight: 700; }
-  .valueprop { margin-top: 40px; background: var(--navy); color: #fff; border-radius: 20px; padding: 36px 48px; font-size: 38px; font-weight: 600; line-height: 1.4; }
+  /* ===== Slide 3 — O buraco ===== */
+  .s3 h1 { font-size: 72px; font-weight: 800; color: var(--navy); line-height: 1.2; max-width: 1750px; }
+  .buraco { display: flex; align-items: center; gap: 40px; margin-top: 54px; }
+  .bcard { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 44px 44px 38px; }
+  .bcard .tag { display: inline-block; font-size: 20px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 6px 16px; border-radius: 20px; margin-bottom: 22px; }
+  .bcard.custo .tag { background: #fdecec; color: var(--red); }
+  .bcard.contrato .tag { background: #e9f7ef; color: var(--green); }
+  .bcard .bignum { font-size: 96px; font-weight: 800; color: var(--navy); line-height: 1; }
+  .bcard .desc { margin-top: 18px; font-size: 30px; font-weight: 700; color: #2b3648; line-height: 1.35; }
+  .bcard .fonte { margin-top: 20px; font-size: 21px; color: var(--muted); }
+  .xmark { font-size: 64px; font-weight: 800; color: var(--amber); flex-shrink: 0; }
+  .s3foot { margin-top: 40px; background: var(--navy); color: #fff; border-radius: 18px; padding: 30px 40px; font-size: 34px; font-weight: 600; text-align: center; }
 
-  /* ===== Slide 4 — Demonstração (moldura + quadro real + painel MEDIDO) ===== */
-  .sdemo { padding-top: 30px; }
-  .sdemo h1 { font-size: 50px; font-weight: 800; color: var(--navy); margin-top: 0; text-align: center; line-height: 1.2; }
-  .demoframe { display: flex; align-items: flex-start; justify-content: center; gap: 64px; margin-top: 26px; }
-  .demovideo { position: relative; width: 340px; flex-shrink: 0; }
-  .demovideo img { width: 100%; display: block; border-radius: 20px; border: 4px solid var(--navy); box-shadow: 0 18px 40px rgba(11,42,74,0.25); }
-  .demovideo .cap { margin-top: 14px; font-size: 22px; color: var(--muted); text-align: center; font-style: italic; }
-  .painel { width: 520px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 30px 36px; box-shadow: 0 14px 34px rgba(11,42,74,0.1); margin-top: 20px; }
-  .painel .tag { display: inline-block; background: #e9f7ef; color: var(--green); font-weight: 800; font-size: 20px; letter-spacing: 0.06em; padding: 6px 16px; border-radius: 20px; margin-bottom: 18px; }
-  .painel .linhaes { display: flex; flex-direction: column; gap: 12px; }
-  .painel .li { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 10px; font-size: 26px; color: var(--navy); font-weight: 600; }
-  .painel .li:last-child { border-bottom: none; }
-  .painel .li .v { font-size: 36px; font-weight: 800; color: var(--blue); }
-  .painel .fonte { margin-top: 16px; font-size: 19px; color: var(--muted); }
-  .painel .demofrase { margin-top: 26px; font-size: 30px; font-weight: 700; color: var(--navy); text-align: left; line-height: 1.3; }
+  /* ===== Slide 4 — Proposta de valor ===== */
+  .s4 { align-items: center; text-align: center; }
+  .s4 .kicker { text-align: center; }
+  .s4 .frase { font-size: 62px; font-weight: 800; color: var(--navy); line-height: 1.28; max-width: 1650px; }
+  .s4 .porisso { margin-top: 30px; font-size: 40px; font-weight: 700; color: var(--blue); }
+  .s4cards { display: flex; gap: 32px; margin-top: 52px; width: 100%; max-width: 1650px; }
+  .s4cards .c { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 34px 30px; font-size: 30px; font-weight: 700; color: var(--navy); line-height: 1.3; }
 
-  /* ===== Slide 5 — Análise + decisão (insight) ===== */
-  .sinsight { position: relative; }
-  .sinsight .content { position: relative; z-index: 2; align-items: center; }
-  .insightbg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
-  .insightbg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,14,28,0.88) 0%, rgba(6,14,28,0.78) 55%, rgba(6,14,28,0.92) 100%); }
-  .sinsight h1 { font-size: 64px; font-weight: 800; color: #fff; text-align: center; }
-  .sinsight h1 .accent2 { color: var(--amber); }
-  .insightcard { margin-top: 40px; }
-  .insightcard img { width: 560px; border-radius: 20px; box-shadow: 0 24px 50px rgba(0,0,0,0.4); display: block; }
+  /* ===== Slide 5 — Como funciona ===== */
+  .s5 h1 { font-size: 66px; font-weight: 800; color: var(--navy); }
+  .steps3 { display: flex; gap: 32px; margin-top: 40px; }
+  .steps3 .st { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 30px 30px 26px; }
+  .steps3 .st .n { width: 48px; height: 48px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 26px; margin-bottom: 16px; }
+  .steps3 .st .t { font-size: 28px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+  .techbox { margin-top: 36px; background: var(--navy); color: #fff; border-radius: 20px; padding: 34px 44px; display: flex; gap: 48px; align-items: center; }
+  .techbox .tb1 { flex: 1; }
+  .techbox .bignum { font-size: 64px; font-weight: 800; color: var(--amber); line-height: 1; display: block; }
+  .techbox .lbl { margin-top: 10px; font-size: 24px; color: #dbe9fb; }
+  .techbox .fonte { margin-top: 6px; font-size: 17px; color: #9fb6d6; }
+  .privline { margin-top: 26px; font-size: 28px; font-weight: 700; color: var(--navy); text-align: center; }
+  .privline .sub { display: block; margin-top: 8px; font-size: 24px; font-weight: 500; color: var(--muted); }
 
-  /* ===== Slide 6 — Sustentação ===== */
-  .s6 h1 { font-size: 66px; font-weight: 800; color: var(--navy); }
-  .s6cols { display: flex; gap: 60px; margin-top: 44px; align-items: flex-start; }
-  .col { flex: 1; }
-  .stairs { display: flex; align-items: flex-end; gap: 20px; height: 340px; }
-  .stepbox { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 20px 22px; box-shadow: 0 6px 16px rgba(11,42,74,0.08); }
-  .stepbox .n { width: 52px; height: 52px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 28px; margin-bottom: 14px; }
-  .stepbox .t { font-size: 30px; font-weight: 700; color: var(--navy); line-height: 1.25; }
-  .comeca { margin-top: 26px; background: #eef5ff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; font-size: 30px; color: #223; line-height: 1.4; font-weight: 500; }
-  .econ { background: var(--navy); color: #fff; border-radius: 18px; padding: 34px 38px; }
-  .econ .line { font-size: 28px; margin-bottom: 20px; line-height: 1.35; }
-  .econ .line:last-child { margin-bottom: 0; }
-  .econ .bignum { font-size: 80px; font-weight: 800; color: var(--amber); display: block; margin-bottom: 4px; }
-  .econ .fonte { font-size: 20px; color: #b9cde8; }
-  .fraseforte { margin-top: 24px; font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1.35; }
-  .falta { margin-top: 22px; background: #fdf1d6; border: 1px solid #ecd9a6; border-radius: 12px; padding: 18px 26px; font-size: 24px; color: #6b4e12; font-weight: 600; }
+  /* ===== Slide 6 — Capacidades ===== */
+  .s6cap h1 { font-size: 60px; font-weight: 800; color: var(--navy); text-align: center; }
+  .capgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 34px; }
+  .capcard { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: 0 8px 18px rgba(11,42,74,0.08); }
+  .capcard .shot { width: 100%; height: 220px; overflow: hidden; background: #dde6f2; }
+  .capcard .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+  .capcard .lbl { padding: 16px 20px; font-size: 21px; font-weight: 700; color: var(--navy); line-height: 1.28; }
+  .capfoot { margin-top: 26px; background: #fdf1d6; border: 1px solid #ecd9a6; border-radius: 12px; padding: 16px 28px; font-size: 22px; color: #6b4e12; font-weight: 600; text-align: center; }
 
-  /* ===== Slide 7 — Time + fechamento ===== */
-  .s7content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 100px; }
-  .s7content .time { font-size: 30px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  /* ===== Slide 7 — Demonstração + como começa ===== */
+  .s7demo h1 { font-size: 54px; font-weight: 800; color: var(--navy); text-align: center; margin-top: 0; }
+  .demorow { display: flex; gap: 40px; margin-top: 24px; }
+  .demobox { flex: 1; }
+  .demobox .frame { width: 100%; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; border: 4px solid var(--navy); box-shadow: 0 14px 30px rgba(11,42,74,0.22); position: relative; background: #000; }
+  .demobox .frame img { width: 100%; height: 100%; object-fit: cover; }
+  .demobox .tag { position: absolute; top: 14px; left: 14px; background: var(--green); color: #fff; font-size: 18px; font-weight: 800; padding: 6px 14px; border-radius: 20px; letter-spacing: 0.04em; }
+  .demobox .nums { margin-top: 14px; font-size: 24px; font-weight: 700; color: var(--navy); text-align: center; }
+  .demobox .fonte { margin-top: 4px; font-size: 17px; color: var(--muted); text-align: center; }
+  .demofrase { margin-top: 24px; font-size: 32px; font-weight: 700; color: var(--navy); text-align: center; }
+  .degraus7 { display: flex; gap: 20px; margin-top: 26px; }
+  .degraus7 .d { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; display: flex; align-items: center; gap: 14px; }
+  .degraus7 .d .n { width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 20px; flex-shrink: 0; }
+  .degraus7 .d .t { font-size: 21px; font-weight: 700; color: var(--navy); line-height: 1.25; }
+  .s7bottom2 { margin-top: 16px; display: flex; align-items: center; gap: 20px; justify-content: center; }
+  .s7bottom2 .fraseforte { font-size: 24px; font-weight: 700; color: var(--navy); }
+  .fallberto { margin-top: 14px; background: #fdf1d6; border: 1px solid #ecd9a6; border-radius: 12px; padding: 12px 24px; font-size: 19px; color: #6b4e12; font-weight: 600; text-align: center; }
+
+  /* ===== Slide 8 — Time + fechamento ===== */
+  .s8content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 100px; }
+  .s8content .time { font-size: 30px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
   .teamlist { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
   .teamlist .tl { font-size: 34px; color: var(--navy); font-weight: 600; }
   .teamlist .tl .editable { color: var(--blue); font-weight: 700; border-bottom: 3px dashed var(--blue); padding-bottom: 2px; }
-  .s7content .fecho { margin-top: 40px; font-size: 112px; font-weight: 800; color: var(--navy); line-height: 1.12; max-width: 1650px; }
-  .s7bottom { margin-top: 50px; display: flex; align-items: center; gap: 36px; }
-  .s7content .addr { font-size: 46px; font-weight: 800; color: #fff; background: var(--blue); padding: 22px 50px; border-radius: 16px; letter-spacing: 0.01em; }
+  .s8content .fecho { margin-top: 40px; font-size: 108px; font-weight: 800; color: var(--navy); line-height: 1.12; max-width: 1650px; }
+  .s8bottom { margin-top: 50px; display: flex; align-items: center; gap: 36px; }
+  .s8content .addr { font-size: 46px; font-weight: 800; color: #fff; background: var(--blue); padding: 22px 50px; border-radius: 16px; letter-spacing: 0.01em; }
   .qrbox { background: #fff; border-radius: 14px; padding: 10px; border: 2px solid var(--border); }
   .qrbox svg { display: block; width: 170px; height: 170px; }
 </style>
 </head>
 <body>
 
-<!-- SLIDE 1 — Abertura -->
+<!-- SLIDE 1 — Impacto -->
 <section class="slide">
   <div class="topbar"></div>
-  <div class="s1content">
-    <div class="s1bg" style="background-image:url('pitch-prints/hi-parede.png');"></div>
-    <div class="s1inner">
+  <div class="s1wrap">
+    <div class="s1photo">
+      <img src="pitch-prints/quadro-abertura-full.png" alt="quadro real extraído de vídeo gravado em Patos de Minas, poste com câmera dome e carro branco com caixa de detecção">
+      <div class="cammark"></div>
+      <div class="camlabel">esta câmera já está no poste. Hoje ela só grava.</div>
+      <div class="s1capleg">gravado hoje, em Patos de Minas, com dois celulares — contado pela nossa máquina</div>
+    </div>
+    <div class="s1right">
       <div class="frase">A mesma câmera.<br>Outra pergunta.</div>
       <div class="bar"></div>
       <div class="nome">Visão de Rota</div>
@@ -172,12 +188,12 @@
   </div>
 </section>
 
-<!-- SLIDE 2 — Problema + 3 números -->
+<!-- SLIDE 2 — O que está em jogo -->
 <section class="slide">
   <div class="topbar"></div>
   <div class="content s2">
-    <div class="kicker">O problema</div>
-    <h1>A cidade já tem centenas de câmeras.<br>Hoje elas gravam. Ainda não contam.</h1>
+    <div class="kicker">O que está em jogo</div>
+    <h1>A cidade sabe onde dói.</h1>
 
     <div class="numgrid">
       <div class="numcard">
@@ -199,121 +215,177 @@
   </div>
   <div class="footer">
     <div>Visão de Rota</div>
-    <div class="right">Problema</div>
+    <div class="right">O que está em jogo</div>
   </div>
 </section>
 
-<!-- SLIDE 3 — Por isso criamos -->
+<!-- SLIDE 3 — O buraco -->
 <section class="slide">
   <div class="topbar"></div>
   <div class="content s3">
-    <div class="kicker">A solução</div>
-    <h1>Por isso criamos a <span class="brand">Visão de Rota</span></h1>
+    <div class="kicker">O buraco</div>
+    <h1>Ela mexe na rua e não mede se funcionou.</h1>
 
-    <div class="rows entregas">
-      <div class="row solo">Contagem por tipo, ponto a ponto</div>
-      <div class="row solo">Antes e depois de cada mudança</div>
-      <div class="row solo">Recomendação decidida por uma pessoa</div>
+    <div class="buraco">
+      <div class="bcard custo">
+        <div class="tag">Medir do jeito convencional</div>
+        <div class="bignum">~R$ 20 mil</div>
+        <div class="desc">por posto, 3 dias de contagem</div>
+        <div class="fonte">Tabela de preços de órgão rodoviário estadual (DAER-RS), item 1.8, data-base jan/2021</div>
+      </div>
+      <div class="xmark">×</div>
+      <div class="bcard contrato">
+        <div class="tag">Já contratado, só grava</div>
+        <div class="bignum">R$ 7,95 mi</div>
+        <div class="desc">em serviço de videomonitoramento, 2024–2029</div>
+        <div class="fonte">PNCP, contrato municipal 206/2024 · valor global, não é valor pago</div>
+      </div>
     </div>
-
-    <div class="valueprop">Ajudamos a secretaria de mobilidade a decidir com número, lendo as câmeras que a cidade já tem.</div>
+    <div class="s3foot">Enquanto isso, as câmeras que a cidade já tem só gravam.</div>
   </div>
   <div class="footer">
     <div>Visão de Rota</div>
-    <div class="right">A solução</div>
+    <div class="right">O buraco</div>
   </div>
 </section>
 
-<!-- SLIDE 4 — Demonstração: câmera real de Patos + painel MEDIDO -->
+<!-- SLIDE 4 — Proposta de valor -->
 <section class="slide">
   <div class="topbar"></div>
-  <div class="content sdemo" style="align-items:center; justify-content:flex-start;">
-    <div style="width:1720px;">
-      <div class="kicker" style="text-align:center;">Demonstração</div>
-      <h1>A câmera vira contagem.<br>A contagem vira memória.</h1>
-    </div>
-    <div class="demoframe">
-      <div class="demovideo">
-        <img src="pitch-prints/quadro-real-patos-2.png" alt="quadro real extraído do vídeo gravado em Patos de Minas, com a caixa de detecção sobre um automóvel">
-        <div class="cap">gravado hoje, em Patos de Minas, com dois celulares</div>
-      </div>
-      <div class="painel">
-        <div class="tag">MEDIDO</div>
-        <div class="linhaes">
-          <div class="li"><span>Automóvel</span><span class="v">1</span></div>
-          <div class="li"><span>Moto · ônibus · caminhão</span><span class="v">0</span></div>
-          <div class="li"><span>Pedestre · bicicleta</span><span class="v">0</span></div>
-        </div>
-        <div class="fonte">patos-2.jsonl · janela de 4 s</div>
-        <div class="demofrase">Sem rosto, sem placa.<br>A imagem não é guardada.</div>
-      </div>
+  <div class="content s4">
+    <div class="kicker">Proposta de valor</div>
+    <div class="frase">Ajudamos a secretaria de mobilidade a decidir onde mexer — e a provar se funcionou — lendo as câmeras que a cidade já tem.</div>
+    <div class="porisso">Por isso criamos a Visão de Rota.</div>
+    <div class="s4cards">
+      <div class="c">Número o ano inteiro, não 3 dias</div>
+      <div class="c">Sem câmera nova</div>
+      <div class="c">Sem rosto, sem placa</div>
     </div>
   </div>
   <div class="footer">
     <div>Visão de Rota</div>
-    <div class="right">Demonstração</div>
+    <div class="right">Proposta de valor</div>
   </div>
 </section>
 
-<!-- SLIDE 5 — A análise detecta. A pessoa decide. -->
-<section class="slide sinsight">
-  <div class="topbar"></div>
-  <div class="insightbg" style="background-image:url('pitch-prints/bg-insight-mapa.png');"></div>
-  <div class="content" style="align-items:center;">
-    <div class="kicker" style="text-align:center; color:#ffd98a;">Como a máquina propõe</div>
-    <h1>A análise detecta.<br><span class="accent2">A pessoa decide.</span></h1>
-    <div class="insightcard"><img src="pitch-prints/hi-crop-insight.png" alt="cartão de insight simulado, com recomendação e confirmação humana"></div>
-  </div>
-  <div class="footer">
-    <div>Visão de Rota</div>
-    <div class="right">Decisão humana</div>
-  </div>
-</section>
-
-<!-- SLIDE 6 — Sustentação + como começa -->
+<!-- SLIDE 5 — Como funciona + o dado fica onde está -->
 <section class="slide">
   <div class="topbar"></div>
-  <div class="content s6">
-    <div class="kicker">Como se sustenta</div>
-    <h1>Consultoria de mobilidade com sistema próprio</h1>
+  <div class="content s5">
+    <div class="kicker">Como funciona</div>
+    <h1>O dado fica onde está</h1>
 
-    <div class="s6cols">
-      <div class="col">
-        <div class="stairs">
-          <div class="stepbox" style="height:230px;">
-            <div class="n">1</div>
-            <div class="t">Diagnóstico — 1h de vídeo</div>
-          </div>
-          <div class="stepbox" style="height:285px;">
-            <div class="n">2</div>
-            <div class="t">Piloto de 90 dias, um corredor</div>
-          </div>
-          <div class="stepbox" style="height:340px;">
-            <div class="n">3</div>
-            <div class="t">Assinatura por câmera lida</div>
-          </div>
-        </div>
+    <div class="steps3">
+      <div class="st"><div class="n">1</div><div class="t">Vídeo já gravado — da câmera que a cidade tem</div></div>
+      <div class="st"><div class="n">2</div><div class="t">Número por tipo — carro, moto, ônibus, caminhão, pedestre, bicicleta</div></div>
+      <div class="st"><div class="n">3</div><div class="t">Antes e depois de cada mudança na via</div></div>
+    </div>
+
+    <div class="techbox">
+      <div class="tb1">
+        <span class="bignum">6,5 quadros/s</span>
+        <div class="lbl">processado nesta máquina, em CPU comum, sem placa de vídeo dedicada</div>
+        <div class="fonte">152,6 ms por quadro · 5-motor/patos-real/maximo/leitura-maximo.log · vídeo 1, todos os quadros · MEDIDO hoje</div>
       </div>
-      <div class="col">
-        <div class="econ">
-          <div class="line"><span class="bignum">~R$ 20 mil</span>por posto <span class="fonte">— tabela de preços de órgão rodoviário estadual (RS), item 1.8, data-base jan/2021</span></div>
-          <div class="line"><span class="bignum">R$ 7,95 mi</span>contratados em serviço de videomonitoramento, 2024–2029 <span class="fonte">— PNCP, contrato municipal 206/2024 · valor global, não é valor pago</span></div>
-        </div>
-        <div class="fraseforte">Só cobra mais quando o número anterior provou.</div>
+      <div class="tb1">
+        <span class="bignum">1.396 quadros</span>
+        <div class="lbl">lidos de um vídeo de 23 s, celular 1</div>
+        <div class="fonte">5-motor/patos-real/maximo/patos-1.json · MEDIDO</div>
       </div>
     </div>
-    <div class="falta">Ainda em aberto: acesso às câmeras e o valor final da assinatura.</div>
+    <div class="privline">A imagem não sai da máquina da prefeitura e não é guardada; sai só geometria e número.
+      <span class="sub">Lê vídeo GRAVADO — não precisa acompanhar o relógio.</span>
+    </div>
   </div>
   <div class="footer">
     <div>Visão de Rota</div>
-    <div class="right">Sustentabilidade</div>
+    <div class="right">Como funciona</div>
   </div>
 </section>
 
-<!-- SLIDE 7 — Time + fechamento -->
+<!-- SLIDE 6 — Capacidades -->
 <section class="slide">
   <div class="topbar"></div>
-  <div class="s7content">
+  <div class="content s6cap">
+    <div class="kicker" style="text-align:center;">O que já funciona hoje</div>
+    <h1>Capacidades</h1>
+
+    <div class="capgrid">
+      <div class="capcard">
+        <div class="shot"><img src="pitch-prints/cap-camadas.png" alt="tela mostrando caixas de detecção rotuladas 'carro' sobre vídeo gravado"></div>
+        <div class="lbl">Conta por tipo: carro, moto, ônibus, caminhão, pedestre, bicicleta</div>
+      </div>
+      <div class="capcard">
+        <div class="shot"><img src="pitch-prints/cap-votacao.png" alt="tela de votação: uma pessoa propõe, duas pessoas iguais decidem"></div>
+        <div class="lbl">Pessoa corrige; só vale com dois votos iguais</div>
+      </div>
+      <div class="capcard">
+        <div class="shot"><img src="pitch-prints/cap-insights-mapa.png" alt="cartão mostrando 5 quadrantes concentram cerca de 4 em cada 10 registros, 1.100 ocorrências geolocalizadas"></div>
+        <div class="lbl">Mapa de concentração: 1.100 ocorrências do dado aberto estadual</div>
+      </div>
+      <div class="capcard">
+        <div class="shot"><img src="pitch-prints/cap-claro-historico.png" alt="tela de histórico comparando espera e fila antes e depois de uma intervenção"></div>
+        <div class="lbl">Antes e depois de cada mudança na rua</div>
+      </div>
+      <div class="capcard">
+        <div class="shot"><img src="pitch-prints/cap-insights.png" alt="tela de insights com o texto 'IA propõe, pessoa decide'"></div>
+        <div class="lbl">A IA propõe, uma pessoa decide</div>
+      </div>
+      <div class="capcard">
+        <div class="shot"><img src="pitch-prints/cap-operador.png" alt="painel do operador com poucos comandos: o que está acontecendo, onde agir, avisar quem precisa"></div>
+        <div class="lbl">Operador com poucos botões</div>
+      </div>
+    </div>
+    <div class="capfoot">Pronto para ligar (hoje SIMULAÇÃO): semáforos · transporte coletivo · estacionamento rotativo · ocorrências · aplicativo do cidadão</div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">Capacidades</div>
+  </div>
+</section>
+
+<!-- SLIDE 7 — Demonstração de Patos + como começa -->
+<section class="slide">
+  <div class="topbar"></div>
+  <div class="content s7demo">
+    <h1>Dois celulares, uma tarde.<br>A câmera do poste faz isso o dia inteiro.</h1>
+    <div class="demorow">
+      <div class="demobox">
+        <div class="frame">
+          <img src="pitch-prints/quadro-demo-b-full.png" alt="quadro real do vídeo 4, gravado em Patos de Minas, carro em movimento com caixa e placar">
+          <div class="tag">MEDIDO</div>
+        </div>
+        <div class="nums">Vídeo 4 — 4 automóveis em 20 s</div>
+        <div class="fonte">5-motor/patos-real/maximo/patos-4.jsonl</div>
+      </div>
+      <div class="demobox">
+        <div class="frame">
+          <img src="pitch-prints/quadro-demo-b-carros.png" alt="quadro real do vídeo 3, gravado em Patos de Minas, rua com carros">
+          <div class="tag">MEDIDO</div>
+        </div>
+        <div class="nums">Vídeo 3 — 4 automóveis, 1 moto, 1 pedestre em 42 s · uma pessoa contando à mão: 4 carros e 1 moto</div>
+        <div class="fonte">5-motor/patos-real/maximo/patos-3.jsonl</div>
+      </div>
+    </div>
+
+    <div class="degraus7">
+      <div class="d"><div class="n">1</div><div class="t">Diagnóstico — 1h de vídeo</div></div>
+      <div class="d"><div class="n">2</div><div class="t">Piloto de 90 dias, um corredor</div></div>
+      <div class="d"><div class="n">3</div><div class="t">Assinatura por câmera lida</div></div>
+    </div>
+    <div class="s7bottom2"><div class="fraseforte">Só cobra mais quando o número anterior provou.</div></div>
+    <div class="fallberto">Ainda em aberto: acesso às câmeras e o valor final da assinatura.</div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">Demonstração e como começa</div>
+  </div>
+</section>
+
+<!-- SLIDE 8 — Time + fechamento -->
+<section class="slide">
+  <div class="topbar"></div>
+  <div class="s8content">
     <div class="time">Time</div>
     <div class="teamlist">
       <div class="tl"><span class="editable">[nome] — [papel] — [o que fez no projeto]</span></div>
@@ -323,7 +395,7 @@
       <div class="tl"><span class="editable">[nome] — [papel] — [o que fez no projeto]</span></div>
     </div>
     <div class="fecho">A cidade já enxerga.<br>A gente faz ela lembrar.</div>
-    <div class="s7bottom">
+    <div class="s8bottom">
       <div class="addr">enioxt.github.io/hackathon</div>
       <div class="qrbox">
         <svg xmlns="http://www.w3.org/2000/svg" width="330" height="330" class="segno"><g transform="scale(10)"><path fill="#fff" d="M0 0h33v33h-33z"/><path class="qrline" stroke="#0b2a4a" d="M2 2.5h7m3 0h1m1 0h2m1 0h1m1 0h4m1 0h7m-29 1h1m5 0h1m3 0h1m1 0h4m2 0h1m3 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h2m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h1m1 0h3m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h2m1 0h2m2 0h3m4 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h3m1 0h1m1 0h1m1 0h1m2 0h1m-20 1h1m1 0h5m3 0h1m6 0h2m3 0h5m-27 1h5m2 0h1m1 0h1m3 0h2m2 0h4m1 0h3m3 0h1m-25 1h5m4 0h3m1 0h1m2 0h4m-22 1h1m6 0h1m1 0h1m1 0h1m2 0h1m3 0h2m1 0h1m1 0h1m1 0h1m-27 1h6m1 0h1m3 0h1m1 0h1m2 0h1m2 0h1m4 0h2m-26 1h1m7 0h4m3 0h5m1 0h3m3 0h1m-28 1h3m2 0h2m3 0h1m3 0h2m1 0h1m4 0h4m-27 1h2m1 0h2m2 0h1m1 0h2m3 0h1m1 0h1m1 0h1m2 0h1m5 0h1m-24 1h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h1m1 0h1m3 0h2m-27 1h1m1 0h1m1 0h2m1 0h8m1 0h1m1 0h7m1 0h1m1 0h1m-29 1h1m2 0h1m1 0h5m1 0h1m1 0h3m2 0h1m3 0h1m3 0h1m-27 1h1m4 0h1m7 0h1m1 0h1m4 0h4m3 0h1m-28 1h1m3 0h1m1 0h4m1 0h2m1 0h1m2 0h1m2 0h5m1 0h3m-21 1h3m5 0h1m1 0h3m3 0h5m-29 1h7m2 0h1m1 0h2m2 0h1m1 0h4m1 0h1m1 0h3m-27 1h1m5 0h1m1 0h1m1 0h2m2 0h3m2 0h2m3 0h1m3 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m3 0h3m2 0h5m1 0h2m-28 1h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m1 0h4m5 0h4m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h4m1 0h8m-28 1h1m5 0h1m2 0h4m2 0h1m4 0h1m2 0h3m1 0h1m-28 1h7m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m2 0h3m1 0h1"/></g></svg>

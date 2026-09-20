@@ -2,15 +2,6 @@
 
 A ideia central: **o sistema é feito de peças pequenas que rodam sozinhas.** Levar para outra cidade é instalar as peças num servidor comum, ligar as fontes de dado de lá e calibrar. Não é refazer.
 
-## O que o time oferece (é uma proposta de negócio)
-| Etapa | O que a cidade recebe | Valor sugerido |
-|---|---|---|
-| 1. Diagnóstico | Quais câmeras servem, quais perguntas dá para responder, o que falta de acesso e de base legal | porta de entrada; valor em [`pesquisa/precificacao-decisao.md`](pesquisa/precificacao-decisao.md) |
-| 2. Piloto de 90 dias | Peças instaladas, 10 a 100 câmeras lidas, erro de contagem declarado, primeira medição antes×depois | R$ 49.375, dentro do limite de contratação direta (R$ 65.492,11 em 2026) |
-| 3. Operação | Leitura contínua, painel, relatório, suporte e novas fontes | R$ 290 por câmera por mês |
-
-São **sugestões de valor**, com a conta aberta no simulador. O custo de desenvolver do zero é estimativa nossa (R$ 211 mil a R$ 326 mil, a depender do valor-hora; detalhe em [`pesquisa/referencia-horas-desenvolvimento.md`](pesquisa/referencia-horas-desenvolvimento.md)). Preço fechado só depois do diagnóstico.
-
 ## As peças, e o que cada uma precisa
 | Peça | O que faz | Precisa de IA paga? | Estado hoje | Onde está |
 |---|---|---|---|---|
@@ -32,7 +23,6 @@ São **sugestões de valor**, com a conta aberta no simulador. O custo de desenv
 5. **Calibrar**: contar à mão um trecho, comparar com o leitor, publicar o erro.
 
 ## Sobre a IA de texto: o que é honesto prometer
-- Para **desenvolver e manter**, o time usa as próprias assinaturas e os melhores modelos. Isso é custo nosso, não da prefeitura.
 - Para o **assistente em produção**, assinatura pessoal de chat (as de cerca de R$ 110 por mês) **não é o caminho**: os termos de uso dessas assinaturas são para uso individual, não para servir um órgão público. Em produção o correto é acesso por API, com teto de gasto mensal escrito no contrato. O custo depende do volume de perguntas e só se conhece medindo.
 - Se a prefeitura não quiser IA de texto nenhuma, **o sistema funciona inteiro sem ela**.
 

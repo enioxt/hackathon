@@ -1,0 +1,28 @@
+{
+  "camaras": [
+    {"slug": "juazeiro-ponte-dutra", "nome": "Viaduto em obra", "cidade_uf": "Juazeiro, BA", "quem_publica": "Prefeitura de Juazeiro", "tipo_cena": "cidade", "medido": false, "motivo_pendente": "não coube no tempo desta rodada — ver ressalva de carga da máquina"},
+    {"slug": "br101-km210-sul", "nome": "BR-101 km 210, sentido sul", "cidade_uf": "São José, SC", "quem_publica": "AEMFLO e CDL São José", "tipo_cena": "rodovia", "medido": false, "motivo_pendente": "não coube no tempo desta rodada — ver ressalva de carga da máquina"},
+    {"slug": "bc-5a-avenida", "nome": "Cruzamento com faixa de pedestre", "cidade_uf": "Balneário Camboriú, SC", "quem_publica": "ConexãoDCTV", "tipo_cena": "cruzamento", "medido": false, "motivo_pendente": "não coube no tempo desta rodada — ver ressalva de carga da máquina"},
+    {"slug": "itajai-viaduto", "nome": "Viaduto, acesso à BR-101", "cidade_uf": "Itajaí, SC", "quem_publica": "ConexãoDCTV", "tipo_cena": "rodovia", "medido": false, "motivo_pendente": "tentativa real feita e interrompida — ver 'tentativa_medida' no benchmark.json: 16,7 min de espera, processo ainda não tinha fechado nem 1 janela de 15 s de vídeo"},
+    {"slug": "tubarao-avenida", "nome": "Avenida central", "cidade_uf": "Tubarão, SC", "quem_publica": "Se-Connect", "tipo_cena": "cidade", "medido": false, "motivo_pendente": "não coube no tempo desta rodada — ver ressalva de carga da máquina"},
+    {"slug": "sao-jose-palhoca", "nome": "Via expressa", "cidade_uf": "São José e Palhoça, SC", "quem_publica": "Maaxcam", "tipo_cena": "rodovia", "medido": false, "motivo_pendente": "não coube no tempo desta rodada — ver ressalva de carga da máquina"},
+    {"slug": "vale-do-taquari", "nome": "Rotatória e avenida", "cidade_uf": "Vale do Taquari, RS", "quem_publica": "Rádio Independente", "tipo_cena": "cruzamento", "medido": false, "motivo_pendente": "não coube no tempo desta rodada — ver ressalva de carga da máquina"},
+    {"slug": "chapeco-centro", "nome": "Centro da cidade", "cidade_uf": "Chapecó, SC", "quem_publica": "Portal Chapecó", "tipo_cena": "cidade", "medido": false, "descartada": "vista alta demais — só mostra o skyline, não dá para ver via nem veículo"},
+    {"slug": "sp-av-paulista", "nome": "Avenida vista do alto", "cidade_uf": "São Paulo, SP", "quem_publica": "emissora de TV", "tipo_cena": "cidade", "medido": false, "descartada": "vista alta demais e com neblina — carro vira ponto de poucos pixels, leitura não seria confiável"}
+  ],
+  "resumo_geral": {
+    "medido": false,
+    "ressalva": "NENHUMA câmera terminou o processamento nesta rodada. A máquina estava com carga extrema durante toda a janela desta tarefa: uptime mostrou load average entre 33 e 58 (numa máquina de 8 threads), 6 processos Python de leitura de vídeo já rodando por fora desta tarefa (não iniciados por ela), e uso de swap entre 5,7 GB e 5,9 GB de 10 GB. Isso NÃO é o custo do leitor em si — é o custo medido de rodar o leitor NESSA condição de disputa por CPU/memória.",
+    "tentativa_medida": {
+      "camera": "itajai-viaduto",
+      "parametros": "tentativa 1 (protocolo pedido): --max-s 60 --fps-alvo 5 --imgsz 1280 --conf 0.2 --objetos-da-via -- alvo real 75 quadros (vídeo fonte tem só 15 s). Interrompida após 1001 s de espera (16,7 min) e 402 s de CPU consumida, sem terminar nem a 1a janela.",
+      "tempo_de_espera_segundos": 1001,
+      "tempo_de_cpu_consumido_segundos": 402,
+      "resultado": "SIGKILL nas duas tentativas -- nunca chegaram ao bloco de fechamento que grava resultado. Uma 2a tentativa, MUITO menor (--max-s 6 --fps-alvo 3 --imgsz 640, alvo de só 18 quadros, mesma câmera), também não terminou: 200 s de espera, 112 s de CPU, interrompida. Reduzir o tamanho do pedido em ~75% não resolveu -- confirma que o gargalo é a disputa por CPU/memória desta máquina agora, não o tamanho do trabalho.",
+      "fator_de_tempo_minimo_medido": "tentativa 1: mais de 66× (1001 s / até 15 s de vídeo). tentativa 2: mais de 33× (200 s / até 6 s de vídeo) -- nenhuma das duas terminou de fato, então mais de é o único número honesto.",
+      "por_que_isso_e_o_achado": "o pedido original era medir o fator de tempo de cada câmera. A medida mais honesta desta rodada é esta: sob a carga real observada, processar mesmo o menor recorte do vídeo mais curto do lote não coube em nenhuma janela de tempo razoável de uma tarefa de hackathon -- em duas tentativas, com tamanhos de trabalho diferentes."
+    },
+    "frase_paralelo": null,
+    "frase_uma_hora": null
+  }
+}

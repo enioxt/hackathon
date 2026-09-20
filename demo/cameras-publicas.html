@@ -1,84 +1,515 @@
 <!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Câmeras públicas — Visão de Rota</title>
 <style>
-:root{--navy:#0b2a4a;--azul:#168be0;--verde:#16ae5e;--ambar:#f59a21;--cinza:#5b6b7f;--fundo:#f3f6fb;--borda:#dfe6f0}
+:root{--navy:#0b2a4a;--azul:#168be0;--verde:#16ae5e;--ambar:#f59a21;--cinza:#5b6b7f;--fundo:#f3f6fb;--borda:#dfe6f0;--foco:#0b62d6}
 *{box-sizing:border-box}body{margin:0;background:var(--fundo);color:#0f2544;font:16px/1.45 Inter,Roboto,-apple-system,"Segoe UI",Arial,sans-serif}
 main{max-width:1320px;margin:0 auto;padding:22px 20px 90px}
 h1{font-size:30px;margin:0 0 4px}.sub{color:var(--cinza);margin:0 0 14px;max-width:900px}
+a{color:#0b5fb8}
+:focus-visible{outline:3px solid var(--foco);outline-offset:2px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .aviso{background:#fff6e0;border:1px solid #f0d48a;color:#5b4300;border-radius:12px;padding:10px 14px;font-weight:600;font-size:14px;margin-bottom:14px}
+.aviso.ressalva{background:#fdeaea;border-color:#eab3b3;color:#5b1a1a}
+.topo-controles{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 0 14px}
+.btn-grande{min-height:44px;min-width:44px;padding:0 16px;border-radius:10px;border:1px solid var(--navy);background:#fff;color:var(--navy);font:700 14px inherit;cursor:pointer}
+.btn-grande[aria-pressed=true]{background:var(--navy);color:#fff}
 .barra{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
 .barra button{min-height:44px;padding:0 16px;border-radius:999px;border:1px solid var(--borda);background:#fff;font:600 14px inherit;color:#0f2544;cursor:pointer}
 .barra button[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
 .cont{margin-left:auto;color:var(--cinza);font-size:14px;font-weight:600}
 .grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
 .cam{background:#fff;border:1px solid var(--borda);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.quadro{position:relative;aspect-ratio:16/9;background:#0b1626;cursor:pointer;border:0;padding:0;width:100%;display:block}
-.quadro img,.quadro iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
-.tocar{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:linear-gradient(transparent 40%,rgba(5,13,22,.55))}
-.tocar span{background:#fff;color:var(--navy);font-weight:800;border-radius:999px;padding:10px 18px;font-size:14px}
+.quadro{position:relative;aspect-ratio:16/9;background:#0b1626;padding:0;width:100%;display:block}
+.quadro img,.quadro iframe,.quadro canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.quadro canvas{object-fit:fill}
+.btn-abrir{position:absolute;inset:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(transparent 40%,rgba(5,13,22,.55));border:0;padding:0;cursor:pointer}
+.btn-abrir span{background:#fff;color:var(--navy);font-weight:800;border-radius:999px;padding:10px 18px;font-size:14px}
+.btn-fechar{position:absolute;top:8px;right:8px;z-index:3;min-width:44px;min-height:44px;padding:0 12px;border-radius:10px;border:0;background:rgba(10,20,35,.85);color:#fff;font:700 13px inherit;cursor:pointer;display:flex;align-items:center;gap:6px}
+.btn-fechar:hover{background:#0b1626}
+.btn-pausar-card{position:absolute;left:8px;bottom:8px;z-index:3;min-width:44px;min-height:44px;padding:0 12px;border-radius:10px;border:0;background:rgba(10,20,35,.85);color:#fff;font:700 13px inherit;cursor:pointer}
 .info{padding:10px 12px 12px;display:grid;gap:4px}.info b{font-size:15px}.info small{color:var(--cinza)}
 .selos{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-.selo{font:700 10.5px/1.5 inherit;letter-spacing:.03em;padding:2px 8px;border-radius:999px;color:#fff;background:#7a8ba0}
-.selo.lendo{background:var(--verde)}.selo.gravado{background:var(--ambar)}.selo.tipo{background:#e8eef7;color:#33465f}
-.info a{color:var(--azul);font-weight:600;font-size:13px;text-decoration:none}
+.selo{font:700 11px/1.6 inherit;letter-spacing:.02em;padding:2px 9px;border-radius:999px;color:#fff;background:#3f4d5f}
+.selo.lendo{background:#0c7a45}.selo.gravado{background:#8a5b12}.selo.tipo{background:#e8eef7;color:#25344a}
+.selo.medido{background:#0b2a4a}.selo.pendente{background:#4b5b70}.selo.descartada{background:#7a2626}
+.info a{font-weight:600;font-size:13.5px;text-decoration:underline}
 .nota{margin-top:18px;color:var(--cinza);font-size:14px;max-width:950px}
+.numeros{display:flex;gap:10px;flex-wrap:wrap;margin-top:2px}
+.numero{background:#eef3fa;border-radius:10px;padding:6px 10px;min-width:78px}
+.numero b{display:block;font-size:17px;color:var(--navy)}
+.numero small{color:#3f4d5f;font-size:10.5px;text-transform:uppercase;letter-spacing:.03em}
+.tag-medido{color:#0b2a4a;font-weight:700;font-size:10.5px;letter-spacing:.04em}
+.contadores-live{position:absolute;left:6px;top:6px;display:flex;gap:4px;flex-wrap:wrap;z-index:2;max-width:calc(100% - 60px)}
+.contadores-live span{background:rgba(8,16,28,.85);color:#fff;font:700 11px/1.7 inherit;padding:0 7px;border-radius:6px}
+.flash1{position:absolute;transform:translate(-50%,-50%);color:#ffe2a6;font:800 16px inherit;text-shadow:0 1px 4px #000,0 0 2px #000;pointer-events:none;opacity:0;transition:opacity .2s,transform .6s}
+.flash1.show{opacity:1;transform:translate(-50%,-140%)}
+.bench{background:#fff;border:1px solid var(--borda);border-radius:14px;padding:16px 18px;margin-bottom:18px}
+.bench h2{margin:0 0 4px;font-size:19px}
+.bench .frases{margin:8px 0 14px;font-size:14.5px;color:#26364f;display:grid;gap:6px}
+.bench .frases b{color:var(--navy)}
+table.tb{width:100%;border-collapse:collapse;font-size:13.5px;margin-bottom:14px}
+table.tb caption{text-align:left;color:var(--cinza);font-size:12.5px;margin-bottom:6px}
+table.tb th,table.tb td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--borda)}
+table.tb th{color:#25344a;font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.02em}
+table.tb tr.pendente td{color:#41505f}
+.svg-wrap{overflow-x:auto}
+.legenda-classes{display:flex;flex-wrap:wrap;gap:14px;font-size:13.5px;color:#25344a;margin-top:8px}
+.legenda-classes span{display:inline-flex;align-items:center;gap:6px}
+.legenda-classes i{width:12px;height:12px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.25)}
+@media (prefers-reduced-motion: reduce){ .flash1{transition:none} }
 </style></head><body><main>
 <h1>Câmeras públicas que já achamos</h1>
-<p class="sub">Transmissões que o próprio dono publica na internet. Servem para provar o ponto: a câmera já existe e já está no ar — falta a segunda leitura. Clique para abrir o vídeo original de cada uma.</p>
-<div class="aviso">O vídeo abaixo é o reprodutor original de quem publica, com o crédito dele. Nada é copiado nem guardado aqui. Onde está escrito LIDA PELO NOSSO CONTADOR, a contagem roda na máquina do time, com cerca de 15 s de atraso da transmissão.</div>
-<div class="barra" id="filtros"></div>
+<p class="sub">Transmissões que o próprio dono publica na internet. O que você vê abaixo não é o vídeo da transmissão — é a camada que o nosso leitor extraiu dele: caixas, rastros e contagem, medidas nesta máquina.</p>
+<div class="aviso">O que você vê é a camada que o nosso leitor extraiu — caixas, rastros e contagem. O vídeo original não é copiado nem guardado aqui; o fundo é um quadro desfocado, só para situar.</div>
+<div id="ressalva-carga" class="aviso ressalva" hidden></div>
+
+<div class="topo-controles">
+  <button type="button" class="btn-grande" id="btn-pausar-tudo" aria-pressed="false">Pausar todas as animações</button>
+  <span id="aviso-reduzido" class="sr-only" aria-live="polite"></span>
+</div>
+
+<section class="bench" id="bench" aria-labelledby="bench-titulo">
+  <h2 id="bench-titulo">Benchmark do leitor — quanto custa processar</h2>
+  <div class="frases" id="bench-frases"></div>
+  <div class="svg-wrap"><table class="tb" id="bench-tabela">
+    <caption>Tempo medido para processar cada câmera nesta máquina, com 5 quadros por segundo de amostragem.</caption>
+    <thead><tr>
+    <th scope="col">câmera</th><th scope="col">resolução</th><th scope="col">quadros/s do leitor</th><th scope="col">fator de tempo</th><th scope="col">veículos em 60 s</th>
+  </tr></thead><tbody id="bench-tabela-corpo"></tbody></table></div>
+  <div class="svg-wrap" id="bench-grafico"></div>
+  <p class="nota" style="margin-top:10px">Fator de tempo = segundos de processamento ÷ segundos de vídeo lidos, amostrando 5 quadros por segundo. MEDIDO nesta máquina, com outros serviços rodando ao mesmo tempo — não é o tempo de uma máquina livre.</p>
+</section>
+
+<div class="barra" id="filtros" role="group" aria-label="Filtrar câmeras por tipo"></div>
 <div class="grade" id="grade"></div>
-<p class="nota">Como funciona sem travar: só a miniatura é carregada; o vídeo abre quando você clica, e no máximo 4 ficam abertos ao mesmo tempo (o mais antigo volta a ser miniatura). Lista levantada em 20/09/2026; transmissão pública pode sair do ar a qualquer momento — quando sair, a miniatura fica cinza.</p>
+<p class="legenda-classes" id="legenda" aria-label="Legenda de cores das caixas"></p>
+<p class="nota">Como funciona: até 4 câmeras tocam a camada processada ao mesmo tempo, só as que estão visíveis na tela (as demais pausam). Onde ainda não medimos, o cartão mostra "leitura pendente" e o link para o vídeo original continua funcionando, em outra aba. Lista levantada em 20/09/2026; transmissão pública pode sair do ar a qualquer momento.</p>
 </main>
 <script>
 (function(){
-  // id do vídeo, nome, cidade/UF, quem publica, tipo de cena, estado no nosso leitor
+  "use strict";
+  // slug (ou null se não capturamos vídeo local), id do vídeo original, nome, cidade/UF, quem publica, tipo de cena
   var CAMS=[
-   ["1W-xxty4zcc","Viaduto em obra","Juazeiro, BA","Prefeitura de Juazeiro","cidade","lendo"],
-   ["5T4VVezfafo","BR-101 km 210, sentido sul","São José, SC","AEMFLO e CDL São José","rodovia","lendo"],
-   ["iG7le_TWCng","BR-101 km 210, sentido norte","São José, SC","AEMFLO e CDL São José","rodovia",""],
-   ["54N189ZcIfs","Cruzamento com faixa de pedestre","Balneário Camboriú, SC","ConexãoDCTV","cruzamento","gravado"],
-   ["NwbOe1Mb__M","Viaduto, acesso à BR-101","Itajaí, SC","ConexãoDCTV","rodovia","gravado"],
-   ["mZlT_81Gs7c","Avenida central","Tubarão, SC","Se-Connect","cidade","gravado"],
-   ["uE91_u_6AU0","Via expressa","São José e Palhoça, SC","Maaxcam","rodovia","gravado"],
-   ["YOc7l9dT2yM","Rotatória e avenida","Vale do Taquari, RS","Rádio Independente","cruzamento","gravado"],
-   ["N-qiV6w3HmE","Centro da cidade","Chapecó, SC","Portal Chapecó","cidade","gravado"],
-   ["4e9mp4lLQpE","Centro","Laguna, SC","Se-Connect","cidade",""],
-   ["eTz4XgOQaAE","Avenida vista do alto","São Paulo, SP","emissora de TV","cidade","gravado"],
-   ["O00YZItaim8","Dez câmeras de trânsito","Natal, RN","canal de câmeras da cidade","cidade",""]
+   {slug:"juazeiro-ponte-dutra", yt:"1W-xxty4zcc", nome:"Viaduto em obra", cidadeUf:"Juazeiro, BA", quem:"Prefeitura de Juazeiro", tipo:"cidade"},
+   {slug:"br101-km210-sul", yt:"5T4VVezfafo", nome:"BR-101 km 210, sentido sul", cidadeUf:"São José, SC", quem:"AEMFLO e CDL São José", tipo:"rodovia"},
+   {slug:null, yt:"iG7le_TWCng", nome:"BR-101 km 210, sentido norte", cidadeUf:"São José, SC", quem:"AEMFLO e CDL São José", tipo:"rodovia"},
+   {slug:"bc-5a-avenida", yt:"54N189ZcIfs", nome:"Cruzamento com faixa de pedestre", cidadeUf:"Balneário Camboriú, SC", quem:"ConexãoDCTV", tipo:"cruzamento"},
+   {slug:"itajai-viaduto", yt:"NwbOe1Mb__M", nome:"Viaduto, acesso à BR-101", cidadeUf:"Itajaí, SC", quem:"ConexãoDCTV", tipo:"rodovia"},
+   {slug:"tubarao-avenida", yt:"mZlT_81Gs7c", nome:"Avenida central", cidadeUf:"Tubarão, SC", quem:"Se-Connect", tipo:"cidade"},
+   {slug:"sao-jose-palhoca", yt:"uE91_u_6AU0", nome:"Via expressa", cidadeUf:"São José e Palhoça, SC", quem:"Maaxcam", tipo:"rodovia"},
+   {slug:"vale-do-taquari", yt:"YOc7l9dT2yM", nome:"Rotatória e avenida", cidadeUf:"Vale do Taquari, RS", quem:"Rádio Independente", tipo:"cruzamento"},
+   {slug:"chapeco-centro", yt:"N-qiV6w3HmE", nome:"Centro da cidade", cidadeUf:"Chapecó, SC", quem:"Portal Chapecó", tipo:"cidade", descartada:"vista alta demais — não dá para ver o tráfego, só o skyline"},
+   {slug:null, yt:"4e9mp4lLQpE", nome:"Centro", cidadeUf:"Laguna, SC", quem:"Se-Connect", tipo:"cidade"},
+   {slug:"sp-av-paulista", yt:"eTz4XgOQaAE", nome:"Avenida vista do alto", cidadeUf:"São Paulo, SP", quem:"emissora de TV", tipo:"cidade", descartada:"vista alta demais e com neblina — carro vira ponto, o leitor não acha nada confiável"},
+   {slug:null, yt:"O00YZItaim8", nome:"Dez câmeras de trânsito", cidadeUf:"Natal, RN", quem:"canal de câmeras da cidade", tipo:"cidade"}
   ];
-  var ROT={lendo:"LIDA PELO NOSSO CONTADOR",gravado:"TRECHO GRAVADO E LIDO","":"AINDA NÃO LIDA"};
-  var TIPOS=["todas","cidade","cruzamento","rodovia","lidas"], filtro="todas", abertos=[];
+  var CLASSES = {
+    automovel:{cor:"#2563eb",rotulo:"carro"},
+    moto:{cor:"#c17f00",rotulo:"moto"},
+    onibus:{cor:"#0c7a45",rotulo:"ônibus"},
+    caminhao:{cor:"#c23238",rotulo:"caminhão"},
+    bicicleta:{cor:"#6d28d9",rotulo:"bicicleta"},
+    pedestre:{cor:"#41505f",rotulo:"pedestre"}
+  };
+  var TIPOS=["todas","cidade","cruzamento","rodovia","medidas"], filtro="todas", mostradas=0;
   var grade=document.getElementById("grade"), fb=document.getElementById("filtros");
+  var INDICE=null, MAX_TOCANDO=4;
+  var motionReduzido=false;
+  try{ motionReduzido = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches; }catch(e){}
+  var pausadoGeral = motionReduzido; // com movimento reduzido, começa tudo pausado (último quadro + números)
+
   function el(t,c,x){var e=document.createElement(t); if(c)e.className=c; if(x!=null)e.textContent=x; return e;}
-  function fechar(card){var q=card.querySelector(".quadro"), f=q.querySelector("iframe"); if(f){f.remove(); q.querySelector("img").hidden=false; q.querySelector(".tocar").hidden=false;}}
-  function abrir(card,id){
-    var q=card.querySelector(".quadro"); if(q.querySelector("iframe")) return;
-    if(abertos.length>=4){fechar(abertos.shift());}
-    var f=document.createElement("iframe"); f.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(id)+"?autoplay=1&mute=1&playsinline=1&rel=0";
-    f.allow="autoplay; encrypted-media; picture-in-picture"; f.setAttribute("allowfullscreen",""); f.title="transmissão original"; f.loading="lazy"; f.referrerPolicy="strict-origin-when-cross-origin";
-    q.querySelector("img").hidden=true; q.querySelector(".tocar").hidden=true; q.appendChild(f); abertos.push(card); contar();
+
+  // -------- pausar tudo (respeita prefers-reduced-motion + botão manual) --------
+  var btnPausarTudo=document.getElementById("btn-pausar-tudo");
+  var avisoReduzido=document.getElementById("aviso-reduzido");
+  function aplicarPausadoGeral(){
+    btnPausarTudo.setAttribute("aria-pressed", pausadoGeral ? "true" : "false");
+    btnPausarTudo.textContent = pausadoGeral ? "Retomar animações" : "Pausar todas as animações";
+    todosOsTocadores.forEach(function(toc){
+      if(pausadoGeral){ toc.pause(); } else if(toc.visivel){ ativarTocador(toc); }
+    });
   }
-  function contar(){document.getElementById("cont").textContent=mostradas+" câmeras · "+abertos.filter(function(c){return c.querySelector("iframe")}).length+" de 4 vídeos abertos";}
-  var mostradas=0;
+  btnPausarTudo.addEventListener("click", function(){
+    pausadoGeral = !pausadoGeral;
+    avisoReduzido.textContent = pausadoGeral ? "Todas as animações pausadas." : "Animações retomadas onde há câmera visível na tela.";
+    aplicarPausadoGeral();
+  });
+  if(motionReduzido) avisoReduzido.textContent = "Seu sistema pede menos movimento — as camadas começam pausadas, mostrando o último quadro e os números.";
+
+  // -------- legenda de classes --------
+  (function(){
+    var leg=document.getElementById("legenda");
+    Object.keys(CLASSES).forEach(function(k){
+      var s=el("span"); var i=el("i"); i.style.background=CLASSES[k].cor; i.setAttribute("aria-hidden","true"); s.appendChild(i); s.appendChild(document.createTextNode(CLASSES[k].rotulo));
+      leg.appendChild(s);
+    });
+  })();
+
+  // -------- benchmark: carrega indice.json --------
+  function carregarIndice(){
+    return fetch("publicas/indice.json", {cache:"no-store"}).then(function(r){
+      if(!r.ok) throw new Error("http "+r.status);
+      return r.json();
+    }).catch(function(e){
+      var av=document.getElementById("ressalva-carga");
+      av.hidden=false;
+      av.textContent="Não consegui carregar publicas/indice.json (" + e.message + "). Se a rota /cameras-publicas/publicas/*.json não estiver servida pelo servidor local, os números abaixo ficam vazios — isso é esperado até a rota ser ligada.";
+      return {camaras:[], resumo_geral:null};
+    });
+  }
+
+  function porSlug(slug){
+    if(!INDICE || !INDICE.camaras) return null;
+    for(var i=0;i<INDICE.camaras.length;i++) if(INDICE.camaras[i].slug===slug) return INDICE.camaras[i];
+    return null;
+  }
+
+  function desenharBenchmark(){
+    var frases=document.getElementById("bench-frases");
+    var corpo=document.getElementById("bench-tabela-corpo");
+    var graf=document.getElementById("bench-grafico");
+    frases.textContent=""; corpo.textContent=""; graf.textContent="";
+    if(!INDICE || !INDICE.camaras || !INDICE.camaras.length){
+      frases.appendChild(el("div",null,"Nenhuma câmera foi medida ainda nesta rodada."));
+      return;
+    }
+    var rg=INDICE.resumo_geral||{};
+    if(rg.frase_paralelo){ var dp=el("div"); dp.innerHTML=rg.frase_paralelo; frases.appendChild(dp); }
+    if(rg.frase_uma_hora) { var d=el("div"); d.innerHTML=rg.frase_uma_hora; frases.appendChild(d); }
+    if(rg.ressalva){ var r=el("div"); r.innerHTML="<b>Ressalva:</b> "+rg.ressalva; frases.appendChild(r); }
+    if(rg.tentativa_medida){
+      var tm=rg.tentativa_medida;
+      var bloco=el("div");
+      bloco.innerHTML = "<b>O que medimos mesmo assim:</b> tentamos processar a câmera <b>"+tm.camera+"</b> ("+tm.parametros+"). "+
+        "Esperamos <b>"+Math.round(tm.tempo_de_espera_segundos/60*10)/10+" min</b> ("+tm.tempo_de_espera_segundos+" s), consumindo <b>"+tm.tempo_de_cpu_consumido_segundos+" s de CPU</b>, "+
+        "e o processo foi interrompido sem terminar. "+tm.resultado+" "+
+        "<u>Fator de tempo mínimo medido: "+tm.fator_de_tempo_minimo_medido+"</u>. "+tm.por_que_isso_e_o_achado;
+      frases.appendChild(bloco);
+    }
+
+    var maxFator=0;
+    INDICE.camaras.forEach(function(c){ if(c.medido && c.fator_tempo>maxFator) maxFator=c.fator_tempo; });
+
+    INDICE.camaras.forEach(function(c){
+      var tr=el("tr", c.medido?"":"pendente");
+      tr.appendChild(el("td",null,c.nome+" · "+c.cidade_uf));
+      tr.appendChild(el("td",null,c.medido?(c.resolucao||"—"):"—"));
+      tr.appendChild(el("td",null,c.medido?(c.quadros_por_s!=null?c.quadros_por_s.toFixed(2):"—"):"—"));
+      tr.appendChild(el("td",null,c.medido?(c.fator_tempo!=null?c.fator_tempo.toFixed(1)+"×":"—"):"—"));
+      tr.appendChild(el("td",null,c.medido?String(c.cruzamentos_total):(c.descartada?"descartada: "+c.descartada:"pendente")));
+      corpo.appendChild(tr);
+    });
+
+    if(maxFator>0){
+      var W=Math.max(360, INDICE.camaras.length*70), H=150, base=H-30;
+      var svg=document.createElementNS("http://www.w3.org/2000/svg","svg");
+      svg.setAttribute("width",W); svg.setAttribute("height",H); svg.setAttribute("role","img");
+      svg.setAttribute("aria-label","gráfico de barras: fator de tempo por câmera medida, quanto maior a barra mais devagar o leitor processa em relação ao vídeo");
+      var x=10, bw=46;
+      INDICE.camaras.forEach(function(c){
+        if(!c.medido){ x+=bw+18; return; }
+        var h=Math.round((c.fator_tempo/maxFator)*(base-20));
+        var rect=document.createElementNS("http://www.w3.org/2000/svg","rect");
+        rect.setAttribute("x",x); rect.setAttribute("y",base-h); rect.setAttribute("width",bw); rect.setAttribute("height",h);
+        rect.setAttribute("fill","#0b62c4"); rect.setAttribute("rx","4");
+        svg.appendChild(rect);
+        var t1=document.createElementNS("http://www.w3.org/2000/svg","text");
+        t1.setAttribute("x",x+bw/2); t1.setAttribute("y",base-h-6); t1.setAttribute("text-anchor","middle"); t1.setAttribute("font-size","12"); t1.setAttribute("font-weight","700"); t1.setAttribute("fill","#0f2544");
+        t1.textContent=c.fator_tempo.toFixed(1)+"×"; svg.appendChild(t1);
+        var t2=document.createElementNS("http://www.w3.org/2000/svg","text");
+        t2.setAttribute("x",x+bw/2); t2.setAttribute("y",H-10); t2.setAttribute("text-anchor","middle"); t2.setAttribute("font-size","10.5"); t2.setAttribute("fill","#25344a");
+        t2.textContent=(c.slug||"").slice(0,10); svg.appendChild(t2);
+        x+=bw+18;
+      });
+      graf.appendChild(svg);
+    } else {
+      graf.appendChild(el("div",null,"Sem dado medido suficiente para o gráfico ainda."));
+    }
+  }
+
+  // -------- tocador em canvas (dirigido pelo relógio da trilha, não por <video>) --------
+  function TocadorTrilha(canvas, imgFundo, dados){
+    this.canvas=canvas; this.ctx=canvas.getContext("2d"); this.imgFundo=imgFundo;
+    this.quadros=dados.quadros||[]; this.linha=dados.linha||[0,0.5,1,0.5];
+    this.t = motionReduzido ? (this.quadros.length?this.quadros[this.quadros.length-1].t:0) : 0;
+    this.playing=false; this.raf=null; this.last=null; this.visivel=false;
+    this.tMax = this.quadros.length ? this.quadros[this.quadros.length-1].t : 1;
+    this.acumuladoAnt = null;
+    this.onContagem = null; // callback(acumulado, naCena)
+  }
+  TocadorTrilha.prototype.quadroEm=function(t){
+    var qs=this.quadros; if(!qs.length) return {prev:null,next:null};
+    if(t<=qs[0].t) return {prev:qs[0],next:qs[1]||null};
+    for(var i=0;i<qs.length-1;i++){ if(qs[i].t<=t && qs[i+1].t>=t) return {prev:qs[i],next:qs[i+1]}; }
+    return {prev:qs[qs.length-1],next:null};
+  };
+  TocadorTrilha.prototype.caixasInterpoladas=function(t){
+    var r=this.quadroEm(t), out=[]; if(!r.prev) return out;
+    var prev=r.prev, next=r.next;
+    var porId={}; prev.caixas.forEach(function(c){ porId[c[0]]={p:c}; });
+    if(next && (next.t-prev.t)<1.2){ next.caixas.forEach(function(c){ if(porId[c[0]]) porId[c[0]].n=c; }); }
+    Object.keys(porId).forEach(function(id){
+      var e=porId[id], c=e.p, x1=c[2],y1=c[3],x2=c[4],y2=c[5];
+      if(e.n && next){ var f=(t-prev.t)/Math.max(0.001,(next.t-prev.t)); f=Math.max(0,Math.min(1,f));
+        x1=c[2]+(e.n[2]-c[2])*f; y1=c[3]+(e.n[3]-c[3])*f; x2=c[4]+(e.n[4]-c[4])*f; y2=c[5]+(e.n[5]-c[5])*f; }
+      out.push({id:parseInt(id,10),classe:c[1],x1:x1,y1:y1,x2:x2,y2:y2,conf:c[6]});
+    });
+    return out;
+  };
+  TocadorTrilha.prototype.historico=function(id,t,janela){
+    var pts=[]; this.quadros.forEach(function(q){ if(q.t>t||q.t<t-janela) return;
+      q.caixas.forEach(function(c){ if(c[0]===id) pts.push({t:q.t,cx:(c[2]+c[4])/2,cy:(c[3]+c[5])/2}); }); });
+    pts.sort(function(a,b){return a.t-b.t;}); return pts;
+  };
+  TocadorTrilha.prototype.desenhar=function(flashCb){
+    var W=this.canvas.width, H=this.canvas.height, ctx=this.ctx;
+    ctx.clearRect(0,0,W,H);
+    if(this.imgFundo && this.imgFundo.complete) ctx.drawImage(this.imgFundo,0,0,W,H);
+    else { ctx.fillStyle="#0b1626"; ctx.fillRect(0,0,W,H); }
+    var t=this.t, caixas=this.caixasInterpoladas(t), self=this;
+    caixas.forEach(function(b){
+      var hist=self.historico(b.id,t,2.0);
+      if(hist.length>=2){
+        var cor=CLASSES[b.classe]?CLASSES[b.classe].cor:"#888";
+        ctx.beginPath();
+        hist.forEach(function(p,i){ var x=p.cx*W,y=p.cy*H; if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
+        ctx.strokeStyle=cor; ctx.globalAlpha=.55; ctx.lineWidth=2; ctx.stroke(); ctx.globalAlpha=1;
+      }
+    });
+    var naCena={};
+    caixas.forEach(function(b){
+      var info=CLASSES[b.classe]; if(!info) return; // objetos-da-via (semáforo etc.) não entram na camada pública
+      naCena[b.classe]=(naCena[b.classe]||0)+1;
+      var x1=b.x1*W,y1=b.y1*H,x2=b.x2*W,y2=b.y2*H;
+      ctx.globalAlpha=Math.max(.4,Math.min(1,b.conf||.5)); ctx.strokeStyle=info.cor; ctx.lineWidth=2; ctx.strokeRect(x1,y1,x2-x1,y2-y1); ctx.globalAlpha=1;
+      // rótulo de texto — o tipo nunca é só cor (leitura sem cor)
+      var rot=info.rotulo; ctx.font="700 10px system-ui,sans-serif"; var tw=ctx.measureText(rot).width;
+      ctx.fillStyle="rgba(8,16,28,.78)"; ctx.fillRect(x1,Math.max(0,y1-14),tw+8,14);
+      ctx.fillStyle="#fff"; ctx.fillText(rot, x1+4, Math.max(11,y1-3));
+    });
+    var L=this.linha;
+    ctx.beginPath(); ctx.moveTo(L[0]*W,L[1]*H); ctx.lineTo(L[2]*W,L[3]*H);
+    ctx.strokeStyle="#ff5a63"; ctx.lineWidth=3; ctx.globalAlpha=(motionReduzido||pausadoGeral)?1:((Math.floor(t*4)%2===0)?1:.55); ctx.stroke(); ctx.globalAlpha=1;
+
+    var r=this.quadroEm(t);
+    var acumulado = (r.prev && r.prev.acumulado) || {};
+    if(this.acumuladoAnt){
+      var self2=this;
+      Object.keys(acumulado).forEach(function(k){
+        if((acumulado[k]||0) > (self2.acumuladoAnt[k]||0) && flashCb){
+          flashCb(L[0]+(L[2]-L[0])/2, L[1]+(L[3]-L[1])/2, "+1");
+        }
+      });
+    }
+    this.acumuladoAnt=acumulado;
+    if(this.onContagem) this.onContagem(acumulado, naCena);
+  };
+  TocadorTrilha.prototype.tick=function(ts){
+    if(!this.playing) return;
+    if(this.last==null) this.last=ts;
+    var dt=(ts-this.last)/1000; this.last=ts;
+    this.t += dt;
+    if(this.t > this.tMax){ this.t = 0; this.acumuladoAnt=null; }
+    if(this._desenharComFlash) this._desenharComFlash();
+    var self=this; this.raf=requestAnimationFrame(function(ts2){ self.tick(ts2); });
+  };
+  TocadorTrilha.prototype.play=function(){
+    if(this.playing) return;
+    if(motionReduzido || pausadoGeral){ if(this._desenharComFlash) this._desenharComFlash(); return; } // respeita reduced-motion: nunca anima sozinho
+    this.playing=true; this.last=null; var self=this; this.raf=requestAnimationFrame(function(ts){ self.tick(ts); });
+  };
+  TocadorTrilha.prototype.pause=function(){ this.playing=false; if(this.raf) cancelAnimationFrame(this.raf); this.raf=null; };
+
+  var todosOsTocadores=[];
+  var tocadoresAtivos=[];
+  function pausarMaisAntigo(){ var t=tocadoresAtivos.shift(); if(t) t.pause(); }
+  function ativarTocador(tocador){
+    tocador.visivel=true;
+    if(pausadoGeral || motionReduzido){ if(tocador._desenharComFlash) tocador._desenharComFlash(); return; }
+    if(tocadoresAtivos.indexOf(tocador)!==-1) return;
+    if(tocadoresAtivos.length>=MAX_TOCANDO) pausarMaisAntigo();
+    tocadoresAtivos.push(tocador); tocador.play();
+  }
+  function desativarTocador(tocador){
+    tocador.visivel=false;
+    var i=tocadoresAtivos.indexOf(tocador); if(i!==-1) tocadoresAtivos.splice(i,1);
+    tocador.pause();
+  }
+
+  // -------- fechar coisas abertas (iframes de vídeo original): Esc, clique fora, botão ✕ --------
+  var iframesAbertos=[]; // {fechar, gatilho}
+  function fecharTodosIframes(){
+    while(iframesAbertos.length){ var it=iframesAbertos.pop(); it.fechar(); }
+  }
+  document.addEventListener("keydown", function(ev){
+    if(ev.key==="Escape" && iframesAbertos.length){ var it=iframesAbertos[iframesAbertos.length-1]; it.fechar(); }
+  });
+  document.addEventListener("click", function(ev){
+    if(!iframesAbertos.length) return;
+    for(var i=iframesAbertos.length-1;i>=0;i--){
+      if(!iframesAbertos[i].quadro.contains(ev.target)) { iframesAbertos[i].fechar(); }
+    }
+  }, true);
+
+  // -------- construção do cartão medido (camada processada) --------
+  function cartaoMedido(cam, resumo){
+    var card=el("article","cam");
+    var q=el("div","quadro");
+    var canvas=document.createElement("canvas"); canvas.width=480; canvas.height=270;
+    canvas.setAttribute("aria-hidden","true");
+    var img=new Image(); img.src="publicas/"+cam.slug+".jpg";
+    var contLive=el("div","contadores-live"); contLive.setAttribute("aria-hidden","true");
+    var flash=el("div","flash1","+1"); flash.setAttribute("aria-hidden","true");
+    var btnPausar=el("button","btn-pausar-card","▶"); btnPausar.type="button";
+    var descLive=el("div","sr-only"); descLive.setAttribute("aria-live","polite");
+    q.appendChild(canvas); q.appendChild(contLive); q.appendChild(flash); q.appendChild(btnPausar); q.appendChild(descLive);
+    card.appendChild(q);
+
+    var info=el("div","info");
+    info.appendChild(el("b","",cam.nome));
+    info.appendChild(el("small","",cam.cidadeUf+" · publicada por "+cam.quem));
+    var s=el("div","selos");
+    s.appendChild(el("span","selo medido","CAMADA PROCESSADA"));
+    s.appendChild(el("span","selo tipo",cam.tipo));
+    info.appendChild(s);
+
+    var nums=el("div","numeros");
+    function num(v,rot){ var d=el("div","numero"); d.appendChild(el("b","",String(v))); d.appendChild(el("small","",rot)); return d; }
+    nums.appendChild(num(resumo.cruzamentos_total, "veículos em 60 s"));
+    nums.appendChild(num(resumo.quadros_por_s!=null?resumo.quadros_por_s.toFixed(1):"—", "quadros/s do leitor"));
+    nums.appendChild(num(resumo.fator_tempo!=null?resumo.fator_tempo.toFixed(1)+"×":"—", "fator de tempo"));
+    info.appendChild(nums);
+    info.appendChild(el("div","tag-medido","MEDIDO"));
+
+    var a=el("a","","ver a transmissão original →ㅤ(abre em nova aba)"); a.href="https://www.youtube.com/watch?v="+encodeURIComponent(cam.yt); a.target="_blank"; a.rel="noopener noreferrer"; info.appendChild(a);
+    card.appendChild(info);
+
+    var pausadaLocal = motionReduzido; // controle manual por card, some com o "pausar tudo" mas começa junto se reduced-motion
+    btnPausar.setAttribute("aria-label", pausadaLocal ? "continuar a camada processada de "+cam.nome : "pausar a camada processada de "+cam.nome);
+    btnPausar.textContent = pausadaLocal ? "▶" : "❚❚";
+
+    fetch("publicas/"+cam.slug+".json",{cache:"no-store"}).then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); }).then(function(dados){
+      function ajustarCanvas(){ var r2=q.getBoundingClientRect(); canvas.width=Math.round(r2.width); canvas.height=Math.round(r2.height); }
+      ajustarCanvas(); window.addEventListener("resize", ajustarCanvas);
+      var toc=new TocadorTrilha(canvas, img, dados);
+      todosOsTocadores.push(toc);
+      var ultimaAtualizacaoAria=0;
+      function desenharComFlash(){
+        toc.desenhar(function(fx,fy){
+          flash.style.left=(fx*100)+"%"; flash.style.top=(fy*100)+"%";
+          flash.classList.remove("show"); void flash.offsetWidth; flash.classList.add("show");
+        });
+      }
+      toc._desenharComFlash = desenharComFlash;
+      toc.onContagem=function(acumulado, naCena){
+        contLive.textContent="";
+        Object.keys(acumulado).forEach(function(k){
+          if(!acumulado[k]) return; var cl=CLASSES[k]; if(!cl) return;
+          var sp=el("span","",cl.rotulo+" "+acumulado[k]); contLive.appendChild(sp);
+        });
+        var agora=Date.now();
+        if(agora - ultimaAtualizacaoAria >= 5000){
+          ultimaAtualizacaoAria=agora;
+          var naCenaTotal=0; Object.keys(naCena).forEach(function(k){ naCenaTotal+=naCena[k]; });
+          var cruzTotal=0; Object.keys(acumulado).forEach(function(k){ cruzTotal+=acumulado[k]; });
+          descLive.textContent = "camada processada de "+cam.nome+": "+naCenaTotal+" veículo(s) na cena agora, "+cruzTotal+" cruzaram a linha até aqui.";
+        }
+      };
+      desenharComFlash();
+
+      btnPausar.addEventListener("click", function(){
+        pausadaLocal = !pausadaLocal;
+        btnPausar.setAttribute("aria-label", pausadaLocal ? "continuar a camada processada de "+cam.nome : "pausar a camada processada de "+cam.nome);
+        btnPausar.textContent = pausadaLocal ? "▶" : "❚❚";
+        if(pausadaLocal){ desativarTocador(toc); } else if(!pausadoGeral && !motionReduzido){ ativarTocador(toc); } else { desenharComFlash(); }
+      });
+
+      var obs=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting && !pausadaLocal) ativarTocador(toc); else desativarTocador(toc);
+        });
+      }, {threshold:.35});
+      obs.observe(card);
+    }).catch(function(e){
+      var av=el("small",null,"não consegui carregar a camada (" + e.message + ")"); info.appendChild(av);
+    });
+
+    return card;
+  }
+
+  // -------- construção do cartão pendente (abre o vídeo original, com saída sempre) --------
+  function cartaoPendente(cam){
+    var card=el("article","cam");
+    var q=el("div","quadro");
+    var img=el("img"); img.loading="lazy"; img.alt="prévia da câmera: "+cam.nome+", "+cam.cidadeUf; img.src="https://i.ytimg.com/vi/"+cam.yt+"/hqdefault_live.jpg";
+    img.onerror=function(){ if(!img.dataset.t){img.dataset.t=1; img.src="https://i.ytimg.com/vi/"+cam.yt+"/hqdefault.jpg";} else {img.style.filter="grayscale(1) opacity(.4)";} };
+    var btnAbrir=el("button","btn-abrir"); btnAbrir.type="button";
+    btnAbrir.setAttribute("aria-label","abrir o vídeo original de "+cam.nome+", "+cam.cidadeUf+" (abre nesta página; Esc ou ✕ fecha)");
+    btnAbrir.appendChild(el("span","","▶ abrir o vídeo original"));
+    q.appendChild(img); q.appendChild(btnAbrir);
+    card.appendChild(q);
+
+    var iframeAtual=null, btnFechar=null;
+    function fechar(){
+      if(!iframeAtual) return;
+      iframeAtual.remove(); iframeAtual=null;
+      if(btnFechar){ btnFechar.remove(); btnFechar=null; }
+      img.hidden=false; btnAbrir.hidden=false;
+      var idx=-1; for(var i=0;i<iframesAbertos.length;i++){ if(iframesAbertos[i].quadro===q){ idx=i; break; } }
+      if(idx!==-1) iframesAbertos.splice(idx,1);
+      btnAbrir.focus();
+    }
+    btnAbrir.addEventListener("click", function(){
+      if(iframeAtual) return;
+      if(iframesAbertos.length>=4){ iframesAbertos[0].fechar(); }
+      var f=document.createElement("iframe"); f.src="https://www.youtube-nocookie.com/embed/"+encodeURIComponent(cam.yt)+"?autoplay=1&mute=1&playsinline=1&rel=0";
+      f.allow="autoplay; encrypted-media; picture-in-picture"; f.setAttribute("allowfullscreen",""); f.title="transmissão original de "+cam.nome; f.loading="lazy"; f.referrerPolicy="strict-origin-when-cross-origin";
+      img.hidden=true; btnAbrir.hidden=true; q.appendChild(f); iframeAtual=f;
+      btnFechar=el("button","btn-fechar"); btnFechar.type="button"; btnFechar.setAttribute("aria-label","fechar vídeo de "+cam.nome);
+      btnFechar.appendChild(document.createTextNode("✕ Fechar vídeo"));
+      btnFechar.addEventListener("click", fechar);
+      q.appendChild(btnFechar);
+      iframesAbertos.push({quadro:q, fechar:fechar});
+    });
+
+    var info=el("div","info");
+    info.appendChild(el("b","",cam.nome));
+    info.appendChild(el("small","",cam.cidadeUf+" · publicada por "+cam.quem));
+    var s=el("div","selos");
+    if(cam.descartada) s.appendChild(el("span","selo descartada","NÃO LIDA — "+cam.descartada));
+    else s.appendChild(el("span","selo pendente","LEITURA PENDENTE"));
+    s.appendChild(el("span","selo tipo",cam.tipo));
+    info.appendChild(s);
+    var a=el("a","","ver na página de quem publica →ㅤ(abre em nova aba)"); a.href="https://www.youtube.com/watch?v="+encodeURIComponent(cam.yt); a.target="_blank"; a.rel="noopener noreferrer"; info.appendChild(a);
+    card.appendChild(info);
+    return card;
+  }
+
+  function contar(){ document.getElementById("cont").textContent=mostradas+" câmeras · "+tocadoresAtivos.length+" de "+MAX_TOCANDO+" camadas tocando"; }
+
   function desenhar(){
-    grade.textContent=""; abertos=[]; mostradas=0;
-    CAMS.forEach(function(c){
-      if(filtro!=="todas" && !(filtro==="lidas" ? c[5] : c[4]===filtro)) return; mostradas++;
-      var card=el("article","cam"), q=el("button","quadro"); q.type="button"; q.setAttribute("aria-label","abrir a transmissão de "+c[1]+", "+c[2]);
-      var img=el("img"); img.loading="lazy"; img.alt=""; img.src="https://i.ytimg.com/vi/"+c[0]+"/hqdefault_live.jpg";
-      img.onerror=function(){ if(!img.dataset.t){img.dataset.t=1; img.src="https://i.ytimg.com/vi/"+c[0]+"/hqdefault.jpg";} else {img.style.filter="grayscale(1) opacity(.4)";} };
-      var t=el("div","tocar"); t.appendChild(el("span","","▶ abrir o vídeo original")); q.appendChild(img); q.appendChild(t);
-      q.addEventListener("click",function(){abrir(card,c[0]);});
-      var info=el("div","info"); info.appendChild(el("b","",c[1])); info.appendChild(el("small","",c[2]+" · publicada por "+c[3]));
-      var s=el("div","selos"); s.appendChild(el("span","selo "+(c[5]||""),ROT[c[5]])); s.appendChild(el("span","selo tipo",c[4])); info.appendChild(s);
-      var a=el("a","","ver na página de quem publica →"); a.href="https://www.youtube.com/watch?v="+encodeURIComponent(c[0]); a.target="_blank"; a.rel="noopener noreferrer"; info.appendChild(a);
-      card.appendChild(q); card.appendChild(info); grade.appendChild(card);
-    }); contar();
+    fecharTodosIframes();
+    grade.textContent=""; mostradas=0; todosOsTocadores=[]; tocadoresAtivos=[];
+    CAMS.forEach(function(cam){
+      var resumo = cam.slug ? porSlug(cam.slug) : null;
+      var medida = resumo && resumo.medido;
+      if(filtro!=="todas"){
+        if(filtro==="medidas"){ if(!medida) return; }
+        else if(cam.tipo!==filtro) return;
+      }
+      mostradas++;
+      var card = medida ? cartaoMedido(cam, resumo) : cartaoPendente(cam);
+      grade.appendChild(card);
+    });
+    contar();
   }
-  TIPOS.forEach(function(t){var b=el("button","",t==="lidas"?"já lidas pelo contador":t); b.type="button"; b.setAttribute("aria-pressed",t===filtro);
+
+  TIPOS.forEach(function(t){var b=el("button","",t==="medidas"?"já medidas":t); b.type="button"; b.setAttribute("aria-pressed",t===filtro);
     b.addEventListener("click",function(){filtro=t; [].forEach.call(fb.querySelectorAll("button"),function(x){x.setAttribute("aria-pressed",x===b)}); desenhar();}); fb.appendChild(b);});
-  var cont=el("span","cont",""); cont.id="cont"; fb.appendChild(cont); desenhar();
+  var cont=el("span","cont",""); cont.id="cont"; fb.appendChild(cont);
+
+  carregarIndice().then(function(dados){ INDICE=dados; desenharBenchmark(); desenhar(); });
 })();
 </script>
 <script src="melhorias.js"></script>

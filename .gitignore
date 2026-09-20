@@ -7,3 +7,4 @@ __pycache__/
 # Bases públicas grandes: re-baixáveis pela URL em fontes-verificadas.json; o sha256 está em dados/publicos/MANIFEST.sha256.
 *.zip
 *.csv.gz
+motor/leitor-video/*.pt

@@ -3,9 +3,34 @@
 
 > *Ruas com memória. Mobilidade com previsibilidade.*
 
-**A ideia em uma frase:** ler as câmeras que a cidade já tem para **contar** o trânsito (sem rosto, sem placa, sem guardar imagem) e medir o antes e o depois de cada mudança na rua. *A mesma câmera. Outra pergunta.*
+**O que é, em 3 linhas:** lê as câmeras que a cidade já tem para **contar** o trânsito — sem rosto, sem placa, sem guardar imagem — e mede o antes e o depois de cada mudança na rua. Cada número que aparece numa tela carrega a etiqueta de onde veio (dado real medido, simulação sobre dado real, ou dado sintético). Protótipo avançado, ainda não MVP — o que já roda e o que falta estão em [`docs/REGRAS-E-ACEITE-MVP.md`](docs/REGRAS-E-ACEITE-MVP.md).
 
-**Onde estamos, sem inflar:** protótipo avançado, ainda não MVP. O que já roda e o que falta estão em [`docs/REGRAS-E-ACEITE-MVP.md`](docs/REGRAS-E-ACEITE-MVP.md).
+**Os 4 links que importam:**
+
+| O quê | Link |
+|---|---|
+| Apresentação | https://enioxt.github.io/hackathon/ |
+| Entrar como gestor | https://enioxt.github.io/hackathon/demo/entrar.html |
+| Como a máquina conta (os 14 números, com o comando que refaz cada um) | [`docs/PROVAS.md`](docs/PROVAS.md) |
+| Código do leitor de vídeo | [`motor/leitor-video/`](motor/leitor-video/) |
+
+**Como rodar (3 comandos):**
+
+```bash
+cd painel && bun test                        # testes do painel do gestor (35 casos)
+bun run servidor.ts                          # sobe o painel em http://127.0.0.1:8787
+cd motor/leitor-video && python3 -m pytest -q # testes do leitor de vídeo (7 casos)
+```
+
+**Mapa de pastas** (o que é cada uma, quem lê, se é fonte ou gerado — inventário completo em [`docs/MAPA-DO-REPOSITORIO.md`](docs/MAPA-DO-REPOSITORIO.md)):
+
+- `demo/` — o site publicado (apresentação, app do gestor, app do cidadão)
+- `painel/` — código do app do gestor (servidor, testes, telas)
+- `motor/` — o que decide e prova os números (leitor de vídeo, decisão, `provar.py`)
+- `dados/`, `fontes/` — dado público baixado, com hash de conferência
+- `docs/` — documentação de apoio (pitch, decisões, análises)
+- `hub/`, `ideias/` — mural de ideias da comunidade
+- `construcao/`, `juridico/`, `tecnicas/`, `commons/` — negócio, base legal, método, regras do repositório
 
 ---
 

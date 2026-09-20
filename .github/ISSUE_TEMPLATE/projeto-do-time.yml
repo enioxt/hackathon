@@ -1,0 +1,37 @@
+name: Cadastrar o projeto do meu time
+description: Conte o projeto do seu time neste hackathon — vira uma página no hub, com autoria sua.
+title: "[projeto] "
+labels: ["ideia-nova", "projeto-do-time"]
+body:
+  - type: input
+    id: nome
+    attributes: { label: Nome do projeto }
+    validations: { required: true }
+  - type: input
+    id: time
+    attributes: { label: Time }
+    validations: { required: true }
+  - type: textarea
+    id: problema
+    attributes: { label: Problema, description: "Que problema real do dia a dia da cidade o projeto ataca." }
+    validations: { required: true }
+  - type: input
+    id: solucao
+    attributes: { label: Solução em 1 frase }
+    validations: { required: true }
+  - type: input
+    id: link
+    attributes: { label: Link, description: "Repositório, site ou onde o projeto pode ser visto. Opcional." }
+  - type: textarea
+    id: aprendeu
+    attributes: { label: O que aprendeu, description: "O que funcionou, o que surpreendeu, o que virou dado ou prova." }
+  - type: textarea
+    id: diferente
+    attributes: { label: O que faria diferente }
+  - type: checkboxes
+    id: regras
+    attributes:
+      label: Regras do hub
+      options:
+        - { label: "Não há dado pessoal nem dado policial neste relato", required: true }
+        - { label: "Todo número que citei tem origem", required: true }

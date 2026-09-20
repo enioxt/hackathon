@@ -14,17 +14,47 @@ def fm(txt):
             if ':' in l: k, v = l.split(':', 1); meta[k.strip()] = v.strip()
         return meta, m.group(2)
     return meta, txt
+def linkify(s):
+    """s já passou por esc() — URL não carrega & < > então o regex não colide com a escapada."""
+    return re.sub(r'(https?://[^\s<]+)', r'<a href="\1" target="_blank" rel="noopener">\1</a>', s)
 def md(s):
     out = []
     for b in re.split(r'\n\s*\n', s.strip()):
-        if b.startswith('## '): out.append(f'<h3>{esc(b[3:])}</h3>')
-        elif all(l.startswith('- ') for l in b.split('\n')): out.append('<ul>' + ''.join(f'<li>{esc(l[2:])}</li>' for l in b.split('\n')) + '</ul>')
-        else: out.append(f'<p>{esc(b)}</p>')
+        linhas = b.split('\n')
+        if linhas[0].startswith('## '):
+            out.append(f'<h3>{esc(linhas[0][3:])}</h3>')
+            linhas = linhas[1:]
+        if not linhas: continue
+        if all(l.startswith('- ') for l in linhas): out.append('<ul>' + ''.join(f'<li>{linkify(esc(l[2:]))}</li>' for l in linhas) + '</ul>')
+        else: out.append(f'<p>{linkify(esc(chr(10).join(linhas)))}</p>')
     return ''.join(out)
 ideias = []
 for f in sorted(glob.glob(os.path.join(R, 'ideias', '*.md')), key=lambda x: (not x.endswith('visao-de-rota.md'), x)):
     if os.path.basename(f).startswith('_'): continue
     meta, corpo = fm(open(f).read()); meta['slug'] = os.path.basename(f)[:-3]; meta['corpo'] = corpo; ideias.append(meta)
+
+def linha_do_tempo():
+    """Lê ideias/_linha-do-tempo.md (fonte: LINHA-DO-TEMPO.md/ESTADO.md, já curada — sem nome de pessoa/rua/conversa)
+    e monta a lista de marcos. Formato de cada linha: 'quando | o que | link opcional'. Determinístico."""
+    caminho = os.path.join(R, 'ideias', '_linha-do-tempo.md')
+    if not os.path.exists(caminho): return ''
+    marcos = []
+    for l in open(caminho).read().splitlines():
+        l = l.strip()
+        if not l or l.startswith('#'): continue
+        partes = [p.strip() for p in l.split('|')]
+        if len(partes) < 2: continue
+        quando, oque = partes[0], partes[1]
+        link = partes[2] if len(partes) > 2 and partes[2] else ''
+        marcos.append((quando, oque, link))
+    if not marcos: return ''
+    itens = ''.join(
+        f'<li><b>{esc(q)}</b><span>{esc(o)}</span>' + (f'<a href="{esc(k)}" target=_blank rel=noopener>abrir →</a>' if k else '') + '</li>'
+        for q, o, k in marcos
+    )
+    return f"""<h2>Linha do tempo — como um projeto andou em 48 horas</h2>
+<p class=muted style="font-size:14px">Marcos do nosso projeto (Visão de Rota), incluindo os erros que achamos e corrigimos — para outros times aprenderem com o que já erramos. Sem nome de pessoa, sem conversa de grupo: só o que mudou e a prova.</p>
+<ul class=linha-do-tempo>{itens}</ul>"""
 gerado = os.environ.get('HUB_DATA') or time.strftime('%d/%m/%Y %H:%M')
 BASE = f"""<style>{CSS}
 body{{display:block;padding:0 0 60px}} .wrap{{max-width:1100px;margin:70px auto 0;padding:0 18px}}
@@ -41,6 +71,12 @@ body{{display:block;padding:0 0 60px}} .wrap{{max-width:1100px;margin:70px auto 
 .cta{{display:inline-block;background:#0B1B2B;color:#fff!important;text-decoration:none;font-weight:600;padding:11px 18px;border-radius:10px;margin:4px 6px 4px 0}} .cta.sec{{background:transparent;color:#0B1B2B!important;border:1.5px solid #0B1B2B}} body.dark .cta.sec{{color:#fff!important;border-color:#fff}} .semconta{{font-size:13.5px;margin-left:6px}}
 .gente{{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 20px}} .gente a{{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--border);border-radius:999px;padding:4px 12px 4px 4px;text-decoration:none;font-size:13.5px}} .gente img{{width:28px;height:28px;border-radius:50%}}
 footer{{max-width:1100px;margin:30px auto;padding:0 18px;font-size:12.5px;color:var(--text-muted)}} a{{color:var(--accent)}}
+ul.linha-do-tempo{{list-style:none;margin:14px 0;padding:0;border-left:2px solid var(--border)}}
+ul.linha-do-tempo li{{position:relative;padding:2px 0 14px 20px}}
+ul.linha-do-tempo li::before{{content:'';position:absolute;left:-5px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--accent)}}
+ul.linha-do-tempo li b{{display:block;font-size:12.5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.03em}}
+ul.linha-do-tempo li span{{display:block;font-size:14.5px;margin-top:2px}}
+ul.linha-do-tempo li a{{font-size:13px;display:inline-block;margin-top:2px}}
 </style>"""
 REPO = 'enioxt/hackathon'
 from urllib.parse import quote
@@ -56,8 +92,8 @@ def capa(i):
     return f'<svg viewBox="0 0 320 140" class=capa><defs><linearGradient id="g{i["slug"]}" x1=0 y1=0 x2=1 y2=1><stop offset=0 stop-color="{c}" stop-opacity=.95/><stop offset=1 stop-color="{c}" stop-opacity=.55/></linearGradient></defs><rect width=320 height=140 fill="url(#g{i["slug"]})"/><circle cx=270 cy=40 r=60 fill="#fff" fill-opacity=".08"/><circle cx=60 cy=120 r=40 fill="#fff" fill-opacity=".08"/><text x=20 y=110 font-size=44 font-weight=700 fill="#fff" fill-opacity=.9 font-family="Georgia,serif">{n}</text></svg>'
 def card(i): return f"""<a class="card" data-est="{esc(i.get('estagio'))}" href="{esc(i['slug'])}.html">{capa(i)}<span class="tag {esc(i.get('estagio'))}">{esc(dict(EST).get(i.get('estagio'), i.get('estagio')))}</span><h3>{esc(i.get('nome'))}</h3><p>{esc(i.get('assinatura'))}</p><p style="margin-top:8px"><b>{esc(i.get('time'))}</b> · {esc(i.get('tema'))}</p></a>"""
 idx = f"""<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hub de ideias — Hackathon Patos de Minas 2026</title>{BASE}</head><body>{header('as ideias de todos os times, com autoria e estágio')}<div class=wrap>
-<div class=hero><h1>Ideias, protótipos e dados compartilhados de quem quer melhorar a mobilidade de Patos.</h1><p>Uma equipe pode perder o pitch e ainda ter encontrado uma peça essencial. Aqui cada ideia do hackathon tem dono, estágio, o que precisa e como contribuir — para não morrer no domingo. </p><p style="margin-top:14px"><a class=cta href="{gh('entrar-no-hub.yml')}">{GH_ICON}Entrar com GitHub</a> <a class="cta sec" href="{gh('enviar-ideia.yml')}">Enviar uma ideia</a> <a class=semconta href="https://github.com/signup" target=_blank rel=noopener>Não tem conta? Criar é grátis e leva 2 minutos</a></p></div>
-<div class=como><div><b>1 · Entre com GitHub</b>O botão abre o login do GitHub e cai num formulário curto: seu time, o que você sabe fazer, qual ideia quer ajudar.</div><div><b>2 · Escolha uma ideia</b>Cada card abre o dossiê: o que é, o que já funciona, o que falta. Em cada um há o botão "Quero ajudar nesta ideia".</div><div><b>3 · Ou traga a sua</b>Formulário de 8 campos. Estágio sem enfeite: se nada roda, é "ideia". Ela entra no hub com seu nome como autor.</div></div>
+<div class=hero><h1>Ideias, protótipos e dados compartilhados de quem quer melhorar a mobilidade de Patos.</h1><p>Uma equipe pode perder o pitch e ainda ter encontrado uma peça essencial. Aqui cada ideia do hackathon tem dono, estágio, o que precisa e como contribuir — para não morrer no domingo. </p><p style="margin-top:14px"><a class=cta href="{gh('entrar-no-hub.yml')}">{GH_ICON}Entrar com GitHub</a> <a class="cta sec" href="{gh('enviar-ideia.yml')}">Enviar uma ideia</a> <a class="cta sec" href="{gh('projeto-do-time.yml')}">Cadastrar o projeto do meu time</a> <a class=semconta href="https://github.com/signup" target=_blank rel=noopener>Não tem conta? Criar é grátis e leva 2 minutos</a></p></div>
+<div class=como><div><b>1 · Entre com GitHub</b>O botão abre o login do GitHub e cai num formulário curto: seu time, o que você sabe fazer, qual ideia quer ajudar.</div><div><b>2 · Escolha uma ideia</b>Cada card abre o dossiê: o que é, o que já funciona, o que falta. Em cada um há o botão "Quero ajudar nesta ideia".</div><div><b>3 · Ou cadastre o seu</b>"Enviar uma ideia" (8 campos, estágio sem enfeite) ou "Cadastrar o projeto do meu time" (problema, solução, o que aprendeu). Os dois viram issue no GitHub; ao serem revisados e aprovados, o hub gera a página sozinho — nenhum clique manual além da revisão. O texto que você envia é tratado como dado (escapado antes de virar página), nunca como código.</div></div>
 <h2 style="margin-top:18px">Ideias em movimento</h2><p class=muted style="font-size:14px">Cada projeto é uma pergunta real, um experimento ou uma solução em construção.</p>
 <div class=filtros>{''.join(f'<button data-f="{k}" class="{"on" if k=="todos" else ""}">{n} ({len(ideias) if k=="todos" else sum(1 for i in ideias if i.get("estagio")==k)})</button>' for k,n in [('todos','Todos')]+EST)}</div>
 <div class=cards>{''.join(card(i) for i in ideias)}</div>
@@ -74,6 +110,7 @@ idx = f"""<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta na
 <div><b>Olho Vivo de Patos: fatos públicos</b>Edital 2024, termo de colaboração, custo por câmera, quem opera. <a href="https://github.com/enioxt/hackathon/blob/main/juridico/olho-vivo-patos-fatos-publicos.md">ler</a></div>
 <div><b>Como pesquisamos</b>7 ângulos, prova por fonte, refutação, parser com testes, mapa honesto. <a href="https://github.com/enioxt/hackathon/blob/main/tecnicas/COMO-PESQUISAMOS.md">ler</a></div>
 <div><b>Licitações de mobilidade</b>689 contratações no Brasil (2024-26), municípios de referência. <a href="https://github.com/enioxt/hackathon/blob/main/fontes/editais-e-municipios-de-referencia.md">ler</a></div></div>
+{linha_do_tempo()}
 <h2>Régua de estágio</h2>{pipe('')}<p class=muted style="font-size:13.5px">Ideia = só descrita · Conceito = desenhada com dado · Protótipo = algo roda com dado real · MVP = alguém usa · Em uso = está no dia a dia de um órgão ou empresa. Subir de estágio exige prova, não adjetivo.</p>
 <h2>Regras do hub</h2><ul style="font-size:14.5px"><li>Só dado público ou entregue ao time; nunca dado pessoal ou policial.</li><li>Número sempre com origem; universo declarado.</li><li>Autoria não desaparece: quem criou, propôs, implementou e revisou fica no histórico.</li><li>Código pode ser aberto; serviço de implantação é outra camada (contrato). Licença de cada ideia é decisão do time dela.</li><li>Publicar em nome do hackathon é decisão coletiva.</li></ul>
 </div><footer>Gerado por <code>hub/build-hub.py</code> em {gerado} a partir de <code>ideias/*.md</code> · repositório público <a href="https://github.com/enioxt/hackathon">enioxt/hackathon</a>.</footer></body></html>"""

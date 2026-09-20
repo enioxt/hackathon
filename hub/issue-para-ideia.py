@@ -21,7 +21,10 @@ def linha(s): return re.sub(r'\s+', ' ', s or '').strip()
 def main():
     ev = json.load(open(sys.argv[1] if len(sys.argv) > 1 else os.environ['GITHUB_EVENT_PATH']))
     iss = ev['issue']; c = campos(iss.get('body'))
-    nome = linha(c.get('Nome da ideia')) or linha(iss['title'].replace('[ideia]', ''))
+    # Dois formulários alimentam este conversor: "Enviar uma ideia" (rótulos originais)
+    # e "Cadastrar o projeto do meu time" (retrospectiva pós-hackathon, rótulos próprios).
+    eh_projeto_de_time = linha(iss['title']).startswith('[projeto]')
+    nome = linha(c.get('Nome da ideia') or c.get('Nome do projeto')) or linha(iss['title'].replace('[ideia]', '').replace('[projeto]', ''))
     if not nome: print('recusada: sem nome'); return 2
     texto = ' '.join(c.values())
     for rx, motivo in RECUSA:
@@ -29,28 +32,39 @@ def main():
     destino = os.path.join(R, 'ideias', f"{slug(nome)}.md")
     if os.path.exists(destino) and f"issues/{iss['number']}" not in open(destino).read():
         destino = destino[:-3] + f"-{iss['number']}.md"
-    est = EST.get(linha(c.get('Estágio, sem enfeite')).lower(), 'ideia')
+    assinatura = linha(c.get('Uma frase que um morador entende') or c.get('Solução em 1 frase'))
+    pergunta = linha(c.get('Que pergunta real a ideia responde') or c.get('Problema'))
+    funciona = c.get('O que já funciona') or c.get('O que aprendeu') or 'nada ainda'
+    falta = c.get('O que falta') or c.get('O que faria diferente') or 'a declarar'
+    link = linha(c.get('Link'))
+    est = EST.get(linha(c.get('Estágio, sem enfeite')).lower(), 'prototipo' if eh_projeto_de_time else 'ideia')
     md = f"""---
 nome: {nome}
-assinatura: {linha(c.get('Uma frase que um morador entende'))}
+assinatura: {assinatura}
 time: {linha(c.get('Time'))}
 estagio: {est}
 tema: mobilidade urbana
-pergunta: {linha(c.get('Que pergunta real a ideia responde'))}
-precisa: {linha(c.get('O que falta'))[:240]}
-contato: {iss['html_url']}
+pergunta: {pergunta}
+precisa: {linha(falta)[:240]}
+contato: {link or iss['html_url']}
 licenca: a definir
 cor: {iss['number'] % 9}
 ---
 ## O que é
-{linha(c.get('Que pergunta real a ideia responde'))}
+{pergunta}
 
 ## O que já funciona
-{c.get('O que já funciona') or 'nada ainda'}
+{funciona}
 
 ## O que falta
-{c.get('O que falta') or 'a declarar'}
-
+{falta}
+"""
+    if link:
+        md += f"""
+## Link do projeto
+{link}
+"""
+    md += f"""
 ## Como contribuir
 Comente na issue de origem: {iss['html_url']} · enviada por @{iss['user']['login']}.
 """

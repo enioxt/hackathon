@@ -19,7 +19,7 @@ Um mapa vivo de riscos invisíveis: freada brusca, moto cruzando trajetória, pe
 - Desenho jurídico validado: evento anonimizado na origem sai da LGPD; instrumento é acordo de cooperação técnica.
 
 ## O que falta
-Detector rodando em vídeo real de Patos (o primeiro passo é uma gravação, não uma câmera ao vivo). Calibração de distância por câmera.
+Detector rodando em vídeo real de Patos (o primeiro passo é uma gravação, não uma transmissão contínua). Calibração de distância por câmera.
 
 ## Como contribuir
 Traga 1 hora de vídeo de um cruzamento (celular numa janela serve) ou experiência com Frigate/YOLO.

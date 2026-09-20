@@ -77,9 +77,13 @@ header.topo{margin-bottom:6px}
 .kpi-var{font-size:12px;font-weight:700;margin-top:2px}
 .kpi-var.up{color:var(--red)} .kpi-var.down{color:var(--green)} .kpi-var.flat{color:var(--muted)}
 .selo{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.04em;padding:1px 6px;border-radius:6px;margin-left:5px;vertical-align:middle}
-.selo.medido{background:var(--blue-bg);color:#1d4ed8}
+.selo.medido{background:#16803c;color:#fff}
 .selo.simulacao{background:var(--amber-bg);color:#93670c}
-.selo.sintetico{background:#eef0f5;color:#586479}
+.selo.sintetico{background:#c0392b;color:#fff}
+.legenda-cores{font-size:12px;color:var(--muted);margin:2px 0 10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.legenda-cores .selo{margin-left:0}
+.kpi-fonte{font-size:10.5px;color:var(--muted);margin-top:3px;line-height:1.3}
+.kpi-nota{font-size:11.5px;color:#0f2544;margin-top:2px;font-weight:600}
 
 /* ---------- grade central ---------- */
 .grade{display:grid;grid-template-columns:1fr 320px;gap:12px;align-items:start}
@@ -402,6 +406,7 @@ table.memoria tr:last-child td{border-bottom:0}
     <header class="topo">
       <h1>Visão de Rota — Patos de Minas</h1>
       <p class="sub">Contagem de trânsito por câmera existente, sem rosto e sem placa — medindo antes e depois de cada mudança na via.</p>
+      <p class="legenda-cores"><span class="selo medido">DADO REAL · MEDIDO</span> = dado real, medido. <span class="selo sintetico">DADO SINTÉTICO · exemplo</span> = dado sintético, só exemplo.</p>
       <div class="fila-fontes" id="fila-fontes"></div>
     </header>
 
@@ -414,7 +419,7 @@ table.memoria tr:last-child td{border-bottom:0}
           <div class="painel-head">
             <div>
               <h2>Câmeras</h2>
-              <p class="h-sub"><span id="cam-atualizado">atualizado há 0 s</span><span class="selo sintetico" style="margin-left:6px">vídeo público lido pelo contador nas primeiras telas · o resto é DADO SINTÉTICO</span></p>
+              <p class="h-sub"><span id="cam-atualizado">atualizado há 0 s</span><span class="selo medido" style="margin-left:6px">vídeos gravados pelo time e lidos pelo contador · DADO REAL</span> <span class="selo sintetico" style="margin-left:4px">telas sem vídeo · DADO SINTÉTICO</span></p>
             </div>
             <div class="cam-controles">
               <div class="grade-seletor" id="grade-seletor" role="group" aria-label="Quantidade de câmeras">
@@ -434,13 +439,13 @@ table.memoria tr:last-child td{border-bottom:0}
 
         <div class="coluna-direita">
           <div class="painel">
-            <h2>Agora</h2>
-            <p class="h-sub">3 números que resumem o momento</p>
+            <h2>O que já medimos</h2>
+            <p class="h-sub">3 números reais, conferidos hoje</p>
             <div id="agora-card"></div>
           </div>
           <div class="painel">
-            <h2>Linha do tempo e alertas</h2>
-            <p class="h-sub">Últimos eventos</p>
+            <h2>Exemplo de alertas (SIMULAÇÃO)</h2>
+            <p class="h-sub">Últimos eventos — DADO SINTÉTICO, para mostrar o formato</p>
             <div id="lista-alertas"></div>
           </div>
         </div>
@@ -1043,18 +1048,34 @@ function montarGraficosGeral(){
   });
 }
 
+/* =================== dado real conferido hoje (RENAEST + SEJUSP-MG + contagem dos vídeos do time) =================== */
+var DADOS_REAIS_HOJE = {
+  sinistros: 22708,
+  sinistrosComMoto: 6818,
+  sinistrosComMotoPct: 30,
+  fonteRenaest: "RENAEST, dado aberto federal · 2018–ago/2026",
+  ocorrenciasGeo: 1100,
+  ocorrenciasGraves: 132,
+  ocorrenciasFatais: 18,
+  fonteSejusp: "SEJUSP-MG, dado aberto estadual · 2025–início 2026",
+  videosContagem: {automovel:37, pedestre:3, moto:2, onibus:2, bicicleta:0, caminhao:0},
+  videosTotal: 44,
+  videosJanelaS: 345,
+  fonteVideos: "leitura da máquina nos vídeos de hoje (patos-3 a patos-8) · 1 vídeo conferido à mão"
+};
+
 /* =================== KPIs visão geral =================== */
 function montarKPIsGeral(){
-  var a = agregadosGeral();
   var wrap = document.getElementById("kpis-geral");
   wrap.innerHTML = "";
-  function card(icoClasse, iconeSVG, titulo, numHTML, varPct){
+  function card(icoClasse, iconeSVG, titulo, numHTML, notaHTML, fonteTxt){
     var c = el("div","kpi");
     c.appendChild(el("div","kpi-ico "+icoClasse, iconeSVG));
     var corpo = el("div","kpi-corpo");
     corpo.appendChild(el("p","kpi-titulo",titulo));
     corpo.appendChild(el("div","kpi-num",numHTML));
-    corpo.appendChild(el("div",null,varHTML(varPct)));
+    if (notaHTML) corpo.appendChild(el("div","kpi-nota",notaHTML));
+    corpo.appendChild(el("div","kpi-fonte",fonteTxt));
     c.appendChild(corpo);
     return c;
   }
@@ -1063,10 +1084,12 @@ function montarKPIsGeral(){
   var icoOcorr = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#fff" stroke-width="1.7"/><path d="M12 8v5l3 2" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>';
   var icoSino = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 16v-4.5a6 6 0 0 1 12 0V16l1.5 2.2H4.5L6 16Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 19a2.5 2.5 0 0 0 5 0" stroke="#fff" stroke-width="1.7"/></svg>';
 
-  wrap.appendChild(card("b", icoCarro, "Fluxo atual", a.fluxoTotal.toLocaleString("pt-BR")+' <span class="un">veíc./h</span>'+seloHTML({texto:a.origemSelo.texto,classe:a.origemSelo.classe}), a.variacaoFluxoPct));
-  wrap.appendChild(card("r", icoAlerta, "Pontos críticos", String(a.criticos).padStart(2,"0")+seloHTML({texto:"DADO SINTÉTICO",classe:"sintetico"}), a.criticos - a.criticosOntem));
-  wrap.appendChild(card("a", icoOcorr, "Ocorrências ativas", String(a.ocorrencias)+seloHTML({texto:"DADO SINTÉTICO",classe:"sintetico"}), a.ocorrencias - a.ocorrenciasOntem));
-  wrap.appendChild(card("g", icoSino, "Alertas", String(a.alertas)+seloHTML({texto:"DADO SINTÉTICO",classe:"sintetico"}), a.alertas - a.alertasOntem));
+  var r = DADOS_REAIS_HOJE;
+  var seloReal = seloHTML({texto:"DADO REAL · MEDIDO",classe:"medido"});
+  wrap.appendChild(card("b", icoCarro, "Sinistros de trânsito em Patos", r.sinistros.toLocaleString("pt-BR")+seloReal, null, r.fonteRenaest));
+  wrap.appendChild(card("r", icoAlerta, "Sinistros com moto envolvida", r.sinistrosComMotoPct+'% <span class="un">('+r.sinistrosComMoto.toLocaleString("pt-BR")+')</span>'+seloReal, null, r.fonteRenaest));
+  wrap.appendChild(card("a", icoOcorr, "Ocorrências georreferenciadas", r.ocorrenciasGeo.toLocaleString("pt-BR")+seloReal, r.ocorrenciasGraves+" graves ou fatais · "+r.ocorrenciasFatais+" fatais", r.fonteSejusp));
+  wrap.appendChild(card("g", icoSino, "Veículos e pessoas contados nos vídeos de hoje", String(r.videosTotal)+seloReal, r.videosContagem.automovel+" automóveis · "+r.videosContagem.pedestre+" pedestres · "+r.videosContagem.moto+" motos · "+r.videosContagem.onibus+" ônibus · "+r.videosJanelaS+" s somados", r.fonteVideos));
 }
 
 /* =================== lista de alertas (visão geral) =================== */
@@ -1090,7 +1113,7 @@ function montarAlertas(){
     item.appendChild(el("div","alerta-dot "+it.dot));
     var corpo = el("div","alerta-corpo");
     corpo.appendChild(el("div","alerta-titulo", it.titulo + ' <span class="'+it.tag.c+'">'+it.tag.t+'</span>'));
-    corpo.appendChild(el("div","alerta-desc", it.desc + seloHTML({texto:"DADO SINTÉTICO",classe:"sintetico"})));
+    corpo.appendChild(el("div","alerta-desc", it.desc + seloHTML({texto:"DADO SINTÉTICO · exemplo",classe:"sintetico"})));
     corpo.appendChild(el("div","alerta-hora", "há " + it.minAtras + " min"));
     item.appendChild(corpo);
     wrap.appendChild(item);
@@ -1219,19 +1242,15 @@ function inicializarCameras(){
   aplicarGrade(gradeAtualCameras);
 }
 
-/* =================== cartão "Agora" =================== */
+/* =================== cartão "O que já medimos" =================== */
 function montarAgora(){
   var wrap = document.getElementById("agora-card");
   if (!wrap) return;
-  var todos = PONTOS.map(function(p){ return dadosPonto(p.id); });
-  var maisCarregado = todos.slice().sort(function(a,b){ return b.fluxoAtual - a.fluxoAtual; })[0];
-  var maiorFila = todos.slice().sort(function(a,b){ return b.filaAtual - a.filaAtual; })[0];
-  var ultima = todasIntervencoes()[0];
-  var seloS = seloHTML({texto:"DADO SINTÉTICO",classe:"sintetico"});
+  var seloR = seloHTML({texto:"DADO REAL · MEDIDO",classe:"medido"});
   wrap.innerHTML =
-    '<div class="agora-linha"><span>Ponto mais carregado</span><b>Ponto '+maisCarregado.id+' — '+maisCarregado.fluxoAtual+' veíc./h'+seloS+'</b></div>' +
-    '<div class="agora-linha"><span>Maior fila</span><b>Ponto '+maiorFila.id+' — '+maiorFila.filaAtual+' veículos'+seloS+'</b></div>' +
-    '<div class="agora-linha"><span>Última intervenção</span><b>'+(ultima ? (ultima.local+' — '+rotuloResultado(ultima)) : "—")+seloS+'</b></div>';
+    '<div class="agora-linha"><span>Área mais concentrada</span><b>5 áreas de 1 km reúnem ~4 em cada 10 ocorrências (39,5% · 435 de 1.100)'+seloR+'</b></div>' +
+    '<div class="agora-linha"><span>Vídeo com mais movimento</span><b>avenida filmada do alto — 12 veículos e pessoas em 68 s'+seloR+'</b></div>' +
+    '<div class="agora-linha"><span>Conferência pessoa × máquina</span><b>4 carros e 1 moto — bateu nos dois'+seloR+'</b></div>';
 }
 
 /* =================== render: visão geral =================== */

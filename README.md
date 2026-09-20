@@ -52,15 +52,15 @@ O sistema analisa vídeo **já gravado**, com atraso, de propósito: contar trâ
 
 | O quê | Link |
 |---|---|
-| **Tudo numa página** | https://enioxt.github.io/hackathon-dados-publicos/demo/ |
-| Apresentação (12 slides) · PDF · Canvas | [slides](https://enioxt.github.io/hackathon-dados-publicos/demo/apresentacao.html) · [pdf](https://enioxt.github.io/hackathon-dados-publicos/demo/apresentacao.pdf) · [canvas](https://enioxt.github.io/hackathon-dados-publicos/demo/canvas.html) |
-| Painel do gestor, 5 layouts (botão no canto) | https://enioxt.github.io/hackathon-dados-publicos/demo/painel-gestor.html |
-| Parede de monitores | https://enioxt.github.io/hackathon-dados-publicos/demo/parede.html |
-| Mesa de controle (gire os botões) | https://enioxt.github.io/hackathon-dados-publicos/demo/sintetizador.html |
-| Os agentes, onde rodam e quanto custam | https://enioxt.github.io/hackathon-dados-publicos/demo/arquitetura.html |
-| Simulador de custo para qualquer cidade | https://enioxt.github.io/hackathon-dados-publicos/demo/simulador.html |
-| App do cidadão (10 telas) | https://enioxt.github.io/hackathon-dados-publicos/demo/app-cidadao.html |
-| Hub de ideias de todos os times | https://enioxt.github.io/hackathon-dados-publicos/hub/ |
+| **Tudo numa página** | https://enioxt.github.io/hackathon/demo/ |
+| Apresentação (12 slides) · PDF · Canvas | [slides](https://enioxt.github.io/hackathon/demo/apresentacao.html) · [pdf](https://enioxt.github.io/hackathon/demo/apresentacao.pdf) · [canvas](https://enioxt.github.io/hackathon/demo/canvas.html) |
+| Aplicativo do gestor | https://enioxt.github.io/hackathon/demo/entrar.html |
+| Parede de monitores | https://enioxt.github.io/hackathon/demo/parede.html |
+| Mesa de controle (gire os botões) | https://enioxt.github.io/hackathon/demo/sintetizador.html |
+| Os agentes, onde rodam e quanto custam | https://enioxt.github.io/hackathon/demo/arquitetura.html |
+| Simulador de custo para qualquer cidade | https://enioxt.github.io/hackathon/demo/simulador.html |
+| App do cidadão (10 telas) | https://enioxt.github.io/hackathon/demo/app-cidadao.html |
+| Hub de ideias de todos os times | https://enioxt.github.io/hackathon/hub/ |
 
 Quer no seu computador? Botão verde **Code → Download ZIP**, descompacte e abra **`ABRA-ESTE.html`**.
 

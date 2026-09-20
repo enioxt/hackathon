@@ -221,6 +221,7 @@ var ICONES = {
 var DESTINOS = [
   {chave:'geral',          grupo:'operacao',     rotulo:'Visão geral',              ico:'geral',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'geral'},
   {chave:'cameras',        grupo:'operacao',     rotulo:'Câmeras',                  ico:'cam',     local:'/parede',          arquivo:'parede.html'},
+  {chave:'publicas',       grupo:'operacao',     rotulo:'Câmeras públicas',         ico:'cam',     local:'/cameras-publicas', arquivo:'cameras-publicas.html'},
   {chave:'camadas',        grupo:'operacao',     rotulo:'Como a máquina conta',     ico:'camadas', local:'/camadas',         arquivo:'camadas.html'},
   {chave:'ponto',          grupo:'operacao',     rotulo:'Detalhe do ponto',         ico:'ponto',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'ponto-7'},
   {chave:'historico',      grupo:'operacao',     rotulo:'Histórico (antes e depois)', ico:'hist',  local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'historico'},
@@ -230,8 +231,7 @@ var DESTINOS = [
   {chave:'onibus',         grupo:'simuladas',    rotulo:'Transporte coletivo',      ico:'onibus',  local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'onibus', sim:true},
   {chave:'estacionamento', grupo:'simuladas',    rotulo:'Estacionamento rotativo',  ico:'estac',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'estacionamento', sim:true},
   {chave:'ocorrencias',    grupo:'simuladas',    rotulo:'Ocorrências',              ico:'ocorr',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'ocorrencias', sim:true},
-  {chave:'participacao',   grupo:'mais',         rotulo:'Participação',             ico:'part',    local:'/participacao',    arquivo:'participacao.html'},
-  {chave:'agentes',        grupo:'mais',         rotulo:'Agentes agora',            ico:'ag',      local:'/observabilidade', arquivo:'observabilidade.html'},
+  {chave:'custos',          grupo:'mais',         rotulo:'Custos',                    ico:'ajuda',   local:'/custos-novo',           arquivo:'custos.html'}
   {chave:'ajuda',          grupo:'mais',         rotulo:'Ajuda',                    ico:'ajuda',   local:'/ajuda',           arquivo:'ajuda.html'}
 ];
 var MAPA = {}; DESTINOS.forEach(function(d){ MAPA[d.chave] = d; });
@@ -272,7 +272,7 @@ var palco = document.getElementById('palco');
 });
 document.getElementById('link-apresentacao').href = ESTATICO
   ? '../index.html'
-  : 'https://enioxt.github.io/hackathon/';
+  : 'https://enioxt.github.io/hackathon-dados-publicos/';
 
 // ---------- progresso ----------
 var barraProgresso = document.getElementById('progresso');

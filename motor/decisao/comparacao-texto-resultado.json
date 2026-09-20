@@ -1,0 +1,18 @@
+{
+ "quando": "2026-09-20T03:07:22.621Z",
+ "casos": 18,
+ "palavras_chave": {
+  "certos": 17,
+  "erros": [
+   "nao_clica→outra"
+  ]
+ },
+ "jev": {
+  "certos": 17,
+  "erros": [
+   "outra→falta_dado (0.97)"
+  ],
+  "tokens_por_decisao": 439,
+  "ms_mediana": 301
+ }
+}

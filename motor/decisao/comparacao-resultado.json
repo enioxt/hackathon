@@ -1,0 +1,45 @@
+{
+ "quando": "2026-09-20T03:06:44.982Z",
+ "regras": {
+  "motor": "regras-v1",
+  "casos": 24,
+  "certos": 23,
+  "errados": 1,
+  "abstencoes": 2,
+  "ms_total": 5,
+  "erros": [
+   "duvidoso→veiculo_parado (0.659182)"
+  ]
+ },
+ "jev": {
+  "motor": "jev-latest",
+  "casos": 24,
+  "certos": 11,
+  "errados": 7,
+  "abstencoes": 6,
+  "ms_total": 7814,
+  "erros": [
+   "nada→veiculo_parado",
+   "nada→veiculo_parado",
+   "nada→veiculo_parado",
+   "nada→veiculo_parado",
+   "nada→não sei",
+   "nada→não sei",
+   "contramao→não sei",
+   "contramao→não sei",
+   "contramao→não sei",
+   "contramao→não sei",
+   "duvidoso→fila_anormal (0.649999)",
+   "duvidoso→fila_anormal (0.689999)",
+   "duvidoso→fila_anormal (0.729999)"
+  ]
+ },
+ "jev_uso": {
+  "chamadas": 24,
+  "tokens_entrada": 12225,
+  "tokens_por_decisao": 509,
+  "ms_mediana": 306,
+  "ms_min": 246,
+  "ms_max": 777
+ }
+}

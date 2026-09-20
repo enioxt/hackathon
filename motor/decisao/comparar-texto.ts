@@ -1,0 +1,19 @@
+// Onde um modelo de decisão deveria ganhar: TEXTO LIVRE. Triagem de relatos de cidadão/pedidos de melhoria. Rótulos escritos antes de rodar.
+import { writeFileSync } from "node:fs";
+const chave = process.env.JEV_KEY; if (!chave) throw new Error("JEV_KEY ausente");
+const T: [string, string][] = [
+ ["nao_clica","cliquei no cartão de cima com o número 132 e não aconteceu nada"],["nao_clica","o botão de abrir a ficha da zona some quando a tela é pequena, não dá pra apertar"],["nao_clica","no celular a seta de próximo não responde ao toque"],
+ ["confuso","abri o painel e não entendi por onde começar, tem muita coisa"],["confuso","o que significa essa etiqueta simulação do lado do número? achei que era dado de verdade"],["confuso","não ficou claro se as câmeras do mapa existem mesmo ou se são só exemplo"],
+ ["ideia_layout","seria melhor o mapa ocupar a tela toda e os números virem numa barra fina em cima"],["ideia_layout","queria uma versão só com um número gigante por vez, pra passar na televisão"],["ideia_layout","podia ter um modo lista, ordenado pelos pontos mais graves"],
+ ["falta_dado","cadê o número de acidentes com moto por horário? só vi o total"],["falta_dado","vocês têm a quantidade real de câmeras da cidade? vi três números diferentes"],["falta_dado","falta mostrar de onde vem o valor do contrato citado na apresentação"],
+ ["outra","parabéns pelo trabalho, ficou muito bom"],["outra","qual o horário da apresentação amanhã?"],["outra","oi, teste"],
+ ["nao_clica","a tabela não rola, fica travada na terceira linha"],["confuso","por que tem dois botões que parecem fazer a mesma coisa, painel e central?"],["falta_dado","esse percentual de 51,8 é de quê? não achei a conta"] ];
+const criterios = { nao_clica: "algo na tela não responde, está quebrado ou inacessível", confuso: "a pessoa não entendeu algo; pede explicação ou clareza", ideia_layout: "sugestão de outra forma de organizar ou apresentar a tela", falta_dado: "pede um número, uma fonte ou um dado que não encontrou", outra: "elogio, pergunta fora do sistema, teste ou assunto não relacionado" };
+const chaveDePalavra = (t: string) => /clic|toque|apert|trava|não respond|nao respond|some|não rola/i.test(t) ? "nao_clica" : /entend|signific|claro|por que|confus/i.test(t) ? "confuso" : /seria melhor|queria|podia|modo|versão/i.test(t) ? "ideia_layout" : /cadê|falta|têm a|de onde|percentual|número de/i.test(t) ? "falta_dado" : "outra";
+let okR = 0, okJ = 0, tok = 0; const ms: number[] = [], errosJ: string[] = [], errosR: string[] = [];
+for (const [rot, txt] of T) { if (chaveDePalavra(txt) === rot) okR++; else errosR.push(`${rot}→${chaveDePalavra(txt)}`);
+  const t0 = performance.now(), r = await fetch("https://api.typesafe.ai/v1/systemone", { method: "POST", headers: { authorization: `Bearer ${chave}`, "content-type": "application/json" }, body: JSON.stringify({ state: txt, model: "jev-latest", questions: { tipo: { type: "choice", instructions: "Que tipo de pedido é esta mensagem enviada por um visitante do painel?", criteria: criterios } } }) });
+  if (!r.ok) throw new Error("HTTP " + r.status); const j = await r.json() as { answers: { tipo: { choice: string; confidence: number } }; usage: { input_tokens: number } }; ms.push(performance.now() - t0); tok += j.usage.input_tokens;
+  if (j.answers.tipo.choice === rot) okJ++; else errosJ.push(`${rot}→${j.answers.tipo.choice} (${j.answers.tipo.confidence})`); }
+ms.sort((a, b) => a - b); const s = { quando: new Date().toISOString(), casos: T.length, palavras_chave: { certos: okR, erros: errosR }, jev: { certos: okJ, erros: errosJ, tokens_por_decisao: Math.round(tok / T.length), ms_mediana: Math.round(ms[Math.floor(ms.length / 2)]) } };
+writeFileSync(import.meta.dir + "/comparacao-texto-resultado.json", JSON.stringify(s, null, 1)); console.log(JSON.stringify(s, null, 1));

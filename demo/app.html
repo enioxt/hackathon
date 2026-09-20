@@ -25,27 +25,34 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 .casco{display:flex;height:100vh}
 
 /* ---------- lateral ---------- */
-.lateral{width:240px;flex:none;background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#dbe7fb;
-  display:flex;flex-direction:column;overflow-y:auto;transition:width .18s ease}
+.lateral{width:256px;flex:none;background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#dbe7fb;
+  display:flex;flex-direction:column;overflow-y:auto;transition:width .18s ease;
+  scrollbar-width:thin;scrollbar-color:rgba(255,255,255,.25) transparent}
+.lateral::-webkit-scrollbar{width:6px}
+.lateral::-webkit-scrollbar-track{background:transparent}
+.lateral::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:999px}
+.lateral::-webkit-scrollbar-thumb:hover{background:rgba(255,255,255,.3)}
 .lateral.recolhida{width:64px}
-.lateral .marca{display:flex;align-items:center;gap:10px;padding:18px 16px 12px;min-height:64px;flex:none;white-space:nowrap;overflow:hidden}
+.lateral .marca{display:flex;align-items:center;gap:10px;padding:16px 14px 12px;min-height:60px;flex:none}
 .lateral .marca-icone{width:32px;height:32px;flex:none;border-radius:9px;background:var(--navy3);display:flex;align-items:center;justify-content:center}
 .lateral .marca-icone i{width:10px;height:10px;border-radius:3px;background:var(--amber);display:block}
-.lateral .marca-nome{font-size:14.5px;font-weight:800;color:#fff;line-height:1.2}
-.lateral .marca-sub{font-size:10.5px;color:#9db3d6}
+.lateral .marca-texto{flex:1;min-width:0}
+.lateral .marca-nome{font-size:14.5px;font-weight:700;color:#fff;line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lateral .marca-sub{font-size:10.5px;color:#a9bcdd;line-height:1.3;margin-top:2px;white-space:normal}
 .lateral.recolhida .marca-texto{display:none}
+.lateral .marca .botao-recolher{margin-left:auto}
 
-.lateral .rotulo-grupo{padding:16px 16px 6px;font-size:11px;line-height:1.4;min-height:36px;flex:none;letter-spacing:.06em;text-transform:uppercase;color:#7d93b6;font-weight:700;white-space:nowrap;overflow:hidden}
+.lateral .rotulo-grupo{padding:16px 16px 6px;font-size:11px;line-height:1.4;min-height:36px;flex:none;letter-spacing:.06em;text-transform:uppercase;color:#93a8c9;font-weight:700;white-space:nowrap;overflow:hidden}
 .lateral.recolhida .rotulo-grupo{padding:14px 0 4px;text-align:center;font-size:0}
 .lateral.recolhida .rotulo-grupo::before{content:"···";font-size:11px}
 
 .menu{display:flex;flex-direction:column;padding:2px 10px;gap:2px}
 .lateral.recolhida .menu{padding:2px 8px}
-.item{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:10px;text-decoration:none;
-  color:#c7d7f0;font-size:13.8px;font-weight:600;position:relative;border:0;background:transparent;width:100%;
-  text-align:left;cursor:pointer;min-height:44px;white-space:nowrap;overflow:hidden}
+.item{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:10px;text-decoration:none;
+  color:#c7d7f0;font-size:13.4px;font-weight:600;position:relative;border:0;background:transparent;width:100%;
+  text-align:left;cursor:pointer;min-height:44px}
 .item .ico{width:18px;height:18px;flex:none;opacity:.85}
-.item .txt{overflow:hidden;text-overflow:ellipsis}
+.item .txt{overflow:hidden;white-space:normal;line-height:1.25;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;word-break:break-word}
 .item .pontinho{width:6px;height:6px;border-radius:50%;background:var(--amber);flex:none;margin-left:auto}
 .lateral.recolhida .item{justify-content:center;padding:10px 0;gap:0}
 .lateral.recolhida .item .txt,.lateral.recolhida .item .pontinho{display:none}
@@ -55,11 +62,17 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 .lateral.recolhida .item.ativo::before{left:2px}
 
 .lateral-fim{margin-top:auto;padding:14px 16px 16px;font-size:11px;color:#8098bd;border-top:1px solid rgba(255,255,255,.08);white-space:nowrap;overflow:hidden}
+.perfil-chip{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.perfil-avatar{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.12);color:#dbe7fb;
+  font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.perfil-nome{font-size:11.5px;color:#a9bcdd;font-weight:600}
 .lateral-fim .frase{color:#c7d7f0;font-weight:600;margin-bottom:6px}
 .lateral-fim a{color:var(--amber);text-decoration:none;font-weight:700}
 .lateral.recolhida .lateral-fim{display:none}
 
-.botao-recolher{margin:8px 10px 4px;align-self:flex-end;background:rgba(255,255,255,.08);border:0;color:#c7d7f0;
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.botao-recolher{background:rgba(255,255,255,.08);border:0;color:#c7d7f0;
   width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none}
 .botao-recolher:hover{background:rgba(255,255,255,.16)}
 .botao-recolher svg{width:16px;height:16px;transition:transform .18s}
@@ -69,15 +82,28 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 .coluna{flex:1;min-width:0;display:flex;flex-direction:column;height:100vh;position:relative}
 
 .cabecalho{height:48px;flex:none;display:flex;align-items:center;gap:10px;padding:0 16px;background:#fff;
-  border-bottom:1px solid var(--border);font-size:13px}
+  border-bottom:1px solid var(--border);box-shadow:0 1px 2px rgba(15,37,68,.03);font-size:13px}
 .cabecalho .btn-gaveta{display:none;background:none;border:0;padding:10px;margin:-6px 0 -6px -8px;min-width:44px;min-height:44px;align-items:center;justify-content:center;cursor:pointer;color:var(--navy)}
-.cabecalho .titulo-atual{font-weight:800;color:#0f2544;font-size:14.5px}
+.cabecalho .titulo-atual{font-weight:700;color:#0f2544;font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:44vw}
 .cabecalho .migalha{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.cabecalho .espaco{flex:1}
-.cabecalho .selo{font-size:11px;color:#8a5a10;background:#fdf3e0;border:1px solid #f0d6a0;border-radius:999px;
-  padding:3px 10px;white-space:nowrap;display:none}
-.cabecalho .relogio{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
-@media(min-width:900px){.cabecalho .selo{display:inline-block}}
+.cabecalho .espaco{flex:1;min-width:0}
+/* selo/relógio permanecem no DOM (script depende do #relogio) mas ficam fora da faixa visível —
+   à direita só o essencial: apresentar · ajuda */
+.cabecalho .selo{display:none}
+.cabecalho .relogio{display:none}
+.cabecalho-acoes{display:flex;align-items:center;gap:8px;flex:none;margin-left:4px}
+.cab-link{font-size:12.5px;font-weight:600;color:var(--navy2);text-decoration:none;background:none;border:0;
+  cursor:pointer;padding:10px 8px;min-height:44px;display:flex;align-items:center;border-radius:8px}
+.cab-link:hover{background:#eef2f8;color:var(--navy)}
+.cab-sep{color:var(--border2);font-size:12px}
+@media(max-width:480px){
+  .cabecalho{padding:0 10px;gap:6px}
+  .cabecalho .titulo-atual{max-width:34vw}
+  .cabecalho .migalha{display:none}
+  .cabecalho-acoes{gap:2px}
+  .cab-sep{display:none}
+  .cab-link{padding:10px 6px;font-size:11.5px}
+}
 
 .progresso{position:absolute;top:0;left:0;height:2px;background:var(--amber);z-index:50;width:0;
   transition:width .3s ease,opacity .2s ease .15s;opacity:0}
@@ -109,7 +135,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 .cameras-controles{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .grade-seletor{display:flex;gap:4px;background:#eef2f8;border-radius:10px;padding:3px}
 .grade-seletor button{border:0;background:transparent;border-radius:8px;min-width:40px;min-height:40px;
-  font-weight:800;font-size:13px;cursor:pointer;color:var(--muted)}
+  font-weight:700;font-size:13px;cursor:pointer;color:var(--muted)}
 .grade-seletor button.ativo{background:var(--navy2);color:#fff}
 .btn-tela-cheia{border:1px solid var(--border2);background:#fff;color:var(--navy2);border-radius:10px;
   padding:0 16px;min-height:40px;font-weight:700;font-size:13px;cursor:pointer}
@@ -139,6 +165,10 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
   .botao-recolher{display:none}
   .cabecalho .btn-gaveta{display:flex}
 }
+
+@media(prefers-reduced-motion:reduce){
+  .lateral,.botao-recolher svg,.item{transition:none}
+}
 </style>
 </head>
 <body>
@@ -146,15 +176,15 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 <div class="casco">
   <nav class="lateral" id="lateral" aria-label="Navegação do aplicativo">
     <div class="marca">
-      <span class="marca-icone"><i></i></span>
+      <span class="marca-icone" aria-hidden="true"><i></i></span>
       <span class="marca-texto">
         <div class="marca-nome">Visão de Rota</div>
-        <div class="marca-sub">gestor</div>
+        <div class="marca-sub">Mobilidade · Patos de Minas</div>
       </span>
+      <button type="button" class="botao-recolher" id="btn-recolher" aria-label="Recolher menu" title="Recolher menu">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
     </div>
-    <button type="button" class="botao-recolher" id="btn-recolher" aria-label="Recolher menu" title="Recolher menu">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
 
     <div class="rotulo-grupo">Operação</div>
     <div class="menu" data-grupo="operacao"></div>
@@ -169,6 +199,10 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
     <div class="menu" data-grupo="mais"></div>
 
     <div class="lateral-fim">
+      <div class="perfil-chip">
+        <span class="perfil-avatar" aria-hidden="true">G</span>
+        <span class="perfil-nome">Gestor</span>
+      </div>
       <div class="frase">A mesma câmera. Outra pergunta.</div>
       <a id="link-apresentacao" href="../index.html">← apresentação</a>
     </div>
@@ -185,6 +219,11 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
       <span class="espaco"></span>
       <span class="selo">demonstração · o que está marcado LENDO AGORA é vídeo público de outra cidade</span>
       <span class="relogio" id="relogio">--:--:--</span>
+      <nav class="cabecalho-acoes" aria-label="Ações">
+        <a id="cab-apresentar" class="cab-link" href="../index.html">Apresentar</a>
+        <span class="cab-sep" aria-hidden="true">·</span>
+        <button type="button" id="cab-ajuda" class="cab-link">Ajuda</button>
+      </nav>
     </header>
     <main class="palco" id="palco"></main>
   </div>
@@ -235,6 +274,8 @@ var DESTINOS = [
   {chave:'ajuda',          grupo:'mais',         rotulo:'Ajuda',                    ico:'ajuda',   local:'/ajuda',           arquivo:'ajuda.html'}
 ];
 var MAPA = {}; DESTINOS.forEach(function(d){ MAPA[d.chave] = d; });
+// rótulo só de exibição na lateral (não altera d.rotulo — cabeçalho/migalha/title seguem completos)
+var ROTULOS_CURTOS = { historico: 'Antes e depois' };
 var GRUPO_ROTULO = {operacao:'Operação', inteligencia:'Inteligência', simuladas:'Fontes simuladas', mais:'Mais'};
 
 // ---------- estado ----------
@@ -260,7 +301,10 @@ var palco = document.getElementById('palco');
     var a = document.createElement('button');
     a.type = 'button'; a.className = 'item'; a.id = 'item-' + d.chave;
     a.setAttribute('data-chave', d.chave);
-    a.innerHTML = '<svg class="ico" viewBox="0 0 24 24" fill="none">' + ICONES[d.ico] + '</svg><span class="txt">' + d.rotulo + '</span>' + (d.sim ? '<span class="pontinho" aria-hidden="true"></span>' : '');
+    var rotuloVisivel = ROTULOS_CURTOS[d.chave] || d.rotulo;
+    a.innerHTML = '<svg class="ico" viewBox="0 0 24 24" fill="none">' + ICONES[d.ico] + '</svg><span class="txt">' + rotuloVisivel + '</span>' + (d.sim ? '<span class="pontinho" title="simulado" aria-hidden="true"></span>' : '');
+    a.title = d.rotulo + (d.sim ? ' (simulado)' : '');
+    a.setAttribute('aria-label', d.rotulo + (d.sim ? ' (simulado)' : ''));
     a.addEventListener('click', function(){ navegarPara(d.chave); fecharGaveta(); });
     host.appendChild(a);
 
@@ -273,6 +317,12 @@ var palco = document.getElementById('palco');
 document.getElementById('link-apresentacao').href = ESTATICO
   ? '../index.html'
   : 'https://enioxt.github.io/hackathon/';
+// cabeçalho: mesma âncora do rodapé lateral, mais o atalho de ajuda (reusa navegarPara já existente)
+var hrefApresentacao = document.getElementById('link-apresentacao').href;
+var cabApresentar = document.getElementById('cab-apresentar');
+if (cabApresentar) cabApresentar.href = hrefApresentacao;
+var cabAjuda = document.getElementById('cab-ajuda');
+if (cabAjuda) cabAjuda.addEventListener('click', function(){ navegarPara('ajuda'); });
 
 // ---------- progresso ----------
 var barraProgresso = document.getElementById('progresso');

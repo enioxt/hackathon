@@ -9,6 +9,7 @@ Estado honesto: protótipo. O leitor de vídeo conta por tipo e foi testado em v
 - [README](https://github.com/enioxt/hackathon/blob/main/README.md): o que usamos, o que medimos, o que temos e o que falta
 - [Para uma IA que vai ler o repositório](https://github.com/enioxt/hackathon/blob/main/PARA-A-IA.md)
 - [Provas: cada número e o script que o recalcula](https://github.com/enioxt/hackathon/blob/main/docs/PROVAS.md)
+- [Mapa do repositório: o que tem em cada pasta, duplicatas, links](https://github.com/enioxt/hackathon/blob/main/docs/MAPA-DO-REPOSITORIO.md)
 
 ## Aplicativo (demonstração)
 - [Entrar como gestor](https://enioxt.github.io/hackathon/demo/entrar.html)

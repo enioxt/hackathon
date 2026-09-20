@@ -2,8 +2,10 @@
 
 > Escrito às 10:55 de sábado 19/09/2026, dia 2 do Hackathon Cidades Inteligentes de Patos de Minas (MG). Este arquivo é o índice de tudo que o time discutiu e produziu até agora, com o caminho de cada coisa. Leia nesta ordem. Tudo aqui é dado público ou entregue ao time; nada de dado policial, nada de dado pessoal.
 
+**Comece por [`llms.txt`](llms.txt)** — índice curto e atual, com link direto para apresentação, aplicativo, provas e código. Este arquivo (`PARA-A-IA.md`) é o diário do time durante o hackathon (sábado e domingo); útil para contexto de como as decisões foram tomadas, mas alguns caminhos e nomes de repositório abaixo são de uma fase anterior — ver nota em cada seção desatualizada. Estrutura atual e inventário medido: [`docs/MAPA-DO-REPOSITORIO.md`](docs/MAPA-DO-REPOSITORIO.md).
+
 ## 0. Em 5 linhas
-Time **Visão de Rota** (nome proposto pelo Rafael). Tema: *Mobilidade Urbana Inteligente e Previsível*. Pergunta central: **quais dados precisamos coletar para descobrir onde as pessoas perdem tempo na mobilidade, e como transformar isso em ação e informação previsível?** Produto fechado na mesa às 10h: **análise das imagens das câmeras que a cidade já tem + consultoria que interpreta**, sem sensor novo, sem app novo. Entrega: domingo 20/09, 16h; banca 17h.
+Time **Visão de Rota**. Tema: *Mobilidade Urbana Inteligente e Previsível*. Pergunta central: **quais dados precisamos coletar para descobrir onde as pessoas perdem tempo na mobilidade, e como transformar isso em ação e informação previsível?** Produto fechado na mesa às 10h: **análise das imagens das câmeras que a cidade já tem + consultoria que interpreta**, sem sensor novo, sem app novo. Entrega: domingo 20/09, 16h; banca 17h.
 
 ## 1. Onde está cada coisa
 
@@ -11,7 +13,7 @@ Time **Visão de Rota** (nome proposto pelo Rafael). Tema: *Mobilidade Urbana In
 |---|---|
 | O objetivo, o nome, a divisão do time, o que coletar hoje, as regras do jogo | `docs/afinar-a-reza.md` (é a 1ª aba do painel; nada ali está decidido, é para o grupo mexer) |
 | O que o time já decidiu nas reuniões de hoje (9h e 10h) | `docs/atas/O-QUE-AS-ATAS-MUDAM.md` (resumo) e as duas atas completas na mesma pasta |
-| O norte do time escrito pelo Rafael (tema, pergunta central, 5 pesquisas) | `docs/briefing-do-time.md` |
+| O norte do time (tema, pergunta central, 5 pesquisas) | `docs/briefing-do-time.md` |
 | Como tudo se liga (câmeras, ônibus, semáforo, bases públicas, pessoas → memória da rua → mapa, ação, placar, prêmio → embaixadores) | `docs/desenho-visao-de-rota.md` (tem um diagrama SVG) |
 | O painel pronto, com mapa de calor, simulador de horário escalonado e prova de cada número | `(retirado do repositório aberto) painel/index.html` — publicado em https://enioxt.github.io/hackathon/painel/ |
 | Os números do transporte coletivo de agosto/2026 ([número do relatório da operadora, fora deste repositório] viagens, [número do relatório da operadora, fora deste repositório] passageiros, pior bloco 06:20, 34.694 h de atraso) | `(retirado do repositório aberto) dados/onibus/agregados-agosto-2026.json` · `perfil-5min-agosto-2026.json` · análise em `(retirado do repositório aberto) docs/analise-dados-agosto.md` · conferência do parser em `(retirado do repositório aberto) dados/onibus/conferencia-do-parser.json` |
@@ -34,9 +36,9 @@ Time **Visão de Rota** (nome proposto pelo Rafael). Tema: *Mobilidade Urbana In
 | Simulação de cobertura por câmeras (10/50/100/400/600) e a curva de concentração: 33 posições → 25% das ocorrências · 94 → 50% · 207 → 75% · 357 → 90% | `motor/simcam.py` (determinístico) → `motor/simcam.json` — é SIMULAÇÃO sobre dado medido; posição é célula de 100 m, não câmera existente |
 | Quanto custa a central mínima (calculadora com todas as premissas editáveis) e a comparação com o que a cidade já gastou | `painel/custos.html` — os valores em R$ são ESTIMATIVA do time, sem cotação |
 | Os 24 prompts para gerar o design no ChatGPT (painel, hub, marca e slides) | `docs/design-prompts/PROMPTS-DESIGN.html` (com botão de copiar) e os 3 `.md` |
-| O hub de ideias público, com entrada pelo GitHub | https://enioxt.github.io/hackathon-dados-publicos/ — repositório `enioxt/hackathon-dados-publicos` (só dado público; os números do transporte coletivo e o parser saíram de lá às 13h38) |
+| O hub de ideias público, com entrada pelo GitHub | https://enioxt.github.io/hackathon/hub/ |
 
-**Mudança importante:** este repositório passou a ser PRIVADO às 13h38 de sábado, porque guarda dado entregue ao time pela operadora. Quem é do time precisa de convite (mande seu usuário do GitHub ao Enio). O painel que estava em `enioxt.github.io/hackathon/painel/` saiu do ar junto.
+**Nota atual (20/09):** as duas linhas acima descrevem uma fase de sábado em que o time chegou a manter um repositório separado (`hackathon-dados-publicos`) e um período em que este repositório ficou privado. Hoje existe **um repositório único e público**, `github.com/enioxt/hackathon`, publicado em `https://enioxt.github.io/hackathon/`. O que era `painel/` na fase antiga hoje é servido a partir de `demo/` (site) e `painel/` (código-fonte do app do gestor) — ver [`docs/MAPA-DO-REPOSITORIO.md`](docs/MAPA-DO-REPOSITORIO.md).
 
 ## 2. As decisões já tomadas (não reabrir sem o grupo)
 1. Só dado público ou entregue ao time. Nenhum dado policial.
@@ -63,8 +65,8 @@ Time **Visão de Rota** (nome proposto pelo Rafael). Tema: *Mobilidade Urbana In
 - Arquivos brutos baixados das fontes públicas (561 MB): listados com sha256 em `dados/publicos/MANIFEST-arquivos-baixados.sha256`; cada fonte tem a URL em `fontes-verificadas.json`.
 - Conversas do grupo de WhatsApp e mensagens de áudio.
 
-## 5b. Repositório PÚBLICO separado (para todos os times)
-`github.com/enioxt/hackathon-dados-publicos` — só o compartilhável: fontes, dados públicos, técnicas, base legal, parcerias, motor, commons. Sem estratégia do time, sem dado da operadora, sem nomes. Este repositório (`hackathon`) é o do time.
+## 5b. Repositório público (histórico: existiu uma separação; hoje é 1 só)
+Na fase inicial do hackathon o time manteve um repositório à parte (`hackathon-dados-publicos`) só com o compartilhável: fontes, dados públicos, técnicas, base legal, parcerias, motor, commons — sem estratégia do time, sem dado da operadora, sem nomes. Essa separação não existe mais: **hoje é um repositório só, `github.com/enioxt/hackathon`, inteiro público**, com as mesmas pastas (`fontes/`, `juridico/`, `tecnicas/`, `commons/`, `motor/`) vivendo lado a lado com o resto.
 
 ## 6. Como um membro (ou a IA dele) contribui
 Abra uma issue com o modelo em `commons/`, ou mande no grupo. Para pedir algo à IA do time no WhatsApp, marque `@egos`. Toda contribuição fica com autoria registrada (`commons/POLITICA.md`).

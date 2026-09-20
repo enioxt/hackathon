@@ -1,4 +1,4 @@
-// cco/fluxo-vivo.ts — gerador de fluxo: serviço à parte (systemd-run --user --unit=egos-hackathon-fluxo).
+// painel/fluxo-vivo.ts — gerador de fluxo: serviço à parte (systemd-run --user --unit=egos-hackathon-fluxo).
 // A cada 10s, para N câmeras sintéticas: (a) gera e ENVIA uma leitura de verdade por POST /api/leituras
 // (a mesma porta que uma câmera real usaria — prova o encanamento ponta a ponta com dado sintético);
 // (b) monta um estado numérico sintético e chama a decisão tipada DE VERDADE; (c) a cada ~5min manda
@@ -7,8 +7,8 @@
 import { readFileSync, existsSync, writeFileSync } from "node:fs";
 import { criarTelemetria, type ResumoGeral } from "./telemetria.ts";
 import { criarGerador, fatorHora, nomeCamera, gerarLeitura } from "./fontes/sintetico.ts";
-import { decidir } from "../5-motor/decisao/decisao.ts";
-import { contratoEvento, motorRegras } from "../5-motor/decisao/evento-de-transito.ts";
+import { decidir } from "../motor/decisao/decisao.ts";
+import { contratoEvento, motorRegras } from "../motor/decisao/evento-de-transito.ts";
 
 const RAIZ = import.meta.dir;
 const SERVIDOR = process.env.CCO_SERVIDOR ?? "http://127.0.0.1:8787";

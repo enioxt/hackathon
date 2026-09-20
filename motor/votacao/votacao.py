@@ -25,7 +25,7 @@ def ler_banco(desde):
     if r.returncode != 0: print('⚪ NÃO-MEDIDO: não consegui ler o grupo —', r.stderr.strip()[:200]); sys.exit(2)
     return r.stdout
 def main():
-    pauta = json.load(open(arg('--pauta', os.path.join(RAIZ, '3-equipe/votacao/pauta-atual.json'))))
+    pauta = json.load(open(arg('--pauta', os.path.join(os.path.dirname(os.path.abspath(__file__)), 'pauta-atual.json'))))
     desde = datetime.datetime.fromisoformat(pauta['aberta_em']).timestamp()
     bruto = open(arg('--mensagens')).read() if arg('--mensagens') else ler_banco(desde)
     validas = {str(p['n']): set(p['opcoes']) for p in pauta['perguntas']}

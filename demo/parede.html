@@ -1085,6 +1085,7 @@ function carregarClipesSeExistir(){
         if(!item.clipe) return;
         var v=document.createElement('video');
         v.className='video-clipe'; v.src=item.clipe; v.muted=true; v.loop=true; v.autoplay=true; v.playsInline=true;
+        if(item.vertical) v.style.objectFit='contain';
         var hudEl=o.el.querySelector('.hud');
         o.el.insertBefore(v, hudEl);
         var selo=document.createElement('div');

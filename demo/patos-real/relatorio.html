@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Primeira leitura em Patos de Minas — Visão de Rota</title>
+<style>
+  :root{
+    --bg:#f3f6fb; --card:#ffffff; --ink:#0b2a4a; --ink-dim:#4b5d73;
+    --azul:#168be0; --verde:#16ae5e; --ambar:#f5b942; --linha:#dfe6f0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Roboto,system-ui,-apple-system,sans-serif;
+       padding:0 16px 60px;}
+  .wrap{max-width:980px;margin:0 auto}
+  header{padding:36px 0 10px}
+  h1{font-size:clamp(1.5rem,4vw,2.3rem);margin:0 0 8px;line-height:1.15}
+  .sub{color:var(--ink-dim);font-size:1.05rem;max-width:60ch;margin:0 0 24px}
+  .numeros-topo{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:36px}
+  .numero-grande{background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:16px;
+                  display:flex;flex-direction:column;gap:4px;position:relative}
+  .numero-grande .v{font-size:1.9rem;font-weight:700;color:var(--azul)}
+  .numero-grande .l{font-size:.82rem;color:var(--ink-dim)}
+  .numero-grande .tag{position:absolute;top:10px;right:10px;font-size:.62rem;font-weight:700;
+                        background:var(--verde);color:#fff;padding:2px 6px;border-radius:5px;letter-spacing:.03em}
+  section{margin-bottom:40px}
+  h2{font-size:1.3rem;margin:0 0 14px;border-left:4px solid var(--azul);padding-left:10px}
+  .cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .cartao{background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:16px}
+  .cartao h3{margin:0 0 6px;font-size:1.02rem}
+  .cartao .meta{color:var(--ink-dim);font-size:.78rem;margin:0 0 10px}
+  .rotulo-medido{font-size:.68rem;font-weight:700;color:var(--verde);letter-spacing:.04em;margin:10px 0 4px}
+  .grafico{display:block;margin:4px 0 10px}
+  .grafico text.rot{font-size:11px;fill:var(--ink-dim)}
+  .grafico text.val{font-size:12px;fill:var(--ink);font-weight:700}
+  .cruz,.atrapalhou{font-size:.82rem;margin:6px 0;color:var(--ink-dim)}
+  .cruz b,.atrapalhou b{color:var(--ink)}
+  .vazio{color:var(--ink-dim);font-size:.82rem;font-style:italic}
+  table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden;
+        border:1px solid var(--linha)}
+  th,td{padding:10px 12px;text-align:right;font-size:.86rem;border-bottom:1px solid var(--linha)}
+  th:first-child,td:first-child{text-align:left}
+  th{background:#eef2f8;color:var(--ink-dim);font-weight:600}
+  .prova-nao{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:640px){.prova-nao{grid-template-columns:1fr}}
+  .prova-nao .bloco{background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:16px}
+  .prova-nao .bloco h4{margin:0 0 8px;font-size:.95rem}
+  .prova-nao .bloco.sim h4{color:var(--verde)}
+  .prova-nao .bloco.nao h4{color:#c0392b}
+  ul{margin:0;padding-left:18px;font-size:.86rem;color:var(--ink-dim)}
+  li{margin-bottom:5px}
+  .rodape{color:var(--ink-dim);font-size:.78rem;margin-top:50px;border-top:1px solid var(--linha);padding-top:16px}
+  .ressalva{background:#fff8e8;border:1px solid #f0dca0;border-radius:10px;padding:10px 14px;font-size:.8rem;
+             color:#7a5a10;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Primeira leitura em Patos de Minas</h1>
+  <p class="sub">Dois celulares, 4 vídeos, 89 segundos de rua. O mesmo leitor que lê as câmeras.</p>
+  <div class="numeros-topo"><div class="numero-grande"><span class="v">89s</span><span class="l">de vídeo lido</span><span class="tag">MEDIDO</span></div><div class="numero-grande"><span class="v">60</span><span class="l">veículos/pessoas distintos vistos</span><span class="tag">MEDIDO</span></div><div class="numero-grande"><span class="v">5</span><span class="l">tipos diferentes distinguidos</span><span class="tag">MEDIDO</span></div><div class="numero-grande"><span class="v">5.42</span><span class="l">quadros/s do leitor, em média, nesta máquina</span><span class="tag">MEDIDO</span></div></div>
+</header>
+
+<section>
+  <h2>Cada vídeo, separado</h2>
+  <div class="cartoes">
+        <div class="cartao">
+          <h3>Celular B — vídeo 1</h3>
+          <p class="meta">23.3s de vídeo · 464x832 · 94 quadros lidos ·
+             4.04 quadros/s do leitor nesta máquina ·
+             a câmera se moveu durante a gravação (a pessoa girou o celular)</p>
+          <video src="web/patos-1.mp4" muted loop autoplay playsinline preload="metadata" style="width:100%;max-width:220px;border-radius:10px;background:#000;display:block;margin:0 auto 12px"></video>
+          <p class="rotulo-medido">MEDIDO — o que o leitor viu (objetos distintos por tipo)</p>
+          <svg viewBox="0 0 520 108" width="100%" height="108" class="grafico">
+        <g transform="translate(0,0)">
+          <text x="0" y="17" class="rot">carro</text>
+          <rect x="140" y="2" width="380.0" height="20" rx="4" fill="#168be0"/>
+          <text x="528.0" y="17" class="val">23</text>
+        </g>
+        <g transform="translate(0,36)">
+          <text x="0" y="17" class="rot">ônibus</text>
+          <rect x="140" y="2" width="33.0" height="20" rx="4" fill="#16ae5e"/>
+          <text x="181.0" y="17" class="val">2</text>
+        </g>
+        <g transform="translate(0,72)">
+          <text x="0" y="17" class="rot">caminhão</text>
+          <rect x="140" y="2" width="16.5" height="20" rx="4" fill="#0b2a4a"/>
+          <text x="164.5" y="17" class="val">1</text>
+        </g></svg>
+          <p class="cruz"><b>Cruzamentos da linha de contagem escolhida:</b> nenhum cruzamento nítido da linha escolhida</p>
+          <p class="atrapalhou"><b>O que atrapalhou:</b> câmera em movimento</p>
+        </div>
+        <div class="cartao">
+          <h3>Celular A — vídeo 2</h3>
+          <p class="meta">4.0s de vídeo · 478x850 · 39 quadros lidos ·
+             9.82 quadros/s do leitor nesta máquina ·
+             a câmera se moveu durante a gravação (a pessoa girou o celular)</p>
+          <video src="web/patos-2.mp4" muted loop autoplay playsinline preload="metadata" style="width:100%;max-width:220px;border-radius:10px;background:#000;display:block;margin:0 auto 12px"></video>
+          <p class="rotulo-medido">MEDIDO — o que o leitor viu (objetos distintos por tipo)</p>
+          <svg viewBox="0 0 520 36" width="100%" height="36" class="grafico">
+        <g transform="translate(0,0)">
+          <text x="0" y="17" class="rot">carro</text>
+          <rect x="140" y="2" width="380.0" height="20" rx="4" fill="#168be0"/>
+          <text x="528.0" y="17" class="val">5</text>
+        </g></svg>
+          <p class="cruz"><b>Cruzamentos da linha de contagem escolhida:</b> nenhum cruzamento nítido da linha escolhida</p>
+          <p class="atrapalhou"><b>O que atrapalhou:</b> câmera em movimento</p>
+        </div>
+        <div class="cartao">
+          <h3>Celular B — vídeo 3</h3>
+          <p class="meta">42.4s de vídeo · 478x850 · 163 quadros lidos ·
+             3.84 quadros/s do leitor nesta máquina ·
+             a câmera se moveu durante a gravação (a pessoa girou o celular)</p>
+          <video src="web/patos-3.mp4" muted loop autoplay playsinline preload="metadata" style="width:100%;max-width:220px;border-radius:10px;background:#000;display:block;margin:0 auto 12px"></video>
+          <p class="rotulo-medido">MEDIDO — o que o leitor viu (objetos distintos por tipo)</p>
+          <svg viewBox="0 0 520 144" width="100%" height="144" class="grafico">
+        <g transform="translate(0,0)">
+          <text x="0" y="17" class="rot">carro</text>
+          <rect x="140" y="2" width="380.0" height="20" rx="4" fill="#168be0"/>
+          <text x="528.0" y="17" class="val">11</text>
+        </g>
+        <g transform="translate(0,36)">
+          <text x="0" y="17" class="rot">ônibus</text>
+          <rect x="140" y="2" width="69.1" height="20" rx="4" fill="#16ae5e"/>
+          <text x="217.1" y="17" class="val">2</text>
+        </g>
+        <g transform="translate(0,72)">
+          <text x="0" y="17" class="rot">caminhão</text>
+          <rect x="140" y="2" width="34.5" height="20" rx="4" fill="#0b2a4a"/>
+          <text x="182.5" y="17" class="val">1</text>
+        </g>
+        <g transform="translate(0,108)">
+          <text x="0" y="17" class="rot">pessoa a pé</text>
+          <rect x="140" y="2" width="34.5" height="20" rx="4" fill="#d64545"/>
+          <text x="182.5" y="17" class="val">1</text>
+        </g></svg>
+          <p class="cruz"><b>Cruzamentos da linha de contagem escolhida:</b> nenhum cruzamento nítido da linha escolhida</p>
+          <p class="atrapalhou"><b>O que atrapalhou:</b> câmera em movimento; confiança baixa em algum tipo (objeto pequeno/distante)</p>
+        </div>
+        <div class="cartao">
+          <h3>Celular A — vídeo 4</h3>
+          <p class="meta">19.6s de vídeo · 478x850 · 78 quadros lidos ·
+             3.98 quadros/s do leitor nesta máquina ·
+             a câmera se moveu durante a gravação (a pessoa girou o celular)</p>
+          <video src="web/patos-4.mp4" muted loop autoplay playsinline preload="metadata" style="width:100%;max-width:220px;border-radius:10px;background:#000;display:block;margin:0 auto 12px"></video>
+          <p class="rotulo-medido">MEDIDO — o que o leitor viu (objetos distintos por tipo)</p>
+          <svg viewBox="0 0 520 144" width="100%" height="144" class="grafico">
+        <g transform="translate(0,0)">
+          <text x="0" y="17" class="rot">carro</text>
+          <rect x="140" y="2" width="380.0" height="20" rx="4" fill="#168be0"/>
+          <text x="528.0" y="17" class="val">11</text>
+        </g>
+        <g transform="translate(0,36)">
+          <text x="0" y="17" class="rot">moto</text>
+          <rect x="140" y="2" width="34.5" height="20" rx="4" fill="#f5b942"/>
+          <text x="182.5" y="17" class="val">1</text>
+        </g>
+        <g transform="translate(0,72)">
+          <text x="0" y="17" class="rot">ônibus</text>
+          <rect x="140" y="2" width="34.5" height="20" rx="4" fill="#16ae5e"/>
+          <text x="182.5" y="17" class="val">1</text>
+        </g>
+        <g transform="translate(0,108)">
+          <text x="0" y="17" class="rot">caminhão</text>
+          <rect x="140" y="2" width="34.5" height="20" rx="4" fill="#0b2a4a"/>
+          <text x="182.5" y="17" class="val">1</text>
+        </g></svg>
+          <p class="cruz"><b>Cruzamentos da linha de contagem escolhida:</b> nenhum cruzamento nítido da linha escolhida</p>
+          <p class="atrapalhou"><b>O que atrapalhou:</b> câmera em movimento; confiança baixa em algum tipo (objeto pequeno/distante)</p>
+        </div></div>
+</section>
+
+<section>
+  <h2>O que o leitor viu, somando os 4 vídeos</h2>
+  <svg viewBox="0 0 520 180" width="100%" height="180" class="grafico">
+        <g transform="translate(0,0)">
+          <text x="0" y="17" class="rot">carro</text>
+          <rect x="140" y="2" width="380.0" height="20" rx="4" fill="#168be0"/>
+          <text x="528.0" y="17" class="val">50</text>
+        </g>
+        <g transform="translate(0,36)">
+          <text x="0" y="17" class="rot">ônibus</text>
+          <rect x="140" y="2" width="38.0" height="20" rx="4" fill="#16ae5e"/>
+          <text x="186.0" y="17" class="val">5</text>
+        </g>
+        <g transform="translate(0,72)">
+          <text x="0" y="17" class="rot">caminhão</text>
+          <rect x="140" y="2" width="22.8" height="20" rx="4" fill="#0b2a4a"/>
+          <text x="170.8" y="17" class="val">3</text>
+        </g>
+        <g transform="translate(0,108)">
+          <text x="0" y="17" class="rot">pessoa a pé</text>
+          <rect x="140" y="2" width="7.6" height="20" rx="4" fill="#d64545"/>
+          <text x="155.6" y="17" class="val">1</text>
+        </g>
+        <g transform="translate(0,144)">
+          <text x="0" y="17" class="rot">moto</text>
+          <rect x="140" y="2" width="7.6" height="20" rx="4" fill="#f5b942"/>
+          <text x="155.6" y="17" class="val">1</text>
+        </g></svg>
+</section>
+
+<section>
+  <h2>Cores vistas (estimativa)</h2>
+  <p class="ressalva">Cor estimada pela imagem — sol forte engana. Mediana da cor no meio de cada veículo rastreado, não do quadro inteiro.</p>
+  <svg viewBox="0 0 520 180" width="100%" height="180" class="grafico">
+        <g transform="translate(0,0)">
+          <text x="0" y="17" class="rot">prata/cinza</text>
+          <rect x="140" y="2" width="380.0" height="20" rx="4" fill="#9aa7b8"/>
+          <text x="528.0" y="17" class="val">31</text>
+        </g>
+        <g transform="translate(0,36)">
+          <text x="0" y="17" class="rot">preto</text>
+          <rect x="140" y="2" width="171.6" height="20" rx="4" fill="#2a3442"/>
+          <text x="319.6" y="17" class="val">14</text>
+        </g>
+        <g transform="translate(0,72)">
+          <text x="0" y="17" class="rot">azul</text>
+          <rect x="140" y="2" width="49.0" height="20" rx="4" fill="#168be0"/>
+          <text x="197.0" y="17" class="val">4</text>
+        </g>
+        <g transform="translate(0,108)">
+          <text x="0" y="17" class="rot">marrom/bege</text>
+          <rect x="140" y="2" width="36.8" height="20" rx="4" fill="#a9805a"/>
+          <text x="184.8" y="17" class="val">3</text>
+        </g>
+        <g transform="translate(0,144)">
+          <text x="0" y="17" class="rot">branco</text>
+          <rect x="140" y="2" width="12.3" height="20" rx="4" fill="#e8edf5"/>
+          <text x="160.3" y="17" class="val">1</text>
+        </g></svg>
+</section>
+
+<section>
+  <h2>Pessoa × máquina — vídeo 3, o mais longo</h2>
+  <p class="ressalva">Amostra de 42 quadros (1 por segundo), contados uma única vez à olho nu. É a primeira medição de erro do projeto em vídeo de Patos — vale mais como direção do que como número final.</p>
+  <table>
+    <thead><tr><th>tipo</th><th>manual</th><th>leitor</th><th>diferença</th><th>erro</th></tr></thead>
+    <tbody><tr><td>carro</td><td>4</td><td>11</td><td>+7</td><td>175%</td></tr>
+<tr><td>moto</td><td>1</td><td>0</td><td>-1</td><td>100%</td></tr>
+<tr><td>ônibus</td><td>1</td><td>2</td><td>+1</td><td>100%</td></tr>
+<tr><td>caminhão</td><td>0</td><td>1</td><td>+1</td><td>∞</td></tr></tbody>
+  </table>
+  <p class="cruz">contagem unica, feita a olho em 42 quadros extraidos a 1/s; 1 SUV escuro nos ultimos quadros ainda se aproximando quando o video acaba (nao contado, nao completou a travessia); 1 possivel veiculo adicional ao fundo, desfocado, nao classificavel (nao contado).</p>
+</section>
+
+<section>
+  <h2>O que isto prova e o que não prova</h2>
+  <div class="prova-nao">
+    <div class="bloco sim">
+      <h4>Prova</h4>
+      <ul>
+        <li>O leitor roda em vídeo real de Patos de Minas, gravado hoje, sem preparo.</li>
+        <li>Roda numa máquina comum (CPU, sem placa de vídeo dedicada).</li>
+        <li>Separa carro, moto, ônibus, caminhão e pessoa a pé, sem guardar rosto nem placa.</li>
+        <li>O leitor aceita vídeo deitado ou em pé, de câmera fixa ou de celular, em vários formatos de arquivo — o que interessa é a imagem.</li>
+      </ul>
+    </div>
+    <div class="bloco nao">
+      <h4>Não prova</h4>
+      <ul>
+        <li>Não é contagem de tráfego (vídeo curto, celular na mão, altura da rua).</li>
+        <li>Nada sobre as câmeras da cidade especificamente.</li>
+        <li>Nada sobre horário de pico ou padrão de fluxo ao longo do dia.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Como foi feito</h2>
+  <ul>
+    <li>Dois celulares do time, câmera na mão, em pé, num cruzamento da região central de Patos de Minas, por volta de 12h50 de hoje.</li>
+    <li>Vídeo enviado por aplicativo de mensagem — que comprime o arquivo e apaga a data e a localização do metadado (por isso o relatório não cita hora exata nem coordenada).</li>
+    <li>Leitor: YOLO11n + ByteTrack, rodando em CPU, sem GPU.</li>
+    <li>Nada de rosto nem placa é guardado; áudio foi descartado nos vídeos públicos.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>As duas posições de filmagem</h2>
+  <p class="ressalva">Esquema aproximado, feito a partir do que aparece em comum nas imagens (faixa de pedestre, poste com câmera, vaga de acessibilidade, fila de motos) — não é planta oficial, sem nome de rua.</p>
+  <div style="max-width:520px;margin:0 auto;background:var(--card);border:1px solid var(--linha);border-radius:14px;padding:12px"><svg viewBox="0 0 640 420" xmlns="http://www.w3.org/2000/svg" font-family="Inter,Roboto,system-ui,sans-serif">
+  <rect x="0" y="0" width="640" height="420" fill="#f3f6fb"/>
+  <!-- ruas -->
+  <rect x="0" y="180" width="640" height="70" fill="#dfe6f0"/>
+  <rect x="270" y="0" width="70" height="420" fill="#dfe6f0"/>
+  <line x1="0" y1="215" x2="640" y2="215" stroke="#ffffff" stroke-width="2" stroke-dasharray="10 8"/>
+  <line x1="305" y1="0" x2="305" y2="420" stroke="#ffffff" stroke-width="2" stroke-dasharray="10 8"/>
+  <!-- faixa de pedestre -->
+  <g fill="#ffffff">
+    <rect x="270" y="185" width="8" height="14"/><rect x="286" y="185" width="8" height="14"/>
+    <rect x="302" y="185" width="8" height="14"/><rect x="318" y="185" width="8" height="14"/>
+    <rect x="334" y="185" width="8" height="14"/>
+  </g>
+  <!-- quarteirões -->
+  <rect x="20" y="20" width="220" height="130" rx="6" fill="#ffffff" stroke="#c8d3e2"/>
+  <text x="30" y="42" font-size="12" fill="#4b5d73">prédio (fachada com brise)</text>
+  <rect x="370" y="20" width="240" height="130" rx="6" fill="#ffffff" stroke="#c8d3e2"/>
+  <text x="380" y="42" font-size="12" fill="#4b5d73">prédios residenciais</text>
+  <rect x="20" y="280" width="220" height="120" rx="6" fill="#ffffff" stroke="#c8d3e2"/>
+  <text x="30" y="302" font-size="12" fill="#4b5d73">vaga de acessibilidade + motos</text>
+  <rect x="370" y="280" width="240" height="120" rx="6" fill="#ffffff" stroke="#c8d3e2"/>
+  <text x="380" y="302" font-size="12" fill="#4b5d73">comércio / estacionamento</text>
+
+  <!-- poste com câmera dome (posição B, no cruzamento maior) -->
+  <circle cx="345" cy="205" r="5" fill="#0b2a4a"/>
+  <circle cx="345" cy="195" r="7" fill="#168be0" stroke="#0b2a4a" stroke-width="1.5"/>
+  <text x="356" y="200" font-size="11" fill="#0b2a4a" font-weight="700">câmera da cidade (já existe)</text>
+
+  <!-- ponto A -->
+  <circle cx="90" cy="260" r="9" fill="#f5b942" stroke="#0b2a4a" stroke-width="1.5"/>
+  <text x="90" y="264" font-size="10" text-anchor="middle" font-weight="700" fill="#0b2a4a">A</text>
+  <path d="M90,260 L230,215 L230,255 Z" fill="#f5b942" opacity="0.18"/>
+  <text x="60" y="245" font-size="11" fill="#7a5a10">celular 2 e 4</text>
+
+  <!-- ponto B -->
+  <circle cx="250" cy="160" r="9" fill="#16ae5e" stroke="#0b2a4a" stroke-width="1.5"/>
+  <text x="250" y="164" font-size="10" text-anchor="middle" font-weight="700" fill="#ffffff">B</text>
+  <path d="M250,160 L340,210 L400,175 Z" fill="#16ae5e" opacity="0.18"/>
+  <text x="252" y="145" font-size="11" fill="#0b6b38">celular 1 e 3</text>
+
+  <text x="20" y="415" font-size="10.5" fill="#7a8699">Esquema aproximado, feito a partir das imagens dos 2 celulares — não é planta oficial, sem nome de rua.</text>
+</svg>
+</div>
+  <p class="ressalva" style="background:#eaf2ff;border-color:#bcd8f7;color:#0b2a4a">
+    Existe uma câmera fixa da cidade no poste do cruzamento, visível no vídeo 3 — é esse tipo de câmera que o projeto propõe ler.
+  </p>
+  <h3 style="font-size:.95rem;margin:18px 0 8px">O que a cena tem e o modelo não marca</h3>
+  <ul>
+    <li>Faixa de pedestre pintada no chão</li>
+    <li>Vaga de acessibilidade (símbolo de cadeirante na calçada)</li>
+    <li>Poste de iluminação com a câmera dome da cidade já instalada</li>
+    <li>Árvores e canteiro central com bolardos</li>
+    <li>Fileira de motos estacionadas encostadas no meio-fio</li>
+  </ul>
+  <p class="ressalva">Isto vira exemplo de marcação humana — o leitor detecta carro/moto/ônibus/caminhão/pessoa, não esses elementos fixos da via.</p>
+</section>
+
+<section>
+  <h2>Próximo passo</h2>
+  <p>Filmar 10 minutos parado, do alto, no mesmo cruzamento, e contar à mão — para ter uma base de comparação mais longa que os 42s desta primeira amostra.</p>
+</section>
+
+<div class="rodape">Gerado em 2026-09-20 · todo número desta página vem de <code>numeros.json</code>, medido nos 4 vídeos.</div>
+</div>
+</body>
+</html>

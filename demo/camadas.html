@@ -527,7 +527,7 @@ function atualizarLegendaRodape(){
     document.getElementById("sb-atribuicao").textContent = c.credito;
     var r = document.getElementById("rodape-legenda"); r.textContent = "";
     var bb = document.createElement("b"); bb.textContent = c.nome; r.appendChild(bb);
-    r.appendChild(document.createTextNode(" — " + c.credito + " (não é Patos de Minas). "));
+    r.appendChild(document.createTextNode(" — " + c.credito + (/patos/i.test(c.cidade||"") ? ". " : " (não é Patos de Minas). ")));
     var g = document.createElement("b"); g.textContent = "GRAVADO" + (c.gravado_em ? " em " + c.gravado_em : "") + " — não é transmissão. "; r.appendChild(g);
     if (c.url_origem && /^https:\/\//.test(c.url_origem)){ var l = document.createElement("a"); l.href = c.url_origem; l.target = "_blank"; l.rel = "noopener"; l.textContent = "abrir a transmissão original →"; l.id = "link-origem"; r.appendChild(l); }
     var sc = document.getElementById("seletor-clipe"); if (sc) sc.value = String(st.clipeAtual||0);

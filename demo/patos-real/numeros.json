@@ -1,0 +1,168 @@
+{
+  "gerado_em": "2026-09-20",
+  "total_segundos_de_video": 89.3,
+  "total_veiculos_distintos_vistos": 60,
+  "total_por_tipo": {
+    "automovel": 50,
+    "onibus": 5,
+    "caminhao": 3,
+    "pedestre": 1,
+    "moto": 1
+  },
+  "fps_medio_leitor_nesta_maquina": 5.42,
+  "videos": {
+    "patos-1": {
+      "duracao_s": 23.29,
+      "resolucao": "464x832",
+      "fps_origem": 59.94,
+      "celular": "B",
+      "quadros_lidos": 94,
+      "quadros_por_s_leitor_nesta_maquina": 4.04,
+      "objetos_distintos_por_tipo": {
+        "automovel": 23,
+        "onibus": 2,
+        "caminhao": 1
+      },
+      "maximo_simultaneo_na_cena": 7,
+      "cruzamentos_por_tipo": {},
+      "cruzamentos_total": 0,
+      "linha_escolhida_descricao": "horizontal y=0.3",
+      "confianca_media_geral": 0.647,
+      "confianca_media_por_tipo": {
+        "automovel": 0.649,
+        "onibus": 0.582,
+        "caminhao": 0.43
+      },
+      "camera_em_movimento": true,
+      "diferenca_media_fundo_0_255": 6.95,
+      "cores_totais": {
+        "prata_cinza": 13,
+        "preto": 7,
+        "marrom_bege": 3
+      },
+      "cores_por_classe": {
+        "automovel:prata_cinza": 13,
+        "automovel:preto": 7,
+        "automovel:marrom_bege": 2,
+        "onibus:marrom_bege": 1
+      }
+    },
+    "patos-2": {
+      "duracao_s": 3.97,
+      "resolucao": "478x850",
+      "fps_origem": 30.0,
+      "celular": "A",
+      "quadros_lidos": 39,
+      "quadros_por_s_leitor_nesta_maquina": 9.82,
+      "objetos_distintos_por_tipo": {
+        "automovel": 5
+      },
+      "maximo_simultaneo_na_cena": 3,
+      "cruzamentos_por_tipo": {},
+      "cruzamentos_total": 0,
+      "linha_escolhida_descricao": "horizontal y=0.3",
+      "confianca_media_geral": 0.731,
+      "confianca_media_por_tipo": {
+        "automovel": 0.731
+      },
+      "camera_em_movimento": true,
+      "diferenca_media_fundo_0_255": 4.14,
+      "cores_totais": {
+        "preto": 2,
+        "prata_cinza": 3
+      },
+      "cores_por_classe": {
+        "automovel:preto": 2,
+        "automovel:prata_cinza": 3
+      }
+    },
+    "patos-3": {
+      "duracao_s": 42.44,
+      "resolucao": "478x850",
+      "fps_origem": 30.0,
+      "celular": "B",
+      "quadros_lidos": 163,
+      "quadros_por_s_leitor_nesta_maquina": 3.84,
+      "objetos_distintos_por_tipo": {
+        "automovel": 11,
+        "onibus": 2,
+        "caminhao": 1,
+        "pedestre": 1
+      },
+      "maximo_simultaneo_na_cena": 3,
+      "cruzamentos_por_tipo": {},
+      "cruzamentos_total": 0,
+      "linha_escolhida_descricao": "horizontal y=0.3",
+      "confianca_media_geral": 0.69,
+      "confianca_media_por_tipo": {
+        "automovel": 0.682,
+        "onibus": 0.76,
+        "caminhao": 0.37,
+        "pedestre": 0.463
+      },
+      "camera_em_movimento": true,
+      "diferenca_media_fundo_0_255": 13.38,
+      "cores_totais": {
+        "prata_cinza": 9,
+        "azul": 3,
+        "branco": 1
+      },
+      "cores_por_classe": {
+        "automovel:prata_cinza": 7,
+        "automovel:azul": 3,
+        "onibus:prata_cinza": 2,
+        "automovel:branco": 1
+      }
+    },
+    "patos-4": {
+      "duracao_s": 19.6,
+      "resolucao": "478x850",
+      "fps_origem": 30.0,
+      "celular": "A",
+      "quadros_lidos": 78,
+      "quadros_por_s_leitor_nesta_maquina": 3.98,
+      "objetos_distintos_por_tipo": {
+        "automovel": 11,
+        "moto": 1,
+        "onibus": 1,
+        "caminhao": 1
+      },
+      "maximo_simultaneo_na_cena": 5,
+      "cruzamentos_por_tipo": {},
+      "cruzamentos_total": 0,
+      "linha_escolhida_descricao": "horizontal y=0.3",
+      "confianca_media_geral": 0.628,
+      "confianca_media_por_tipo": {
+        "automovel": 0.634,
+        "moto": 0.27,
+        "onibus": 0.54,
+        "caminhao": 0.65
+      },
+      "camera_em_movimento": true,
+      "diferenca_media_fundo_0_255": 7.85,
+      "cores_totais": {
+        "prata_cinza": 6,
+        "preto": 5,
+        "azul": 1
+      },
+      "cores_por_classe": {
+        "automovel:prata_cinza": 6,
+        "automovel:preto": 4,
+        "automovel:azul": 1,
+        "moto:preto": 1
+      }
+    }
+  },
+  "conferencia_manual_patos_3": {
+    "amostra_quadros_1_por_s": 42,
+    "manual": {
+      "automovel": 4,
+      "moto": 1,
+      "onibus": 1,
+      "caminhao": 0
+    },
+    "observacoes": "contagem unica, feita a olho em 42 quadros extraidos a 1/s; 1 SUV escuro nos ultimos quadros ainda se aproximando quando o video acaba (nao contado, nao completou a travessia); 1 possivel veiculo adicional ao fundo, desfocado, nao classificavel (nao contado)."
+  },
+  "metadados_originais_apagados_pelo_app_de_mensagem": true,
+  "camera_na_mao_em_pe": true
+}

@@ -105,6 +105,11 @@ table.entidades tr.sel{background:#2a2110}
 .resumoCard h3{color:var(--a);margin:0 0 10px}
 .resumoCard .l{display:flex;justify-content:space-between;padding:3px 0;font-size:13px;border-bottom:1px dotted var(--b)}
 .resumoCard button{margin-top:12px;background:var(--a);color:#111;border:none;border-radius:6px;padding:7px 14px;font-weight:700;cursor:pointer}
+
+/* regra do dono (20/09): sem dado real do vídeo, não mostra número. Tela sem câmera = só o aviso, em vermelho. */
+.tela:not(.tem-video) .cont,.tela:not(.tem-video) .rod,.tela:not(.tem-video) canvas{display:none!important}
+.tela.tem-video .hud,.tela.tem-video .cont,.tela.tem-video .rod{display:none!important}
+.tela .sem-cam{color:#fff!important;background:#c0392b;display:inline-block;left:50%!important;right:auto!important;transform:translateX(-50%);padding:5px 10px;border-radius:7px;letter-spacing:.04em;white-space:nowrap}
 </style></head><body>
 <header><b>VISÃO DE ROTA · PAREDE DE MONITORES</b><span class=tag>SIMULAÇÃO — nenhuma câmera real está ligada</span>
 <a href="app.html">← aplicativo</a>
@@ -555,7 +560,7 @@ function laco(t){
     if(o.el.classList.contains('tem-video')) return;            // vídeo de verdade: não desenha nem simula por baixo
     if(EMB){                                                     // embutida: tela sem câmera fica PARADA (não gasta máquina)
       if(o._parada) return; desenhar2D(o); o._parada=true; o.el.style.opacity='.42';
-      const av=document.createElement('div'); av.className='sem-cam'; av.textContent='sem câmera ligada'; av.style.cssText='position:absolute;inset:auto 0 42% 0;text-align:center;font:700 11px ui-monospace,monospace;color:#c9d6e6;letter-spacing:.06em;z-index:3;pointer-events:none'; o.el.appendChild(av);
+      const av=document.createElement('div'); av.className='sem-cam'; av.textContent='sem câmera ligada · DADO SINTÉTICO'; av.style.cssText='position:absolute;inset:auto 0 42% 0;text-align:center;font:700 11px ui-monospace,monospace;color:#c9d6e6;letter-spacing:.06em;z-index:3;pointer-events:none'; o.el.appendChild(av);
       return;
     }
     fisica(o,dt);desenhar2D(o)});

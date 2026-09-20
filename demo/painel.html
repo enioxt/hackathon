@@ -406,7 +406,7 @@ table.memoria tr:last-child td{border-bottom:0}
     <header class="topo">
       <h1>Visão de Rota — Patos de Minas</h1>
       <p class="sub">Contagem de trânsito por câmera existente, sem rosto e sem placa — medindo antes e depois de cada mudança na via.</p>
-      <p class="legenda-cores"><span class="selo medido">DADO REAL · MEDIDO</span> = dado real, medido. <span class="selo sintetico">DADO SINTÉTICO · exemplo</span> = dado sintético, só exemplo.</p>
+      <p class="legenda-cores"><span class="selo medido">DADO REAL · MEDIDO</span> = dado real: ou registro oficial (anos) ou contado no vídeo (minutos) — cada cartão diz qual. <span class="selo sintetico">DADO SINTÉTICO · exemplo</span> = dado sintético, só exemplo.</p>
       <div class="fila-fontes" id="fila-fontes"></div>
     </header>
 
@@ -1085,11 +1085,14 @@ function montarKPIsGeral(){
   var icoSino = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M6 16v-4.5a6 6 0 0 1 12 0V16l1.5 2.2H4.5L6 16Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/><path d="M9.5 19a2.5 2.5 0 0 0 5 0" stroke="#fff" stroke-width="1.7"/></svg>';
 
   var r = DADOS_REAIS_HOJE;
-  var seloReal = seloHTML({texto:"DADO REAL · MEDIDO",classe:"medido"});
-  wrap.appendChild(card("b", icoCarro, "Sinistros de trânsito em Patos", r.sinistros.toLocaleString("pt-BR")+seloReal, null, r.fonteRenaest));
-  wrap.appendChild(card("r", icoAlerta, "Sinistros com moto envolvida", r.sinistrosComMotoPct+'% <span class="un">('+r.sinistrosComMoto.toLocaleString("pt-BR")+')</span>'+seloReal, null, r.fonteRenaest));
-  wrap.appendChild(card("a", icoOcorr, "Ocorrências georreferenciadas", r.ocorrenciasGeo.toLocaleString("pt-BR")+seloReal, r.ocorrenciasGraves+" graves ou fatais · "+r.ocorrenciasFatais+" fatais", r.fonteSejusp));
-  wrap.appendChild(card("g", icoSino, "Veículos e pessoas contados nos vídeos de hoje", String(r.videosTotal)+seloReal, r.videosContagem.automovel+" automóveis · "+r.videosContagem.pedestre+" pedestres · "+r.videosContagem.moto+" motos · "+r.videosContagem.onibus+" ônibus · "+r.videosJanelaS+" s somados", r.fonteVideos));
+  /* duas origens diferentes de dado real — nunca misturar: registro oficial (anos) x o que a máquina contou no vídeo (minutos) */
+  var seloOficial = seloHTML({texto:"DADO REAL · registro oficial",classe:"medido"});
+  var seloVideo = seloHTML({texto:"DADO REAL · contado no vídeo",classe:"medido"});
+  var min = Math.floor(r.videosJanelaS/60), seg = r.videosJanelaS%60;
+  wrap.appendChild(card("g", icoSino, "A máquina contou, nos vídeos gravados hoje em Patos", String(r.videosTotal)+' <span class="un">em '+min+' min '+seg+' s de vídeo</span>'+seloVideo, r.videosContagem.automovel+" automóveis · "+r.videosContagem.pedestre+" pedestres · "+r.videosContagem.moto+" motos · "+r.videosContagem.onibus+" ônibus — 6 vídeos curtos de celular", "leitura do nosso contador · só 1 dos 6 vídeos foi conferido à mão (4 carros e 1 moto, igual à máquina)"));
+  wrap.appendChild(card("b", icoCarro, "Acidentes de trânsito registrados em Patos — em 8 anos", r.sinistros.toLocaleString("pt-BR")+seloOficial, "não vem do vídeo: é o registro público de 2018 a ago/2026", r.fonteRenaest));
+  wrap.appendChild(card("r", icoAlerta, "Desses acidentes, com moto envolvida", r.sinistrosComMotoPct+'% <span class="un">('+r.sinistrosComMoto.toLocaleString("pt-BR")+')</span>'+seloOficial, "não vem do vídeo: mesma base pública", r.fonteRenaest));
+  wrap.appendChild(card("a", icoOcorr, "Ocorrências com endereço no mapa — 2025 e início de 2026", r.ocorrenciasGeo.toLocaleString("pt-BR")+seloOficial, r.ocorrenciasGraves+" graves ou fatais · "+r.ocorrenciasFatais+" fatais — não vem do vídeo", r.fonteSejusp));
 }
 
 /* =================== lista de alertas (visão geral) =================== */

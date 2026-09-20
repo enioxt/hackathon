@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Visão de Rota — pitch</title>
+<style>
+  @page { size: 1920px 1080px; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1920px; }
+  body {
+    font-family: -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
+    background: #f3f6fb;
+    color: #1b2433;
+  }
+
+  :root {
+    --navy: #0b2a4a;
+    --navy2: #12335e;
+    --blue: #168be0;
+    --amber: #f5b942;
+    --bg: #f3f6fb;
+    --card: #ffffff;
+    --muted: #5c6b82;
+    --border: #dbe3f0;
+    --red: #c0392b;
+    --green: #1e8e5a;
+  }
+
+  .slide {
+    width: 1920px;
+    height: 1080px;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg);
+    page-break-after: always;
+    display: flex;
+    flex-direction: column;
+  }
+  .slide:last-child { page-break-after: auto; }
+
+  .topbar { position: absolute; top: 0; left: 0; right: 0; height: 12px; background: var(--blue); z-index: 5; }
+
+  .footer {
+    flex-shrink: 0;
+    height: 76px;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 64px;
+    color: #cfe0f5;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .footer .right { color: #ffffff; font-weight: 700; text-transform: none; letter-spacing: normal; }
+
+  .content { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 40px 96px; overflow: hidden; }
+
+  .kicker {
+    color: var(--blue);
+    font-weight: 800;
+    font-size: 30px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  /* ===== Slide 1 — Abertura ===== */
+  .s1content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; }
+  .s1bg { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0.12; z-index: 0; }
+  .s1inner { position: relative; z-index: 1; }
+  .s1inner .frase { font-size: 142px; font-weight: 800; color: var(--navy); line-height: 1.1; max-width: 1750px; }
+  .s1inner .nome { margin-top: 54px; font-size: 60px; font-weight: 800; color: var(--blue); letter-spacing: 0.01em; }
+  .s1inner .sub { margin-top: 20px; font-size: 36px; color: var(--muted); }
+  .s1inner .bar { width: 180px; height: 10px; background: var(--amber); margin: 46px auto 0; border-radius: 5px; }
+
+  /* ===== Slide 2 — Problema ===== */
+  .s2 h1 { font-size: 80px; font-weight: 800; color: var(--navy); line-height: 1.18; max-width: 1750px; }
+  .s2 .quemsofre { margin-top: 26px; font-size: 42px; color: var(--muted); max-width: 1700px; font-weight: 500; }
+  .numgrid { display: flex; gap: 36px; margin-top: 56px; width: 100%; }
+  .numcard { flex: 1; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 40px 36px 34px; }
+  .numcard .num { font-size: 140px; font-weight: 800; color: var(--navy); line-height: 1; letter-spacing: -3px; }
+  .numcard .num.tight { font-size: 118px; letter-spacing: -4px; }
+  .numcard .num span.accent { color: var(--blue); }
+  .numcard .desc { margin-top: 20px; font-size: 30px; color: #2b3648; font-weight: 700; line-height: 1.3; }
+  .numcard .fonte { margin-top: 18px; font-size: 24px; color: var(--muted); }
+  .footnote { margin-top: 36px; font-size: 26px; color: var(--muted); }
+
+  /* ===== Slide 3 — Por isso criamos ===== */
+  .s3 h1 { font-size: 74px; font-weight: 800; color: var(--navy); }
+  .s3 h1 .brand { color: var(--blue); }
+  .rows { margin-top: 48px; display: flex; flex-direction: column; gap: 24px; }
+  .row { display: flex; align-items: center; gap: 32px; background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 34px 44px; }
+  .row .dor { flex: 1; font-size: 44px; color: var(--red); font-weight: 700; }
+  .row .seta { font-size: 56px; color: var(--amber); font-weight: 800; }
+  .row .func { flex: 1.3; font-size: 44px; color: var(--navy); font-weight: 700; }
+  .row.solo { justify-content: center; text-align: center; font-size: 48px; color: var(--navy); font-weight: 700; }
+  .valueprop { margin-top: 40px; background: var(--navy); color: #fff; border-radius: 20px; padding: 36px 48px; font-size: 38px; font-weight: 600; line-height: 1.4; }
+
+  /* ===== Slide 4 — Demonstração (moldura + quadro real + painel MEDIDO) ===== */
+  .sdemo { padding-top: 30px; }
+  .sdemo h1 { font-size: 50px; font-weight: 800; color: var(--navy); margin-top: 0; text-align: center; line-height: 1.2; }
+  .demoframe { display: flex; align-items: flex-start; justify-content: center; gap: 64px; margin-top: 26px; }
+  .demovideo { position: relative; width: 340px; flex-shrink: 0; }
+  .demovideo img { width: 100%; display: block; border-radius: 20px; border: 4px solid var(--navy); box-shadow: 0 18px 40px rgba(11,42,74,0.25); }
+  .demovideo .cap { margin-top: 14px; font-size: 22px; color: var(--muted); text-align: center; font-style: italic; }
+  .painel { width: 520px; background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 30px 36px; box-shadow: 0 14px 34px rgba(11,42,74,0.1); margin-top: 20px; }
+  .painel .tag { display: inline-block; background: #e9f7ef; color: var(--green); font-weight: 800; font-size: 20px; letter-spacing: 0.06em; padding: 6px 16px; border-radius: 20px; margin-bottom: 18px; }
+  .painel .linhaes { display: flex; flex-direction: column; gap: 12px; }
+  .painel .li { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid var(--border); padding-bottom: 10px; font-size: 26px; color: var(--navy); font-weight: 600; }
+  .painel .li:last-child { border-bottom: none; }
+  .painel .li .v { font-size: 36px; font-weight: 800; color: var(--blue); }
+  .painel .fonte { margin-top: 16px; font-size: 19px; color: var(--muted); }
+  .painel .demofrase { margin-top: 26px; font-size: 30px; font-weight: 700; color: var(--navy); text-align: left; line-height: 1.3; }
+
+  /* ===== Slide 5 — Análise + decisão (insight) ===== */
+  .sinsight { position: relative; }
+  .sinsight .content { position: relative; z-index: 2; align-items: center; }
+  .insightbg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
+  .insightbg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6,14,28,0.88) 0%, rgba(6,14,28,0.78) 55%, rgba(6,14,28,0.92) 100%); }
+  .sinsight h1 { font-size: 64px; font-weight: 800; color: #fff; text-align: center; }
+  .sinsight h1 .accent2 { color: var(--amber); }
+  .insightcard { margin-top: 40px; }
+  .insightcard img { width: 560px; border-radius: 20px; box-shadow: 0 24px 50px rgba(0,0,0,0.4); display: block; }
+
+  /* ===== Slide 6 — Sustentação ===== */
+  .s6 h1 { font-size: 66px; font-weight: 800; color: var(--navy); }
+  .s6cols { display: flex; gap: 60px; margin-top: 44px; align-items: flex-start; }
+  .col { flex: 1; }
+  .stairs { display: flex; align-items: flex-end; gap: 20px; height: 340px; }
+  .stepbox { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px 20px 22px; box-shadow: 0 6px 16px rgba(11,42,74,0.08); }
+  .stepbox .n { width: 52px; height: 52px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 28px; margin-bottom: 14px; }
+  .stepbox .t { font-size: 30px; font-weight: 700; color: var(--navy); line-height: 1.25; }
+  .comeca { margin-top: 26px; background: #eef5ff; border: 1px solid var(--border); border-radius: 16px; padding: 28px 32px; font-size: 30px; color: #223; line-height: 1.4; font-weight: 500; }
+  .econ { background: var(--navy); color: #fff; border-radius: 18px; padding: 34px 38px; }
+  .econ .line { font-size: 28px; margin-bottom: 20px; line-height: 1.35; }
+  .econ .line:last-child { margin-bottom: 0; }
+  .econ .bignum { font-size: 80px; font-weight: 800; color: var(--amber); display: block; margin-bottom: 4px; }
+  .econ .fonte { font-size: 20px; color: #b9cde8; }
+  .fraseforte { margin-top: 24px; font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1.35; }
+  .falta { margin-top: 22px; background: #fdf1d6; border: 1px solid #ecd9a6; border-radius: 12px; padding: 18px 26px; font-size: 24px; color: #6b4e12; font-weight: 600; }
+
+  /* ===== Slide 7 — Time + fechamento ===== */
+  .s7content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 100px; }
+  .s7content .time { font-size: 30px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+  .teamlist { margin-top: 22px; display: flex; flex-direction: column; gap: 10px; }
+  .teamlist .tl { font-size: 34px; color: var(--navy); font-weight: 600; }
+  .teamlist .tl .editable { color: var(--blue); font-weight: 700; border-bottom: 3px dashed var(--blue); padding-bottom: 2px; }
+  .s7content .fecho { margin-top: 40px; font-size: 112px; font-weight: 800; color: var(--navy); line-height: 1.12; max-width: 1650px; }
+  .s7bottom { margin-top: 50px; display: flex; align-items: center; gap: 36px; }
+  .s7content .addr { font-size: 46px; font-weight: 800; color: #fff; background: var(--blue); padding: 22px 50px; border-radius: 16px; letter-spacing: 0.01em; }
+  .qrbox { background: #fff; border-radius: 14px; padding: 10px; border: 2px solid var(--border); }
+  .qrbox svg { display: block; width: 170px; height: 170px; }
+</style>
+</head>
+<body>
+
+<!-- SLIDE 1 — Abertura -->
+<section class="slide">
+  <div class="topbar"></div>
+  <div class="s1content">
+    <div class="s1bg" style="background-image:url('pitch-prints/hi-parede.png');"></div>
+    <div class="s1inner">
+      <div class="frase">A mesma câmera.<br>Outra pergunta.</div>
+      <div class="bar"></div>
+      <div class="nome">Visão de Rota</div>
+      <div class="sub">Hackathon Cidades Inteligentes · Patos de Minas</div>
+    </div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">A cidade já enxerga.</div>
+  </div>
+</section>
+
+<!-- SLIDE 2 — Problema + 3 números -->
+<section class="slide">
+  <div class="topbar"></div>
+  <div class="content s2">
+    <div class="kicker">O problema</div>
+    <h1>A cidade já tem centenas de câmeras.<br>Hoje elas gravam. Ainda não contam.</h1>
+
+    <div class="numgrid">
+      <div class="numcard">
+        <div class="num tight">22.708</div>
+        <div class="desc">sinistros em Patos, 2018–ago/2026</div>
+        <div class="fonte">RENAEST, dado aberto federal · extração de 13/08/2026 · MEDIDO</div>
+      </div>
+      <div class="numcard">
+        <div class="num"><span class="accent">30%</span></div>
+        <div class="desc">dos sinistros têm moto envolvida</div>
+        <div class="fonte">RENAEST · 6.818 de 22.708 · MEDIDO</div>
+      </div>
+      <div class="numcard">
+        <div class="num"><span class="accent">~40%</span></div>
+        <div class="desc">das ocorrências caem em só 5 quadrantes, de uns 90</div>
+        <div class="fonte">SEJUSP-MG, dado aberto estadual · 1.100 ocorrências, 2025–início de 2026 · MEDIDO (38–44% conforme a grade)</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">Problema</div>
+  </div>
+</section>
+
+<!-- SLIDE 3 — Por isso criamos -->
+<section class="slide">
+  <div class="topbar"></div>
+  <div class="content s3">
+    <div class="kicker">A solução</div>
+    <h1>Por isso criamos a <span class="brand">Visão de Rota</span></h1>
+
+    <div class="rows entregas">
+      <div class="row solo">Contagem por tipo, ponto a ponto</div>
+      <div class="row solo">Antes e depois de cada mudança</div>
+      <div class="row solo">Recomendação decidida por uma pessoa</div>
+    </div>
+
+    <div class="valueprop">Ajudamos a secretaria de mobilidade a decidir com número, lendo as câmeras que a cidade já tem.</div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">A solução</div>
+  </div>
+</section>
+
+<!-- SLIDE 4 — Demonstração: câmera real de Patos + painel MEDIDO -->
+<section class="slide">
+  <div class="topbar"></div>
+  <div class="content sdemo" style="align-items:center; justify-content:flex-start;">
+    <div style="width:1720px;">
+      <div class="kicker" style="text-align:center;">Demonstração</div>
+      <h1>A câmera vira contagem.<br>A contagem vira memória.</h1>
+    </div>
+    <div class="demoframe">
+      <div class="demovideo">
+        <img src="pitch-prints/quadro-real-patos-2.png" alt="quadro real extraído do vídeo gravado em Patos de Minas, com a caixa de detecção sobre um automóvel">
+        <div class="cap">gravado hoje, em Patos de Minas, com dois celulares</div>
+      </div>
+      <div class="painel">
+        <div class="tag">MEDIDO</div>
+        <div class="linhaes">
+          <div class="li"><span>Automóvel</span><span class="v">1</span></div>
+          <div class="li"><span>Moto · ônibus · caminhão</span><span class="v">0</span></div>
+          <div class="li"><span>Pedestre · bicicleta</span><span class="v">0</span></div>
+        </div>
+        <div class="fonte">patos-2.jsonl · janela de 4 s</div>
+        <div class="demofrase">Sem rosto, sem placa.<br>A imagem não é guardada.</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">Demonstração</div>
+  </div>
+</section>
+
+<!-- SLIDE 5 — A análise detecta. A pessoa decide. -->
+<section class="slide sinsight">
+  <div class="topbar"></div>
+  <div class="insightbg" style="background-image:url('pitch-prints/bg-insight-mapa.png');"></div>
+  <div class="content" style="align-items:center;">
+    <div class="kicker" style="text-align:center; color:#ffd98a;">Como a máquina propõe</div>
+    <h1>A análise detecta.<br><span class="accent2">A pessoa decide.</span></h1>
+    <div class="insightcard"><img src="pitch-prints/hi-crop-insight.png" alt="cartão de insight simulado, com recomendação e confirmação humana"></div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">Decisão humana</div>
+  </div>
+</section>
+
+<!-- SLIDE 6 — Sustentação + como começa -->
+<section class="slide">
+  <div class="topbar"></div>
+  <div class="content s6">
+    <div class="kicker">Como se sustenta</div>
+    <h1>Consultoria de mobilidade com sistema próprio</h1>
+
+    <div class="s6cols">
+      <div class="col">
+        <div class="stairs">
+          <div class="stepbox" style="height:230px;">
+            <div class="n">1</div>
+            <div class="t">Diagnóstico — 1h de vídeo</div>
+          </div>
+          <div class="stepbox" style="height:285px;">
+            <div class="n">2</div>
+            <div class="t">Piloto de 90 dias, um corredor</div>
+          </div>
+          <div class="stepbox" style="height:340px;">
+            <div class="n">3</div>
+            <div class="t">Assinatura por câmera lida</div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="econ">
+          <div class="line"><span class="bignum">~R$ 20 mil</span>por posto <span class="fonte">— tabela de preços de órgão rodoviário estadual (RS), item 1.8, data-base jan/2021</span></div>
+          <div class="line"><span class="bignum">R$ 7,95 mi</span>contratados em serviço de videomonitoramento, 2024–2029 <span class="fonte">— PNCP, contrato municipal 206/2024 · valor global, não é valor pago</span></div>
+        </div>
+        <div class="fraseforte">Só cobra mais quando o número anterior provou.</div>
+      </div>
+    </div>
+    <div class="falta">Ainda em aberto: acesso às câmeras e o valor final da assinatura.</div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">Sustentabilidade</div>
+  </div>
+</section>
+
+<!-- SLIDE 7 — Time + fechamento -->
+<section class="slide">
+  <div class="topbar"></div>
+  <div class="s7content">
+    <div class="time">Time</div>
+    <div class="teamlist">
+      <div class="tl"><span class="editable">[nome] — [papel] — [o que fez no projeto]</span></div>
+      <div class="tl"><span class="editable">[nome] — [papel] — [o que fez no projeto]</span></div>
+      <div class="tl"><span class="editable">[nome] — [papel] — [o que fez no projeto]</span></div>
+      <div class="tl"><span class="editable">[nome] — [papel] — [o que fez no projeto]</span></div>
+      <div class="tl"><span class="editable">[nome] — [papel] — [o que fez no projeto]</span></div>
+    </div>
+    <div class="fecho">A cidade já enxerga.<br>A gente faz ela lembrar.</div>
+    <div class="s7bottom">
+      <div class="addr">enioxt.github.io/hackathon</div>
+      <div class="qrbox">
+        <svg xmlns="http://www.w3.org/2000/svg" width="330" height="330" class="segno"><g transform="scale(10)"><path fill="#fff" d="M0 0h33v33h-33z"/><path class="qrline" stroke="#0b2a4a" d="M2 2.5h7m3 0h1m1 0h2m1 0h1m1 0h4m1 0h7m-29 1h1m5 0h1m3 0h1m1 0h4m2 0h1m3 0h1m5 0h1m-29 1h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m3 0h2m1 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h2m1 0h1m1 0h1m2 0h1m1 0h3m1 0h1m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h1m1 0h3m2 0h1m1 0h3m1 0h1m-29 1h1m5 0h1m1 0h2m1 0h2m2 0h3m4 0h1m5 0h1m-29 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-21 1h3m1 0h1m1 0h1m1 0h1m2 0h1m-20 1h1m1 0h5m3 0h1m6 0h2m3 0h5m-27 1h5m2 0h1m1 0h1m3 0h2m2 0h4m1 0h3m3 0h1m-25 1h5m4 0h3m1 0h1m2 0h4m-22 1h1m6 0h1m1 0h1m1 0h1m2 0h1m3 0h2m1 0h1m1 0h1m1 0h1m-27 1h6m1 0h1m3 0h1m1 0h1m2 0h1m2 0h1m4 0h2m-26 1h1m7 0h4m3 0h5m1 0h3m3 0h1m-28 1h3m2 0h2m3 0h1m3 0h2m1 0h1m4 0h4m-27 1h2m1 0h2m2 0h1m1 0h2m3 0h1m1 0h1m1 0h1m2 0h1m5 0h1m-24 1h1m1 0h2m1 0h1m1 0h1m5 0h1m1 0h1m1 0h1m3 0h2m-27 1h1m1 0h1m1 0h2m1 0h8m1 0h1m1 0h7m1 0h1m1 0h1m-29 1h1m2 0h1m1 0h5m1 0h1m1 0h3m2 0h1m3 0h1m3 0h1m-27 1h1m4 0h1m7 0h1m1 0h1m4 0h4m3 0h1m-28 1h1m3 0h1m1 0h4m1 0h2m1 0h1m2 0h1m2 0h5m1 0h3m-21 1h3m5 0h1m1 0h3m3 0h5m-29 1h7m2 0h1m1 0h2m2 0h1m1 0h4m1 0h1m1 0h3m-27 1h1m5 0h1m1 0h1m1 0h2m2 0h3m2 0h2m3 0h1m3 0h1m-29 1h1m1 0h3m1 0h1m1 0h4m3 0h3m2 0h5m1 0h2m-28 1h1m1 0h3m1 0h1m1 0h1m1 0h1m2 0h2m1 0h4m5 0h4m-29 1h1m1 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h4m1 0h8m-28 1h1m5 0h1m2 0h4m2 0h1m4 0h1m2 0h3m1 0h1m-28 1h7m1 0h1m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m2 0h3m1 0h1"/></g></svg>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div>Visão de Rota</div>
+    <div class="right">Obrigado</div>
+  </div>
+</section>
+
+</body>
+</html>

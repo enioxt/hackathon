@@ -1,0 +1,14 @@
+MOBILIDADE PATOS — V2.2
+
+FORMA MAIS FÁCIL:
+1. Extraia TODO este ZIP para uma pasta.
+2. Abra a pasta extraída.
+3. Dê dois cliques em ABRIR_SISTEMA.bat.
+
+Se o Windows não encontrar Python:
+- dê dois cliques em index.html.
+- o sistema visual abre normalmente;
+- integrações como Google Maps serão configuradas depois via localhost.
+
+IMPORTANTE:
+Não execute o .bat de dentro do ZIP. Primeiro extraia todos os arquivos.

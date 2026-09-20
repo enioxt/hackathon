@@ -1,0 +1,101 @@
+{
+ "medido_em": "2026-09-20 09:25 -03",
+ "repos": {
+  "time": {
+   "arquivos": 199,
+   "linhas": 77903,
+   "commits": 21,
+   "tipos": {
+    ".md": 91,
+    ".json": 31,
+    ".ts": 24,
+    ".html": 20,
+    ".py": 12,
+    ".js": 6
+   }
+  },
+  "publico": {
+   "arquivos": 98,
+   "linhas": 40645,
+   "commits": 36,
+   "tipos": {
+    ".md": 34,
+    ".html": 27,
+    ".ts": 8,
+    ".json": 8,
+    ".py": 6,
+    ".js": 4
+   }
+  }
+ },
+ "gravacao": {
+  "blocos": 54,
+  "minutos": 200,
+  "transcritos": 53,
+  "palavras": 18510
+ },
+ "grupo": {
+  "mensagens": 251,
+  "audios": 17,
+  "pessoas": 10
+ },
+ "fontes": {
+  "verificadas": 83,
+  "arquivos_baixados_com_hash": 54,
+  "ocorrencias_com_coordenada": 1100,
+  "sinistros_base_nacional": 22708,
+  "provas_recalculadas": "14 de 14"
+ },
+ "porta_de_entrada": {
+  "leituras_por_origem": {
+   "medido": 3,
+   "sintetico": 79613
+  },
+  "recusas": 32
+ },
+ "telemetria": {
+  "eventos": 21351,
+  "por_agente": {
+   "agregador": 17,
+   "assistente": 13,
+   "decisao-tipada": 7024,
+   "detector-de-evento": 239,
+   "gerador-de-fluxo": 7042,
+   "porta-de-entrada": 7046,
+   "verificador-de-privacidade": 18
+  },
+  "por_origem": {
+   "real": 7095,
+   "simulado": 14305
+  }
+ },
+ "modelos": {
+  "assistente_de_construcao_tokens_saida": {
+   "claude-fable-5-1": 1358280,
+   "claude-sonnet-5": 2710701,
+   "claude-opus-5": 226297
+  },
+  "respostas": 6605,
+  "agentes_disparados": 60,
+  "tokens_lidos_de_cache": 1747221236,
+  "tokens_escritos_em_cache": 41135437,
+  "classificador_jev": {
+   "chamadas": 1851,
+   "tokens_entrada": 881177,
+   "erros": 0
+  }
+ },
+ "testes": {
+  "cco": [
+   " 0 fail",
+   " 83 expect() calls",
+   "Ran 35 tests across 3 files. [616.00ms]"
+  ],
+  "decisao": [
+   " 0 fail",
+   " 20 expect() calls",
+   "Ran 10 tests across 1 file. [18.00ms]"
+  ],
+  "leitor": "7 passed in 12.38s"
+ }
+}

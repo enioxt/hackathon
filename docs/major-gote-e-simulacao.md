@@ -2,7 +2,7 @@
 
 Data da pesquisa: 19/09/2026 (todos os acessos nesta data, salvo indicação contrária).
 Metodologia: WebSearch + WebFetch, fonte pública. Toda linha carrega classificação REAL (visto na fonte) / CONCEPT (inferência razoável, sem fonte direta) / PHANTOM (citado sem confirmação — nenhum item classificado assim entrou aqui) / **NÃO-MEDIDO** onde a busca não achou.
-Achado prévio relevante: o time já mantém `github.com/enioxt/hackathon-dados-publicos` com 83 fontes sobre mobilidade em Patos de Minas — este documento não duplica aquele acervo, cita-o e aponta lacunas que ele não cobre (Major Gote nominal e zona azul não apareceram no README consultado).
+Achado prévio relevante: o time já mantém `github.com/enioxt/hackathon` com 83 fontes sobre mobilidade em Patos de Minas — este documento não duplica aquele acervo, cita-o e aponta lacunas que ele não cobre (Major Gote nominal e zona azul não apareceram no README consultado).
 
 ---
 
@@ -54,7 +54,7 @@ Via busca (não leitura direta do PDF, que veio em binário ilegível ao WebFetc
 ### (a) Dados que uma microssimulação de tráfego precisa — REAL (padrão de engenharia de tráfego, consolidado, não específico de uma fonte única mas doutrina corrente do HCM/manuais de simulação)
 
 - Volume por movimento em cada cruzamento, em intervalos de 15 min (contagem classificada — conversão à esquerda/direita/em frente), por no mínimo um pico da manhã e um da tarde.
-- Composição da frota por tipo de veículo (carro, moto, ônibus, caminhão) — decisivo em Patos de Minas dado que **43.319 motos = 31,8% da frota**, segundo o próprio acervo do time (`hackathon-dados-publicos`), fator que muda completamente o comportamento de fluxo em relação a cidades com baixa motocicleta.
+- Composição da frota por tipo de veículo (carro, moto, ônibus, caminhão) — decisivo em Patos de Minas dado que **43.319 motos = 31,8% da frota**, segundo o próprio acervo do time (`hackathon`), fator que muda completamente o comportamento de fluxo em relação a cidades com baixa motocicleta.
 - Tempos de semáforo (ciclo, fases, tempo de verde por fase) em cada cruzamento controlado.
 - Manobras de estacionamento por hora (taxa de entrada/saída de vaga — cada manobra de estacionar em paralelo bloqueia temporariamente uma faixa).
 - Velocidade de percurso (arterial e por trecho).
@@ -115,7 +115,7 @@ Classificação: **CONCEPT** — é o conjunto padrão citado em qualquer manual
 {claim: "Av. Bernardo Vieira (Natal/RN): queda de 20-31% no número de lojas por segmento após corredor de ônibus com retirada de estacionamento", evidence_url: "http://pluris2010.civil.uminho.pt/Actas/PDF/Paper554.pdf", data: "acesso 19/09/2026, estudo de 2010"}
 {claim: "Bloor Street (Toronto): remoção de 136 vagas para ciclofaixa, sem impacto negativo no comércio — gasto e nº de clientes aumentaram", evidence_url: "https://www.tandfonline.com/doi/full/10.1080/01944363.2019.1638816", data: "acesso 19/09/2026, estudo de 2019"}
 {claim: "Central Avenue (Minneapolis): +12,64% emprego varejo, +52,44% vendas de alimentos após retirada de faixa de estacionamento para ciclofaixa", evidence_url: "https://trec.pdx.edu/news/study-finds-bike-lanes-can-provide-positive-economic-impact-cities", data: "acesso 19/09/2026"}
-{claim: "43.319 motos = 31,8% da frota de Patos de Minas", evidence_url: "https://github.com/enioxt/hackathon-dados-publicos", data: "acesso 19/09/2026, síntese do próprio acervo do hackathon — não verificado item a item nesta pesquisa, UNVERIFIED: arquivo-fonte exato dentro do repo"}
+{claim: "43.319 motos = 31,8% da frota de Patos de Minas", evidence_url: "https://github.com/enioxt/hackathon", data: "acesso 19/09/2026, síntese do próprio acervo do hackathon — não verificado item a item nesta pesquisa, UNVERIFIED: arquivo-fonte exato dentro do repo"}
 ```
 
 ## Lacunas declaradas (não escondidas)

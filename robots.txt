@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://enioxt.github.io/hackathon/sitemap.xml

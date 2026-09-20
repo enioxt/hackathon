@@ -1,0 +1,41 @@
+# Visão de Rota
+
+> Projeto de hackathon de cidades inteligentes (Patos de Minas, MG, setembro de 2026). Lê as câmeras que a cidade já tem para CONTAR trânsito — sem rosto, sem placa, sem guardar imagem — e mede o antes e o depois de cada mudança na via. Analisa vídeo já gravado, com atraso declarado. Código aberto; todo número público é recalculável.
+
+Estado honesto: protótipo. O leitor de vídeo conta por tipo e foi testado em vídeo aberto e em transmissões públicas de outras cidades; ainda não leu câmera de Patos de Minas. Telas de semáforo, ônibus, estacionamento e ocorrências são simulação marcada.
+
+## Comece por aqui
+- [Apresentação](https://enioxt.github.io/hackathon/): o problema, o dado que fica onde está, como decide, perguntas
+- [README](https://github.com/enioxt/hackathon/blob/main/README.md): o que usamos, o que medimos, o que temos e o que falta
+- [Para uma IA que vai ler o repositório](https://github.com/enioxt/hackathon/blob/main/PARA-A-IA.md)
+- [Provas: cada número e o script que o recalcula](https://github.com/enioxt/hackathon/blob/main/docs/PROVAS.md)
+
+## Aplicativo (demonstração)
+- [Entrar como gestor](https://enioxt.github.io/hackathon/demo/entrar.html)
+- [Aplicativo do gestor](https://enioxt.github.io/hackathon/demo/app.html)
+- [Como a máquina conta](https://enioxt.github.io/hackathon/demo/camadas.html): caixas, confiança, identidade, trajetória, linha de contagem, votação humana
+- [Câmeras públicas que já achamos](https://enioxt.github.io/hackathon/demo/cameras-publicas.html)
+- [Insights e recomendações](https://enioxt.github.io/hackathon/demo/insights.html)
+- [Operador: poucos botões](https://enioxt.github.io/hackathon/demo/operador.html)
+- [Aplicativo do cidadão](https://enioxt.github.io/hackathon/demo/app-cidadao.html)
+- [Participação](https://enioxt.github.io/hackathon/demo/participacao.html)
+- [Ajuda e perguntas frequentes](https://enioxt.github.io/hackathon/demo/ajuda.html)
+- [Ficha técnica](https://enioxt.github.io/hackathon/demo/ficha-tecnica.html)
+
+## Motor (código)
+- [Leitor de vídeo](https://github.com/enioxt/hackathon/tree/main/motor/leitor-video): YOLO11n + ByteTrack, contagem por cruzamento de linha
+- [Porta de entrada de dados](https://github.com/enioxt/hackathon/tree/main/motor/entrada-de-dados): valida e recusa dado pessoal
+- [Decisão por regra](https://github.com/enioxt/hackathon/tree/main/motor/decisao)
+- [Servidor e telas](https://github.com/enioxt/hackathon/tree/main/painel)
+- [Como replicar](https://github.com/enioxt/hackathon/blob/main/docs/COMO-REPLICAR.md)
+
+## Dados e método
+- [Dados abertos usados](https://enioxt.github.io/hackathon/dados/)
+- [Fontes verificadas](https://github.com/enioxt/hackathon/tree/main/fontes)
+- [Base legal e privacidade](https://github.com/enioxt/hackathon/tree/main/juridico)
+- [Como pesquisamos](https://github.com/enioxt/hackathon/tree/main/tecnicas)
+- [Hub de ideias do hackathon](https://enioxt.github.io/hackathon/hub/)
+
+## Como contribuir
+- [Pedir melhoria ou relatar problema](https://github.com/enioxt/hackathon/issues/new/choose)
+- [Regras de contribuição](https://github.com/enioxt/hackathon/blob/main/CONTRIBUINDO.md)

@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visão de Rota — aplicativo</title>
+<style>
+:root{
+  --navy:#0b2a4a; --navy2:#12335e; --navy3:#173e73;
+  --bg:#f3f6fb; --card:#ffffff; --text:#1b2433; --muted:#5c6b82;
+  --border:#e2e8f2; --border2:#ccd6e6; --amber:#f5b942; --amber-deep:#c98a1a;
+  --focus:#2563eb;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--text);
+  font:15px/1.5 Inter,Roboto,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden}
+img{max-width:100%}
+[hidden]{display:none!important}
+button{font-family:inherit}
+a{color:inherit}
+button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+/* ---------- casco raiz ---------- */
+.casco{display:flex;height:100vh}
+
+/* ---------- lateral ---------- */
+.lateral{width:240px;flex:none;background:linear-gradient(180deg,var(--navy) 0%,var(--navy2) 100%);color:#dbe7fb;
+  display:flex;flex-direction:column;overflow-y:auto;transition:width .18s ease}
+.lateral.recolhida{width:64px}
+.lateral .marca{display:flex;align-items:center;gap:10px;padding:18px 16px 12px;min-height:64px;flex:none;white-space:nowrap;overflow:hidden}
+.lateral .marca-icone{width:32px;height:32px;flex:none;border-radius:9px;background:var(--navy3);display:flex;align-items:center;justify-content:center}
+.lateral .marca-icone i{width:10px;height:10px;border-radius:3px;background:var(--amber);display:block}
+.lateral .marca-nome{font-size:14.5px;font-weight:800;color:#fff;line-height:1.2}
+.lateral .marca-sub{font-size:10.5px;color:#9db3d6}
+.lateral.recolhida .marca-texto{display:none}
+
+.lateral .rotulo-grupo{padding:16px 16px 6px;font-size:11px;line-height:1.4;min-height:36px;flex:none;letter-spacing:.06em;text-transform:uppercase;color:#7d93b6;font-weight:700;white-space:nowrap;overflow:hidden}
+.lateral.recolhida .rotulo-grupo{padding:14px 0 4px;text-align:center;font-size:0}
+.lateral.recolhida .rotulo-grupo::before{content:"···";font-size:11px}
+
+.menu{display:flex;flex-direction:column;padding:2px 10px;gap:2px}
+.lateral.recolhida .menu{padding:2px 8px}
+.item{display:flex;align-items:center;gap:11px;padding:10px 12px;border-radius:10px;text-decoration:none;
+  color:#c7d7f0;font-size:13.8px;font-weight:600;position:relative;border:0;background:transparent;width:100%;
+  text-align:left;cursor:pointer;min-height:44px;white-space:nowrap;overflow:hidden}
+.item .ico{width:18px;height:18px;flex:none;opacity:.85}
+.item .txt{overflow:hidden;text-overflow:ellipsis}
+.item .pontinho{width:6px;height:6px;border-radius:50%;background:var(--amber);flex:none;margin-left:auto}
+.lateral.recolhida .item{justify-content:center;padding:10px 0;gap:0}
+.lateral.recolhida .item .txt,.lateral.recolhida .item .pontinho{display:none}
+.item:hover{background:rgba(255,255,255,.07);color:#fff}
+.item.ativo{background:rgba(245,185,66,.14);color:#fff}
+.item.ativo::before{content:"";position:absolute;left:0;top:6px;bottom:6px;width:3px;border-radius:2px;background:var(--amber)}
+.lateral.recolhida .item.ativo::before{left:2px}
+
+.lateral-fim{margin-top:auto;padding:14px 16px 16px;font-size:11px;color:#8098bd;border-top:1px solid rgba(255,255,255,.08);white-space:nowrap;overflow:hidden}
+.lateral-fim .frase{color:#c7d7f0;font-weight:600;margin-bottom:6px}
+.lateral-fim a{color:var(--amber);text-decoration:none;font-weight:700}
+.lateral.recolhida .lateral-fim{display:none}
+
+.botao-recolher{margin:8px 10px 4px;align-self:flex-end;background:rgba(255,255,255,.08);border:0;color:#c7d7f0;
+  width:32px;height:32px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none}
+.botao-recolher:hover{background:rgba(255,255,255,.16)}
+.botao-recolher svg{width:16px;height:16px;transition:transform .18s}
+.lateral.recolhida .botao-recolher svg{transform:rotate(180deg)}
+
+/* ---------- coluna direita ---------- */
+.coluna{flex:1;min-width:0;display:flex;flex-direction:column;height:100vh;position:relative}
+
+.cabecalho{height:48px;flex:none;display:flex;align-items:center;gap:10px;padding:0 16px;background:#fff;
+  border-bottom:1px solid var(--border);font-size:13px}
+.cabecalho .btn-gaveta{display:none;background:none;border:0;padding:6px;margin:-6px 0 -6px -6px;cursor:pointer;color:var(--navy)}
+.cabecalho .titulo-atual{font-weight:800;color:#0f2544;font-size:14.5px}
+.cabecalho .migalha{color:var(--muted);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cabecalho .espaco{flex:1}
+.cabecalho .selo{font-size:11px;color:#8a5a10;background:#fdf3e0;border:1px solid #f0d6a0;border-radius:999px;
+  padding:3px 10px;white-space:nowrap;display:none}
+.cabecalho .relogio{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}
+@media(min-width:900px){.cabecalho .selo{display:inline-block}}
+
+.progresso{position:absolute;top:0;left:0;height:2px;background:var(--amber);z-index:50;width:0;
+  transition:width .3s ease,opacity .2s ease .15s;opacity:0}
+.progresso.ativa{opacity:1}
+
+/* ---------- conteúdo / palco de iframes ---------- */
+.palco{flex:1;position:relative;overflow:hidden;background:var(--bg)}
+.tela{position:absolute;inset:0;opacity:0;pointer-events:none;transform:translateY(4px);
+  transition:opacity .18s ease,transform .18s ease;z-index:0}
+.tela.visivel{opacity:1;pointer-events:auto;transform:translateY(0);z-index:1}
+.tela iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+@media(prefers-reduced-motion:reduce){.tela{transition:none}}
+
+.esqueleto{position:absolute;inset:0;background:#fff;display:flex;flex-direction:column;padding:22px;gap:12px;z-index:2}
+.esqueleto .barra-sk{height:14px;border-radius:7px;background:linear-gradient(90deg,#eef1f6 25%,#e4e9f2 37%,#eef1f6 63%);
+  background-size:400% 100%;animation:sk 1.3s ease infinite}
+@keyframes sk{0%{background-position:100% 50%}100%{background-position:0 50%}}
+.esqueleto .l1{width:38%;height:20px}
+.esqueleto .grade-sk{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:8px}
+.esqueleto .cartao-sk{height:96px;border-radius:12px}
+@media(prefers-reduced-motion:reduce){.esqueleto .barra-sk{animation:none}}
+
+/* ---------- Câmeras: moldura clara em volta da parede (que é escura, é vídeo) ---------- */
+.cameras-pane{position:absolute;inset:0;display:flex;flex-direction:column;background:#fff}
+.cameras-head{flex:none;display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+  padding:16px 20px 12px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.cameras-head h2{margin:0 0 3px;font-size:17px;font-weight:800;color:#0f2544}
+.cameras-head .sub{margin:0;color:var(--muted);font-size:12.5px}
+.cameras-controles{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.grade-seletor{display:flex;gap:4px;background:#eef2f8;border-radius:10px;padding:3px}
+.grade-seletor button{border:0;background:transparent;border-radius:8px;min-width:40px;min-height:40px;
+  font-weight:800;font-size:13px;cursor:pointer;color:var(--muted)}
+.grade-seletor button.ativo{background:var(--navy2);color:#fff}
+.btn-tela-cheia{border:1px solid var(--border2);background:#fff;color:var(--navy2);border-radius:10px;
+  padding:0 16px;min-height:40px;font-weight:700;font-size:13px;cursor:pointer}
+.btn-tela-cheia:hover{border-color:var(--navy2)}
+.cameras-corpo{flex:1;position:relative;min-height:0;background:#050d16}
+.cameras-corpo iframe{width:100%;height:100%;border:0;display:block}
+
+.cameras-cheia{position:absolute;inset:0;background:#050d16;z-index:20;display:flex;flex-direction:column}
+.cameras-cheia[hidden]{display:none}
+.cameras-cheia-head{flex:none;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:8px 14px;background:#12273b}
+.cameras-cheia-head .grade-seletor{background:#0b2a4a}
+.cameras-cheia-head .grade-seletor button{color:#9db3d6}
+.cameras-cheia-head .grade-seletor button.ativo{background:var(--amber);color:#111}
+.btn-fechar-cheia{border:1px solid rgba(255,255,255,.28);background:transparent;color:#fff;border-radius:9px;
+  padding:0 14px;min-height:40px;font-weight:700;font-size:13px;cursor:pointer}
+.cameras-cheia iframe{flex:1;width:100%;border:0}
+
+/* ---------- celular: gaveta ---------- */
+@media(max-width:720px){
+  .lateral{position:fixed;top:0;left:0;bottom:0;z-index:100;width:264px;transform:translateX(-100%);
+    transition:transform .2s ease;box-shadow:0 0 0 9999px rgba(5,15,30,0)}
+  .lateral.aberta{transform:translateX(0);box-shadow:0 0 0 9999px rgba(5,15,30,.45)}
+  .lateral.recolhida{width:264px}
+  .lateral.recolhida .marca-texto,.lateral.recolhida .item .txt,.lateral.recolhida .item .pontinho,.lateral.recolhida .lateral-fim{display:block}
+  .lateral.recolhida .item{justify-content:flex-start;padding:10px 12px;gap:11px}
+  .botao-recolher{display:none}
+  .cabecalho .btn-gaveta{display:flex}
+}
+</style>
+</head>
+<body>
+
+<div class="casco">
+  <nav class="lateral" id="lateral" aria-label="Navegação do aplicativo">
+    <div class="marca">
+      <span class="marca-icone"><i></i></span>
+      <span class="marca-texto">
+        <div class="marca-nome">Visão de Rota</div>
+        <div class="marca-sub">gestor</div>
+      </span>
+    </div>
+    <button type="button" class="botao-recolher" id="btn-recolher" aria-label="Recolher menu" title="Recolher menu">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
+    <div class="rotulo-grupo">Operação</div>
+    <div class="menu" data-grupo="operacao"></div>
+
+    <div class="rotulo-grupo">Inteligência</div>
+    <div class="menu" data-grupo="inteligencia"></div>
+
+    <div class="rotulo-grupo">Fontes simuladas</div>
+    <div class="menu" data-grupo="simuladas"></div>
+
+    <div class="rotulo-grupo">Mais</div>
+    <div class="menu" data-grupo="mais"></div>
+
+    <div class="lateral-fim">
+      <div class="frase">A mesma câmera. Outra pergunta.</div>
+      <a id="link-apresentacao" href="../index.html">← apresentação</a>
+    </div>
+  </nav>
+
+  <div class="coluna">
+    <div class="progresso" id="progresso"></div>
+    <header class="cabecalho">
+      <button type="button" class="btn-gaveta" id="btn-gaveta" aria-label="Abrir menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+      <span class="titulo-atual" id="titulo-atual">Visão geral</span>
+      <span class="migalha" id="migalha">Operação · Visão geral</span>
+      <span class="espaco"></span>
+      <span class="selo">demonstração · o que está marcado LENDO AGORA é vídeo público de outra cidade</span>
+      <span class="relogio" id="relogio">--:--:--</span>
+    </header>
+    <main class="palco" id="palco"></main>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var qp = new URLSearchParams(location.search);
+var FORCA_ESTATICO = qp.get('estatico') === '1';
+var ESTATICO = FORCA_ESTATICO || location.protocol === 'file:' || /github\.io$/.test(location.hostname);
+
+// ---------- fonte única dos destinos ----------
+// grupo, rótulo, ícone(svg-path simples), local (rota do servidor), arquivo (cópia estática),
+// painel:true → usa o iframe único do painel e troca só o hash interno (innerHash)
+var ICONES = {
+  geral:  '<path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  cam:    '<rect x="3" y="6" width="14" height="12" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M17 10l4-2v8l-4-2" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  camadas:'<path d="M12 3l9 5-9 5-9-5 9-5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M3 13l9 5 9-5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  ponto:  '<circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="2.4" fill="currentColor"/>',
+  hist:   '<path d="M4 4v6h6M20 15a8 8 0 1 1-2.6-9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  ins:    '<path d="M12 3a6 6 0 0 0-3 11.2V17h6v-2.8A6 6 0 0 0 12 3z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 21h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  op:     '<rect x="4" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="4" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="4" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/><rect x="13" y="13" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.8"/>',
+  sema:   '<rect x="9" y="2" width="6" height="16" rx="3" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="6" r="1.3" fill="currentColor"/><circle cx="12" cy="10" r="1.3" fill="currentColor"/><circle cx="12" cy="14" r="1.3" fill="currentColor"/>',
+  onibus: '<rect x="3" y="5" width="18" height="11" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M3 12h18M7 19v1.6M17 19v1.6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  estac:  '<rect x="4" y="3" width="16" height="18" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M9.5 16V8h2.6a2.4 2.4 0 1 1 0 4.8H9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  ocorr:  '<path d="M12 3l9 17H3l9-17z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 10v4M12 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  part:   '<circle cx="8" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><circle cx="17" cy="8" r="3" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 20c.6-3.4 3-5.3 5.5-5.3S13 16.6 13.6 20M12.5 20c.5-3 2.6-4.8 4.9-4.8s4.2 1.8 4.6 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
+  ag:     '<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M12 7v5l3.4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  ajuda:  '<circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="M9.3 9.2a2.8 2.8 0 1 1 3.9 2.6c-.9.4-1.2.9-1.2 1.7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 17h.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>'
+};
+
+var DESTINOS = [
+  {chave:'geral',          grupo:'operacao',     rotulo:'Visão geral',              ico:'geral',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'geral'},
+  {chave:'cameras',        grupo:'operacao',     rotulo:'Câmeras',                  ico:'cam',     local:'/parede',          arquivo:'parede.html'},
+  {chave:'camadas',        grupo:'operacao',     rotulo:'Como a máquina conta',     ico:'camadas', local:'/camadas',         arquivo:'camadas.html'},
+  {chave:'ponto',          grupo:'operacao',     rotulo:'Detalhe do ponto',         ico:'ponto',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'ponto-7'},
+  {chave:'historico',      grupo:'operacao',     rotulo:'Histórico (antes e depois)', ico:'hist',  local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'historico'},
+  {chave:'insights',       grupo:'inteligencia', rotulo:'Insights das IAs',         ico:'ins',     local:'/insights',        arquivo:'insights.html'},
+  {chave:'operador',       grupo:'inteligencia', rotulo:'Operador',                 ico:'op',      local:'/operador',        arquivo:'operador.html'},
+  {chave:'semaforos',      grupo:'simuladas',    rotulo:'Semáforos',                ico:'sema',    local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'semaforos', sim:true},
+  {chave:'onibus',         grupo:'simuladas',    rotulo:'Transporte coletivo',      ico:'onibus',  local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'onibus', sim:true},
+  {chave:'estacionamento', grupo:'simuladas',    rotulo:'Estacionamento rotativo',  ico:'estac',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'estacionamento', sim:true},
+  {chave:'ocorrencias',    grupo:'simuladas',    rotulo:'Ocorrências',              ico:'ocorr',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'ocorrencias', sim:true},
+  {chave:'participacao',   grupo:'mais',         rotulo:'Participação',             ico:'part',    local:'/participacao',    arquivo:'participacao.html'},
+  {chave:'agentes',        grupo:'mais',         rotulo:'Agentes agora',            ico:'ag',      local:'/observabilidade', arquivo:'observabilidade.html'},
+  {chave:'ajuda',          grupo:'mais',         rotulo:'Ajuda',                    ico:'ajuda',   local:'/ajuda',           arquivo:'ajuda.html'}
+];
+var MAPA = {}; DESTINOS.forEach(function(d){ MAPA[d.chave] = d; });
+var GRUPO_ROTULO = {operacao:'Operação', inteligencia:'Inteligência', simuladas:'Fontes simuladas', mais:'Mais'};
+
+// ---------- estado ----------
+var telas = {};       // chave -> {wrap, iframe, carregada, origem}
+var atual = null;
+var painelIframe = null; // iframe único compartilhado pelas telas internas do painel
+var mensagensAceitasDe = []; // contentWindows válidos, preenchido ao criar cada iframe
+
+function base(dest){ return ESTATICO ? dest.arquivo : dest.local; }
+function querUrl(url){ return url + (ESTATICO ? '&estatico=1' : ''); }
+function urlCasca(dest, extra){
+  var u = base(dest) + '?casca=1';
+  if (ESTATICO) u += '&estatico=1';
+  if (extra) u += extra;
+  return u;
+}
+
+// ---------- monta a lateral ----------
+var palco = document.getElementById('palco');
+['operacao','inteligencia','simuladas','mais'].forEach(function(grupo){
+  var host = document.querySelector('.menu[data-grupo="' + grupo + '"]');
+  DESTINOS.filter(function(d){ return d.grupo === grupo; }).forEach(function(d){
+    var a = document.createElement('button');
+    a.type = 'button'; a.className = 'item'; a.id = 'item-' + d.chave;
+    a.setAttribute('data-chave', d.chave);
+    a.innerHTML = '<svg class="ico" viewBox="0 0 24 24" fill="none">' + ICONES[d.ico] + '</svg><span class="txt">' + d.rotulo + '</span>' + (d.sim ? '<span class="pontinho" aria-hidden="true"></span>' : '');
+    a.addEventListener('click', function(){ navegarPara(d.chave); fecharGaveta(); });
+    host.appendChild(a);
+
+    var wrap = document.createElement('div');
+    wrap.className = 'tela'; wrap.id = 'tela-' + d.chave;
+    palco.appendChild(wrap);
+    telas[d.chave] = {wrap: wrap, iframe: null, carregada: false};
+  });
+});
+document.getElementById('link-apresentacao').href = ESTATICO
+  ? '../index.html'
+  : 'https://enioxt.github.io/hackathon/';
+
+// ---------- progresso ----------
+var barraProgresso = document.getElementById('progresso');
+var progTimer = null;
+function progressoIniciar(){
+  clearTimeout(progTimer);
+  barraProgresso.style.transition = 'none'; barraProgresso.style.width = '0'; barraProgresso.classList.add('ativa');
+  requestAnimationFrame(function(){
+    barraProgresso.style.transition = 'width .3s ease,opacity .2s ease .15s';
+    barraProgresso.style.width = '78%';
+  });
+}
+function progressoFim(){
+  barraProgresso.style.width = '100%';
+  progTimer = setTimeout(function(){ barraProgresso.classList.remove('ativa'); barraProgresso.style.width = '0'; }, 220);
+}
+
+function esqueleto(){
+  var d = document.createElement('div'); d.className = 'esqueleto';
+  d.innerHTML = '<div class="barra-sk l1"></div><div class="grade-sk">' +
+    '<div class="barra-sk cartao-sk"></div><div class="barra-sk cartao-sk"></div><div class="barra-sk cartao-sk"></div>' +
+    '<div class="barra-sk cartao-sk"></div><div class="barra-sk cartao-sk"></div><div class="barra-sk cartao-sk"></div></div>';
+  return d;
+}
+
+// ---------- cria/reaproveita a tela ----------
+function criarIframe(chave, opts){
+  var dest = MAPA[chave];
+  var t = telas[chave];
+  opts = opts || {};
+
+  if (dest.painel){
+    // as telas internas do painel compartilham UM único iframe
+    if (!painelIframe){
+      var wrapPainel = t.wrap;
+      var sk = esqueleto(); wrapPainel.appendChild(sk);
+      painelIframe = document.createElement('iframe');
+      painelIframe.setAttribute('title', 'Painel');
+      painelIframe.src = urlCasca(dest) + '#' + dest.innerHash;
+      painelIframe.addEventListener('load', function(){
+        if (sk.parentNode) sk.parentNode.removeChild(sk);
+        DESTINOS.filter(function(d){ return d.painel; }).forEach(function(d){ telas[d.chave].carregada = true; });
+        if (opts.aoCarregar) opts.aoCarregar();
+      });
+      wrapPainel.appendChild(painelIframe);
+      mensagensAceitasDe.push(painelIframe);
+      // as demais chaves-painel reusam o mesmo elemento de iframe (reparent no palco na troca)
+      DESTINOS.filter(function(d){ return d.painel; }).forEach(function(d){ telas[d.chave].iframe = painelIframe; });
+    } else if (!t.carregada && opts.aoCarregar){
+      opts.aoCarregar();
+    }
+    return;
+  }
+
+  if (chave === 'cameras') { criarPainelCameras(t, opts); return; }
+
+  if (t.iframe) { if (opts.aoCarregar) opts.aoCarregar(); return; }
+  var sk2 = esqueleto(); t.wrap.appendChild(sk2);
+  var ifr = document.createElement('iframe');
+  ifr.setAttribute('title', dest.rotulo);
+  ifr.src = urlCasca(dest, chave === 'camadas' && opts.query ? opts.query : '');
+  ifr.addEventListener('load', function(){
+    if (sk2.parentNode) sk2.parentNode.removeChild(sk2);
+    t.carregada = true;
+    if (opts.aoCarregar) opts.aoCarregar();
+  });
+  t.wrap.appendChild(ifr);
+  t.iframe = ifr;
+  mensagensAceitasDe.push(ifr);
+}
+
+// ---------- Câmeras: moldura clara + parede embutida (a parede em si é escura — é vídeo) ----------
+var GRADES_VALIDAS = [2, 4, 6, 8, 32];
+function lerGradeSalva(){
+  try { var v = Number(localStorage.getItem('vr_grade_cameras_v2')); return GRADES_VALIDAS.indexOf(v) >= 0 ? v : 4; }
+  catch (e) { return 4; }
+}
+function salvarGradeSalva(v){ try { localStorage.setItem('vr_grade_cameras_v2', String(v)); } catch (e) {} }
+function srcParede(grade, cheia){
+  var d = MAPA.cameras;
+  return urlCasca(d, '&embutido=1&grade=' + grade) + '';
+}
+function criarPainelCameras(t, opts){
+  if (t.iframe) { if (opts.aoCarregar) opts.aoCarregar(); return; } // já existe — instantâneo
+  var gradeAtual = lerGradeSalva();
+
+  var pane = document.createElement('div'); pane.className = 'cameras-pane';
+  var head = document.createElement('div'); head.className = 'cameras-head';
+  head.innerHTML = '<div><h2>Câmeras</h2><p class="sub">As primeiras telas são vídeo público de outras cidades, lido pelo nosso contador. Tela sem câmera ligada fica parada.</p></div>';
+  var controles = document.createElement('div'); controles.className = 'cameras-controles';
+  var sel = document.createElement('div'); sel.className = 'grade-seletor'; sel.setAttribute('role', 'group'); sel.setAttribute('aria-label', 'Quantidade de câmeras');
+  GRADES_VALIDAS.forEach(function(g){
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = String(g); b.setAttribute('data-grade', String(g));
+    if (g === gradeAtual) b.classList.add('ativo');
+    sel.appendChild(b);
+  });
+  var btnCheia = document.createElement('button'); btnCheia.type = 'button'; btnCheia.className = 'btn-tela-cheia'; btnCheia.textContent = 'Tela cheia';
+  controles.appendChild(sel); controles.appendChild(btnCheia);
+  head.appendChild(controles);
+
+  var corpo = document.createElement('div'); corpo.className = 'cameras-corpo';
+  var sk = esqueleto(); sk.style.background = '#0b1622'; corpo.appendChild(sk);
+  var ifr = document.createElement('iframe'); ifr.setAttribute('title', 'Parede de câmeras');
+  ifr.src = srcParede(gradeAtual);
+  ifr.addEventListener('load', function(){
+    if (sk.parentNode) sk.parentNode.removeChild(sk);
+    t.carregada = true;
+    if (opts.aoCarregar) opts.aoCarregar();
+  });
+  corpo.appendChild(ifr);
+
+  var cheia = document.createElement('div'); cheia.className = 'cameras-cheia'; cheia.hidden = true;
+  var cheiaHead = document.createElement('div'); cheiaHead.className = 'cameras-cheia-head';
+  var selCheia = document.createElement('div'); selCheia.className = 'grade-seletor'; selCheia.setAttribute('role', 'group'); selCheia.setAttribute('aria-label', 'Quantidade de câmeras');
+  GRADES_VALIDAS.forEach(function(g){
+    var b = document.createElement('button'); b.type = 'button'; b.textContent = String(g); b.setAttribute('data-grade', String(g));
+    if (g === gradeAtual) b.classList.add('ativo');
+    selCheia.appendChild(b);
+  });
+  var btnFechar = document.createElement('button'); btnFechar.type = 'button'; btnFechar.className = 'btn-fechar-cheia'; btnFechar.textContent = 'Fechar ✕';
+  cheiaHead.appendChild(selCheia); cheiaHead.appendChild(btnFechar);
+  cheia.appendChild(cheiaHead);
+
+  function aplicarGrade(v){
+    gradeAtual = v; salvarGradeSalva(v);
+    ifr.src = srcParede(v);
+    [sel, selCheia].forEach(function(grp){
+      grp.querySelectorAll('button').forEach(function(b){ b.classList.toggle('ativo', Number(b.getAttribute('data-grade')) === v); });
+    });
+  }
+  sel.addEventListener('click', function(ev){ var b = ev.target.closest('button'); if (b) aplicarGrade(Number(b.getAttribute('data-grade'))); });
+  selCheia.addEventListener('click', function(ev){ var b = ev.target.closest('button'); if (b) aplicarGrade(Number(b.getAttribute('data-grade'))); });
+
+  function abrirCheia(){
+    cheia.hidden = false;
+    if (!cheia.contains(ifr)) cheia.appendChild(ifr); // reaproveita o MESMO iframe — mantém o estado
+  }
+  function fecharCheia(){
+    cheia.hidden = true;
+    if (!corpo.contains(ifr)) corpo.appendChild(ifr);
+  }
+  btnCheia.addEventListener('click', abrirCheia);
+  btnFechar.addEventListener('click', fecharCheia);
+  document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape' && !cheia.hidden) fecharCheia(); });
+
+  pane.appendChild(head); pane.appendChild(corpo); pane.appendChild(cheia);
+  t.wrap.appendChild(pane);
+  t.iframe = ifr;
+  mensagensAceitasDe.push(ifr);
+}
+
+// ---------- troca de tela ----------
+function mostrarTela(chave){
+  // Telas internas do painel usam UM iframe que nunca sai do lugar: mover iframe no DOM o recarrega
+  // (perde o estado, volta ao início e custa ~700 ms). Só trocamos qual moldura está visível e o hash dele.
+  var ehPainel = !!(MAPA[chave].painel && painelIframe);
+  var molduraDoPainel = ehPainel ? painelIframe.parentNode : null;
+  Object.keys(telas).forEach(function(k){
+    var w = telas[k].wrap;
+    w.classList.toggle('visivel', ehPainel ? (w === molduraDoPainel) : (k === chave));
+  });
+  if (ehPainel){
+    try {
+      var alvo = '#' + MAPA[chave].innerHash, jan = painelIframe.contentWindow;
+      if (jan.location.hash !== alvo) jan.location.hash = alvo;
+    } catch(e){ console.info('casco: painel ainda carregando; o hash entra no load', e && e.message); }
+  }
+}
+
+function atualizarCabecalho(chave){
+  var d = MAPA[chave];
+  document.getElementById('titulo-atual').textContent = d.rotulo;
+  document.getElementById('migalha').textContent = GRUPO_ROTULO[d.grupo] + ' · ' + d.rotulo;
+  document.title = d.rotulo + ' — Visão de Rota';
+  document.querySelectorAll('.item').forEach(function(el){
+    el.classList.toggle('ativo', el.getAttribute('data-chave') === chave);
+  });
+}
+
+function navegarPara(chave, opts){
+  if (!MAPA[chave]) return;
+  opts = opts || {};
+  var novoHash = '#/' + chave + (opts.query ? opts.query : '');
+  if (location.hash !== novoHash) { location.hash = novoHash; return; } // dispara aplicar() via hashchange
+  aplicar(chave, opts);
+}
+
+function aplicar(chave, opts){
+  opts = opts || {};
+  atual = chave;
+  atualizarCabecalho(chave);
+  var t = telas[chave];
+  var jaTinhaConteudo = MAPA[chave].painel ? !!painelIframe : !!t.iframe;
+  if (!jaTinhaConteudo) progressoIniciar();
+  criarIframe(chave, {
+    query: opts.query,
+    aoCarregar: function(){ if (!jaTinhaConteudo) progressoFim(); }
+  });
+  mostrarTela(chave);
+  if (jaTinhaConteudo) progressoFim();
+}
+
+// ---------- roteamento por hash do casco ----------
+function lerHash(){
+  var h = (location.hash || '#/geral').replace(/^#\/?/, '');
+  var partes = h.split('?');
+  var chave = partes[0] || 'geral';
+  var query = partes[1] ? '?' + partes[1] : '';
+  if (!MAPA[chave]) chave = 'geral';
+  return {chave: chave, query: query};
+}
+window.addEventListener('hashchange', function(){
+  var r = lerHash();
+  aplicar(r.chave, {query: r.query});
+});
+
+// ---------- pré-carrega em segundo plano após ociosidade ----------
+function ocioso(fn){ if ('requestIdleCallback' in window) requestIdleCallback(fn, {timeout: 2500}); else setTimeout(fn, 2000); }
+setTimeout(function(){
+  ocioso(function(){
+    if (!telas['camadas'].iframe) criarIframe('camadas', {});
+    if (!telas['insights'].iframe) criarIframe('insights', {});
+  });
+}, 2000);
+
+// ---------- mensagens dos filhos ----------
+var DESTINOS_VALIDOS = DESTINOS.map(function(d){ return d.chave; });
+var st_clipesCompletos = null;
+function carregarClipesCompletosCasco(cb){
+  if (st_clipesCompletos) { cb(st_clipesCompletos); return; }
+  fetch('camadas/clipes.json').then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(lista){ st_clipesCompletos = Array.isArray(lista) ? lista : []; cb(st_clipesCompletos); })
+    .catch(function(){ st_clipesCompletos = []; cb(st_clipesCompletos); });
+}
+window.addEventListener('message', function(ev){
+  var d = ev.data;
+  if (!d || typeof d !== 'object') return;
+  var origemConhecida = mensagensAceitasDe.some(function(ifr){ return ifr.contentWindow === ev.source; });
+  if (!origemConhecida) return; // ignora qualquer janela que não seja um dos nossos iframes
+
+  if (d.tipo === 'vr-filho') {
+    // título/hash informativo do filho — mantemos o rótulo do casco como fonte de verdade visual
+    return;
+  }
+  if (d.tipo === 'vr-clipe' && Number.isInteger(d.indice) && d.indice >= 0 && d.indice < 32) {
+    // a tela "Câmeras" embute a parede direto (sem passar pelo painel) — o casco assume aqui
+    // a mesma tradução que painel-claro.html faz: índice da lista COMPLETA → lista FILTRADA
+    carregarClipesCompletosCasco(function(lista){
+      var item = lista[d.indice];
+      if (item && item.continuo) return; // leitura contínua: já é a transmissão original, não navega
+      var idxFiltrado = 0, contados = 0, achou = false;
+      for (var i = 0; i < lista.length; i++){
+        if (lista[i] && lista[i].clipe && lista[i].trilhas){
+          if (i === d.indice) { idxFiltrado = contados; achou = true; break; }
+          contados++;
+        }
+      }
+      navegarPara('camadas', {query: '?clipe=' + (achou ? idxFiltrado : 0)});
+    });
+    return;
+  }
+  if (d.tipo === 'vr-navegar') {
+    if (DESTINOS_VALIDOS.indexOf(d.destino) === -1) return;
+    var query = typeof d.query === 'string' && /^\?[a-z]+=\d{1,3}$/.test(d.query) ? d.query : '';
+    if (d.destino === 'camadas' && query) {
+      // clipe pedido explicitamente: recria a tela do camadas com o clipe certo
+      var t = telas['camadas'];
+      if (t.iframe && t.iframe.parentNode) t.iframe.parentNode.removeChild(t.iframe);
+      t.iframe = null; t.carregada = false;
+    }
+    navegarPara(d.destino, {query: query});
+    return;
+  }
+});
+
+// ---------- recolher lateral (localStorage) ----------
+var lateral = document.getElementById('lateral');
+var btnRecolher = document.getElementById('btn-recolher');
+try {
+  if (localStorage.getItem('vr-app-lateral-recolhida') === '1') lateral.classList.add('recolhida');
+} catch(e){}
+btnRecolher.addEventListener('click', function(){
+  lateral.classList.toggle('recolhida');
+  try { localStorage.setItem('vr-app-lateral-recolhida', lateral.classList.contains('recolhida') ? '1' : '0'); } catch(e){}
+});
+
+// ---------- gaveta no celular ----------
+var btnGaveta = document.getElementById('btn-gaveta');
+function abrirGaveta(){ lateral.classList.add('aberta'); }
+function fecharGaveta(){ lateral.classList.remove('aberta'); }
+btnGaveta.addEventListener('click', function(){ lateral.classList.contains('aberta') ? fecharGaveta() : abrirGaveta(); });
+document.addEventListener('click', function(ev){
+  if (window.innerWidth > 720) return;
+  if (!lateral.classList.contains('aberta')) return;
+  if (lateral.contains(ev.target) || btnGaveta.contains(ev.target)) return;
+  fecharGaveta();
+});
+
+// ---------- relógio ----------
+function tique(){
+  var d = new Date();
+  document.getElementById('relogio').textContent = d.toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+}
+tique(); setInterval(tique, 1000);
+
+// ---------- primeira tela ----------
+var inicial = lerHash();
+aplicar(inicial.chave, {query: inicial.query});
+if (!location.hash) location.hash = '#/' + inicial.chave;
+
+})();
+</script>
+</body>
+</html>

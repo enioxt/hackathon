@@ -12,7 +12,7 @@
 | 5 | 6,5 quadros por segundo (152,6 ms por quadro) — leitura de todos os 1.396 quadros do vídeo 1, nesta máquina, CPU de notebook sem placa de vídeo | `(arquivo local do time) maximo/leitura-maximo.log` (saída do próprio leitor) | `grep "quadros processados" 5-motor/patos-real/maximo/leitura-maximo.log` |
 | 5 | 1.396 quadros lidos, vídeo de 23 s (celular 1) | `(arquivo local do time) maximo/patos-1.json` (contagem de `quadros`) | `python3 -c "import json;print(len(json.load(open('5-motor/patos-real/maximo/patos-1.json'))['quadros']))"` |
 | 6 | 1.100 ocorrências geolocalizadas (mapa de concentração) | SEJUSP-MG, mesmo dataset da linha acima, tela `/insights` | https://dados.mg.gov.br/dataset/sejusp_vitimas_acidentes_transito |
-| 7 | Vídeo 4 — 4 automóveis em 20 s | `(arquivo local do time) maximo/patos-4.jsonl` | `cat 5-motor/patos-real/maximo/patos-4.jsonl` |
+| 7 | Vídeo filmado do alto (vídeo 6) — 6 automóveis, 2 ônibus, 1 pedestre em 59 s; leitura da máquina, NÃO conferida à mão | `(arquivo local do time) maximo/patos-6.jsonl` | `cat 5-motor/patos-real/maximo/patos-6.jsonl` |
 | 7 | Vídeo 3 — 4 automóveis, 1 moto, 1 pedestre em 42 s | `(arquivo local do time) maximo/patos-3.jsonl` | `cat 5-motor/patos-real/maximo/patos-3.jsonl` |
 | — (mencionado no roteiro, não no slide) | Vídeo 4 — 4 automóveis em 20 s | `(arquivo local do time) maximo/patos-4.jsonl` | `cat 5-motor/patos-real/maximo/patos-4.jsonl` |
 

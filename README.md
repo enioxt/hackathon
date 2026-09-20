@@ -49,7 +49,7 @@ Todo número carrega uma etiqueta: **MEDIDO** (dado real) · **SIMULAÇÃO** (co
 Entregue à sua IA o arquivo [`PARA-A-IA.md`](PARA-A-IA.md) e peça:
 > *Leia este índice, abra os arquivos que ele aponta e me diga o que está fraco, o que está sem prova e o que você faria diferente.*
 
-Ele já lista os pontos fracos que o próprio time conhece, para a crítica começar por eles. Use um modelo bom: modelo fraco concorda com tudo; modelo bom acha o furo. Discordar é bem-vindo.
+Ele já lista os pontos fracos que o próprio time conhece, para a crítica começar por eles. Discordar é bem-vindo.
 
 ## O que roda de verdade (código)
 | Peça | Pasta | Como rodar |
@@ -72,9 +72,6 @@ Passo a passo completo: [`motor/LEIA.md`](motor/LEIA.md).
 - **Chaves, senhas e endereços de servidor.**
 
 Se você achar qualquer uma dessas coisas aqui dentro, é erro: avise que a gente retira.
-
-## Como isto foi construído tão rápido
-Não foi só IA gerando texto. Por trás há um método e uma base de código que já existiam (regras escritas, testes, moldes, verificadores que barram dado sensível antes de publicar). A IA correu sobre esse trilho; as decisões foram de gente. Boa parte dos textos e telas foi escrita por IA, dirigida e conferida pelo time.
 
 ## Quer mudar alguma coisa?
 Clone, crie um ramo, proponha: passo a passo em [`CONTRIBUINDO.md`](CONTRIBUINDO.md). O melhor lugar para começar a cortar escopo é [`docs/REGRAS-E-ACEITE-MVP.md`](docs/REGRAS-E-ACEITE-MVP.md).

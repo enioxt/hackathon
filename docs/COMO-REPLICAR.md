@@ -2,6 +2,15 @@
 
 A ideia central: **o sistema é feito de peças pequenas que rodam sozinhas.** Levar para outra cidade é instalar as peças num servidor comum, ligar as fontes de dado de lá e calibrar. Não é refazer.
 
+## O que o time oferece (é uma proposta de negócio)
+| Etapa | O que a cidade recebe | Valor sugerido |
+|---|---|---|
+| 1. Diagnóstico | Quais câmeras servem, quais perguntas dá para responder, o que falta de acesso e de base legal | porta de entrada; valor em [`pesquisa/precificacao-decisao.md`](pesquisa/precificacao-decisao.md) |
+| 2. Piloto de 90 dias | Peças instaladas, 10 a 100 câmeras lidas, erro de contagem declarado, primeira medição antes×depois | R$ 49.375, dentro do limite de contratação direta (R$ 65.492,11 em 2026) |
+| 3. Operação | Leitura contínua, painel, relatório, suporte e novas fontes | R$ 290 por câmera por mês |
+
+São **sugestões de valor**, com a conta aberta no simulador. O custo de desenvolver do zero é estimativa nossa (R$ 211 mil a R$ 326 mil, a depender do valor-hora; detalhe em [`pesquisa/referencia-horas-desenvolvimento.md`](pesquisa/referencia-horas-desenvolvimento.md)). Preço fechado só depois do diagnóstico.
+
 ## As peças, e o que cada uma precisa
 | Peça | O que faz | Precisa de IA paga? | Estado hoje | Onde está |
 |---|---|---|---|---|
@@ -36,4 +45,4 @@ A ideia central: **o sistema é feito de peças pequenas que rodam sozinhas.** L
 | As perguntas que quer responder | Painel e a primeira medição antes×depois |
 
 ## O que ainda não sabemos
-Erro real da contagem em rua; quantas câmeras por máquina; custo mensal de IA em produção; quanto tempo a prefeitura leva para liberar o acesso às imagens. Prazo por semana: [`PRAZO-IMPLANTACAO.md`](PRAZO-IMPLANTACAO.md). Referência de custo de desenvolvimento: estimativa nossa, conta aberta em [`../painel/simulador.html`](../painel/simulador.html).
+Erro real da contagem em rua; quantas câmeras por máquina; custo mensal de IA em produção; quanto tempo a prefeitura leva para liberar o acesso às imagens. Prazo por semana: [`PRAZO-IMPLANTACAO.md`](PRAZO-IMPLANTACAO.md). Custo de desenvolvimento: estimativa nossa, conta aberta em [`../painel/simulador.html`](../painel/simulador.html).

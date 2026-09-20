@@ -37,6 +37,18 @@ CLASSES_ALVO = {
     7: "caminhao",
 }
 
+# Outros objetos da via que o modelo já conhece. Com --objetos-da-via eles aparecem nas
+# trilhas (para a tela e para a correção à mão), mas NUNCA entram na contagem de trânsito.
+# Árvore, carroça, buraco etc. não existem neste modelo: só entram por marcação de pessoa.
+CLASSES_EXTRA = {
+    9: "semaforo",
+    11: "placa-de-pare",
+    13: "banco",
+    16: "cachorro",
+    17: "cavalo",
+    19: "vaca",
+}
+
 
 def contagem_vazia():
     return {v: 0 for v in CLASSES_ALVO.values()}
@@ -192,6 +204,7 @@ def main():
              "Camera alta/longe (poste, drone) com carro pequeno na imagem: 1280-1920 "
              "acha muito mais objeto, mas processa mais devagar.",
     )
+    ap.add_argument("--objetos-da-via", action="store_true", help="tambem detecta semaforo, placa de pare, banco, cachorro, cavalo e vaca; aparecem nas trilhas, nunca na contagem")
     ap.add_argument("--conf", type=float, default=0.3, help="confianca minima de deteccao")
     args = ap.parse_args()
 
@@ -288,7 +301,7 @@ def main():
                     frame,
                     persist=True,
                     tracker="bytetrack.yaml",
-                    classes=list(CLASSES_ALVO.keys()),
+                    classes=list(CLASSES_ALVO.keys()) + (list(CLASSES_EXTRA.keys()) if args.objetos_da_via else []),
                     verbose=False,
                     imgsz=args.imgsz,
                     conf=args.conf,
@@ -309,13 +322,15 @@ def main():
                         if trilhas is not None:
                             _cx.append([
                                 int(tid),
-                                CLASSES_ALVO.get(int(cls_id), ""),
+                                CLASSES_ALVO.get(int(cls_id)) or CLASSES_EXTRA.get(int(cls_id), ""),
                                 round(float(x1) / largura, 4),
                                 round(float(y1) / altura, 4),
                                 round(float(x2) / largura, 4),
                                 round(float(y2) / altura, 4),
                                 round(float(conf), 2) if conf is not None else None,
                             ])
+                        if int(cls_id) not in CLASSES_ALVO:
+                            continue
                         cx, cy = (x1 + x2) / 2.0, (y1 + y2) / 2.0
                         direcao = contador.atualizar(int(tid), (cx, cy))
                         if direcao is not None:

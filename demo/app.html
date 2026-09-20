@@ -169,6 +169,19 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
 @media(prefers-reduced-motion:reduce){
   .lateral,.botao-recolher svg,.item{transition:none}
 }
+
+/* ---------- desktop: lateral sempre expandida (botão de recolher removido — pedido do dono 20/09) ---------- */
+@media(min-width:721px){
+  .lateral.recolhida{width:256px}
+  .lateral.recolhida .marca-texto{display:block}
+  .lateral.recolhida .rotulo-grupo{padding:16px 16px 6px;text-align:left;font-size:11px}
+  .lateral.recolhida .rotulo-grupo::before{content:none}
+  .lateral.recolhida .menu{padding:2px 10px}
+  .lateral.recolhida .item{justify-content:flex-start;padding:9px 12px;gap:11px}
+  .lateral.recolhida .item .txt,.lateral.recolhida .item .pontinho{display:block}
+  .lateral.recolhida .item.ativo::before{left:0}
+  .lateral.recolhida .lateral-fim{display:block}
+}
 </style>
 </head>
 <body>
@@ -181,9 +194,6 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
         <div class="marca-nome">Visão de Rota</div>
         <div class="marca-sub">Mobilidade · Patos de Minas</div>
       </span>
-      <button type="button" class="botao-recolher" id="btn-recolher" aria-label="Recolher menu" title="Recolher menu">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
     </div>
 
     <div class="rotulo-grupo">Operação</div>
@@ -598,16 +608,10 @@ window.addEventListener('message', function(ev){
   }
 });
 
-// ---------- recolher lateral (localStorage) ----------
+// ---------- lateral: sempre expandida no computador (botão de recolher removido — pedido do dono 20/09) ----------
 var lateral = document.getElementById('lateral');
-var btnRecolher = document.getElementById('btn-recolher');
-try {
-  if (localStorage.getItem('vr-app-lateral-recolhida') === '1') lateral.classList.add('recolhida');
-} catch(e){}
-btnRecolher.addEventListener('click', function(){
-  lateral.classList.toggle('recolhida');
-  try { localStorage.setItem('vr-app-lateral-recolhida', lateral.classList.contains('recolhida') ? '1' : '0'); } catch(e){}
-});
+try { localStorage.removeItem('vr-app-lateral-recolhida'); } catch(e){}
+lateral.classList.remove('recolhida');
 
 // ---------- gaveta no celular ----------
 var btnGaveta = document.getElementById('btn-gaveta');

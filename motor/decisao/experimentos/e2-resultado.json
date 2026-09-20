@@ -1,0 +1,3312 @@
+{
+ "quando": "2026-09-20T03:16:27.789Z",
+ "total": 400,
+ "regra": {
+  "certos": 273,
+  "taxa": 0.683,
+  "primeiros_erros": [
+   "[giria] \"cliquei em o cartão do ponto e n aconteceu nada mano\" — esperado nao_clica, regra deu outra",
+   "[nenhum] \"o número de acidentes devia ficar fixo no topo\" — esperado ideia_layout, regra deu falta_dado",
+   "[longa_dois_assuntos] \"parabéns pelo trabalho, ficou muito bom. e também, não consigo abrir o número de acidentes, fica travado\" — esperado outra, regra deu nao_clica",
+   "[nenhum] \"cliquei em o gráfico e não aconteceu nada\" — esperado nao_clica, regra deu outra",
+   "[curta] \"o painel\" — esperado falta_dado, regra deu outra",
+   "[nenhum] \"cliquei em o cartão do ponto e não aconteceu nada\" — esperado nao_clica, regra deu outra",
+   "[longa_dois_assuntos] \"o gráfico tá com dois números diferentes. e também, por que o número de acidentes tem esse nome?\" — esperado falta_dado, regra deu confuso",
+   "[erro_digitacao] \"cliquei em at abela de câmeras e não aconteceu nada\" — esperado nao_clica, regra deu outra",
+   "[longa_dois_assuntos] \"sugiro reorganizar o painel pra cima. e também, só passando pra avisar que chego às 10\" — esperado ideia_layout, regra deu outra",
+   "[nenhum] \"o gráfico tá com dois números diferentes\" — esperado falta_dado, regra deu outra",
+   "[curta] \"o número de acidentes\" — esperado confuso, regra deu falta_dado",
+   "[erro_digitacao] \"no clular o cartão do ponto não funciona\" — esperado nao_clica, regra deu outra",
+   "[nenhum] \"sugiro reorganizar o botão de exportar pra cima\" — esperado ideia_layout, regra deu outra",
+   "[giria] \"o cartão do ponto tá com dois números diferentes mano\" — esperado falta_dado, regra deu outra",
+   "[nenhum] \"não sei por onde começar em o botão de exportar\" — esperado confuso, regra deu outra"
+  ]
+ },
+ "jev": {
+  "certos": 325,
+  "taxa": 0.813,
+  "primeiros_erros": [
+   "[longa_dois_assuntos] \"parabéns pelo trabalho, ficou muito bom. e também, não consigo abrir o número de acidentes, fica travado\" — esperado outra, jev deu nao_clica (1)",
+   "[curta] \"o painel\" — esperado falta_dado, jev deu outra (0.89)",
+   "[erro_digitacao] \"de onde vem o valor mostrado em a fichada zona?\" — esperado falta_dado, jev deu confuso (0.43)",
+   "[longa_dois_assuntos] \"o gráfico tá com dois números diferentes. e também, por que o número de acidentes tem esse nome?\" — esperado falta_dado, jev deu confuso (1)",
+   "[longa_dois_assuntos] \"qual o horário da apresentação amanhã?. e também, não sei por onde começar em o painel\" — esperado outra, jev deu falta_dado (0.49)",
+   "[nenhum] \"o gráfico tá com dois números diferentes\" — esperado falta_dado, jev deu confuso (0.98)",
+   "[curta] \"o número de acidentes\" — esperado confuso, jev deu falta_dado (0.98)",
+   "[giria] \"o cartão do ponto tá com dois números diferentes mano\" — esperado falta_dado, jev deu confuso (0.89)",
+   "[sem_acento] \"a barra de filtro ta com dois numeros diferentes\" — esperado falta_dado, jev deu confuso (0.69)",
+   "[longa_dois_assuntos] \"por que o botão de exportar tem esse nome?. e também, cadê o número por trás de o cartão do ponto?\" — esperado confuso, jev deu falta_dado (0.55)",
+   "[longa_dois_assuntos] \"de onde vem o valor mostrado em o gráfico?. e também, não sei por onde começar em a tabela de câmeras\" — esperado falta_dado, jev deu confuso (0.87)",
+   "[nenhum] \"qual o horário da apresentação amanhã?\" — esperado outra, jev deu falta_dado (0.98)",
+   "[curta] \"a ficha da zona\" — esperado falta_dado, jev deu outra (0.43)",
+   "[curta] \"a tabela de câmeras\" — esperado nao_clica, jev deu falta_dado (0.35)",
+   "[curta] \"a ficha da zona\" — esperado falta_dado, jev deu outra (0.39)"
+  ]
+ },
+ "por_classe": {
+  "nao_clica": {
+   "total": 80,
+   "ok_regra": 42,
+   "ok_jev": 71
+  },
+  "confuso": {
+   "total": 80,
+   "ok_regra": 62,
+   "ok_jev": 75
+  },
+  "ideia_layout": {
+   "total": 80,
+   "ok_regra": 52,
+   "ok_jev": 74
+  },
+  "falta_dado": {
+   "total": 80,
+   "ok_regra": 42,
+   "ok_jev": 48
+  },
+  "outra": {
+   "total": 80,
+   "ok_regra": 75,
+   "ok_jev": 57
+  }
+ },
+ "ambiguas": {
+  "total": 36,
+  "ok_regra": 18,
+  "ok_jev": 20
+ },
+ "detalhe_para_e3_e4": [
+  {
+   "texto": "cliquei em o cartão do ponto e n aconteceu nada mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com o botão de exportar, dá pra explicar? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes devia ficar fixo no topo",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de a ficha da zona mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom. e também, não consigo abrir o número de acidentes, fica travado",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em o gráfico e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com o grafico, da pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de o painel masi simples",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o painel",
+   "rotulo": "falta_dado",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.89
+  },
+  {
+   "texto": "só passando pra aviasr que chego às 10",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em o cartão do ponto e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "por que o cartão do ponto tem esse nome? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.91
+  },
+  {
+   "texto": "seria melhor se a central ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "de onde vem o valor mostrado em a fichada zona?",
+   "rotulo": "falta_dado",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.43
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tabela de cameras some quando a tela e pequena",
+   "rotulo": "nao_clica",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.68
+  },
+  {
+   "texto": "nao ficou claro se a tabela de cameras e real ou so exemplo",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versao de o cartao do ponto mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "o gráfico tá com dois números diferentes. e também, por que o número de acidentes tem esse nome?",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?. e também, não sei por onde começar em o painel",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.49
+  },
+  {
+   "texto": "o botão de a tabela de câmeras não responde ao toque",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com a central, dá pra explicar? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versao de o painel mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de o cartao do ponto",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "bom dia, tudo certo por aí? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em at abela de câmeras e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com o gráfico, dá pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "sugiro reorganizar o painel pra cima. e também, só passando pra avisar que chego às 10",
+   "rotulo": "ideia_layout",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "o gráfico tá com dois números diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de a tabela de câmeras n responde ao toque mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes",
+   "rotulo": "confuso",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "seria melhor se o cartao do ponto ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de o painel",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.96
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "no clular o cartão do ponto não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "por que a tabela de cameras tem esse nome?",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "sugiro reorganizar o botão de exportar pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o cartão do ponto tá com dois números diferentes mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.89
+  },
+  {
+   "texto": "só passando praa visar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.7
+  },
+  {
+   "texto": "não sei por onde começar em o botão de exportar",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "podia ter um modo lista pra a tabela de cameras",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de o mapa",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "no celular a tabela de câmeras não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com o painel, dá pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "podia ter um modo lista pra o gráfico",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trásd e a tabela de câmeras?",
+   "rotulo": "falta_dado",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o cartão do ponto",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.79
+  },
+  {
+   "texto": "o painel some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.89
+  },
+  {
+   "texto": "nao entendi o que a tabela de cameras significa",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "podia ter um modo lista pra a central",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de o mapa",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "parabens pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não consigo abrir o número de acidentes, fica travado",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não entendi o que o painel significa",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o mapa devia ficar fixo no topo mano",
+   "rotulo": "ideia_layout",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de a tabela de câmeras? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "no celular o botão de exoprtar não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "nao sei por onde comecar em a central",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de o gráfico mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "voces tem o dado real de o cartao do ponto? nao achei",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em o grafico e nao aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não ficou claro se o botão de exportar é real ou só exemplo",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "podia ter um modo lista pra o mapa",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a barra de filtro ta com dois numeros diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.69
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes some quando a tela é pequena mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.6
+  },
+  {
+   "texto": "por que o botão de exportar tem esse nome?. e também, cadê o número por trás de o cartão do ponto?",
+   "rotulo": "confuso",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.55
+  },
+  {
+   "texto": "podia ter um modo lista pra a central",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "de onde vem o valor mostrado em o gráfico?. e também, não sei por onde começar em a tabela de câmeras",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.87
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "n celular o painel não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "nao sei por onde comecar em o grafico",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "podia ter um modo lista pra a central mano",
+   "rotulo": "ideia_layout",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a ficha da zona",
+   "rotulo": "falta_dado",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.43
+  },
+  {
+   "texto": "o gráfico",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.73
+  },
+  {
+   "texto": "o número de acidentes some quando a tela é pequena mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.47
+  },
+  {
+   "texto": "n ficou claro se o gráfico é real ou só exemplo mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "sugiro reorganizar o botão de exportar pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "vocês têm o dado real de a barra de filtro? não achei",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "bom dia, tudo certo por aí? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em a central e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não sei por onde começar em a barra de filtro",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a central deva ficar fixo no topo",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.86
+  },
+  {
+   "texto": "cadê o número pr trás de o cartão do ponto?",
+   "rotulo": "falta_dado",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "parabens pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tabela de câmeras",
+   "rotulo": "nao_clica",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.35
+  },
+  {
+   "texto": "n entendi o que o cartão do ponto significa mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a ficha da zona devia ficar fix ono topo",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a ficha da zona",
+   "rotulo": "falta_dado",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.39
+  },
+  {
+   "texto": "só passandopra avisar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tela trava quando abro a central",
+   "rotulo": "nao_clica",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "n ficou claro se a tabela de câmeras é real ou só exemplo mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "podia ter um modo lista pra a ficha da ozna",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de o ráfico?",
+   "rotulo": "falta_dado",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a central some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "fiquei confuso com o painel, dá pra explicar? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se a central ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de o cartão do ponto",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom. e também, não sei por onde começar em a central",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.63
+  },
+  {
+   "texto": "a barra de filtro some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.89
+  },
+  {
+   "texto": "não sei por onde começar em o mapa",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de o mapa mais simples. e também, só passando pra avisar que chego às 10",
+   "rotulo": "ideia_layout",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.93
+  },
+  {
+   "texto": "a central tá com dois números diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.63
+  },
+  {
+   "texto": "o mapa",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.69
+  },
+  {
+   "texto": "o gráfico some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.95
+  },
+  {
+   "texto": "não entenid o que a tabela de câmeras significa",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se a ficha da zona ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de a barra de filtro?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.91
+  },
+  {
+   "texto": "qual o horário da apresentaão amanhã?",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "não consigo abrir o gráfico, fica travado. e também, fiquei confuso com o número de acidentes, dá pra explicar?",
+   "rotulo": "nao_clica",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.7
+  },
+  {
+   "texto": "não entendio que a tabela de câmeras significa",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de a ficha da zna mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de o painel",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.92
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "no celulara ficha da zona não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não ficou clro se a central é real ou só exemplo",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de a barra de filtro mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de o mapa. e também, a central some quando a tela é pequena",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.61
+  },
+  {
+   "texto": "oi, teste mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "no celular a barra de filtro nao funciona",
+   "rotulo": "nao_clica",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "nao entendi o que a barra de filtro significa",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes",
+   "rotulo": "ideia_layout",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "falta mostrar a fonte de a tabela de câmeras",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o gráfico some quando a tela é pequena mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.93
+  },
+  {
+   "texto": "não entendi o que om apa significa",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de o número de acidentes mais simpels",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.9
+  },
+  {
+   "texto": "cadê o número por trás e o mapa?",
+   "rotulo": "falta_dado",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.94
+  },
+  {
+   "texto": "no celular o botao de exportar nao funciona",
+   "rotulo": "nao_clica",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não sei por onde começar em o botão de exportar. e também, o cartão do ponto devia ficar fixo no topo",
+   "rotulo": "confuso",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.36
+  },
+  {
+   "texto": "o mapa",
+   "rotulo": "ideia_layout",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.71
+  },
+  {
+   "texto": "de onde vem o valor mostrado em a ficha da zona?",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.46
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o gráfico",
+   "rotulo": "nao_clica",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.68
+  },
+  {
+   "texto": "por que o grafico tem esse nome?",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o cartão do ponto ficasse maior na tela. e também, oi, teste",
+   "rotulo": "ideia_layout",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.93
+  },
+  {
+   "texto": "vocês têm o dado real de o painel? não achei",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "oi, tetse",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "cliquei em o gráfic e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com a ficha da zona, dá pra explica?r",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "sugiro reorganizar o painel pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de a barra de filtro. e também, por que o cartão do ponto tem esse nome?",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.37
+  },
+  {
+   "texto": "parabens pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "no celular a tabela de câmeras n funciona mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "nao entendi o que o cartao do ponto significa",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "sugiro reorganizar o botão de expotar pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de o painel? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.94
+  },
+  {
+   "texto": "cliquei em o gráfico e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "ifquei confuso com a tabela de câmeras, dá pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "sugiro reorganizar o número de acidentes pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de a barra de filtro?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.92
+  },
+  {
+   "texto": "parabens pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não consigo abrir o cartão do ponto, fica travado. e também, o painel tá com dois números diferentes",
+   "rotulo": "nao_clica",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não entendi o qeu a central significa",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o painel ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o cartão do ponto",
+   "rotulo": "falta_dado",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.8
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "no celular a barra de filtro não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com o painel, dá pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "podia ter um modo lista pra o cartão do ponto",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de o número de acidentes?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "o gráfico",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.66
+  },
+  {
+   "texto": "no celular o gráfico não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não sei por onde começar em o painel. e também, qual o horário da apresentação amanhã?",
+   "rotulo": "confuso",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.6
+  },
+  {
+   "texto": "sugiro reorganizar o mapa pra cima. e também, cliquei em o painel e não aconteceu nada",
+   "rotulo": "ideia_layout",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.49
+  },
+  {
+   "texto": "voces tem o dado real de a barra de filtro? nao achei",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.93
+  },
+  {
+   "texto": "não consigo abrir a tabela de câmeras, fica travado. e também, o botão de exportar devia ficar fixo no topo",
+   "rotulo": "nao_clica",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.92
+  },
+  {
+   "texto": "nao entendi o que o grafico significa",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o mapa ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de o cartão do ponto? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de o gráfico n responde ao toque mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "por que o painel tem esse nome?",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.94
+  },
+  {
+   "texto": "queria uma versão de o botão de exportar mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cade o numero por tras de o cartao do ponto?",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.9
+  },
+  {
+   "texto": "qual o horário da apresentação aanhã?",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "no celular o botão de exportar nãofunciona",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "nao entendi o que a ficha da zona significa",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "podia ter um modo lista pra o gráfico",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a ficha da zona ta com dois numeros diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.8
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de o painel não responde ao toque",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com a ficha da ona, dá pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o botão de exportar ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "de onde vem o valor mostrado em o painel?",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.55
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "o número de acidentes some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.7
+  },
+  {
+   "texto": "nao entendi o que a tabela de cameras significa",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de o gráfico mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "cade o numero por tras de o mapa?",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.76
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "no celular o painel n funciona mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não enendi o que o mapa significa",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "sugiro reorganizar o painel pa cima",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "de onde vem o valor mostrado em a tabela de cameras?",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.69
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "a barra de filtro",
+   "rotulo": "nao_clica",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.56
+  },
+  {
+   "texto": "por que o painel tem esse nome?",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.94
+  },
+  {
+   "texto": "sugiro reorganizar a central pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "de onde vem o valor mostrado em a central?. e também, o painel some quando a tela é pequena",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.46
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?. e também, o painel some quando a tela é pequena",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.49
+  },
+  {
+   "texto": "no celular o mapa não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "por que o painel tem esse nome?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.94
+  },
+  {
+   "texto": "podia ter um modo lista pra o número de acidentes",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes",
+   "rotulo": "falta_dado",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "bom dia, tudo certo por ai?",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não consigo abriro  mapa, fica travado",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "n ficou claro se a ficha da zona é real ou só exemplo mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "sugiro reorganizar a barra de filtro pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de a barra de filtro? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.95
+  },
+  {
+   "texto": "parabens pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de o painel não responde ao toque. e também, fiquei confuso com a tabela de câmeras, dá pra explicar?",
+   "rotulo": "nao_clica",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.82
+  },
+  {
+   "texto": "não sei por onde começar em o cartão do ponto",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "podia ter um modo lista pra o cartao do ponto",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "vocês têm o dado real de a central? não achei",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.94
+  },
+  {
+   "texto": "cliquei em o gráfico e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "n sei por onde começar em o gráfico mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "queria uma versão de a barra de filtro mais simples. e também, não consigo abrir o número de acidentes, fica travado",
+   "rotulo": "ideia_layout",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.78
+  },
+  {
+   "texto": "cadê o número por trás de o painel? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "parabens pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o gráfico",
+   "rotulo": "nao_clica",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.7
+  },
+  {
+   "texto": "não ficou claro se o número de acidentes é real ou só exemplo",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "seria melhor se o número de acidentes ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "vocês têm o dado real de o cartão do ponto? não achei",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de a ficha da zona não responde ao toque. e também, queria uma versão de a barra de filtro mais simples",
+   "rotulo": "nao_clica",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "n ficou claro se o botão de exportar é real ou só exemplo mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.84
+  },
+  {
+   "texto": "a ficha da zona devia fica fixo no topo",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "o painel tá com dois números diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.95
+  },
+  {
+   "texto": "oi, teste",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o cartão do ponto some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.93
+  },
+  {
+   "texto": "o botão de exportar",
+   "rotulo": "confuso",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.57
+  },
+  {
+   "texto": "a tabela de câmeras devia ficar fixo no topo",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostra a fonte de a ficha da zona",
+   "rotulo": "falta_dado",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes some quando a tela é pequena mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.54
+  },
+  {
+   "texto": "fiquei confuso com o mapa, dá pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "podia ter um modo lista pr ao mapa",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de a ficha da zona?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a ficha da zona",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.43
+  },
+  {
+   "texto": "a barra de filtro",
+   "rotulo": "nao_clica",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.46
+  },
+  {
+   "texto": "n entendi o que a ficha da zona significa mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o número de acidentes ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "cadê o número por trás de a tabela de câmeras?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "não consigo abrir o númer de acidentes, fica travado",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não ficou claro se a central é real ou só exemplo",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se a ficha da zona ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a ficha da zona tá com dois números diferentes mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.79
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não consigo abrir a barra de filtro, fica travado. e também, de onde vem o valor mostrado em o painel?",
+   "rotulo": "nao_clica",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.96
+  },
+  {
+   "texto": "não entendi o que o acrtão do ponto significa",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "podia ter um modo lista pra o número de acidentes",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tabela de câmeras tá com dois números diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.95
+  },
+  {
+   "texto": "a barra de filtro",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.53
+  },
+  {
+   "texto": "o cartão do ponto some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.85
+  },
+  {
+   "texto": "n entendi o que o mapa significa mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o mapa ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "vocês têm o dado real de o botão de exportar? não achei",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10. e também, não entendi o que a ficha da zona significa",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "no celular o botão de xeportar não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com a ficha da zona, dá pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o cartão do ponto ficasse maior na tela mano",
+   "rotulo": "ideia_layout",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "voces tem o dado real de o cartao do ponto? nao achei",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "só pasando pra avisar que chego às 10",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de o cartão do ponto não responde ao toque",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não ficou claro se o cartão do ponto é real ou só exemplo",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "seria melhor se o gráfico ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "de onde vem o valor mostrado em o cartão do ponto? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.8
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.92
+  },
+  {
+   "texto": "no celular a central não funciona",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "por que a tabela de câmeras tem esse nome?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "podia ter um modo lista pra o botao de exportar",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de a central? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "a barra de filtro",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.48
+  },
+  {
+   "texto": "o botão de o número de acidentes não responde ao toque",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "por que o gráfico tem esse nome?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes devia ficar fixo no topo. e também, de onde vem o valor mostrado em o número de acidentes?",
+   "rotulo": "ideia_layout",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.51
+  },
+  {
+   "texto": "cade o numero por tras de o cartao do ponto?",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.96
+  },
+  {
+   "texto": "so passando pra avisar que chego as 10",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tela trava quando abro o cartão do ponto",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "por que o cartão do ponto tem esse nome?. e também, de onde vem o valor mostrado em o gráfico?",
+   "rotulo": "confuso",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "queria uma versão de a ficha da zona maissimples",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "de onde vem o valor mostrado em o número de acidentes? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.9
+  },
+  {
+   "texto": "bom dia, tudo certo por aí? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o cartão do ponto",
+   "rotulo": "nao_clica",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.79
+  },
+  {
+   "texto": "n entendi o que a ficha da zona significa mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versao de o numero de acidentes mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.95
+  },
+  {
+   "texto": "o botão de exportar tá com dois números diferentes. e também, qual o horário da apresentação amanhã?",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.33
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "no celular a central n funciona mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com o botao de exportar, da pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "sugiro reorganizar o gráfico pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o mapa tá com dois números diferentes. e também, qual o horário da apresentação amanhã?",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.54
+  },
+  {
+   "texto": "parabéns pelo trabalho,f icou muito bom",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em o número de acidentes e não aconteceu nada. e também, não entendi o que o painel significa",
+   "rotulo": "nao_clica",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.39
+  },
+  {
+   "texto": "não sei por onde começar em o botão de exportar",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "seria melhor se o cartao do ponto ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o painel tá com dois números diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.9
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "n consigo abrir a tabela de câmeras, fica travado mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não entendi o que  opainel significa",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o painel ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de a tabela de câmeras?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tabela de câmeras",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.37
+  },
+  {
+   "texto": "cliquei em o painel e nao aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com o botão de exportar, dá pra explicar? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de o gráfico mais simples mano",
+   "rotulo": "ideia_layout",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "de onde vem o valor mostrado em o cartao do ponto?",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.72
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de a barra de filtro não responde ao toque. e também, queria uma versão de a barra de filtro mais simples",
+   "rotulo": "nao_clica",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "fiquei confuso com a barra de filtro, dá pra explicar?. e também, o painel devia ficar fixo no topo",
+   "rotulo": "confuso",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.96
+  },
+  {
+   "texto": "podia ter um modo lista pra o painel",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "vocês têm o dado real de a barra de filtro? não achei",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "parabens pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de o painel não responde ao toque",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não ficou claro se o mapa é real ou só exemplo. e também, vocês têm o dado real de a barra de filtro? não achei",
+   "rotulo": "confuso",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.83
+  },
+  {
+   "texto": "sugiro reorganizar a tabela de câmeras pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "de onde vem o valor mostrado em o cartão do ponto?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.68
+  },
+  {
+   "texto": "a central",
+   "rotulo": "outra",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.64
+  },
+  {
+   "texto": "a central some quando a tela é pequena mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.94
+  },
+  {
+   "texto": "não entendi o que o botão de exportar significa",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versao de o botao de exportar mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "de onde vem o valor mostrado em o número de acidentes? mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.86
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10 mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em o botão de exportar e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "nao sei por onde comecar em o grafico",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tabela de câmeras",
+   "rotulo": "ideia_layout",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.38
+  },
+  {
+   "texto": "a ficha da zona",
+   "rotulo": "falta_dado",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.4
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10 mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em o botão de exportar e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "nã sei por onde começar em o mapa",
+   "rotulo": "confuso",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o número de acidentes ficasse maior na tela mano",
+   "rotulo": "ideia_layout",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.83
+  },
+  {
+   "texto": "o botão de exportar tá com dois números diferentes mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.73
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10. e também, cliquei em o número de acidentes e não aconteceu nada",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.78
+  },
+  {
+   "texto": "a tela trava quando abro o mapa",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "por que a barra de filtro tem esse nome?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "seria melhor se a central ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cadê o número por trás de o mapa?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o botão de a tabela de câmeras não responde ao toque",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não ficou claro se o número de acidentes é real ou só exemplo",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "sugiro reorganizar o número de acidentes pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "vocês têm o dado real de a tabela de câmeras? não achei. e também, cliquei em o número de acidentes e não aconteceu nada",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.87
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o número de acidentes some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.69
+  },
+  {
+   "texto": "fiquei confuso com a ficha da zona, da pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melor se o mapa ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "a central tá com dois números diferentes mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.8
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "no celular a ficha da zona n funciona mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não ficou claro se a barra de filtro é real ou só exemplo",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "podia ter um modo lista pra a tabela de câmeras. e também, cliquei em o botão de exportar e não aconteceu nada",
+   "rotulo": "ideia_layout",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.44
+  },
+  {
+   "texto": "falta mostrar a fonte de o painel mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.96
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "a ficha da zona some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.82
+  },
+  {
+   "texto": "não entendi o que o gráfico significa",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o gráfico ficasse maio rna tela",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "de onde vem o valor mostrado em o número de acidentes?",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.8
+  },
+  {
+   "texto": "so passando pra avisar que chego as 10",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o painel some quando a tela é pequena",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 0.92
+  },
+  {
+   "texto": "não sei por onde começar em o painel",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o botão de exportar ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "falta mostrar a fonte de o mapa",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "bom dia, tudo certo por ai?",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "cliquei em o mapa e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não sei por onde começar em a barra de filtro",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "sugiro reorganizar o número de acidentes pra cima",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o cartão do ponto tá com dois números diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.88
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom. e também, o número de acidentes devia ficar fixo no topo",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "ambigua": true,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.98
+  },
+  {
+   "texto": "a ficha da zona",
+   "rotulo": "nao_clica",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.36
+  },
+  {
+   "texto": "não sei por onde começar em a tabela de câmeras",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "seria melhor se o mapa ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "o mapa",
+   "rotulo": "falta_dado",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.64
+  },
+  {
+   "texto": "bom dia, tudo certo por aí?",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tela trava quando abro o númer de acidentes",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "não entendi o que o botão de exportar significa",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "sugiro reorganizar o cartão do ponto pra cima mano",
+   "rotulo": "ideia_layout",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "vocês têm o dado real de o painel? não achei",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "a tela trava quando abro a barra de filtro mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "n ficou claro se o botão de exportar é real ou só exemplo mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 0.87
+  },
+  {
+   "texto": "o botão de exportar",
+   "rotulo": "ideia_layout",
+   "ruido": "curta",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 0.57
+  },
+  {
+   "texto": "vcês têm o dado real de o painel? não achei",
+   "rotulo": "falta_dado",
+   "ruido": "erro_digitacao",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "qual o horario da apresentacao amanha?",
+   "rotulo": "outra",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.97
+  },
+  {
+   "texto": "o botão de a barra de filtro não responde ao toque",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "ambigua": false,
+   "jev_choice": "nao_clica",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "fiquei confuso com a tabela de câmeras, dá pra explicar? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "confuso",
+   "jev_confidence": 1
+  },
+  {
+   "texto": "queria uma versão de o cartão do ponto mais simples mano",
+   "rotulo": "ideia_layout",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "ideia_layout",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "falta mostrar a fonte de o mapa",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "ambigua": false,
+   "jev_choice": "falta_dado",
+   "jev_confidence": 0.99
+  },
+  {
+   "texto": "só passando pra avisar que chego às 10 mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "ambigua": false,
+   "jev_choice": "outra",
+   "jev_confidence": 1
+  }
+ ],
+ "gasto_acumulado_bateria": {
+  "tokens_entrada": 435500,
+  "chamadas": 881,
+  "erros": 0,
+  "parou_por_teto": false,
+  "por_experimento": {
+   "smoke": {
+    "tokens_entrada": 350,
+    "chamadas": 1
+   },
+   "e1-a_texto_atual": {
+    "tokens_entrada": 59153,
+    "chamadas": 120
+   },
+   "e1-b_com_razoes": {
+    "tokens_entrada": 68426,
+    "chamadas": 120
+   },
+   "e1-c_com_limiares": {
+    "tokens_entrada": 62033,
+    "chamadas": 120
+   },
+   "e1-d_razoes_e_limiares": {
+    "tokens_entrada": 71306,
+    "chamadas": 120
+   },
+   "e2-texto-volume": {
+    "tokens_entrada": 174232,
+    "chamadas": 400
+   }
+  }
+ }
+}

@@ -1,0 +1,121 @@
+{
+ "quando": "2026-09-20T03:17:51.782Z",
+ "total": 400,
+ "por_faixa_confianca": [
+  {
+   "faixa": "0-0.5",
+   "n": 22,
+   "certos": 7,
+   "taxa_acerto": 0.318
+  },
+  {
+   "faixa": "0.5-0.7",
+   "n": 24,
+   "certos": 11,
+   "taxa_acerto": 0.458
+  },
+  {
+   "faixa": "0.7-0.85",
+   "n": 24,
+   "certos": 10,
+   "taxa_acerto": 0.417
+  },
+  {
+   "faixa": "0.85-0.95",
+   "n": 34,
+   "certos": 21,
+   "taxa_acerto": 0.618
+  },
+  {
+   "faixa": "0.95-1",
+   "n": 296,
+   "certos": 276,
+   "taxa_acerto": 0.932
+  }
+ ],
+ "curva_limiar": [
+  {
+   "limiar": 0.5,
+   "vai_para_pessoa": 22,
+   "fracao_para_pessoa": 0.055,
+   "automatizado": 378,
+   "erros_no_automatizado": 60,
+   "taxa_erro_no_automatizado": 0.159
+  },
+  {
+   "limiar": 0.55,
+   "vai_para_pessoa": 26,
+   "fracao_para_pessoa": 0.065,
+   "automatizado": 374,
+   "erros_no_automatizado": 59,
+   "taxa_erro_no_automatizado": 0.158
+  },
+  {
+   "limiar": 0.6,
+   "vai_para_pessoa": 31,
+   "fracao_para_pessoa": 0.078,
+   "automatizado": 369,
+   "erros_no_automatizado": 54,
+   "taxa_erro_no_automatizado": 0.146
+  },
+  {
+   "limiar": 0.65,
+   "vai_para_pessoa": 38,
+   "fracao_para_pessoa": 0.095,
+   "automatizado": 362,
+   "erros_no_automatizado": 51,
+   "taxa_erro_no_automatizado": 0.141
+  },
+  {
+   "limiar": 0.7,
+   "vai_para_pessoa": 46,
+   "fracao_para_pessoa": 0.115,
+   "automatizado": 354,
+   "erros_no_automatizado": 47,
+   "taxa_erro_no_automatizado": 0.133
+  },
+  {
+   "limiar": 0.75,
+   "vai_para_pessoa": 54,
+   "fracao_para_pessoa": 0.135,
+   "automatizado": 346,
+   "erros_no_automatizado": 43,
+   "taxa_erro_no_automatizado": 0.124
+  },
+  {
+   "limiar": 0.8,
+   "vai_para_pessoa": 60,
+   "fracao_para_pessoa": 0.15,
+   "automatizado": 340,
+   "erros_no_automatizado": 39,
+   "taxa_erro_no_automatizado": 0.115
+  },
+  {
+   "limiar": 0.85,
+   "vai_para_pessoa": 70,
+   "fracao_para_pessoa": 0.175,
+   "automatizado": 330,
+   "erros_no_automatizado": 33,
+   "taxa_erro_no_automatizado": 0.1
+  },
+  {
+   "limiar": 0.9,
+   "vai_para_pessoa": 81,
+   "fracao_para_pessoa": 0.203,
+   "automatizado": 319,
+   "erros_no_automatizado": 28,
+   "taxa_erro_no_automatizado": 0.088
+  },
+  {
+   "limiar": 0.95,
+   "vai_para_pessoa": 104,
+   "fracao_para_pessoa": 0.26,
+   "automatizado": 296,
+   "erros_no_automatizado": 20,
+   "taxa_erro_no_automatizado": 0.068
+  }
+ ],
+ "limiar_recomendado": 0.95,
+ "nenhum_limiar_atinge_5pct_erro": true,
+ "motivo": "no limiar 0.95, 26% das mensagens vai para uma pessoa e o erro que sobra no automatizado é 6.8% (20 de 296) — NENHUM limiar testado chega a <=5% de erro; 0,95 é o menor erro alcançável na amostra"
+}

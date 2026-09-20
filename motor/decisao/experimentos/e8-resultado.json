@@ -1,0 +1,101 @@
+{
+ "quando": "2026-09-20T03:21:14.284Z",
+ "total": 150,
+ "tipo": {
+  "certos": 150,
+  "taxa": 1,
+  "primeiros_erros": []
+ },
+ "por_classe": {
+  "risco_imediato": {
+   "total": 30,
+   "ok": 30
+  },
+  "obstrucao": {
+   "total": 30,
+   "ok": 30
+  },
+  "sinalizacao": {
+   "total": 30,
+   "ok": 30
+  },
+  "via_pavimento": {
+   "total": 30,
+   "ok": 30
+  },
+  "sem_ocorrencia": {
+   "total": 30,
+   "ok": 30
+  }
+ },
+ "urgencia_erro_medio": 0.589,
+ "risco_imediato_pede_pessoa_agora": {
+  "total": 30,
+  "sim": 30,
+  "taxa": 1
+ },
+ "gasto_acumulado_bateria": {
+  "tokens_entrada": 881177,
+  "chamadas": 1851,
+  "erros": 0,
+  "parou_por_teto": false,
+  "por_experimento": {
+   "smoke": {
+    "tokens_entrada": 350,
+    "chamadas": 1
+   },
+   "e1-a_texto_atual": {
+    "tokens_entrada": 59153,
+    "chamadas": 120
+   },
+   "e1-b_com_razoes": {
+    "tokens_entrada": 68426,
+    "chamadas": 120
+   },
+   "e1-c_com_limiares": {
+    "tokens_entrada": 62033,
+    "chamadas": 120
+   },
+   "e1-d_razoes_e_limiares": {
+    "tokens_entrada": 71306,
+    "chamadas": 120
+   },
+   "e2-texto-volume": {
+    "tokens_entrada": 174232,
+    "chamadas": 400
+   },
+   "e3-estabilidade": {
+    "tokens_entrada": 131010,
+    "chamadas": 300
+   },
+   "e5-1pergunta": {
+    "tokens_entrada": 26098,
+    "chamadas": 60
+   },
+   "e5-5perguntas": {
+    "tokens_entrada": 32698,
+    "chamadas": 60
+   },
+   "e6-paralelo-1": {
+    "tokens_entrada": 52184,
+    "chamadas": 120
+   },
+   "e6-paralelo-3": {
+    "tokens_entrada": 52184,
+    "chamadas": 120
+   },
+   "e6-paralelo-6": {
+    "tokens_entrada": 52184,
+    "chamadas": 120
+   },
+   "e7-malicioso": {
+    "tokens_entrada": 17998,
+    "chamadas": 40
+   },
+   "e8-relato-cidadao": {
+    "tokens_entrada": 81321,
+    "chamadas": 150
+   }
+  }
+ }
+}

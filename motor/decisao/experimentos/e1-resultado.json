@@ -1,0 +1,222 @@
+{
+ "quando": "2026-09-20T03:15:05.838Z",
+ "total_casos": 120,
+ "casos_originais": 24,
+ "casos_gerados": 96,
+ "limiar_abstencao": 0.6,
+ "resultados": [
+  {
+   "variante": "a_texto_atual",
+   "casos": 120,
+   "certos": 44,
+   "errados": 39,
+   "abstencoes": 38,
+   "matriz_confusao": {
+    "nada": {
+     "nao_sei": 12,
+     "veiculo_parado": 6,
+     "fila_anormal": 7
+    },
+    "fila_anormal": {
+     "fila_anormal": 26
+    },
+    "veiculo_parado": {
+     "veiculo_parado": 17,
+     "nao_sei": 5,
+     "fila_anormal": 2
+    },
+    "contramao": {
+     "nao_sei": 20,
+     "fila_anormal": 3
+    },
+    "duvidoso": {
+     "nao_sei": 1,
+     "fila_anormal": 12,
+     "veiculo_parado": 9
+    }
+   },
+   "primeiros_erros": [
+    "nada→não sei",
+    "nada→não sei",
+    "nada→não sei",
+    "nada→não sei",
+    "nada→não sei",
+    "nada→não sei",
+    "veiculo_parado→não sei",
+    "contramao→não sei",
+    "contramao→não sei",
+    "contramao→não sei",
+    "contramao→não sei",
+    "duvidoso→fila_anormal (0.7)",
+    "duvidoso→fila_anormal (0.66)",
+    "nada→veiculo_parado",
+    "nada→fila_anormal"
+   ]
+  },
+  {
+   "variante": "b_com_razoes",
+   "casos": 120,
+   "certos": 48,
+   "errados": 45,
+   "abstencoes": 30,
+   "matriz_confusao": {
+    "nada": {
+     "veiculo_parado": 12,
+     "nao_sei": 10,
+     "fila_anormal": 3
+    },
+    "fila_anormal": {
+     "fila_anormal": 26
+    },
+    "veiculo_parado": {
+     "veiculo_parado": 19,
+     "fila_anormal": 1,
+     "nao_sei": 4
+    },
+    "contramao": {
+     "nao_sei": 13,
+     "veiculo_parado": 6,
+     "fila_anormal": 4
+    },
+    "duvidoso": {
+     "nao_sei": 3,
+     "veiculo_parado": 9,
+     "fila_anormal": 10
+    }
+   },
+   "primeiros_erros": [
+    "nada→veiculo_parado",
+    "nada→veiculo_parado",
+    "nada→não sei",
+    "nada→veiculo_parado",
+    "nada→não sei",
+    "nada→veiculo_parado",
+    "contramao→não sei",
+    "contramao→não sei",
+    "contramao→não sei",
+    "contramao→não sei",
+    "nada→veiculo_parado",
+    "nada→fila_anormal",
+    "nada→não sei",
+    "nada→veiculo_parado",
+    "nada→não sei"
+   ]
+  },
+  {
+   "variante": "c_com_limiares",
+   "casos": 120,
+   "certos": 98,
+   "errados": 21,
+   "abstencoes": 2,
+   "matriz_confusao": {
+    "nada": {
+     "nada": 25
+    },
+    "fila_anormal": {
+     "fila_anormal": 26
+    },
+    "veiculo_parado": {
+     "veiculo_parado": 24
+    },
+    "contramao": {
+     "contramao": 22,
+     "nao_sei": 1
+    },
+    "duvidoso": {
+     "nada": 10,
+     "veiculo_parado": 6,
+     "fila_anormal": 5,
+     "nao_sei": 1
+    }
+   },
+   "primeiros_erros": [
+    "duvidoso→nada (0.96)",
+    "duvidoso→nada (0.95)",
+    "duvidoso→nada (0.96)",
+    "contramao→não sei",
+    "duvidoso→nada (0.92)",
+    "duvidoso→nada (0.94)",
+    "duvidoso→nada (0.81)",
+    "duvidoso→veiculo_parado (1)",
+    "duvidoso→veiculo_parado (1)",
+    "duvidoso→fila_anormal (0.81)",
+    "duvidoso→veiculo_parado (1)",
+    "duvidoso→fila_anormal (0.82)",
+    "duvidoso→nada (0.83)",
+    "duvidoso→veiculo_parado (1)",
+    "duvidoso→veiculo_parado (1)"
+   ]
+  },
+  {
+   "variante": "d_razoes_e_limiares",
+   "casos": 120,
+   "certos": 98,
+   "errados": 22,
+   "abstencoes": 0,
+   "matriz_confusao": {
+    "nada": {
+     "nada": 25
+    },
+    "fila_anormal": {
+     "fila_anormal": 26
+    },
+    "veiculo_parado": {
+     "veiculo_parado": 24
+    },
+    "contramao": {
+     "contramao": 23
+    },
+    "duvidoso": {
+     "nada": 11,
+     "veiculo_parado": 6,
+     "fila_anormal": 5
+    }
+   },
+   "primeiros_erros": [
+    "duvidoso→nada (0.94)",
+    "duvidoso→nada (0.93)",
+    "duvidoso→nada (0.94)",
+    "duvidoso→nada (0.93)",
+    "duvidoso→nada (0.96)",
+    "duvidoso→nada (0.94)",
+    "duvidoso→veiculo_parado (1)",
+    "duvidoso→veiculo_parado (1)",
+    "duvidoso→fila_anormal (1)",
+    "duvidoso→veiculo_parado (1)",
+    "duvidoso→nada (0.87)",
+    "duvidoso→fila_anormal (1)",
+    "duvidoso→nada (0.93)",
+    "duvidoso→veiculo_parado (1)",
+    "duvidoso→veiculo_parado (1)"
+   ]
+  }
+ ],
+ "gasto_acumulado_bateria": {
+  "tokens_entrada": 261268,
+  "chamadas": 481,
+  "erros": 0,
+  "parou_por_teto": false,
+  "por_experimento": {
+   "smoke": {
+    "tokens_entrada": 350,
+    "chamadas": 1
+   },
+   "e1-a_texto_atual": {
+    "tokens_entrada": 59153,
+    "chamadas": 120
+   },
+   "e1-b_com_razoes": {
+    "tokens_entrada": 68426,
+    "chamadas": 120
+   },
+   "e1-c_com_limiares": {
+    "tokens_entrada": 62033,
+    "chamadas": 120
+   },
+   "e1-d_razoes_e_limiares": {
+    "tokens_entrada": 71306,
+    "chamadas": 120
+   }
+  }
+ }
+}

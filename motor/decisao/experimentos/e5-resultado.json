@@ -1,0 +1,71 @@
+{
+ "quando": "2026-09-20T03:18:20.833Z",
+ "amostra": 60,
+ "uma_pergunta": {
+  "variante": "e5-1pergunta",
+  "n_perguntas": 1,
+  "chamadas": 60,
+  "ms_total": 3892,
+  "ms_mediana": 304,
+  "ms_min": 255,
+  "ms_max": 1197,
+  "tokens_por_chamada_media": 435,
+  "tokens_total": 26098
+ },
+ "cinco_perguntas": {
+  "variante": "e5-5perguntas",
+  "n_perguntas": 5,
+  "chamadas": 60,
+  "ms_total": 3130,
+  "ms_mediana": 304,
+  "ms_min": 249,
+  "ms_max": 398,
+  "tokens_por_chamada_media": 545,
+  "tokens_total": 32698
+ },
+ "leitura": "5 perguntas na mesma chamada custaram 545 tokens/chamada contra 435 de 1 pergunta (1.25x) — mas são 5x menos chamadas para o mesmo total de respostas.",
+ "gasto_acumulado_bateria": {
+  "tokens_entrada": 625306,
+  "chamadas": 1301,
+  "erros": 0,
+  "parou_por_teto": false,
+  "por_experimento": {
+   "smoke": {
+    "tokens_entrada": 350,
+    "chamadas": 1
+   },
+   "e1-a_texto_atual": {
+    "tokens_entrada": 59153,
+    "chamadas": 120
+   },
+   "e1-b_com_razoes": {
+    "tokens_entrada": 68426,
+    "chamadas": 120
+   },
+   "e1-c_com_limiares": {
+    "tokens_entrada": 62033,
+    "chamadas": 120
+   },
+   "e1-d_razoes_e_limiares": {
+    "tokens_entrada": 71306,
+    "chamadas": 120
+   },
+   "e2-texto-volume": {
+    "tokens_entrada": 174232,
+    "chamadas": 400
+   },
+   "e3-estabilidade": {
+    "tokens_entrada": 131010,
+    "chamadas": 300
+   },
+   "e5-1pergunta": {
+    "tokens_entrada": 26098,
+    "chamadas": 60
+   },
+   "e5-5perguntas": {
+    "tokens_entrada": 32698,
+    "chamadas": 60
+   }
+  }
+ }
+}

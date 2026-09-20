@@ -1,0 +1,417 @@
+{
+ "quando": "2026-09-20T03:17:15.898Z",
+ "amostra": 30,
+ "repeticoes": 10,
+ "totalmente_estaveis": 29,
+ "taxa_totalmente_estavel": 0.967,
+ "desvio_confianca_medio": 0.006,
+ "instaveis": [
+  {
+   "texto": "de onde vem o valor mostrado em a fichada zona?",
+   "rotulo": "falta_dado",
+   "contagem_escolhas": {
+    "confuso": 8,
+    "falta_dado": 2
+   }
+  }
+ ],
+ "detalhe": [
+  {
+   "texto": "cliquei em o cartão do ponto e n aconteceu nada mano",
+   "rotulo": "nao_clica",
+   "ruido": "giria",
+   "contagem_escolhas": {
+    "nao_clica": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "cliquei em o gráfico e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "nao_clica": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "cliquei em o cartão do ponto e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "nao_clica": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "a tabela de cameras some quando a tela e pequena",
+   "rotulo": "nao_clica",
+   "ruido": "sem_acento",
+   "contagem_escolhas": {
+    "nao_clica": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.724,
+   "confianca_desvio": 0.027
+  },
+  {
+   "texto": "o botão de a tabela de câmeras não responde ao toque",
+   "rotulo": "nao_clica",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "nao_clica": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "cliquei em at abela de câmeras e não aconteceu nada",
+   "rotulo": "nao_clica",
+   "ruido": "erro_digitacao",
+   "contagem_escolhas": {
+    "nao_clica": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "fiquei confuso com o botão de exportar, dá pra explicar? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "contagem_escolhas": {
+    "confuso": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "fiquei confuso com o grafico, da pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "contagem_escolhas": {
+    "confuso": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "por que o cartão do ponto tem esse nome? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "contagem_escolhas": {
+    "confuso": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.923,
+   "confianca_desvio": 0.017
+  },
+  {
+   "texto": "nao ficou claro se a tabela de cameras e real ou so exemplo",
+   "rotulo": "confuso",
+   "ruido": "sem_acento",
+   "contagem_escolhas": {
+    "confuso": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "fiquei confuso com a central, dá pra explicar? mano",
+   "rotulo": "confuso",
+   "ruido": "giria",
+   "contagem_escolhas": {
+    "confuso": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "fiquei confuso com o gráfico, dá pra explicar?",
+   "rotulo": "confuso",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "confuso": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "o número de acidentes devia ficar fixo no topo",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "ideia_layout": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.994,
+   "confianca_desvio": 0.005
+  },
+  {
+   "texto": "queria uma versão de o painel masi simples",
+   "rotulo": "ideia_layout",
+   "ruido": "erro_digitacao",
+   "contagem_escolhas": {
+    "ideia_layout": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "seria melhor se a central ficasse maior na tela",
+   "rotulo": "ideia_layout",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "ideia_layout": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "queria uma versao de o cartao do ponto mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "contagem_escolhas": {
+    "ideia_layout": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.965,
+   "confianca_desvio": 0.008
+  },
+  {
+   "texto": "queria uma versao de o painel mais simples",
+   "rotulo": "ideia_layout",
+   "ruido": "sem_acento",
+   "contagem_escolhas": {
+    "ideia_layout": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.998,
+   "confianca_desvio": 0.004
+  },
+  {
+   "texto": "sugiro reorganizar o painel pra cima. e também, só passando pra avisar que chego às 10",
+   "rotulo": "ideia_layout",
+   "ruido": "longa_dois_assuntos",
+   "contagem_escolhas": {
+    "ideia_layout": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.985,
+   "confianca_desvio": 0.005
+  },
+  {
+   "texto": "falta mostrar a fonte de a ficha da zona mano",
+   "rotulo": "falta_dado",
+   "ruido": "giria",
+   "contagem_escolhas": {
+    "falta_dado": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.991,
+   "confianca_desvio": 0.003
+  },
+  {
+   "texto": "o painel",
+   "rotulo": "falta_dado",
+   "ruido": "curta",
+   "contagem_escolhas": {
+    "outra": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.869,
+   "confianca_desvio": 0.015
+  },
+  {
+   "texto": "de onde vem o valor mostrado em a fichada zona?",
+   "rotulo": "falta_dado",
+   "ruido": "erro_digitacao",
+   "contagem_escolhas": {
+    "confuso": 8,
+    "falta_dado": 2
+   },
+   "estavel": false,
+   "moda_fracao": 0.8,
+   "confianca_media": 0.457,
+   "confianca_desvio": 0.054
+  },
+  {
+   "texto": "o gráfico tá com dois números diferentes. e também, por que o número de acidentes tem esse nome?",
+   "rotulo": "falta_dado",
+   "ruido": "longa_dois_assuntos",
+   "contagem_escolhas": {
+    "confuso": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "falta mostrar a fonte de o cartao do ponto",
+   "rotulo": "falta_dado",
+   "ruido": "sem_acento",
+   "contagem_escolhas": {
+    "falta_dado": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.973,
+   "confianca_desvio": 0.006
+  },
+  {
+   "texto": "o gráfico tá com dois números diferentes",
+   "rotulo": "falta_dado",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "confuso": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.974,
+   "confianca_desvio": 0.009
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom. e também, não consigo abrir o número de acidentes, fica travado",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "contagem_escolhas": {
+    "nao_clica": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "só passando pra aviasr que chego às 10",
+   "rotulo": "outra",
+   "ruido": "erro_digitacao",
+   "contagem_escolhas": {
+    "outra": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "outra": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "qual o horário da apresentação amanhã?. e também, não sei por onde começar em o painel",
+   "rotulo": "outra",
+   "ruido": "longa_dois_assuntos",
+   "contagem_escolhas": {
+    "falta_dado": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 0.522,
+   "confianca_desvio": 0.035
+  },
+  {
+   "texto": "bom dia, tudo certo por aí? mano",
+   "rotulo": "outra",
+   "ruido": "giria",
+   "contagem_escolhas": {
+    "outra": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  },
+  {
+   "texto": "parabéns pelo trabalho, ficou muito bom",
+   "rotulo": "outra",
+   "ruido": "nenhum",
+   "contagem_escolhas": {
+    "outra": 10
+   },
+   "estavel": true,
+   "moda_fracao": 1,
+   "confianca_media": 1,
+   "confianca_desvio": 0
+  }
+ ],
+ "gasto_acumulado_bateria": {
+  "tokens_entrada": 566510,
+  "chamadas": 1181,
+  "erros": 0,
+  "parou_por_teto": false,
+  "por_experimento": {
+   "smoke": {
+    "tokens_entrada": 350,
+    "chamadas": 1
+   },
+   "e1-a_texto_atual": {
+    "tokens_entrada": 59153,
+    "chamadas": 120
+   },
+   "e1-b_com_razoes": {
+    "tokens_entrada": 68426,
+    "chamadas": 120
+   },
+   "e1-c_com_limiares": {
+    "tokens_entrada": 62033,
+    "chamadas": 120
+   },
+   "e1-d_razoes_e_limiares": {
+    "tokens_entrada": 71306,
+    "chamadas": 120
+   },
+   "e2-texto-volume": {
+    "tokens_entrada": 174232,
+    "chamadas": 400
+   },
+   "e3-estabilidade": {
+    "tokens_entrada": 131010,
+    "chamadas": 300
+   }
+  }
+ }
+}

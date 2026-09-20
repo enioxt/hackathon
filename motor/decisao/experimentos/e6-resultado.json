@@ -1,0 +1,88 @@
+{
+ "quando": "2026-09-20T03:19:39.511Z",
+ "resultados": [
+  {
+   "paralelismo": 1,
+   "chamadas": 120,
+   "erros": 0,
+   "ms_total": 39896,
+   "ms_mediana": 313,
+   "ms_pior_caso": 1548,
+   "chamadas_por_segundo": 3.01
+  },
+  {
+   "paralelismo": 3,
+   "chamadas": 120,
+   "erros": 0,
+   "ms_total": 13618,
+   "ms_mediana": 309,
+   "ms_pior_caso": 1686,
+   "chamadas_por_segundo": 8.81
+  },
+  {
+   "paralelismo": 6,
+   "chamadas": 120,
+   "erros": 0,
+   "ms_total": 6526,
+   "ms_mediana": 299,
+   "ms_pior_caso": 756,
+   "chamadas_por_segundo": 18.39
+  }
+ ],
+ "gasto_acumulado_bateria": {
+  "tokens_entrada": 781858,
+  "chamadas": 1661,
+  "erros": 0,
+  "parou_por_teto": false,
+  "por_experimento": {
+   "smoke": {
+    "tokens_entrada": 350,
+    "chamadas": 1
+   },
+   "e1-a_texto_atual": {
+    "tokens_entrada": 59153,
+    "chamadas": 120
+   },
+   "e1-b_com_razoes": {
+    "tokens_entrada": 68426,
+    "chamadas": 120
+   },
+   "e1-c_com_limiares": {
+    "tokens_entrada": 62033,
+    "chamadas": 120
+   },
+   "e1-d_razoes_e_limiares": {
+    "tokens_entrada": 71306,
+    "chamadas": 120
+   },
+   "e2-texto-volume": {
+    "tokens_entrada": 174232,
+    "chamadas": 400
+   },
+   "e3-estabilidade": {
+    "tokens_entrada": 131010,
+    "chamadas": 300
+   },
+   "e5-1pergunta": {
+    "tokens_entrada": 26098,
+    "chamadas": 60
+   },
+   "e5-5perguntas": {
+    "tokens_entrada": 32698,
+    "chamadas": 60
+   },
+   "e6-paralelo-1": {
+    "tokens_entrada": 52184,
+    "chamadas": 120
+   },
+   "e6-paralelo-3": {
+    "tokens_entrada": 52184,
+    "chamadas": 120
+   },
+   "e6-paralelo-6": {
+    "tokens_entrada": 52184,
+    "chamadas": 120
+   }
+  }
+ }
+}

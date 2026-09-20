@@ -1,0 +1,73 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visão de Rota — o fluxo inteiro</title>
+<style>
+:root{--navy:#0b2a4a;--ambar:#f5b942}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:#f3f6fb;font-family:Inter,Roboto,-apple-system,"Segoe UI",Arial,sans-serif;color:#0f2544;overflow:hidden}
+.topo{position:fixed;inset:0 0 auto 0;height:64px;background:var(--navy);color:#fff;display:flex;align-items:center;gap:16px;padding:0 18px;z-index:10}
+.passo{font:800 13px/1 inherit;letter-spacing:.08em;color:var(--navy);background:var(--ambar);border-radius:999px;padding:7px 12px;white-space:nowrap}
+.fala{flex:1;min-width:0}.fala b{display:block;font-size:20px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fala span{display:block;font-size:13.5px;color:#c9d6e6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav{display:flex;gap:8px;align-items:center}
+.nav button,.nav a{min-width:48px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.3);background:transparent;color:#fff;font:700 15px inherit;cursor:pointer;padding:0 14px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.nav button.principal{background:var(--ambar);color:var(--navy);border-color:var(--ambar)}
+.nav button:disabled{opacity:.35;cursor:default}
+.pontos{display:flex;gap:6px}.pontos i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.28)}.pontos i.on{background:var(--ambar)}
+.palco{position:fixed;inset:64px 0 0 0}
+.palco iframe{position:absolute;inset:0;width:100%;height:100%;border:0;opacity:0;pointer-events:none;transition:opacity .22s ease,transform .22s ease;transform:translateY(6px);background:#f3f6fb}
+.palco iframe.on{opacity:1;pointer-events:auto;transform:none}
+@media(prefers-reduced-motion:reduce){.palco iframe{transition:none}}
+@media(max-width:720px){.topo{height:auto;min-height:64px;flex-wrap:wrap;padding:8px 12px}.fala b{font-size:16px;white-space:normal}.fala span{white-space:normal}.pontos{display:none}.palco{inset:112px 0 0 0}}
+</style></head><body>
+<header class="topo">
+  <span class="passo" id="passo">1 de 6</span>
+  <div class="fala"><b id="titulo"></b><span id="apoio"></span></div>
+  <div class="pontos" id="pontos"></div>
+  <div class="nav"><button id="ant" aria-label="passo anterior">←</button><button id="prox" class="principal" aria-label="próximo passo">próximo →</button><a id="sair" href="#">sair</a></div>
+</header>
+<main class="palco" id="palco"></main>
+<script>
+(function(){
+  var estatico = location.protocol==='file:' || /github\.io$/.test(location.hostname) || new URLSearchParams(location.search).get('estatico')==='1';
+  // [título que fica no alto, frase de apoio, rota local, arquivo na cópia publicada]
+  var PASSOS=[
+    ['A câmera já existe. Aqui, duas estão sendo lidas agora.','Vídeo público de outras cidades, com o atraso escrito na tela. Só sai número: quantos, de que tipo.', '/parede?embutido=1&grade=2','cameras-publicas.html?casca=1'],
+    ['Como a câmera vira número','Caixa, identidade, trajetória e a linha de contagem. Ligue "Só os números": a imagem some, a conta fica.', '/camadas?casca=1&clipe=0','camadas.html?casca=1'],
+    ['Pessoa corrige, e só vale com dois votos iguais','Clique numa caixa e diga o que é. Tudo fica no histórico.', '/camadas?casca=1&clipe=0#votacao','camadas.html?casca=1'],
+    ['O gestor abre e vê a cidade','Números do dia, câmeras e alertas. Todo número diz de onde veio.', '/claro?casca=1#geral','painel.html?casca=1#geral'],
+    ['A IA propõe. Uma pessoa decide.','Fila acima do padrão, quatro sextas seguidas: a sugestão vem em faixa, com o porquê e o que medir depois.', '/insights?casca=1','insights.html?casca=1'],
+    ['Mexeu na rua? O sistema mede o antes e o depois.','Melhorou, piorou ou não fez diferença — fica escrito. É a memória da rua.', '/claro?casca=1#historico','painel.html?casca=1#historico']
+  ];
+  var palco=document.getElementById('palco'), pontos=document.getElementById('pontos'), quadros=[], atual=-1;
+  PASSOS.forEach(function(){ pontos.appendChild(document.createElement('i')); });
+  function url(i){ return estatico ? PASSOS[i][3] : PASSOS[i][2]; }
+  function garantir(i){
+    if(i<0||i>=PASSOS.length||quadros[i]) return;
+    // passos que usam a MESMA tela (mesmo caminho antes do #) dividem o mesmo quadro: troca sem recarregar
+    var base=url(i).split('#')[0];
+    for(var k=0;k<quadros.length;k++){ if(quadros[k] && quadros[k].dataset.base===base){ quadros[i]=quadros[k]; return; } }
+    var f=document.createElement('iframe'); f.title=PASSOS[i][0]; f.dataset.base=base; f.src=url(i); f.allow='autoplay; fullscreen'; palco.appendChild(f); quadros[i]=f;
+  }
+  function ir(i){
+    if(i<0||i>=PASSOS.length) return; garantir(i); atual=i;
+    var f=quadros[i], h=url(i).split('#')[1];
+    if(h){ try{ if(f.contentWindow.location.hash!=='#'+h) f.contentWindow.location.hash='#'+h; }catch(e){ console.info('apresentar: tela ainda carregando', e&&e.message); } }
+    [].forEach.call(palco.children,function(x){ x.classList.toggle('on', x===f); });
+    document.getElementById('passo').textContent=(i+1)+' de '+PASSOS.length;
+    document.getElementById('titulo').textContent=PASSOS[i][0]; document.getElementById('apoio').textContent=PASSOS[i][1];
+    [].forEach.call(pontos.children,function(p,k){ p.classList.toggle('on',k<=i); });
+    document.getElementById('ant').disabled=i===0; document.getElementById('prox').textContent=i===PASSOS.length-1?'do começo ↺':'próximo →';
+    try{ history.replaceState(null,'','#'+(i+1)); }catch(e){}
+    setTimeout(function(){ garantir(i+1); }, 600); // a próxima tela carrega enquanto se fala desta
+  }
+  document.getElementById('prox').onclick=function(){ ir(atual===PASSOS.length-1?0:atual+1); };
+  document.getElementById('ant').onclick=function(){ ir(atual-1); };
+  document.getElementById('sair').href = estatico ? 'app.html' : '/app';
+  addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); document.getElementById('prox').click(); }
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); ir(atual-1); }
+    if(e.key==='f'||e.key==='F'){ var d=document.documentElement; (document.fullscreenElement?document.exitFullscreen():d.requestFullscreen&&d.requestFullscreen()); }
+  });
+  var n=parseInt((location.hash||'').replace('#',''),10); ir(n>=1&&n<=PASSOS.length?n-1:0);
+})();
+</script>
+</body></html>

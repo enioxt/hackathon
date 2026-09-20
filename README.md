@@ -25,6 +25,9 @@
 
 Quer no seu computador? Botão verde **Code → Download ZIP**, descompacte e abra **`ABRA-ESTE.html`**.
 
+## Prova a um clique
+Cada número que afirmamos, com o arquivo, a fonte e o comando para refazer: **[`docs/PROVAS.md`](docs/PROVAS.md)**. Um comando confere tudo: `python3 motor/provar.py` (14 de 14). A mesma página lista o que **ainda não** tem prova.
+
 ## Como ler qualquer tela daqui
 Todo número carrega uma etiqueta: **MEDIDO** (dado real) · **SIMULAÇÃO** (conta nossa sobre dado real) · **DADO SINTÉTICO** (inventado para demonstrar). Número sem etiqueta ou sem origem é defeito: abra uma *issue* ou avise no grupo.
 

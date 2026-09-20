@@ -43,7 +43,7 @@ escuro e branco-gelo no claro.
 - Pior bloco de 5 minutos: 06:20 — 356 viagens e [número do relatório da operadora, fora deste repositório] passageiros somados no mês; 36% chegam
   mais de 5 min atrasadas.
 - 34.694 horas de passageiro chegando atrasado no mês · 3.833 horas de ônibus parado no ponto.
-- 1.100 ocorrências de trânsito com coordenada (2025 + início de 2026), 19 fatais — dado aberto do Estado.
+- 1.100 ocorrências de trânsito com coordenada (2025 + início de 2026), 18 ocorrências fatais (19 vítimas) — dado aberto do Estado.
 - 83 itens verificados · 32 fontes públicas com dado de Patos abertas hoje · 12 dependem de pedido.
 - Infra que já existe: 240 câmeras em 140 pontos · semáforo com IA em teste em uma avenida
   (36 de 76 equipamentos) · app oficial da prefeitura.

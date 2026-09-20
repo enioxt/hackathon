@@ -20,7 +20,7 @@ Para o grupo decidir: fica assim? Alternativas que apareceram ontem: QUASE · Ru
 
 ### 3. O que já temos (com número)
 - Relatório de viagens do transporte coletivo, agosto/2026 inteiro (chegou pelo Gustavo): [número do relatório da operadora, fora deste repositório] viagens · [número do relatório da operadora, fora deste repositório] passageiros · pior bloco 06:20 (356 viagens, [número do relatório da operadora, fora deste repositório] passageiros, 36% chegam mais de 5 min atrasadas) · 34.694 horas de passageiro chegando atrasado no mês · 3.833 horas de ônibus parado no ponto.
-- 1.100 ocorrências de trânsito com coordenada em Patos (2025 + início de 2026), 19 fatais — dado público do Estado (SEJUSP-MG).
+- 1.100 ocorrências de trânsito com coordenada em Patos (2025 + início de 2026), 18 ocorrências fatais (19 vítimas) — dado público do Estado (SEJUSP-MG).
 - 32 fontes públicas com dado de Patos abertas hoje, de 83 itens verificados; 12 dependem de pedido (Prefeitura, operadora, UNIPAM).
 - Infra que existe: Olho Vivo (240 câmeras, 140 pontos) · piloto de semáforo com IA na Av. Paracatu (36 de 76 equipamentos, desde 18/08) · app Conecta Patos (chamado de trânsito, enquete, campanha) · Patos Premia (nota fiscal, sorteio).
 - Peças prontas: painel com mapa de calor e simulador de horário escalonado (este arquivo) · coleta por 1 link, sem app (Senso Urbano) · detector de câmera a ligar (Frigate).

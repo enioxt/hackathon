@@ -1,0 +1,20 @@
+name: Pedir melhoria
+description: Algo não clica, está confuso ou poderia ser melhor? Conte aqui. O andamento aparece dentro do painel.
+title: "[melhoria] "
+labels: ["melhoria"]
+body:
+  - type: input
+    id: onde
+    attributes: { label: Em que tela, description: "Cole o endereço da página, ou diga: painel, parede, mesa de controle, app, apresentação." }
+    validations: { required: true }
+  - type: textarea
+    id: oque
+    attributes: { label: O que aconteceu ou o que você quer, description: "Ex.: cliquei em X e nada aconteceu · não entendi o que é Y · queria ver Z de outro jeito. Print ajuda." }
+    validations: { required: true }
+  - type: dropdown
+    id: tipo
+    attributes: { label: Tipo, options: ["Não clica / quebrou", "Está confuso", "Ideia de layout", "Falta um dado ou número", "Outra coisa"] }
+    validations: { required: true }
+  - type: textarea
+    id: aceite
+    attributes: { label: Como você vai saber que ficou bom, description: "Seu critério de aceite, em uma frase. Opcional, mas é o que mais ajuda." }

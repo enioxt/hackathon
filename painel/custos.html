@@ -109,4 +109,6 @@ document.getElementById('oEx').textContent=$('eg')?R($('eg')*$('ep')/100):'—';
 document.getElementById('oLegal').innerHTML=(precoPil<=TETO?'🟢 O piloto de '+R(precoPil)+' cabe na dispensa de licitação (sobra '+R(TETO-precoPil)+').':'🔴 O piloto de '+R(precoPil)+' passa do teto da dispensa em '+R(precoPil-TETO)+': ou reduz, ou vai por contrato de solução inovadora.')+' '+(recM*12<=TETO?'A assinatura anual também cabe.':'A assinatura de '+R(recM*12)+' por ano NÃO cabe na dispensa: precisa de contrato de solução inovadora ou licitação.');
 document.getElementById('cmpIni').textContent=R(inicial);document.getElementById('cmpMes').textContent=R(mensal);document.getElementById('cmpCam').textContent=(inicial/Math.max(1,$('nova'))).toFixed(1).replace('.',',')+' câmeras';document.getElementById('cmpPct').textContent=(mensal/320000*100).toFixed(1).replace('.',',')+'%';}
 document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
-</script></body></html>
+</script><script src="melhorias.js"></script>
+<script src="tour.js"></script>
+</body></html>

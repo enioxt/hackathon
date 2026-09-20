@@ -1,0 +1,11 @@
+import { test, expect } from "bun:test"; import { writeFileSync, mkdtempSync } from "node:fs"; import { tmpdir } from "node:os"; import { criarAcesso } from "./acesso.ts";
+const dir = mkdtempSync(tmpdir() + "/vr-"), arq = dir + "/acessos.json", TOK = "tok_valido_0123456789abcdef";
+writeFileSync(arq, JSON.stringify({ tokens: { [TOK]: { nome: "Pessoa Teste", jid: "1@lid" } } }));
+const req = (c?: string) => new Request("http://x/chat", { headers: c ? { cookie: c } : {} });
+test("link certo grava cookie e redireciona", () => { const r = criarAcesso(arq, { exigeLogin: true, tetoDia: 2 }).entrar(new URL("http://x/entrar/" + TOK))!; expect(r.status).toBe(302); expect(r.headers.get("set-cookie")).toContain("HttpOnly"); });
+test("link errado é recusado sem dizer por quê", () => { expect(criarAcesso(arq, { exigeLogin: true, tetoDia: 2 }).entrar(new URL("http://x/entrar/tok_que_nao_existe_000000000"))!.status).toBe(403); });
+test("caminho que não é de entrada devolve nulo", () => { expect(criarAcesso(arq, { exigeLogin: true, tetoDia: 2 }).entrar(new URL("http://x/parede"))).toBeNull(); });
+test("sem login não pergunta ao agente", () => { const r = criarAcesso(arq, { exigeLogin: true, tetoDia: 2 }).podePerguntar(req()); expect(r.ok).toBe(false); if (!r.ok) expect(r.status).toBe(401); });
+test("com login pergunta, e o teto do dia barra a terceira", () => { const a = criarAcesso(arq, { exigeLogin: true, tetoDia: 2 }), c = "vr_s=" + TOK; expect(a.podePerguntar(req(c)).ok).toBe(true); expect(a.podePerguntar(req(c)).ok).toBe(true); const t = a.podePerguntar(req(c)); expect(t.ok).toBe(false); if (!t.ok) expect(t.status).toBe(429); });
+test("cookie inventado não identifica ninguém", () => { expect(criarAcesso(arq, { exigeLogin: true, tetoDia: 2 }).quem(req("vr_s=tok_inventado_00000000000000"))).toBeNull(); });
+test("modo aberto (notebook do dono) continua perguntando sem login", () => { expect(criarAcesso(arq, { exigeLogin: false, tetoDia: 2 }).podePerguntar(req()).ok).toBe(true); });

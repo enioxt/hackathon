@@ -1,0 +1,10 @@
+{
+  "_leia": "arquivo local (não vai a git nem é servido publicamente) — mapeia chave de fonte -> fonte_id. Gere uma chave nova por integração real; a chave demo abaixo é só para o hackathon.",
+  "fontes": {
+    "830e7c46e5b14aca8ed40ccad46f1c99": {
+      "fonte_id": "prefeitura-demo",
+      "nome": "Fonte de demonstração (hackathon)",
+      "so_sintetico": true
+    }
+  }
+}

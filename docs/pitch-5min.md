@@ -1,3 +1,37 @@
+# Visão de Rota — PITCH DE 4 MINUTOS (versão de domingo 20/09, 09h20 — esta é a que vale)
+
+> Cerca de 480 palavras faladas. Frases curtas. O que está entre colchetes é origem do número: não se fala, serve para responder pergunta. Os slides citados são os do Rafael (imagens das 08:50).
+
+## 0:00 — Abrir com a cidade (25 s) · slide "A cidade gera dados. Mas eles não conversam."
+"Patos de Minas tem 240 câmeras em 140 pontos [imprensa local, mai/2026]. Elas gravam o dia inteiro. Hoje elas respondem a uma pergunta só: o que aconteceu ali? A gente veio fazer outra pergunta para a mesma câmera."
+
+## 0:25 — A ideia, em uma frase (30 s)
+"A mesma câmera. Outra pergunta. Quantos passam aqui? De que tipo? Quanto tempo esperam? O que mudou depois que a prefeitura mexeu nesta rua? A câmera vira contagem. A contagem vira memória. E a rua passa a ter história."
+
+## 0:55 — O limite que é a nossa marca (25 s)
+"A gente conta. A gente não identifica. O sistema não guarda rosto e não lê placa. Não é borrar depois: é não capturar. Sai da câmera um número: doze carros, três motos, um ônibus, fila de quarenta metros."
+
+## 1:20 — Mostrar (70 s) · TELA: visão geral → um ponto → antes e depois
+"Esta é a cidade vista pelo gestor. Cada ponto tem fluxo, fila e espera." (clicar num ponto) "Aqui o ponto por dentro: o que passou no último minuto, por tipo, por sentido." (abrir o histórico) "E aqui o que interessa: a prefeitura mudou o tempo do semáforo neste cruzamento. Antes, trinta e dois segundos de espera. Depois, dezoito. Melhorou, e agora está escrito. Tudo o que vocês veem nesta tela está marcado: medido, simulação ou dado de demonstração."
+
+## 2:30 — O que já provamos (35 s)
+"Pegamos as 1.100 ocorrências de trânsito com coordenada que o Estado publica [SEJUSP-MG, dado aberto]. O problema se concentra: 33 pontos de leitura alcançam um quarto delas [simulação sobre dado medido — dizer 'simulação' se perguntarem]. Dá para começar pequeno, pelos pontos certos. E hoje de manhã filmamos um cruzamento, contamos à mão e deixamos o sistema contar o mesmo vídeo." (mostrar os dois números lado a lado — SÓ SE A FILMAGEM ACONTECER; senão, cortar esta última frase)
+
+## 3:05 — Deixar aberto (30 s) · slide "Não vendemos câmera. Não vendemos semáforo."
+"A gente não vende câmera e não vende semáforo. A gente entrega leitura sobre o que a cidade já tem. E a pergunta que fica é de vocês: se a câmera da sua rua pudesse contar, o que você perguntaria a ela? A saída da escola? O ponto de ônibus? A calçada? A entrega de moto? Cada pergunta dessas é um uso, e a base é a mesma."
+
+## 3:35 — O pedido (25 s)
+"Para começar, pedimos três coisas pequenas: uma hora de vídeo gravado de uma câmera, a lista dos pontos, e um corredor para medir por noventa dias o antes e o depois de uma mudança. A cidade já enxerga. A gente faz ela lembrar."
+
+### O que saiu desta versão, de propósito
+Custos (320 mil, 6 milhões, 49 mil), dispensa de licitação, os 22.708 sinistros, participação com créditos, avisos entre órgãos, câmera na viatura. Tudo isso fica para pergunta da banca — as respostas curtas continuam mais abaixo neste arquivo.
+
+### Dois cuidados com os slides do Rafael
+1. Nas telas dele aparecem seis fontes "Online". Na fala, só câmera é nossa hoje; as outras são "prontas para ligar". Se a banca perguntar, a resposta é essa.
+2. A imagem da câmera dele mostra placa legível. Trocar pela nossa imagem anotada, ou cortar a imagem, antes de projetar a frase "não lê placa".
+
+---
+
 # Visão de Rota — roteiro do pitch
 
 > **SÃO 5 MINUTOS, não 3** (corte do Enio, 19/09 18h30). O roteiro abaixo foi escrito para 3 min (~400 palavras faladas). **Sobram ~2 minutos** — o plano para preenchê-los está no fim deste arquivo, em "COMO VIRAR 5 MINUTOS".
@@ -100,3 +134,17 @@ Frase ao fechar: **"A análise detecta. A pessoa decide."**
 
 **A frase de 30 segundos, pronta:**
 > "Sobre preço, uma sugestão, não uma proposta: o diagnóstico é uma hora de vídeo e um relatório — dá para começar amanhã. O piloto de 90 dias fica em 49 mil, abaixo do teto de contratação sem edital, que este ano é 65 mil e 492. E o ponto que interessa à cidade: fazer isto existir custou 264 mil em desenvolvimento, uma vez. A partir da segunda cidade, o custo cai para uma fração — porque o caro é construir, não repetir."
+
+---
+## EMENDA 22h50 — onde ficaria a central (sugestão, 1 frase no pitch)
+**Frase:** "Não pedimos prédio novo: a sala que hoje assiste às câmeras pela segurança pode, com o mesmo acordo, entregar também a contagem do trânsito à secretaria de mobilidade."
+
+**O que a imprensa e a Câmara registram (aberto em 19/09/2026):**
+- A central do Olho Vivo foi inaugurada em 05/06/2014 **na 86ª Companhia de Polícia Militar**, no mesmo lugar do centro de operações que atende as chamadas da população. Não é a sede do 15º Batalhão: o centro de operações saiu do Batalhão e foi para a 86ª Cia junto com o Olho Vivo. — Câmara Municipal e Patos 1
+- Modelo de operação descrito na inauguração: **coordenação e supervisão da Polícia Militar; operadores civis contratados e cedidos pela Prefeitura**; 24 horas. — mesmas fontes
+- Em 25/05/2026 a Prefeitura entregou nova etapa de ampliação (360 graus, leitura de placas, reconhecimento facial, áreas rurais). — Clube Notícia / site da Prefeitura
+- ⚪ **Não confirmado:** se a central continua hoje na 86ª Cia. As buscas não trouxeram matéria de 2025–2026 dizendo o endereço atual. **Perguntar à prefeitura antes de afirmar no pitch.**
+
+**Cuidado ao falar:** a sala é da segurança pública; a nossa leitura é de trânsito, sem rosto e sem placa. O que se propõe é um segundo uso, com instrumento próprio e finalidade separada (ver `base-legal-cameras.md`). Dizer "dentro do batalhão" está errado pelos registros: é companhia, não batalhão.
+
+Fontes: camarapatos.mg.gov.br/index.php/post-formats/noticias/530-projeto-olho-vivo-e-inaugurado-em-patos-de-minas · patos1.com.br/noticia/projeto-olho-vivo-e-inaugurado-em-patos-de-minas-com-esperanca-em-diminuir-a-criminalidade · patoshoje.com.br/noticias/cameras-do-olho-vivo-reduzem-numero-de-crimes-em-patos-de-minas-em-quase-40-47836.html · clubenoticia.com.br/sistema-olho-vivo-ganha-reforco-com-tecnologia-facial-em-patos-de-minas/

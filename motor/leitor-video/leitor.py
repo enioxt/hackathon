@@ -183,6 +183,8 @@ def main():
     ap.add_argument("--max-s", type=float, default=None, help="limita a duracao processada, em segundos de video")
     ap.add_argument("--fps-alvo", type=float, default=5.0)
     ap.add_argument("--modelo", default=None, help="caminho de .pt para tentar primeiro")
+    ap.add_argument("--trilhas", default=None, help="grava um JSON com as caixas por quadro (so numeros: tempo, id, classe, caixa em fracao 0-1, contagem acumulada) para um tocador desenhar por cima do video")
+    ap.add_argument("--mostrar", action="store_true", help="abre uma janela ao vivo com as caixas (pessoas borradas) e a contagem; nada e gravado. Tecla q fecha")
     ap.add_argument("--conferir", default=None, help="grava video de calibracao borrado (NAO publicar)")
     ap.add_argument(
         "--imgsz", type=int, default=960,
@@ -243,6 +245,8 @@ def main():
     out_dir = os.path.dirname(os.path.abspath(args.saida)) or "."
     os.makedirs(out_dir, exist_ok=True)
     saida_f = open(args.saida, "a", encoding="utf-8")
+    trilhas = [] if args.trilhas else None
+    acumulado = {k: 0 for k in set(CLASSES_ALVO.values())}
 
     def flush_janela(video_time_s):
         nonlocal contagens, janela_inicio_s, ts_janela_inicio
@@ -298,16 +302,29 @@ def main():
                     xyxy = boxes.xyxy.cpu().numpy()
                     ids = boxes.id.cpu().numpy().astype(int)
                     clss = boxes.cls.cpu().numpy().astype(int)
-                    for (x1, y1, x2, y2), tid, cls_id in zip(xyxy, ids, clss):
+                    confs = boxes.conf.cpu().numpy() if boxes.conf is not None else [None] * len(ids)
+                    _cx = []
+                    for (x1, y1, x2, y2), tid, cls_id, conf in zip(xyxy, ids, clss, confs):
                         ids_vivos.add(int(tid))
+                        if trilhas is not None:
+                            _cx.append([
+                                int(tid),
+                                CLASSES_ALVO.get(int(cls_id), ""),
+                                round(float(x1) / largura, 4),
+                                round(float(y1) / altura, 4),
+                                round(float(x2) / largura, 4),
+                                round(float(y2) / altura, 4),
+                                round(float(conf), 2) if conf is not None else None,
+                            ])
                         cx, cy = (x1 + x2) / 2.0, (y1 + y2) / 2.0
                         direcao = contador.atualizar(int(tid), (cx, cy))
                         if direcao is not None:
                             classe_nome = CLASSES_ALVO.get(int(cls_id))
                             if classe_nome:
                                 contagens[classe_nome] += 1
+                                acumulado[classe_nome] += 1
 
-                        if gravador is not None:
+                        if gravador is not None or args.mostrar:
                             classe_nome = CLASSES_ALVO.get(int(cls_id), "")
                             if classe_nome == "pedestre":
                                 blur_regiao(frame, x1, y1, x2, y2, forte=True)
@@ -315,12 +332,26 @@ def main():
                                 meio_y = y1 + (y2 - y1) / 2.0
                                 blur_regiao(frame, x1, meio_y, x2, y2, forte=True)
                             cv2.rectangle(frame, (int(x1), int(y1)), (int(x2), int(y2)), (0, 255, 0), 1)
+                            if args.mostrar and classe_nome:
+                                cv2.putText(frame, f"{classe_nome} #{int(tid)}", (int(x1), max(12, int(y1) - 4)), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (0, 255, 0), 1)
+
+                    if trilhas is not None:
+                        trilhas.append({"t": round(video_time_s, 3), "caixas": _cx, "acumulado": dict(acumulado)})
 
                 contador.esquecer(ids_vivos)
 
-                if gravador is not None:
+                if gravador is not None or args.mostrar:
                     cv2.line(frame, (int(p1[0]), int(p1[1])), (int(p2[0]), int(p2[1])), (0, 0, 255), 2)
+                if gravador is not None:
                     gravador.write(frame)
+                if args.mostrar:
+                    resumo = "  ".join(f"{k}:{v}" for k, v in contagens.items() if v) or "aguardando cruzar a linha vermelha"
+                    cv2.rectangle(frame, (0, 0), (frame.shape[1], 46), (20, 20, 20), -1)
+                    cv2.putText(frame, "Visao de Rota - so numeros saem daqui; nada e gravado (q fecha)", (8, 17), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255), 1)
+                    cv2.putText(frame, resumo, (8, 38), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (80, 200, 255), 1)
+                    cv2.imshow("Visao de Rota - leitor", frame)
+                    if (cv2.waitKey(1) & 0xFF) == ord("q"):
+                        break
 
             if video_time_s - janela_inicio_s >= args.janela_s:
                 flush_janela(video_time_s)
@@ -333,6 +364,12 @@ def main():
         cap.release()
         if gravador is not None:
             gravador.release()
+        if args.mostrar:
+            cv2.destroyAllWindows()
+        if trilhas is not None:
+            with open(args.trilhas, "w", encoding="utf-8") as tf:
+                json.dump({"linha": [float(v) for v in args.linha.split(",")], "quadros": trilhas}, tf)
+            print(f"[leitor] trilhas: {len(trilhas)} quadros em {args.trilhas}", file=sys.stderr)
         saida_f.close()
 
     if quadros_processados > 0:

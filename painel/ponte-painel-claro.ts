@@ -10,7 +10,7 @@ import { readFileSync } from "node:fs";
 
 const PORTA = Number(process.env.PONTE_PORTA ?? 8790);
 const CCO = process.env.CCO_URL ?? "http://127.0.0.1:8787";
-const ARQ = process.env.PONTE_PONTOS ?? "/home/enio/.egos/hackathon/repo/dados/publicos/acidentes-pontos.json";
+const ARQ = process.env.PONTE_PONTOS ?? "../dados/publicos/acidentes-pontos.json";
 const PESO: Record<string, number> = { FATAL: 1, GRAVE: 0.8, LEVE: 0.4 };
 
 const cors = { "access-control-allow-origin": "*", "cache-control": "no-store" };

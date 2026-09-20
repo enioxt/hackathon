@@ -8,3 +8,9 @@ __pycache__/
 *.zip
 *.csv.gz
 motor/leitor-video/*.pt
+
+# Estado local do painel: não sobe
+painel/dados-vivos/
+painel/atividade.jsonl
+painel/acessos.json
+painel/dados/

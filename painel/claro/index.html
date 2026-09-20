@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inteligência de Mobilidade — Patos de Minas</title>
+  <link rel="stylesheet" href="styles.css?v=2.2.0" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="assets/patos-logo.png" alt="Patos de Minas" />
+        <div class="brand-title">Patos de Minas</div>
+        <div class="brand-sub">Mobilidade mais inteligente<br>para uma cidade melhor.</div>
+      </div>
+
+      <nav class="nav" id="mainNav">
+        <button class="nav-link active" data-page="overview"><span class="nav-ico">⌂</span><span>Visão Geral</span></button>
+        <button class="nav-link" data-action="focus-map"><span class="nav-ico">◇</span><span>Mapa da Cidade</span></button>
+        <button class="nav-link" data-page="detail"><span class="nav-ico">▣</span><span>Trânsito</span></button>
+        <button class="nav-link" data-module="Semáforos"><span class="nav-ico">●</span><span>Semáforos</span></button>
+        <button class="nav-link" data-module="Transporte Público"><span class="nav-ico">▤</span><span>Transporte Público</span></button>
+        <button class="nav-link" data-module="Zona Azul"><span class="nav-ico">P</span><span>Zona Azul</span></button>
+        <button class="nav-link" data-module="Ocorrências"><span class="nav-ico">▲</span><span>Ocorrências</span></button>
+        <button class="nav-link" data-module="Histórico"><span class="nav-ico">▥</span><span>Histórico</span></button>
+        <button class="nav-link" data-module="Relatórios"><span class="nav-ico">▧</span><span>Relatórios</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="slogan-icon">❧</div>
+        <div><b>A cidade já enxerga.</b><br>Nós fazemos ela aprender.</div>
+        <div class="city-footer">✣ <span>Patos de Minas<br>em movimento.</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="header">
+        <div class="header-title-wrap">
+          <div class="title-line"><h1 id="pageTitle">INTELIGÊNCIA DE MOBILIDADE — PATOS DE MINAS</h1><span class="build-badge">V2.2</span></div>
+          <p id="pageSubtitle">Plataforma de inteligência para decisão urbana</p>
+        </div>
+        <div class="header-meta">
+          <div class="clock"><span id="currentDate"></span><b id="currentTime"></b><span class="live-dot"></span><span>Sistema operacional</span></div>
+          <button class="profile" id="settingsBtn" title="Configurar integrações">
+            <span class="profile-avatar">●</span>
+            <span><b>Gestor Público</b><small>Prefeitura / Secretaria de Mobilidade</small></span>
+            <span class="chev">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="source-row" id="sourceRow">
+        <div class="source-card"><span class="src-icon">▣</span><div><b>Câmeras</b><small><i></i><span id="camSourceStatus">Online</span></small></div></div>
+        <div class="source-card"><span class="src-icon traffic-light">●</span><div><b>Semáforos</b><small><i></i>Online</small></div></div>
+        <div class="source-card"><span class="src-icon">▤</span><div><b>Ônibus</b><small><i></i>Online</small></div></div>
+        <div class="source-card"><span class="src-icon">◆</span><div><b>GPS</b><small><i></i>Online</small></div></div>
+        <div class="source-card"><span class="src-icon">P</span><div><b>Zona Azul</b><small><i></i>Online</small></div></div>
+        <div class="source-card"><span class="src-icon">▲</span><div><b>Ocorrências</b><small><i></i>Online</small></div></div>
+      </section>
+
+      <section id="overviewPage" class="page active">
+        <div class="kpis overview-kpis">
+          <article class="kpi-card blue"><div class="kpi-icon">▣</div><div class="kpi-copy"><b>Fluxo atual</b><div><strong>12.480</strong><span>veíc./h</span></div><small class="up green">▲ +6% <em>em relação a ontem</em></small></div><div class="spark">⌁</div></article>
+          <article class="kpi-card red"><div class="kpi-icon">▦</div><div class="kpi-copy"><b>Congestionamentos</b><div><strong>07</strong><span>pontos críticos</span></div><small class="up redtxt">▲ +2 <em>em relação a ontem</em></small></div><div class="mini-bars redbars"><i></i><i></i><i></i><i></i></div></article>
+          <article class="kpi-card orange"><div class="kpi-icon">!</div><div class="kpi-copy"><b>Ocorrências</b><div><strong>14</strong><span>ativas</span></div><small class="down green">▼ -3 <em>em relação a ontem</em></small></div><div class="mini-bars orangebars"><i></i><i></i><i></i><i></i></div></article>
+          <article class="kpi-card red"><div class="kpi-icon">●</div><div class="kpi-copy"><b>Alertas</b><div><strong>09</strong><span>em tempo real</span></div><small class="up redtxt">▲ +4 <em>em relação a ontem</em></small></div><div class="mini-bars redbars"><i></i><i></i><i></i><i></i></div></article>
+        </div>
+
+        <div class="overview-body">
+          <section class="panel map-panel" id="mapPanel">
+            <div class="panel-head dark">
+              <div class="panel-head-left"><span class="panel-icon">◈</span><b>Mapa da Cidade</b><small>Fluxo em tempo real • Patos de Minas</small></div>
+              <div class="panel-head-right"><span class="weather">☀ <b>24°C</b><small>Céu claro</small></span><input id="mapSearch" placeholder="Buscar endereço, via ou ponto de interesse..." /></div>
+            </div>
+            <div class="map-stage">
+              <div id="mapFallback" class="map-fallback"></div>
+              <div id="googleMap" class="google-map"></div>
+              <div class="map-live-badge" id="mapLiveBadge">DEMO VISUAL</div>
+              <div class="map-toggle">
+                <button class="active" id="trafficToggle">Trânsito Google</button>
+                <button id="heatToggle">Zona de calor</button>
+              </div>
+            </div>
+          </section>
+
+          <aside class="overview-aside">
+            <section class="panel alerts-panel">
+              <div class="aside-head"><b>♟ ALERTAS EM TEMPO REAL</b><button id="allAlertsBtn">Ver todos →</button></div>
+              <div class="alert-list">
+                <button class="alert danger" data-point="major"><span class="alert-icon">▦</span><span><b>Avenida Major Gote</b><em>Crítico</em><small>Fluxo 37% acima da média<br>Lentidão no sentido Centro → Bairro.</small></span><time>10:22</time></button>
+                <button class="alert danger" data-point="jk"><span class="alert-icon">▲</span><span><b>Av. JK</b><em>Crítico</em><small>Acidente registrado<br>Faixa parcialmente interditada.</small></span><time>10:18</time></button>
+                <button class="alert warning"><span class="alert-icon">P</span><span><b>Centro</b><em>Atenção</em><small>Alta ocupação da Zona Azul<br>92% das vagas ocupadas.</small></span><time>10:15</time></button>
+                <button class="alert info"><span class="alert-icon">▤</span><span><b>Terminal</b><em>Atenção</em><small>Atraso no transporte coletivo<br>Linhas com atraso médio de 12 min.</small></span><time>10:12</time></button>
+              </div>
+            </section>
+            <section class="panel value-panel"><div class="value-icon">⌘</div><div><b>Como a plataforma gera valor</b><p>A plataforma organiza, cruza e compara dados de múltiplas fontes, identifica padrões, gera alertas, simula cenários e cria histórico para apoiar a decisão humana.</p></div></section>
+            <section class="panel action-panel">
+              <div class="action-head"><b>⚙ Ação recomendada</b><span>Baseada nos dados atuais</span></div>
+              <h3>Simular ajuste semafórico na Av. Major Gote</h3>
+              <p>Os dados indicam que um ajuste nos tempos dos semáforos pode reduzir o tempo de deslocamento em até 28%.</p>
+              <div class="actions"><button class="btn dark" data-open-detail>▥ Ver análise</button><button class="btn" data-simulate>▶ Simular cenário</button><button class="btn" data-register>▧ Registrar intervenção</button></div>
+            </section>
+          </aside>
+        </div>
+
+        <section class="panel history-panel overview-history">
+          <div class="history-header"><div><b>⚑ Histórico de Mobilidade</b><small>Evolução e análises da cidade</small></div><div class="period-tabs"><button class="active">Hoje</button><button>7 dias</button><button>30 dias</button><button>Personalizado</button></div></div>
+          <div class="overview-charts">
+            <div class="chart-card"><b>Fluxo por horário</b><small>veíc./hora</small><canvas id="ovFlow"></canvas><span class="chart-label">12.480<small>10:00</small></span></div>
+            <div class="chart-card"><b>Tempo médio de deslocamento</b><small>minutos</small><canvas id="ovTime"></canvas><span class="chart-label">18 min<small>10:00</small></span></div>
+            <div class="chart-card"><b>Quantidade de veículos</b><small>mil veículos</small><canvas id="ovVehicles"></canvas><span class="chart-label">12,5 mil<small>10:00</small></span></div>
+            <div class="chart-card"><b>Comparação antes × depois</b><small>tempo médio em minutos</small><canvas id="ovCompare"></canvas></div>
+            <div class="chart-card rank-card"><b>Pontos recorrentes de congestionamento</b><small>nº de ocorrências</small><div class="rank-list"><div><span>1&nbsp; Av. Major Gote</span><i style="--w:95%"></i><b>48</b></div><div><span>2&nbsp; Av. JK</span><i style="--w:73%"></i><b>36</b></div><div><span>3&nbsp; Centro</span><i style="--w:58%"></i><b>28</b></div><div><span>4&nbsp; Av. Fátima Porto</span><i style="--w:38%"></i><b>18</b></div><div><span>5&nbsp; BR-365</span><i style="--w:26%"></i><b>12</b></div></div></div>
+          </div>
+        </section>
+      </section>
+
+      <section id="detailPage" class="page">
+        <div class="kpis detail-kpis">
+          <article class="kpi-card blue"><div class="kpi-icon">▣</div><div class="kpi-copy"><b>Fluxo atual</b><div><strong id="detailFlowValue">890</strong><span>veíc./h</span></div><small class="up redtxt">▲ +46% <em>acima do padrão</em></small></div><div class="spark">⌁</div></article>
+          <article class="kpi-card red"><div class="kpi-icon">▦</div><div class="kpi-copy"><b>Fila atual</b><div><strong id="detailQueueValue">27</strong><span>veículos</span></div><small class="up redtxt">▲ +145% <em>vs. média do horário</em></small></div><div class="mini-bars redbars"><i></i><i></i><i></i><i></i></div></article>
+          <article class="kpi-card orange"><div class="kpi-icon">◷</div><div class="kpi-copy"><b>Espera média</b><div><strong id="detailWaitValue">74</strong><span>s</span></div><small class="up redtxt">▲ +35s <em>em relação ao padrão</em></small></div><div class="mini-bars orangebars"><i></i><i></i><i></i><i></i></div></article>
+          <article class="kpi-card red status-kpi"><div class="kpi-icon">●</div><div class="kpi-copy"><b>Status</b><div><strong>CRÍTICO</strong></div><small class="up redtxt">▲ restrição persistente há 14 min</small></div><div class="mini-bars redbars"><i></i><i></i><i></i><i></i></div></article>
+        </div>
+
+        <div class="detail-body">
+          <div class="detail-main">
+            <section class="panel monitor-panel">
+              <div class="panel-head dark"><div class="panel-head-left"><span class="panel-icon">◈</span><b>Visão do ponto</b><small>Av. Major Gote × Olegário Maciel</small></div><div class="panel-head-right"><span class="weather">☀ <b>24°C</b><small>Céu claro</small></span><input placeholder="Buscar endereço, via ou ponto de interesse..." /></div></div>
+              <div class="monitor-stage" id="monitorStage">
+                <img id="cameraFallback" src="assets/camera-fallback.jpg" alt="Demonstração de monitoramento" />
+                <video id="liveVideo" autoplay muted playsinline></video>
+                <canvas id="detectionCanvas"></canvas>
+                <div class="monitor-badge" id="monitorBadge">DEMO VISUAL</div>
+                <div class="camera-status"><b>Câmera 07 — Leitura inteligente</b><span><i></i><span id="cameraLiveText">Aguardando stream real</span></span></div>
+                <div class="vehicle-box"><b>Veículos detectados <small>(últ. 60 s)</small></b><div><span>▣ Carros</span><strong id="countCars">42</strong></div><div><span>◇ Motos</span><strong id="countMotos">11</strong></div><div><span>▤ Ônibus</span><strong id="countBuses">2</strong></div><div><span>▰ Caminhões</span><strong id="countTrucks">1</strong></div><footer><span>Total</span><strong id="countTotal">56</strong></footer></div>
+                <div class="flow-box"><b>Fluxo por sentido <small>(veíc./h)</small></b><div><span>↑ Centro → Bairro</span><strong id="flowOut">520</strong></div><div><span>↓ Bairro → Centro</span><strong id="flowIn">370</strong></div><p>Ocupação da via</p><strong id="occupancyText">78%</strong><div class="occupancy"><i id="occupancyBar" style="width:78%"></i></div></div>
+              </div>
+            </section>
+
+            <section class="panel history-panel local-history">
+              <div class="history-header"><div><b>⚑ Histórico do local</b><small>Dados dos últimos 7 dias</small></div><div class="period-tabs"><button class="active">Hoje</button><button>7 dias</button><button>30 dias</button><button>Personalizado</button></div></div>
+              <div class="detail-charts"><div class="chart-card"><b>Fluxo por horário</b><small>veículos por hora</small><canvas id="dtFlow"></canvas><span class="chart-label">890<small>10:24</small></span></div><div class="chart-card"><b>Fila média</b><small>veículos</small><canvas id="dtQueue"></canvas><span class="chart-label">27<small>10:24</small></span></div><div class="chart-card"><b>Tempo médio de espera</b><small>segundos</small><canvas id="dtWait"></canvas><span class="chart-label">74 s<small>10:24</small></span></div><div class="chart-card"><b>Velocidade média</b><small>km/h</small><canvas id="dtSpeed"></canvas><span class="chart-label">14 km/h<small>10:24</small></span></div><div class="chart-card"><b>Comparação com padrão</b><small>fluxo de veículos (índice)</small><canvas id="dtPattern"></canvas><span class="delta-chip">+46%</span></div></div>
+            </section>
+          </div>
+
+          <aside class="detail-aside">
+            <section class="panel timeline-panel"><div class="aside-head"><b>⚠ Linha do tempo e intervenções</b><button>Ver todos →</button></div><div class="timeline-content"><div class="timeline-list"><div class="timeline-item blue"><time>10:05</time><span><b>Aumento gradual de fluxo</b><small>Início de elevação no volume de veículos.</small></span></div><div class="timeline-item yellow"><time>10:12</time><span><b>Fila ultrapassa limite</b><small>Fila atinge 22 veículos no sentido Centro → Bairro.</small></span></div><div class="timeline-item red"><time>10:18</time><span><b>Ponto classificado como crítico</b><small>Indicadores permaneceram acima do limite.</small></span></div><div class="timeline-item blue"><time>10:22</time><span><b>Alerta emitido ao gestor</b><small>Notificação enviada via sistema.</small></span></div><div class="timeline-item blue"><time>10:30</time><span><b>Sugestão de ajuste semafórico</b><small>Sistema recomenda simulação de novo ciclo.</small></span></div></div><div class="intervention-card"><b>Última intervenção</b><small>12 de abr. de 2025</small><div class="before-after"><div><small>Antes<br>Espera média</small><strong>32 s</strong></div><span>→</span><div><small>Depois<br>Espera média</small><strong>18 s</strong></div></div><div class="improved">● MELHOROU</div><p>Redução de 44% no tempo de espera após ajuste no ciclo semafórico.</p></div></div></section>
+            <section class="panel action-panel detail-action"><div class="action-head"><b>⚙ Ação recomendada</b><span>Baseada nos dados atuais</span></div><h3>Simular ajuste semafórico na Av. Major Gote</h3><p>A análise indica que ampliar o verde no sentido Centro → Bairro pode reduzir a espera em até 28%.</p><div class="actions"><button class="btn dark" data-analysis>▥ Ver análise</button><button class="btn" data-simulate>▶ Simular cenário</button><button class="btn" data-register>▧ Registrar intervenção</button></div></section>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="modal" class="modal" aria-hidden="true"><div class="modal-card"><header><h2 id="modalTitle"></h2><button id="modalClose">×</button></header><div id="modalBody" class="modal-body"></div></div></div>
+  <div id="toast" class="toast"></div>
+
+  <script src="config.js?v=2.2.0"></script>
+  <script src="ajustes.js"></script>
+  <script src="app.js?v=2.2.0"></script>
+</body>
+</html>

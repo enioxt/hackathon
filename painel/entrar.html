@@ -89,7 +89,7 @@ h1{margin:0 0 6px;font-size:21px;font-weight:800;color:#0f2544}
 "use strict";
 function estaticoAtivo(){ return location.protocol === "file:" || /github\.io$/.test(location.hostname); }
 function destinoPainel(){ return estaticoAtivo() ? "painel.html" : "/claro"; }
-function destinoApresentacao(){ return estaticoAtivo() ? "https://enioxt.github.io/hackathon-dados-publicos/" : "https://enioxt.github.io/hackathon-dados-publicos/"; }
+function destinoApresentacao(){ return estaticoAtivo() ? "../index.html" : "https://enioxt.github.io/hackathon/"; }
 
 var btn = document.getElementById("btn-entrar");
 var linkVoltar = document.getElementById("link-voltar");

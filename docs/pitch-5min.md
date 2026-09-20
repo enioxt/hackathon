@@ -17,6 +17,9 @@
 ## 2:30 — O que já provamos (35 s)
 "Pegamos as 1.100 ocorrências de trânsito com coordenada que o Estado publica [SEJUSP-MG, dado aberto]. O problema se concentra: 33 pontos de leitura alcançam um quarto delas [simulação sobre dado medido — dizer 'simulação' se perguntarem]. Dá para começar pequeno, pelos pontos certos. E hoje de manhã filmamos um cruzamento, contamos à mão e deixamos o sistema contar o mesmo vídeo." (mostrar os dois números lado a lado — SÓ SE A FILMAGEM ACONTECER; senão, cortar esta última frase)
 
+## 2:55 — Como isso se paga (25 s) · pedido do facilitador: "precisa estar na apresentação"
+"Como isso se paga? A cidade não compra equipamento: o custo grande é processar o vídeo e ter gente lendo os números junto com o gestor. A gente entra por um diagnóstico pequeno: uma hora de vídeo e um relatório. Se fizer sentido, vira um piloto de noventa dias num corredor. Se o antes e depois provar valor, vira assinatura por câmera lida. E o que funcionar aqui serve para outra cidade média." (canvas completo: `modelo-de-negocio.md`)
+
 ## 3:05 — Deixar aberto (30 s) · slide "Não vendemos câmera. Não vendemos semáforo."
 "A gente não vende câmera e não vende semáforo. A gente entrega leitura sobre o que a cidade já tem. E a pergunta que fica é de vocês: se a câmera da sua rua pudesse contar, o que você perguntaria a ela? A saída da escola? O ponto de ônibus? A calçada? A entrega de moto? Cada pergunta dessas é um uso, e a base é a mesma."
 

@@ -1134,6 +1134,5 @@ if(params.get('teste')==='1'){
     document.body.appendChild(d2);
   }
 }
-</script><script src="melhorias.js"></script>
-<script src="tour.js"></script>
+</script><script>if(new URLSearchParams(location.search).get("embutido")!=="1"){["melhorias.js","tour.js"].forEach(function(n){var e=document.createElement("script");e.src=n;document.body.appendChild(e)})}</script>
 </body></html>

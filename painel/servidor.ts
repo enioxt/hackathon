@@ -126,8 +126,11 @@ async function roteador(req: Request, server?: { requestIP(req: Request): { addr
     try { const r = await fetch(`https://tile.openstreetmap.org/${z}/${x}/${y}.png`, { headers: { "User-Agent": "VisaoDeRota-hackathon/1.0 (demonstracao local)" }, signal: AbortSignal.timeout(8000) });
       if (!r.ok) return new Response("", { status: 404 }); const b = Buffer.from(await r.arrayBuffer()); mkdirSync(`${RAIZ}/tiles/${z}/${x}`, { recursive: true }); writeFileSync(f, b);
       return new Response(b, { headers: { "content-type": "image/png" } }); } catch { return new Response("", { status: 404 }); } }
+  if (u.pathname === "/seletor-visual.js") return new Response(readFileSync(RAIZ + "/seletor-visual.js", "utf8"), { headers: { "content-type": "text/javascript; charset=utf-8" } });
   if (u.pathname === "/tour.js") return new Response(readFileSync(RAIZ + "/tour.js"), { headers: { "content-type": "text/javascript; charset=utf-8" } });
   if (u.pathname === "/participacao") return new Response(readFileSync(RAIZ + "/participacao.html", "utf8"), { headers: { "content-type": "text/html; charset=utf-8" } });
+  if (u.pathname === "/camadas" || u.pathname === "/operador") { try { return new Response(readFileSync(RAIZ + u.pathname + ".html", "utf8"), { headers: { "content-type": "text/html; charset=utf-8" } }); } catch { return new Response("página em construção", { status: 503 }); } }
+  if (/^\/camadas\/[a-z0-9._-]+\.(json|mp4)$/i.test(u.pathname)) { return existsSync(RAIZ + u.pathname) ? new Response(Bun.file(RAIZ + u.pathname)) : new Response("não achado", { status: 404 }); }
   if (u.pathname === "/entrar") { try { return new Response(readFileSync(RAIZ + "/entrar.html", "utf8"), { headers: { "content-type": "text/html; charset=utf-8" } }); } catch { return new Response("página em construção", { status: 503 }); } }
   if (u.pathname === "/inicio") { try { return new Response(readFileSync(RAIZ + "/inicio.html", "utf8"), { headers: { "content-type": "text/html; charset=utf-8" } }); } catch { return new Response("página em construção", { status: 503 }); } }
   if (u.pathname === "/claro/" || /^\/claro\/(index\.html|app\.js|config\.js|styles\.css|ajustes\.js)$/.test(u.pathname)) {

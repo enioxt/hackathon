@@ -1,0 +1,60 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visão de Rota — quanto custa a central mínima</title><style>
+:root{--n:#0B1B2B;--c:#12273B;--b:#27425c;--t:#F6F8FA;--a:#E8A33D;--v:#2E9E6B;--z:#9AA5B1}
+*{box-sizing:border-box}body{margin:0;background:var(--n);color:var(--t);font:15px/1.5 system-ui,sans-serif}
+header{padding:22px 5vw 8px}header small{letter-spacing:.14em;color:var(--z)}h1{margin:4px 0 6px;font-size:28px}h2{font-size:18px;margin:0 0 10px}
+.faixa{background:var(--a);color:#111;padding:8px 5vw;font-weight:600}
+main{padding:18px 5vw 110px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+section{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:16px}
+label{display:grid;grid-template-columns:1fr 120px;gap:10px;align-items:center;margin:7px 0;font-size:14px}label span small{display:block;color:var(--z);font-size:12px}
+input{background:var(--n);border:1px solid var(--b);color:var(--t);border-radius:8px;padding:7px;text-align:right;font:inherit;width:100%}
+.res{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
+.k{background:var(--n);border:1px solid var(--b);border-radius:12px;padding:14px}.k b{display:block;font-size:26px;color:var(--a)}.k small{color:var(--z)}
+ul{margin:6px 0 0;padding-left:18px}li{margin:4px 0}.tag{display:inline-block;background:var(--a);color:#111;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:700}
+.med{background:var(--v);color:#fff}a{color:var(--a)}table{width:100%;border-collapse:collapse;font-size:14px}td{padding:5px 4px;border-bottom:1px solid var(--b)}td:last-child{text-align:right}
+</style></head><body>
+<header><small>VISÃO DE ROTA · FERRAMENTA DE MODELAGEM</small><h1>Quanto custa, no mínimo, a central que lê a cidade</h1>
+<div>Mude qualquer premissa e o resultado recalcula. <a href="/">← centro de controle</a></div></header>
+<div class=faixa>ESTIMATIVA — todo valor em R$ abaixo é premissa do time para discutir, não cotação. Troque pelo orçamento real antes de levar à Prefeitura. O único valor com fonte pública é o custo de instalar uma câmera nova.</div>
+<main>
+<section><h2>1 · Câmeras fixas que já existem</h2>
+<label><span>Câmeras lidas<small>cenários do painel: 10 · 50 · 100 · 400</small></span><input id=cam type=number value=50></label>
+<label><span>Fluxos de vídeo por máquina<small>premissa; medir no primeiro teste</small></span><input id=fpm type=number value=8></label>
+<label><span>Máquina de processamento (R$)<small>computador com placa de vídeo intermediária</small></span><input id=maq type=number value=12000></label>
+<label><span>Instalar 1 câmera NOVA (R$)<small><span class="tag med">fonte pública</span> valor dito em reunião do conselho de segurança, abr/2025</small></span><input id=nova type=number value=25000></label></section>
+<section><h2>2 · Veículos da frota como sensor</h2>
+<label><span>Veículos equipados<small>viaturas de trânsito, fiscalização, coleta, ônibus</small></span><input id=vei type=number value=3></label>
+<label><span>Kit por veículo (R$)<small>câmera veicular com GPS + suporte + cartão</small></span><input id=kit type=number value=1200></label>
+<label><span>Km rodados por veículo por dia</span><input id=kmd type=number value=60></label>
+<label><span>Parte do trajeto que é rua nova (%)<small>o resto é repetição da rota de sempre</small></span><input id=novo type=number value=35></label>
+<label><span>Malha urbana a cobrir (km)<small>⚪ não medido — tirar do mapa aberto da cidade</small></span><input id=malha type=number value=900></label>
+<label><span>Dias úteis por mês</span><input id=dias type=number value=22></label></section>
+<section><h2>3 · Central e operação</h2>
+<label><span>Rede, nobreak, disco, tela (R$)<small>uma vez</small></span><input id=infra type=number value=5500></label>
+<label><span>Instalação e calibração por câmera fixa (R$)<small>definir zona de contagem, 1 vez</small></span><input id=calib type=number value=150></label>
+<label><span>Pessoa que opera e interpreta (R$/mês)<small>meio período; pode ser servidor já existente = 0</small></span><input id=pes type=number value=4000></label>
+<label><span>Energia e internet (R$/mês)</span><input id=ene type=number value=450></label>
+<label><span>Software, suporte e relatório (R$/mês)<small>⚪ a definir pelo time — decisão comercial</small></span><input id=sw type=number value=0></label></section>
+<div class=res id=res></div>
+<section><h2>O que a frota enxerga rodando</h2><ul><li>Buraco e remendo solto, com coordenada e foto do chão</li><li>Calçada fora do padrão, degrau, rampa ausente</li><li>Árvore ou galho caído, poda invadindo a via</li><li>Placa encoberta, torta ou pichada; faixa de pedestre apagada</li><li>Entulho, lixo e veículo abandonado</li><li>Poste apagado (rota noturna)</li><li>Ponto de ônibus sem abrigo ou sem sinalização</li></ul>
+<p style="color:var(--z);font-size:13px">O vídeo é processado quando o veículo volta ao pátio, pelo wi-fi: sem plano de dados por veículo. Rosto e placa são borrados antes de qualquer imagem ser guardada.</p></section>
+<section><h2>O que as câmeras fixas medem</h2><ul><li>Contagem por tipo: carro, moto, ônibus, caminhão, bicicleta, pedestre</li><li>Fluxo e fila por bloco de 5 minutos</li><li>Conversão proibida e contramão, como contagem</li><li>Quase-acidente: duas trajetórias que quase se cruzam</li><li>Antes e depois de cada mudança na via</li></ul>
+<p style="color:var(--z);font-size:13px">Um lugar só para tudo: cada registro entra com origem, hora, local e o que o gerou. É isso que permite comparar e provar.</p></section>
+<section><h2>O que este cálculo não inclui</h2><ul><li>Autorização de acesso às câmeras (é decisão, não custo)</li><li>Desenvolvimento do software até ficar pronto para uso diário</li><li>Parecer jurídico e relatório de impacto de privacidade</li><li>Troca de câmera antiga que não entrega vídeo pela rede</li><li>Manutenção dos veículos e tempo dos motoristas (já existem)</li></ul></section>
+</main>
+<script>
+const $=i=>+document.getElementById(i).value||0,R=v=>'R$ '+Math.round(v).toLocaleString('pt-BR');
+function calc(){const maqs=Math.ceil($('cam')/Math.max(1,$('fpm')));
+const inicial=maqs*$('maq')+$('infra')+$('cam')*$('calib')+$('vei')*$('kit'),mensal=$('pes')+$('ene')*Math.max(1,maqs/2)+$('sw');
+const kmNovoDia=$('vei')*$('kmd')*$('novo')/100,diasVolta=kmNovoDia?Math.ceil($('malha')/kmNovoDia):0,voltasMes=diasVolta?($('dias')/diasVolta):0;
+const novas=$('cam')*$('nova');
+document.getElementById('res').innerHTML=[
+['Investimento inicial',R(inicial),maqs+' máquina(s) · '+$('cam')+' câmeras calibradas · '+$('vei')+' veículo(s)'],
+['Custo por mês',R(mensal),'pessoa + energia/internet + software'],
+['Primeiro ano',R(inicial+12*mensal),'inicial + 12 meses'],
+['Por câmera lida, por mês',$('cam')?R((mensal+inicial/24)/$('cam')):'—','com o inicial diluído em 24 meses'],
+['Instalar as mesmas '+$('cam')+' câmeras novas',R(novas),'só o equipamento, pelo valor de fonte pública'],
+['Cidade inteira percorrida em',diasVolta?diasVolta+' dias úteis':'—',voltasMes?voltasMes.toFixed(1).replace('.',',')+' volta(s) por mês':'']
+].map(k=>`<div class=k><small>${k[0]}</small><b>${k[1]}</b><small>${k[2]}</small></div>`).join('');}
+document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
+</script></body></html>

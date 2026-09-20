@@ -1,0 +1,119 @@
+{
+  "gerado_em": "2026-09-19T21:00:00-03:00",
+  "metodo": "REAL = fonte primaria vista; CONCEPT = fonte secundaria/terceiro; PHANTOM = procurado e nao achado",
+  "veredito_120_mil_radar": {
+    "confirmado": false,
+    "classe": "PHANTOM",
+    "explicacao": "Nenhum contrato publico encontrado usa R$120 mil por radar em qualquer modalidade (aquisicao, locacao mensal, custo total). Hipotese: conflacao de memoria com o valor real do cruzamento semaforico inteligente (R$150-200 mil), dito pelo diretor de mobilidade.",
+    "fonte_hipotese": "3-equipe/fala-diretor-mobilidade.md"
+  },
+  "achados_radar": [
+    {"local": "Sao Paulo", "objeto": "edital ampliacao fiscalizacao eletronica (dez/2019)", "valor_rs": 1300000000, "unidade": "total contrato 60 meses, 1160 radares (parque completo)", "valor_por_radar_mes_rs": 18678, "classe": "CONCEPT", "url": "https://prefeitura.sp.gov.br/w/noticia/prefeitura-publica-edital-de-licitacao-para-ampliacao-de-fiscalizacao-eletronica"},
+    {"local": "Curitiba", "objeto": "Pregao 472/2019 + 4 aditivos, operacao radares", "valor_rs": 226350000, "unidade": "acumulado ate 2025, sem contagem de equipamentos na fonte", "valor_por_radar_mes_rs": null, "classe": "CONCEPT", "url": "https://gazetadoparana.com.br/artigo/contratos-de-radares-de-curitiba-saltam-de-r-618-milhoes-para-r-226-milhoes"},
+    {"local": "Rio do Sul/SC", "objeto": "locacao radares moveis OCR (2013)", "valor_rs": 34800, "unidade": "mensal, contrato total, quantidade nao confirmada", "valor_por_radar_mes_rs": null, "classe": "CONCEPT", "url": "https://diarioav.com.br/aluguel-de-radares-moveis-ja-gerou-mais-de-r-300-mil-de-prejuizo/"},
+    {"local": "Canoas/RS", "objeto": "Edital 289/2024 locacao radar estatico/portatil", "valor_rs": null, "unidade": "NAO-MEDIDO, PDF nao acessivel", "valor_por_radar_mes_rs": null, "classe": "NAO-MEDIDO", "url": "https://www.canoas.rs.gov.br/licitacoes/edital-no-289-2024-locacao-de-equipamentos-de-fiscalizacao-eletronica-de-velocidade-do-tipo-radar-estatico-portatil/"}
+  ],
+  "achados_semaforo": [
+    {"local": "Patos de Minas (fala diretor)", "objeto": "cruzamento inteligente completo", "valor_rs_min": 150000, "valor_rs_max": 200000, "unidade": "por cruzamento", "classe": "CONCEPT", "url": "3-equipe/fala-diretor-mobilidade.md"},
+    {"local": "Patos de Minas (fala diretor)", "objeto": "controladora de cruzamento", "valor_rs": 36000, "unidade": "por unidade", "classe": "CONCEPT", "url": "3-equipe/fala-diretor-mobilidade.md"},
+    {"local": "Patos de Minas (fala diretor)", "objeto": "rede semaforica 40 unidades", "valor_rs": 6000000, "unidade": "investimento inicial, so parte fisica", "classe": "CONCEPT", "url": "3-equipe/fala-diretor-mobilidade.md"},
+    {"local": "Divinopolis/MG", "objeto": "instalacao/implantacao/manutencao parque semaforico Garra Traffic/Brascontrol", "valor_rs": 4432600, "unidade": "contrato pregao eletronico, sem quantidade de cruzamentos confirmada", "classe": "REAL", "url": "3-equipe/pesquisa/concorrentes-garra-traffic.md"},
+    {"local": "Muriae/MG", "objeto": "manutencao semaforica com comodato, modernizacao", "valor_rs": 3281500, "unidade": "5 anos, quantidade de cruzamentos nao confirmada", "classe": "REAL", "url": "3-equipe/pesquisa/concorrentes-garra-traffic.md"},
+    {"local": "Patos de Minas", "objeto": "pecas Brascontrol para manutencao da rede semaforica", "valor_rs": 355172.16, "unidade": "contrato PNCP 235/2025, inexigibilidade", "classe": "REAL", "url": "3-equipe/pesquisa/concorrentes-garra-traffic.md"},
+    {"local": "Barra Bonita/SP", "objeto": "1 controlador semaforico simples (sem IA), troca emergencial", "valor_rs": 6900, "unidade": "unidade, dispensa de licitacao 16/12/2025", "classe": "REAL", "url": "https://barrabonita.sp.gov.br/transparencia/editais-e-licitacoes"}
+  ],
+  "achados_contagem_trafego": [
+    {"local": "DAER-RS", "objeto": "Estudo de Trafego intersecao CRUZ, 1 posto, 3 dias 24h", "valor_rs": 20067.93, "unidade": "por posto/campanha", "classe": "REAL", "url": "https://www.daer.rs.gov.br/upload/arquivos/202109/27181957-tabela-projeto-21.pdf"},
+    {"local": "DAER-RS", "objeto": "Contagem de Pedestres, 1 posto, 2 fluxos, 3 dias 16h", "valor_rs": 4447.86, "unidade": "por posto/campanha", "classe": "REAL", "url": "https://www.daer.rs.gov.br/upload/arquivos/202109/27181957-tabela-projeto-21.pdf"},
+    {"local": "DAER-RS", "objeto": "Pesquisa Origem/Destino, 1 posto, 7 dias", "valor_rs": 13514.68, "unidade": "por posto/campanha", "classe": "REAL", "url": "https://www.daer.rs.gov.br/upload/arquivos/202109/27181957-tabela-projeto-21.pdf"},
+    {"local": "DAER-RS", "objeto": "encargos sociais sobre mao de obra", "valor_percentual": 91.54, "classe": "REAL", "url": "https://www.daer.rs.gov.br/upload/arquivos/202109/27181957-tabela-projeto-21.pdf"}
+  ],
+  "achados_pessoal_cco": [
+    {"local": "Patos de Minas (Olho Vivo, atual)", "quantidade": 25, "funcao": "servidores na central", "classe": "CONCEPT", "url": "3-equipe/pesquisa/compras-cameras-patos.md"},
+    {"local": "Rio de Janeiro, SMTR (Sistema Rio)", "quantidade_operadores": 28, "quantidade_supervisores": 5, "escala": "12x36, 24x7", "classe": "REAL", "url": "https://transportes.prefeitura.rio/processoseletivo/"},
+    {"local": "CET-SP, concurso 2023", "cargo": "Agente/Gestor de Transito", "salario_rs_min": 3788.37, "salario_rs_max": 10302.00, "classe": "REAL", "url": "https://www.tecconcursos.com.br/blog/noticias/concurso-cet-sp/"},
+    {"local": "Indeed Brasil", "cargo": "Operador de Monitoramento CFTV", "salario_medio_rs_mes": 2147, "classe": "CONCEPT", "url": "https://br.indeed.com/career/operador-de-monitoramento-cftv/salaries"}
+  ],
+  "achados_software_analitico": [
+    {"nome": "analitico generico internacional", "valor_rs_camera_mes_min": 15, "valor_rs_camera_mes_max": 77, "classe": "CONCEPT", "fonte": "3-equipe/pesquisa/precificacao-decisao.md"},
+    {"nome": "Miovision", "valor_rs_intersecao_mes": 427, "valor_rs_hardware_intersecao": 58596, "classe": "REAL", "fonte": "3-equipe/pesquisa/precificacao-decisao.md"},
+    {"nome": "StreetLogic Pro", "valor_rs_hora_min": 36, "valor_rs_hora_max": 118, "classe": "REAL", "fonte": "3-equipe/pesquisa/precificacao-decisao.md"}
+  ],
+  "conta": {
+    "convencional_campanha_daer": {
+      "formula": "N pontos x repeticoes x 20067.93",
+      "cenarios": [
+        {"n": 40, "meses": 12, "min_rs": 1605434, "max_rs": 3210869, "repeticoes_min": 2, "repeticoes_max": 4},
+        {"n": 40, "meses": 36, "min_rs": 1605434, "max_rs": 9632606, "repeticoes_min": 2, "repeticoes_max": 12},
+        {"n": 100, "meses": 12, "min_rs": 4013586, "max_rs": 8027172, "repeticoes_min": 2, "repeticoes_max": 4},
+        {"n": 100, "meses": 36, "min_rs": 4013586, "max_rs": 24081516, "repeticoes_min": 2, "repeticoes_max": 12}
+      ],
+      "classe": "ESTIMATIVA (preco unitario REAL, frequencia de repeticao e hipotese nossa)"
+    },
+    "convencional_equipamento_miovision": {
+      "formula": "N x 58596 (implantacao 1x) + N x 427 x meses",
+      "cenarios": [
+        {"n": 40, "meses": 12, "total_rs": 2548800},
+        {"n": 40, "meses": 36, "total_rs": 2958720},
+        {"n": 100, "meses": 12, "total_rs": 6372000},
+        {"n": 100, "meses": 36, "total_rs": 7396800}
+      ],
+      "classe": "ESTIMATIVA por ancoragem estrangeira (Miovision, EUA), sem preco brasileiro confirmado"
+    },
+    "proposto": {
+      "componentes": {
+        "desenvolvimento_rs": 264000,
+        "maquina_processamento_rs": 6500,
+        "fluxos_por_maquina": 8,
+        "infra_fixa_rs": 5500,
+        "calibracao_por_camera_rs": 150,
+        "pessoa_interpretacao_rs_mes": 4000,
+        "energia_internet_rs_mes": 450,
+        "assinatura_faixa_31_60_rs_camera_mes": 65,
+        "assinatura_faixa_61_mais_rs_camera_mes": 45
+      },
+      "cenarios": [
+        {"n": 40, "meses": 12, "sem_desenvolvimento_rs": 128600, "com_desenvolvimento_rs": 392600},
+        {"n": 40, "meses": 36, "sem_desenvolvimento_rs": 297800, "com_desenvolvimento_rs": 561800},
+        {"n": 100, "meses": 12, "sem_desenvolvimento_rs": 212400, "com_desenvolvimento_rs": 476400},
+        {"n": 100, "meses": 36, "sem_desenvolvimento_rs": 427200, "com_desenvolvimento_rs": 691200}
+      ],
+      "classe": "CONCEPT (numeros internos do time, cco/custos.html e cco/simulador.html, nao e preco de mercado)"
+    }
+  },
+  "pessoas_quadro": {
+    "convencional_estimativa": {
+      "operadores_turno_min": 4,
+      "operadores_turno_max": 6,
+      "supervisor": 1,
+      "custo_operador_mes_rs": 7255,
+      "custo_total_mes_min_rs": 36275,
+      "custo_total_mes_max_rs": 50785,
+      "classe": "ESTIMATIVA (salario CET-SP piso x encargos DAER-RS 91.54%, escala nossa hipotese)"
+    },
+    "proposto": {
+      "pessoas_dedicadas": 1,
+      "regime": "meio periodo",
+      "custo_mes_rs": 4000,
+      "classe": "CONCEPT (numero interno do simulador)"
+    }
+  },
+  "o_que_cada_um_faz": {
+    "radar": "MULTA - poder de policia, efeito coercitivo imediato",
+    "semaforo_adaptativo": "ATUA - muda o tempo de verde em tempo real",
+    "nossa_proposta": "NAO MULTA, NAO ATUA - mede fluxo/fila/quase-acidente e entrega decisao a humano"
+  },
+  "nao_confirmado": [
+    "Preco unitario (CAPEX ou aluguel) de radar de fiscalizacao eletronica no Brasil",
+    "Preco de cruzamento semaforico completo com IA em planilha de termo de referencia aberta",
+    "Preco de laco indutivo especificamente (usado proxy: contagem por posto DAER-RS)",
+    "Dimensionamento oficial de pessoal de CCO para cidade do porte de Patos de Minas (160 mil hab.)",
+    "Preco brasileiro publico de software analitico de video por camera/mes"
+  ],
+  "universo_declarado": {
+    "buscas_web": 16,
+    "webfetch": 6,
+    "pncp_api_direta_usada": false,
+    "nota": "Buscas via motor geral, nao API oficial do PNCP; recomendado delegar ao agente arquivista para confirmacao via API pncp.gov.br/api/consulta se decisivo"
+  }
+}

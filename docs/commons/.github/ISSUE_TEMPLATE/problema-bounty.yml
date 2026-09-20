@@ -1,0 +1,28 @@
+name: Problema / bounty
+description: Propor uma entrega remunerada com aceite verificável.
+title: "[BOUNTY] "
+labels: ["bounty-proposed"]
+body:
+  - type: input
+    id: contratante
+    attributes: { label: Contratante responsável }
+    validations: { required: true }
+  - type: textarea
+    id: escopo
+    attributes: { label: Entrega esperada }
+    validations: { required: true }
+  - type: textarea
+    id: aceite
+    attributes: { label: Critérios verificáveis de aceite }
+    validations: { required: true }
+  - type: input
+    id: valor
+    attributes: { label: Valor e forma de pagamento }
+    validations: { required: true }
+  - type: input
+    id: validador
+    attributes: { label: Quem valida o aceite }
+    validations: { required: true }
+  - type: textarea
+    id: dados
+    attributes: { label: Dados necessários e sua proveniência }

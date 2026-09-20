@@ -1,0 +1,23 @@
+name: Quero continuar minha ideia
+description: Manifestar interesse sem transferir autoria ou assumir licença ainda.
+title: "[CONTINUAR] "
+labels: ["help-wanted", "stage:concept"]
+body:
+  - type: input
+    id: equipe
+    attributes: { label: Equipe ou autor }
+    validations: { required: true }
+  - type: textarea
+    id: ideia
+    attributes: { label: O que você quer manter vivo }
+    validations: { required: true }
+  - type: textarea
+    id: ajuda
+    attributes: { label: De que ajuda precisa }
+  - type: checkboxes
+    id: consentimento
+    attributes:
+      label: Consentimento
+      options:
+        - label: Quero conversar sobre compartilhar esta ideia; isto ainda não transfere autoria nem define licença.
+          required: true

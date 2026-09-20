@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visão de Rota — decisões que dependem de você</title><style>
+:root{--n:#0B1B2B;--c:#12273B;--b:#27425c;--t:#F6F8FA;--a:#E8A33D;--v:#2E9E6B;--r:#D6453D;--z:#9AA5B1}
+*{box-sizing:border-box}body{margin:0;background:var(--n);color:var(--t);font:16px/1.55 system-ui,sans-serif}
+header{padding:26px 5vw 10px}header small{letter-spacing:.14em;color:var(--z);font-size:12.5px}
+h1{margin:6px 0 4px;font-size:30px}.sub{color:var(--z)}
+main{padding:16px 5vw 90px;display:grid;gap:18px;max-width:1150px}
+article{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:20px 22px;border-left:5px solid var(--a)}
+article.urgente{border-left-color:var(--r)}
+h2{margin:0 0 4px;font-size:21px}h2 .n{color:var(--a)}
+.tag{display:inline-block;border-radius:6px;padding:2px 10px;font-size:12px;font-weight:700;background:var(--a);color:#111;vertical-align:middle;margin-left:8px}
+.tag.r{background:var(--r);color:#fff}.tag.z{background:var(--z);color:#111}
+.q{font-size:18px;margin:12px 0 10px}
+.op{background:var(--n);border:1px solid var(--b);border-left:3px solid var(--b);border-radius:10px;padding:11px 14px;margin:8px 0}
+.op b{color:var(--t)}.op.rec{border-left-color:var(--v)}
+.rec-bloco{background:rgba(46,158,107,.08);border:1px solid rgba(46,158,107,.35);border-radius:10px;padding:12px 15px;margin:12px 0}
+.rec-bloco h3{margin:0 0 6px;font-size:15px;color:var(--v)}
+ul{margin:6px 0;padding-left:20px}li{margin:4px 0}
+.regua{font-size:13.5px;color:var(--z);margin-top:8px}
+.fecha{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--b);font-size:14px}
+code{background:var(--n);border:1px solid var(--b);border-radius:6px;padding:3px 9px;font-size:14px;color:var(--a)}
+.medido{font-size:13.5px;color:var(--z);margin-top:10px}.medido b{color:var(--t)}
+.fora{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:18px 22px}
+.fora h2{font-size:17px}.fora li{color:var(--z);font-size:14.5px}
+footer{padding:0 5vw 40px;color:var(--z);font-size:13px;max-width:1150px}
+@media print{body{background:#fff;color:#111}article,.fora{background:#f6f8fa;border-color:#ccd}code{color:#8a5a00}.medido,.fora li,.sub{color:#555}}
+</style></head><body>
+<header><small>VISÃO DE ROTA · HACKATHON PATOS DE MINAS</small>
+<h1>Decisões que dependem de você</h1>
+<div class=sub>Três abertas. Responda pelo chat com a letra — ex.: <code>PCA-5: a</code>. Gerado em 19/09/2026, 16h35.</div></header>
+<main>
+
+<article class=urgente>
+<h2><span class=n>PCA-5</span> · Preço que vai à banca <span class="tag r">mais urgente</span></h2>
+<div class=q><b>Decido —</b> qual preço entra no slide e na fala de amanhã?</div>
+<div class="op rec"><b>🅰 Piloto R$ 49.375 · assinatura R$ 290 por câmera/mês.</b> O piloto cabe na dispensa de licitação com folga de R$ 16 mil — a prefeitura contrata sem edital.</div>
+<div class=op><b>🅱 Só o piloto</b>; a assinatura fica "a definir com o primeiro cliente".</div>
+<div class=op><b>🅲 Nenhum preço no palco</b>, só a ordem de grandeza: "cabe na dispensa de licitação".</div>
+<div class=rec-bloco><h3>⭐ Recomendo 🅰</h3><ul>
+<li>O teto da dispensa em 2026 — <b>R$ 65.492,11</b> — eu conferi direto no decreto federal, no site do Planalto.</li>
+<li>O contraste fecha o argumento: <b>R$ 49 mil</b> contra os <b>R$ 320 mil/mês</b> e os <b>R$ 6 milhões</b> que a própria secretaria citou hoje na sala.</li>
+<li>Comprador público decide pelo que sabe encaixar no orçamento. Preço ausente vira "depois a gente conversa" — e depois não tem banca.</li>
+<li>Ressalva: as âncoras de mercado (R$ 15-77/câmera internacional, R$ 427/cruzamento) vieram da pesquisa de hoje e eu não reconferi.</li></ul>
+<div class=regua>escolhi por: <b>corte dele</b> (número público é ato performativo) · <b>defeito antes de falta</b> (slide sem preço não fecha o argumento)</div></div>
+<div class=fecha><span>✅ <b>Fecha quando:</b> slide 8, roteiro e calculadora citam os mesmos valores.</span><code>PCA-5: a</code></div>
+<div class=medido>📊 Medido agora: <b>0 ocorrência</b> de "R$ 49", "290" e "65.492" na apresentação e no roteiro (<code>grep</code>). Só a calculadora tem, e lá o número é calculado ao vivo.</div>
+</article>
+
+<article>
+<h2><span class=n>PCA-3</span> · Histórico do repositório público <span class="tag z">aberta desde 13h</span></h2>
+<div class=q><b>Decido —</b> apago o histórico que ainda tem o dado da operadora de ônibus?</div>
+<div class="op rec"><b>🅰 Recriar o repositório.</b> Guardo cópia completa, apago e subo só o conteúdo limpo. Mesmo endereço, mesmo hub, mesmas ideias.</div>
+<div class=op><b>🅱 Deixar como está.</b> A versão atual já está limpa; só quem souber o código de um commit antigo chega ao dado.</div>
+<div class=rec-bloco><h3>⭐ Recomendo 🅰</h3><ul>
+<li>Medido agora: <b>3 commits</b> ainda carregam o parser do relatório de viagens (<code>git log --all</code>).</li>
+<li>O dado é de um terceiro que entregou ao <b>time</b>, não ao público — e a nossa própria regra no repositório diz isso.</li>
+<li>O repositório nasceu hoje de manhã: perder 6 commits não custa nada perto do risco.</li>
+<li>Ressalva honesta: eu recrio as etiquetas e os formulários de entrada, e o hub fica alguns minutos fora do ar.</li></ul>
+<div class=regua>escolhi por: <b>não perder nada</b> (cópia completa antes de apagar) · <b>corte dele</b> ("retire tudo isso do repositório público")</div></div>
+<div class=fecha><span>✅ <b>Fecha quando:</b> a busca pelo parser no histórico retorna 0 e o hub responde no ar.</span><code>PCA-3: a</code></div>
+</article>
+
+<article>
+<h2><span class=n>PCA-4</span> · Acesso do time ao repositório <span class="tag z">aberta desde 14h</span></h2>
+<div class=q><b>Decido —</b> como o time volta a ter acesso ao material?</div>
+<div class="op rec"><b>🅰 Convidar cada colega como colaborador.</b> Preciso do usuário do GitHub de cada um; o convite eu disparo daqui.</div>
+<div class=op><b>🅱 Criar um terceiro repositório</b> só para o time, sem os arquivos da operadora.</div>
+<div class=rec-bloco><h3>⭐ Recomendo 🅰</h3><ul>
+<li>São <b>51 arquivos</b> já organizados com um índice único. Um terceiro repositório vira mais uma cópia para manter igual.</li>
+<li>Você pediu no grupo às <b>9h45</b> para as IAs deles se conectarem ao repositório; às <b>13h38</b> eu o tornei privado por causa do dado da operadora. Hoje só você entra.</li>
+<li>Ressalva: cada convite é um ato seu — eu só disparo com o usuário na mão.</li></ul>
+<div class=regua>escolhi por: <b>menor mudança</b> (um repositório, um índice) · <b>pessoa real</b> (o time está sem acesso há 3 horas)</div></div>
+<div class=fecha><span>✅ <b>Fecha quando:</b> a lista de colaboradores mostra os usuários do time.</span><code>PCA-4: a</code> + os usuários</div>
+<div class=medido>📊 Medido agora: repositório <b>privado</b>, <b>1 colaborador</b> (você).</div>
+</article>
+
+<div class=fora>
+<h2>🕳️ Decisões que NÃO são minhas — e continuam sem resposta</h2>
+<ul>
+<li><b>Quem apresenta</b> os 3 minutos de amanhã. Sem registro em nenhuma fonte que eu leio.</li>
+<li><b>Formato da entrega das 16h</b> — link, PDF, repositório ou formulário? Ninguém perguntou à organização.</li>
+<li><b>O canvas no papel</b>: o facilitador pediu que o time preenchesse com post-it. Fiz a versão digital; não sei se a organização quer a do papel.</li>
+<li><b>Divisão de receita entre os membros</b> do time.</li>
+<li><b>Enquadramento do time</b> para o contrato de solução inovadora — decide a rota da assinatura depois do piloto.</li>
+</ul></div>
+</main>
+<footer>Cada número desta página foi medido nesta máquina hoje. Onde a origem é fala de reunião ou pesquisa não reconferida, está dito no próprio item.</footer>
+</body></html>

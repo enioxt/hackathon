@@ -1,0 +1,34 @@
+name: Novo projeto
+description: Registrar um projeto independente com autoria e estágio explícitos.
+title: "[PROJETO] "
+labels: ["stage:concept"]
+body:
+  - type: input
+    id: autores
+    attributes: { label: Autores/equipe }
+    validations: { required: true }
+  - type: textarea
+    id: problema
+    attributes: { label: Problema observado }
+    validations: { required: true }
+  - type: dropdown
+    id: estagio
+    attributes:
+      label: Estágio
+      options: [CONCEPT, PROTOTYPE, REAL]
+    validations: { required: true }
+  - type: textarea
+    id: evidencia
+    attributes: { label: Evidências e fontes }
+  - type: input
+    id: licenca
+    attributes: { label: Licença pretendida, se já decidida }
+  - type: checkboxes
+    id: consentimento
+    attributes:
+      label: Confirmações
+      options:
+        - label: Tenho autorização para compartilhar este material.
+          required: true
+        - label: Não incluí dados pessoais ou sigilosos.
+          required: true

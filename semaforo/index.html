@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mobilidade em Evidência V5 | Alavanc Tech</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =================================================
+         TOPO
+    ================================================== -->
+
+    <header class="topo">
+
+        <div class="marca">
+
+            <div class="icone-marca">
+                🚦
+            </div>
+
+            <div>
+                <h1>
+                    SEMÁFORO
+                    <span>INTELIGENTE</span>
+                </h1>
+
+                <p>
+                    Mobilidade em Evidência • a cidade aprende com seus dados.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="topo-centro">
+
+            <strong>
+                MVP • CIDADES INTELIGENTES
+            </strong>
+
+            <span>
+                CENÁRIO INSPIRADO EM PATOS DE MINAS/MG
+            </span>
+
+        </div>
+
+
+        <div class="status-online">
+
+            <span class="ponto-online"></span>
+
+            <div>
+                <strong>SISTEMA ONLINE</strong>
+                <small>SIMULAÇÃO EM TEMPO REAL</small>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         DASHBOARD
+    ================================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- =============================================
+             ÁREA PRINCIPAL
+        ============================================== -->
+
+        <section class="area-simulacao">
+
+            <div class="barra-simulacao">
+
+                <div>
+
+                    <strong>
+                        SIMULAÇÃO DO CRUZAMENTO
+                    </strong>
+
+                    <span>
+                        Mobilidade em Evidência • melhoria contínua orientada por dados
+                    </span>
+
+                </div>
+
+
+                <div class="referencia-local">
+                    📍 PATOS DE MINAS • MG
+                </div>
+
+            </div>
+
+
+            <!-- =========================================
+                 CRUZAMENTO
+            ========================================== -->
+
+            <div
+                class="cruzamento"
+                id="cruzamento"
+            >
+
+
+                <!-- QUADRAS -->
+
+                <div class="quadra q1">
+                    <div class="vegetacao">🌳</div>
+                </div>
+
+                <div class="quadra q2">
+                    <div class="vegetacao">🌳</div>
+                </div>
+
+                <div class="quadra q3">
+                    <div class="vegetacao">🌳</div>
+                </div>
+
+                <div class="quadra q4">
+                    <div class="vegetacao">🌳</div>
+                </div>
+
+
+                <!-- RUAS -->
+
+                <div class="rua rua-horizontal"></div>
+                <div class="rua rua-vertical"></div>
+
+
+                <!-- DIVISÕES DAS FAIXAS -->
+
+                <div class="eixo eixo-horizontal"></div>
+                <div class="eixo eixo-vertical"></div>
+
+                <div class="faixa faixa-horizontal-superior"></div>
+                <div class="faixa faixa-horizontal-inferior"></div>
+
+                <div class="faixa faixa-vertical-esquerda"></div>
+                <div class="faixa faixa-vertical-direita"></div>
+
+
+                <!-- FAIXAS DE PEDESTRES -->
+
+                <div class="pedestre pedestre-oeste"></div>
+                <div class="pedestre pedestre-leste"></div>
+                <div class="pedestre pedestre-norte"></div>
+                <div class="pedestre pedestre-sul"></div>
+
+
+                <!-- NOMES DAS VIAS -->
+
+                <div class="placa-via placa-a">
+                    <strong>VIA A</strong>
+                    <span>OESTE → LESTE</span>
+                </div>
+
+                <div class="placa-via placa-b">
+                    <strong>VIA B</strong>
+                    <span>NORTE → SUL</span>
+                </div>
+
+                <div class="placa-via placa-c">
+                    <strong>VIA C</strong>
+                    <span>LESTE → OESTE</span>
+                </div>
+
+                <div class="placa-via placa-d">
+                    <strong>VIA D</strong>
+                    <span>SUL → NORTE</span>
+                </div>
+
+
+                <!-- CÂMERAS -->
+
+                <div class="camera camera-a">
+                    📹 <span>A</span>
+                </div>
+
+                <div class="camera camera-b">
+                    📹 <span>B</span>
+                </div>
+
+                <div class="camera camera-c">
+                    📹 <span>C</span>
+                </div>
+
+                <div class="camera camera-d">
+                    📹 <span>D</span>
+                </div>
+
+
+                <!-- =====================================
+                     SEMÁFORO A
+                ====================================== -->
+
+                <div class="semaforo semaforo-a">
+
+                    <span>A</span>
+
+                    <div
+                        class="luz vermelho"
+                        id="vermelhoA"
+                    ></div>
+
+                    <div
+                        class="luz amarelo"
+                        id="amareloA"
+                    ></div>
+
+                    <div
+                        class="luz verde"
+                        id="verdeA"
+                    ></div>
+
+                </div>
+
+
+                <!-- SEMÁFORO B -->
+
+                <div class="semaforo semaforo-b">
+
+                    <span>B</span>
+
+                    <div
+                        class="luz vermelho"
+                        id="vermelhoB"
+                    ></div>
+
+                    <div
+                        class="luz amarelo"
+                        id="amareloB"
+                    ></div>
+
+                    <div
+                        class="luz verde"
+                        id="verdeB"
+                    ></div>
+
+                </div>
+
+
+                <!-- SEMÁFORO C -->
+
+                <div class="semaforo semaforo-c">
+
+                    <span>C</span>
+
+                    <div
+                        class="luz vermelho"
+                        id="vermelhoC"
+                    ></div>
+
+                    <div
+                        class="luz amarelo"
+                        id="amareloC"
+                    ></div>
+
+                    <div
+                        class="luz verde"
+                        id="verdeC"
+                    ></div>
+
+                </div>
+
+
+                <!-- SEMÁFORO D -->
+
+                <div class="semaforo semaforo-d">
+
+                    <span>D</span>
+
+                    <div
+                        class="luz vermelho"
+                        id="vermelhoD"
+                    ></div>
+
+                    <div
+                        class="luz amarelo"
+                        id="amareloD"
+                    ></div>
+
+                    <div
+                        class="luz verde"
+                        id="verdeD"
+                    ></div>
+
+                </div>
+
+
+                <!-- =====================================
+                     VEÍCULOS
+                ====================================== -->
+
+                <div
+                    class="veiculos-via"
+                    id="carrosA"
+                ></div>
+
+                <div
+                    class="veiculos-via"
+                    id="carrosB"
+                ></div>
+
+                <div
+                    class="veiculos-via"
+                    id="carrosC"
+                ></div>
+
+                <div
+                    class="veiculos-via"
+                    id="carrosD"
+                ></div>
+
+
+                <!-- AMBULÂNCIA -->
+
+                <div
+                    class="ambulancia"
+                    id="ambulancia"
+                >
+                    🚑
+                </div>
+
+
+                <!-- IA CENTRAL -->
+
+                <div class="ia-central">
+
+                    <div class="pulso-ia"></div>
+
+                    <span>🧠</span>
+
+                    <strong>IA</strong>
+
+                    <small>
+                        ANALISANDO
+                    </small>
+
+                </div>
+
+
+                <!-- ALERTA -->
+
+                <div
+                    class="alerta-sistema"
+                    id="alertaSistema"
+                >
+                    📡 MONITORANDO AS QUATRO VIAS
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PAINEL DIREITO
+        ================================================== -->
+
+        <aside class="painel">
+
+
+            <div class="painel-titulo">
+
+                <div>
+                    <strong>
+                        📊 MONITORAMENTO
+                    </strong>
+
+                    <span>
+                        EM TEMPO REAL
+                    </span>
+                </div>
+
+                <span class="live">
+                    ● LIVE
+                </span>
+
+            </div>
+
+
+            <!-- VIA A -->
+
+            <div
+                class="card-via"
+                id="cardA"
+            >
+
+                <div class="card-via-topo">
+
+                    <div>
+                        <strong>VIA A</strong>
+                        <small>OESTE → LESTE</small>
+                    </div>
+
+                    <span
+                        class="status-fluxo"
+                        id="fluxoA"
+                    >
+                        NORMAL
+                    </span>
+
+                </div>
+
+                <div class="dados-via">
+
+                    <strong id="veiculosA">
+                        5
+                    </strong>
+
+                    <span>VEÍCULOS</span>
+
+                    <b>→</b>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIA B -->
+
+            <div
+                class="card-via"
+                id="cardB"
+            >
+
+                <div class="card-via-topo">
+
+                    <div>
+                        <strong>VIA B</strong>
+                        <small>NORTE → SUL</small>
+                    </div>
+
+                    <span
+                        class="status-fluxo"
+                        id="fluxoB"
+                    >
+                        NORMAL
+                    </span>
+
+                </div>
+
+                <div class="dados-via">
+
+                    <strong id="veiculosB">
+                        4
+                    </strong>
+
+                    <span>VEÍCULOS</span>
+
+                    <b>↓</b>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIA C -->
+
+            <div
+                class="card-via"
+                id="cardC"
+            >
+
+                <div class="card-via-topo">
+
+                    <div>
+                        <strong>VIA C</strong>
+                        <small>LESTE → OESTE</small>
+                    </div>
+
+                    <span
+                        class="status-fluxo"
+                        id="fluxoC"
+                    >
+                        NORMAL
+                    </span>
+
+                </div>
+
+                <div class="dados-via">
+
+                    <strong id="veiculosC">
+                        3
+                    </strong>
+
+                    <span>VEÍCULOS</span>
+
+                    <b>←</b>
+
+                </div>
+
+            </div>
+
+
+            <!-- VIA D -->
+
+            <div
+                class="card-via"
+                id="cardD"
+            >
+
+                <div class="card-via-topo">
+
+                    <div>
+                        <strong>VIA D</strong>
+                        <small>SUL → NORTE</small>
+                    </div>
+
+                    <span
+                        class="status-fluxo"
+                        id="fluxoD"
+                    >
+                        NORMAL
+                    </span>
+
+                </div>
+
+                <div class="dados-via">
+
+                    <strong id="veiculosD">
+                        6
+                    </strong>
+
+                    <span>VEÍCULOS</span>
+
+                    <b>↑</b>
+
+                </div>
+
+            </div>
+
+
+            <!-- COMPOSIÇÃO -->
+
+            <div class="composicao">
+
+                <strong>
+                    COMPOSIÇÃO DO FLUXO
+                </strong>
+
+                <div class="tipos-veiculo">
+
+                    <span>🚗 CARROS</span>
+                    <span>🏍️ MOTOS</span>
+                    <span>🚌 ÔNIBUS</span>
+                    <span>🚚 CARGA</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- IA -->
+
+            <div class="painel-ia">
+
+                <div class="cabecalho-ia">
+
+                    <span>🧠</span>
+
+                    <div>
+
+                        <strong>
+                            IA • APOIO À DECISÃO
+                        </strong>
+
+                        <small>
+                            EVIDÊNCIA + ANÁLISE + DECISÃO HUMANA
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <p id="decisao">
+
+                    Monitorando as quatro vias.
+                    A IA identifica padrões e sensibiliza o gestor.
+                    A decisão final permanece humana.
+
+                </p>
+
+
+                <div class="processamento">
+
+                    <span>OBSERVAR</span>
+
+                    <b>→</b>
+
+                    <span>ANALISAR</span>
+
+                    <b>→</b>
+
+                    <span>SINALIZAR</span>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+
+    <!-- =================================================
+         CONTROLES
+    ================================================== -->
+
+    <section class="controles">
+
+
+        <button
+            id="btnNormal"
+            onclick="cenarioNormal()"
+        >
+
+            <span class="icone-controle">
+                🚗
+            </span>
+
+            <div>
+
+                <strong>
+                    TRÂNSITO NORMAL
+                </strong>
+
+                <small>
+                    Fluxo equilibrado
+                </small>
+
+            </div>
+
+        </button>
+
+
+        <button
+            id="btnCongestionamento"
+            onclick="cenarioCongestionamento()"
+        >
+
+            <span class="icone-controle">
+                🚨
+            </span>
+
+            <div>
+
+                <strong>
+                    CONGESTIONAMENTO
+                </strong>
+
+                <small>
+                    Alto volume de tráfego
+                </small>
+
+            </div>
+
+        </button>
+
+
+        <button
+            id="btnEmergencia"
+            onclick="cenarioEmergencia()"
+        >
+
+            <span class="icone-controle">
+                🚑
+            </span>
+
+            <div>
+
+                <strong>
+                    EMERGÊNCIA
+                </strong>
+
+                <small>
+                    Corredor inteligente
+                </small>
+
+            </div>
+
+        </button>
+
+
+        <button
+            class="botao-demo"
+            id="btnDemonstrar"
+            onclick="demonstracaoAutomatica()"
+        >
+
+            <span class="play">
+                ▶
+            </span>
+
+            <div>
+
+                <strong>
+                    DEMONSTRAR
+                </strong>
+
+                <small>
+                    Executar apresentação
+                </small>
+
+            </div>
+
+        </button>
+
+
+        <!-- NOVO BOTÃO V5 -->
+
+        <button
+            class="botao-memoria"
+            id="btnMemoria"
+            onclick="abrirMemoriaV5()"
+        >
+
+            <span class="play">
+                ◉
+            </span>
+
+            <div>
+
+                <strong>
+                    MEMÓRIA DA VIA
+                </strong>
+
+                <small>
+                    Antes × depois • evidências
+                </small>
+
+            </div>
+
+        </button>
+
+    </section>
+
+
+    <!-- =================================================
+         TECNOLOGIA / CICLO
+    ================================================== -->
+
+    <section class="fluxo-tecnologia">
+
+
+        <div>
+            <span>📹</span>
+
+            <section>
+                <strong>OBSERVA</strong>
+                <small>Mobilidade da via</small>
+            </section>
+        </div>
+
+
+        <b>→</b>
+
+
+        <div>
+            <span>🔢</span>
+
+            <section>
+                <strong>REGISTRA</strong>
+                <small>Dados e evidências</small>
+            </section>
+        </div>
+
+
+        <b>→</b>
+
+
+        <div>
+            <span>🧠</span>
+
+            <section>
+                <strong>COMPREENDE</strong>
+                <small>Compara padrões</small>
+            </section>
+        </div>
+
+
+        <b>→</b>
+
+
+        <div>
+            <span>⚠️</span>
+
+            <section>
+                <strong>SINALIZA</strong>
+                <small>Sensibiliza o gestor</small>
+            </section>
+        </div>
+
+
+        <b>→</b>
+
+
+        <div>
+            <span>👤</span>
+
+            <section>
+                <strong>HUMANO DECIDE</strong>
+                <small>Intervenção responsável</small>
+            </section>
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         V5 • MEMÓRIA DA VIA
+    ================================================== -->
+
+    <section
+        class="memoria-v5"
+        id="memoriaV5"
+        aria-hidden="true"
+    >
+
+        <div class="memoria-v5-conteudo">
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="memoria-v5-topo">
+
+                <div>
+
+                    <small>
+                        V5 • RUA COM MEMÓRIA
+                    </small>
+
+                    <h2>
+                        MOBILIDADE EM EVIDÊNCIA
+                    </h2>
+
+                    <p>
+                        OBSERVA → REGISTRA → COMPREENDE →
+                        SINALIZA → HUMANO DECIDE →
+                        MEDE → APRENDE
+                    </p>
+
+                </div>
+
+
+                <button onclick="fecharMemoriaV5()">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="selo-simulacao">
+                DADOS SIMULADOS • MVP PARA DEMONSTRAÇÃO
+            </div>
+
+
+            <!-- MÉTRICAS -->
+
+            <div class="metricas-v5">
+
+
+                <article>
+
+                    <small>
+                        FLUXO
+                    </small>
+
+                    <strong id="mFluxo">
+                        —
+                    </strong>
+
+                    <span>
+                        veículos observados
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <small>
+                        ESPERA MÉDIA
+                    </small>
+
+                    <strong id="mEspera">
+                        —
+                    </strong>
+
+                    <span>
+                        estimativa simulada
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <small>
+                        FILA
+                    </small>
+
+                    <strong id="mFila">
+                        —
+                    </strong>
+
+                    <span>
+                        veículos
+                    </span>
+
+                </article>
+
+
+                <article>
+
+                    <small>
+                        QUASE-ACIDENTES
+                    </small>
+
+                    <strong id="mQuase">
+                        —
+                    </strong>
+
+                    <span>
+                        eventos simulados
+                    </span>
+
+                </article>
+
+            </div>
+
+
+            <!-- ANTES X DEPOIS + IA -->
+
+            <div class="grade-v5">
+
+
+                <article class="painel-v5">
+
+                    <div class="titulo-v5">
+
+                        <h3>
+                            ANTES × DEPOIS
+                        </h3>
+
+                        <span id="mIntervencao">
+                            INTERVENÇÃO #000
+                        </span>
+
+                    </div>
+
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Indicador</th>
+                                <th>Antes</th>
+                                <th>Depois</th>
+                                <th>Leitura</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="comparacaoV5">
+
+                        </tbody>
+
+                    </table>
+
+                </article>
+
+
+                <!-- IA -->
+
+                <article class="painel-v5">
+
+                    <div class="titulo-v5">
+
+                        <h3>
+                            IA • SENSIBILIZAÇÃO
+                        </h3>
+
+                        <span class="hitl">
+                            HITL
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="insight-v5"
+                        id="insightV5"
+                    >
+
+                        Coletando evidências para
+                        orientar análise humana.
+
+                    </div>
+
+
+                    <div class="proveniencia-v5">
+
+                        <span>
+                            <b>Fonte:</b>
+                            SIMULAÇÃO
+                        </span>
+
+                        <span>
+                            <b>Confiança:</b>
+                            <i id="confiancaV5">
+                                BAIXA
+                            </i>
+                        </span>
+
+                        <span>
+                            <b>Decisão:</b>
+                            HUMANA
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- TIMELINE -->
+
+            <div class="grade-v5">
+
+
+                <article class="painel-v5">
+
+                    <h3>
+                        MEMÓRIA DA VIA • TIMELINE
+                    </h3>
+
+                    <div
+                        class="timeline-v5"
+                        id="timelineV5"
+                    >
+                    </div>
+
+                </article>
+
+
+                <!-- MELHORIA CONTÍNUA -->
+
+                <article class="painel-v5">
+
+                    <h3>
+                        MELHORIA CONTÍNUA
+                    </h3>
+
+
+                    <div class="ciclo-v5">
+
+                        <span>PROBLEMA</span>
+
+                        <b>→</b>
+
+                        <span>EVIDÊNCIA</span>
+
+                        <b>→</b>
+
+                        <span>HIPÓTESE</span>
+
+                        <b>→</b>
+
+                        <span>DECISÃO HUMANA</span>
+
+                        <b>→</b>
+
+                        <span>INTERVENÇÃO</span>
+
+                        <b>→</b>
+
+                        <span>NOVA MEDIÇÃO</span>
+
+                    </div>
+
+
+                    <button
+                        class="acao-humana-v5"
+                        onclick="registrarDecisaoHumanaV5()"
+                    >
+
+                        REGISTRAR ANÁLISE HUMANA
+
+                    </button>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         RODAPÉ
+    ================================================== -->
+
+    <footer>
+
+        <strong>
+            ALAVANC TECH
+        </strong>
+
+        <span>•</span>
+
+        <span>
+            MOBILIDADE EM EVIDÊNCIA
+        </span>
+
+        <span>•</span>
+
+        <span>
+            CIDADES QUE APRENDEM
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+    <!-- motor V5: memoria da via (depende das globais do script.js) -->
+    <script src="memoria-v5.js"></script>
+
+</body>
+
+</html>

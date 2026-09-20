@@ -1,0 +1,9 @@
+# Artefatos locais gerados ao validar o simulador Python.
+__pycache__/
+*.py[cod]
+# Áudio bruto da sala: não sobe (conversa de pessoas; o que vale são as transcrições em docs/transcricoes/).
+*.wav
+*.mp3
+# Bases públicas grandes: re-baixáveis pela URL em fontes-verificadas.json; o sha256 está em dados/publicos/MANIFEST.sha256.
+*.zip
+*.csv.gz

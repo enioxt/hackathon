@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>App do Cidadão — Visão de Rota</title>
 <style>
   :root {
@@ -574,6 +574,82 @@
   body.modo-foco .tela-slot { display: none; }
   body.modo-foco .tela-slot.tela-ativa { display: flex; }
   body.modo-foco .moldura { width: 340px; height: 700px; }
+
+  /* selo fixo "protótipo" — sempre visível, qualquer tamanho de tela */
+  /* selo fixo só existe no celular de verdade (ver media query <=720px);
+     no desktop a página já mostra "MAQUETE — DADO SINTÉTICO" no topo */
+  .selo-prototipo-fixo { display: none; }
+
+  /* ---------- CELULAR DE VERDADE (<=720px): app ocupa a tela inteira ---------- */
+  @media (max-width: 720px) {
+    .prancha { grid-template-columns: 1fr; gap: 20px; padding: 0 4px; }
+    .moldura { width: 100%; max-width: 320px; height: 640px; margin: 0 auto; }
+
+    body.modo-foco .prancha { display: block; padding: 0; }
+    body.modo-foco .tela-slot { width: 100%; }
+    body.modo-foco .tela-numero { display: none; }
+
+    body.modo-foco .moldura {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      max-width: none;
+      height: 100dvh;
+      min-height: 100dvh;
+      border-radius: 0;
+      padding: 0;
+      box-shadow: none;
+      z-index: 100;
+    }
+    body.modo-foco .tela { border-radius: 0; height: 100%; }
+    body.modo-foco .notch { display: none; }
+    body.modo-foco .status-bar {
+      padding-left: max(16px, env(safe-area-inset-left, 0px));
+      padding-right: max(16px, env(safe-area-inset-right, 0px));
+      padding-top: env(safe-area-inset-top, 0px);
+      height: calc(34px + env(safe-area-inset-top, 0px));
+    }
+    body.modo-foco .app-body { padding-left: 16px; padding-right: 16px; padding-top: 52px; -webkit-overflow-scrolling: touch; }
+    body.modo-foco .tab-bar {
+      padding-bottom: max(8px, env(safe-area-inset-bottom, 0px));
+      padding-left: env(safe-area-inset-left, 0px);
+      padding-right: env(safe-area-inset-right, 0px);
+    }
+    body.modo-foco .tab-item { min-height: 48px; min-width: 48px; }
+    body.modo-foco .barra-navegacao-flutuante {
+      top: calc(34px + env(safe-area-inset-top, 0px) + 8px);
+      right: max(10px, env(safe-area-inset-right, 0px));
+      z-index: 600;
+    }
+    /* no celular de verdade o selo aparece, colado acima da tab-bar, sem tapar CTA */
+    .selo-prototipo-fixo {
+      display: block;
+      position: fixed;
+      left: 8px;
+      bottom: calc(56px + env(safe-area-inset-bottom, 0px));
+      z-index: 200;
+      background: rgba(11,27,43,0.88);
+      color: var(--ambar);
+      border: 1px solid var(--ambar);
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 3px 7px;
+      border-radius: 999px;
+      pointer-events: none;
+      line-height: 1.3;
+    }
+    body:has(.tela-slot[data-tela="0"].tela-ativa) .selo-prototipo-fixo,
+    body:not(.modo-foco) .selo-prototipo-fixo {
+      bottom: calc(8px + env(safe-area-inset-bottom, 0px));
+    }
+
+    /* blocos largos da página (fora do app) nunca estouram a largura do celular */
+    .liga-grid { grid-template-columns: 1fr !important; }
+    .liga-setas { transform: rotate(90deg); padding: 2px 0; }
+    .tabela-missoes-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  }
 </style>
 </head>
 <body>
@@ -582,6 +658,7 @@
   <button type="button" id="btn-nav-inicio" aria-pressed="false">🏠 Início</button>
   <button type="button" id="btn-nav-indice" aria-pressed="true">▦ Índice</button>
 </div>
+<div class="selo-prototipo-fixo" aria-hidden="true">PROTÓTIPO — dados de demonstração</div>
 
 <div class="page-header">
   <span class="tag-maquete">Maquete — dado sintético</span>
@@ -594,6 +671,52 @@
 
 <div class="prancha">
 
+  <!-- TELA 0 — COMO FUNCIONA (abertura, 3 passos) -->
+  <div class="tela-slot" data-tela="0">
+    <div class="tela-numero">00 · Como funciona</div>
+    <div class="moldura">
+      <div class="tela">
+        <div class="notch"></div>
+        <div class="status-bar">
+          <span>Operadora</span>
+          <div class="sinais"><span>●●●</span><span>Wi-Fi</span><span class="bar-icone"></span></div>
+        </div>
+        <div class="app-body">
+          <p class="app-topo">Um módulo dentro do aplicativo da cidade <span class="etiqueta-mini">protótipo</span></p>
+          <h1 class="app-titulo">Antes de começar</h1>
+          <div class="cartao">
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <div class="passo-numero">1</div>
+              <div>
+                <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:2px;">Como funciona</p>
+                <p class="app-legenda">Você vê como está o trânsito perto de você, recebe rota e horário sugeridos, participa de missões e avisa problema na via.</p>
+              </div>
+            </div>
+          </div>
+          <div class="cartao">
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <div class="passo-numero">2</div>
+              <div>
+                <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:2px;">O que guardamos</p>
+                <p class="app-legenda">Guardamos seus registros e, só se você ligar, sua localização enquanto a missão estiver ativa. Dá pra desligar e apagar tudo quando quiser — tela "Meus dados".</p>
+              </div>
+            </div>
+          </div>
+          <div class="cartao">
+            <div style="display:flex;gap:10px;align-items:flex-start;">
+              <div class="passo-numero">3</div>
+              <div>
+                <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:2px;">Começar</p>
+                <p class="app-legenda">As telas a seguir usam dados de demonstração — nenhum número aqui é medição real.</p>
+              </div>
+            </div>
+          </div>
+          <div class="btn-ambar" data-ir="1" style="margin-top:8px;margin-bottom:24px;">Começar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- TELA 1 — INÍCIO -->
   <div class="tela-slot" data-tela="1">
     <div class="tela-numero">01 · Início</div>
@@ -605,15 +728,19 @@
           <div class="sinais"><span>●●●</span><span>Wi-Fi</span><span class="bar-icone"></span></div>
         </div>
         <div class="app-body">
-          <p class="app-topo">Bom dia, cidadão <span class="etiqueta-mini">maquete</span></p>
+          <p class="app-topo">Bom dia, cidadão <span class="etiqueta-mini">protótipo</span></p>
           <h1 class="app-titulo">Sua cidade, agora</h1>
           <div class="atalho-linha">
             <div class="atalho-grande" data-ir="2">
-              <div class="titulo">🚦 Como está agora</div>
-              <div class="sub">veja o trânsito e as filas perto de você</div>
+              <div class="titulo">🚦 Como está o trânsito</div>
+              <div class="sub">veja a fila e a contagem perto de você</div>
+            </div>
+            <div class="atalho-grande" data-ir="11" style="background:linear-gradient(135deg,#0f2a3a,#0B1B2B);">
+              <div class="titulo">🧭 Rota e horário sugeridos</div>
+              <div class="sub">o melhor caminho e a melhor hora de sair</div>
             </div>
             <div class="atalho-grande" data-ir="3" style="background:linear-gradient(135deg,#1a3a2c,#0B1B2B);">
-              <div class="titulo">📍 Registrar um ponto</div>
+              <div class="titulo">📍 Avisar um problema</div>
               <div class="sub">leva 5 segundos, ajuda a cidade toda</div>
             </div>
             <div class="atalho-grande" data-ir="5" style="background:linear-gradient(135deg,#3a2a10,#0B1B2B);">
@@ -627,6 +754,7 @@
               <span class="pill amarelo">Semana da travessia segura</span>
             </div>
           </div>
+          <a id="link-gestor" href="#" class="app-legenda" style="align-self:flex-start;color:var(--app-texto-fraco);text-decoration:underline;min-height:44px;display:flex;align-items:center;">sou gestor da prefeitura →</a>
         </div>
         <div class="tab-bar">
           <div class="tab-item ativo"><div class="tab-icone"></div>Início</div>
@@ -665,16 +793,16 @@
           </div>
           <div class="cartao">
             <p class="app-legenda" style="font-weight:700;color:var(--app-texto);margin-bottom:6px;">3 pontos mais lentos agora</p>
-            <div class="linha-mini"><span>Av. Central x Rua das Flores</span><span class="pill vermelho">+12 min</span></div>
-            <div class="linha-mini"><span>Terminal Rodoviário</span><span class="pill amarelo">+6 min</span></div>
-            <div class="linha-mini"><span>Praça do Mercado</span><span class="pill amarelo">+5 min</span></div>
+            <div class="linha-mini"><span>Corredor A</span><span class="pill vermelho">+12 min</span></div>
+            <div class="linha-mini"><span>Ponto 2</span><span class="pill amarelo">+6 min</span></div>
+            <div class="linha-mini"><span>Ponto 3</span><span class="pill amarelo">+5 min</span></div>
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap;">
             <span class="chip-nav" data-ir="6">🅿️ Vagas perto</span>
-            <span class="chip-nav" data-ir="7">🚌 Linha 204</span>
+            <span class="chip-nav" data-ir="7">🚌 Linha 3</span>
             <span class="chip-nav" data-ir="8">📐 Antes e depois</span>
           </div>
-          <p class="app-legenda">Demonstração simulada · a fonte e a política de privacidade do piloto serão definidas com a cidade.</p>
+          <p class="app-legenda">Contagem pelo número de veículos e pessoas visto pelas câmeras da via — nenhuma imagem é usada aqui. Demonstração simulada; a política de privacidade do piloto será definida com a cidade.</p>
         </div>
         <div class="tab-bar">
           <div class="tab-item"><div class="tab-icone"></div>Início</div>
@@ -699,7 +827,7 @@
         </div>
         <div class="app-body">
           <p class="app-topo" data-voltar>← Voltar</p>
-          <h1 class="app-titulo">Onde você perdeu tempo?</h1>
+          <h1 class="app-titulo">Avisar um problema na via</h1>
           <p class="app-legenda">Leva 5 segundos, não precisa escrever nada</p>
           <div class="escala-5">
             <div class="escala-item">🙂</div>
@@ -710,18 +838,20 @@
           </div>
           <div class="cartao">
             <div class="linha-mini"><span>📍 Local</span><span class="pill cinza">GPS automático</span></div>
-            <p class="app-legenda" style="margin-top:2px;">Rua Coronel Cypriano, 480</p>
+            <p class="app-legenda" style="margin-top:2px;">Corredor B, perto do Ponto 1</p>
           </div>
           <div class="cartao">
             <p class="app-legenda" style="font-weight:700;color:var(--app-texto);margin-bottom:6px;">Categoria</p>
             <div style="display:flex;flex-wrap:wrap;gap:6px;">
-              <span class="pill cinza pill-toque" data-grupo="categoria">Fila de ônibus</span>
-              <span class="pill amarelo pill-toque" data-grupo="categoria">Trânsito parado</span>
+              <span class="pill cinza pill-toque" data-grupo="categoria">Buraco na via</span>
+              <span class="pill amarelo pill-toque" data-grupo="categoria">Sinal apagado</span>
+              <span class="pill cinza pill-toque" data-grupo="categoria">Calçada obstruída</span>
               <span class="pill cinza pill-toque" data-grupo="categoria">Travessia difícil</span>
-              <span class="pill cinza pill-toque" data-grupo="categoria">Calçada ruim</span>
-              <span class="pill cinza pill-toque" data-grupo="categoria">Falta de vaga</span>
+              <span class="pill cinza pill-toque" data-grupo="categoria">Fila de ônibus</span>
             </div>
           </div>
+          <div class="btn-fantasma" id="btn-foto-via">📷 Adicionar foto da via (opcional)</div>
+          <p class="app-legenda">Só a via — nunca fotografe pessoas ou placas.</p>
           <div class="btn-ambar" data-ir="4">Enviar</div>
         </div>
         <div class="tab-bar">
@@ -789,15 +919,21 @@
           <div class="sinais"><span>●●●</span><span>Wi-Fi</span><span class="bar-icone"></span></div>
         </div>
         <div class="app-body">
-          <p class="app-topo" data-voltar>← Voltar <span class="etiqueta-mini">maquete</span></p>
+          <p class="app-topo" data-voltar>← Voltar <span class="etiqueta-mini">protótipo</span></p>
           <h1 class="app-titulo">Missão da semana</h1>
+          <div class="cartao">
+            <div class="linha-mini"><span>🏅 Seu nível</span><span class="pill amarelo">Participante bronze</span></div>
+            <div class="linha-mini"><span>⭐ Estrelas</span><span class="pill cinza">2 de 3</span></div>
+            <div class="linha-mini"><span>🎖️ Selos conquistados</span><span class="pill cinza">2</span></div>
+            <p class="app-legenda" style="margin-top:4px;">Resumo da participação voluntária. O detalhe completo fica em outra tela do app.</p>
+          </div>
           <div class="cartao">
             <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:8px;">Registre 3 pontos onde você perdeu tempo esta semana</p>
             <div class="barra-progresso-fundo"><div class="barra-progresso-cheio" style="width:66%;"></div></div>
             <p class="app-legenda" style="margin-top:6px;">2 de 3 concluídos</p>
           </div>
           <div class="cartao">
-            <div class="linha-mini"><span>🎟️ O que vale</span><span class="pill amarelo">Bilhetes na nota fiscal premiada</span></div>
+            <div class="linha-mini"><span>🎟️ O que vale</span><span class="pill amarelo">Créditos bancados por parceiros</span></div>
             <p class="app-legenda" style="margin-top:4px;">Cada missão concluída somaria bilhete no sorteio que a cidade já faz com a nota fiscal. <b>Hoje a lei desse programa é só fiscal: premiar participação exige mudar a lei.</b> Alternativa sem lei nova: prêmio do comércio participante.</p>
           </div>
           <div class="cartao">
@@ -839,8 +975,8 @@
           </div>
           <div class="cartao">
             <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:6px;">Vagas na rua por quadra</p>
-            <div class="linha-mini"><span>Rua Coronel Cypriano</span><span class="pill verde">6 livres</span></div>
-            <div class="linha-mini"><span>Av. Getúlio Vargas</span><span class="pill vermelho">0 livres</span></div>
+            <div class="linha-mini"><span>Corredor B</span><span class="pill verde">6 livres</span></div>
+            <div class="linha-mini"><span>Corredor C</span><span class="pill vermelho">0 livres</span></div>
           </div>
           <p class="app-legenda">Demonstração de contagem; sem identificação de pessoa no desenho do piloto.</p>
         </div>
@@ -867,7 +1003,7 @@
         </div>
         <div class="app-body">
           <p class="app-topo" data-voltar>← Voltar <span class="etiqueta-mini">maquete</span></p>
-          <h1 class="app-titulo">Linha 204 — Centro</h1>
+          <h1 class="app-titulo">Linha 3 — Setor 1</h1>
           <div class="cartao">
             <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:8px;">Pontualidade na última semana</p>
             <div class="barra-semana">
@@ -885,8 +1021,8 @@
           </div>
           <div class="cartao">
             <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:6px;">Onde a linha mais perde tempo</p>
-            <div class="linha-mini"><span>Terminal Rodoviário</span><span class="pill vermelho">+9 min</span></div>
-            <div class="linha-mini"><span>Av. Central</span><span class="pill amarelo">+4 min</span></div>
+            <div class="linha-mini"><span>Ponto 2</span><span class="pill vermelho">+9 min</span></div>
+            <div class="linha-mini"><span>Corredor A</span><span class="pill amarelo">+4 min</span></div>
           </div>
         </div>
         <div class="tab-bar">
@@ -914,7 +1050,7 @@
           <p class="app-topo" data-voltar>← Voltar <span class="etiqueta-mini">maquete</span></p>
           <h1 class="app-titulo">A rua perto de você mudou</h1>
           <div class="cartao">
-            <p class="app-legenda" style="color:var(--app-texto);font-weight:700;">Travessia — Rua Coronel Cypriano</p>
+            <p class="app-legenda" style="color:var(--app-texto);font-weight:700;">Travessia — Corredor B</p>
             <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
               <div style="flex:1;">
                 <p class="app-legenda">Antes</p>
@@ -987,9 +1123,9 @@
     </div>
   </div>
 
-  <!-- TELA 10 — PRIVACIDADE -->
+  <!-- TELA 10 — MEUS DADOS -->
   <div class="tela-slot" data-tela="10">
-    <div class="tela-numero">10 · Privacidade</div>
+    <div class="tela-numero">10 · Meus dados</div>
     <div class="moldura">
       <div class="tela">
         <div class="notch"></div>
@@ -999,17 +1135,26 @@
         </div>
         <div class="app-body">
           <p class="app-topo" data-voltar>← Voltar</p>
-          <h1 class="app-titulo">Sua privacidade</h1>
+          <h1 class="app-titulo">Meus dados</h1>
           <div class="cartao">
+            <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:6px;">O que o app guarda</p>
             <div class="linha-mini"><span>🙈 Rosto</span><span class="pill verde">nunca lido</span></div>
             <div class="linha-mini"><span>🔢 Placa</span><span class="pill verde">nunca lida</span></div>
-            <div class="linha-mini"><span>🗑️ Imagem</span><span class="pill verde">descartada após contar</span></div>
-            <div class="linha-mini"><span>👤 Registro</span><span class="pill verde">anônimo</span></div>
+            <div class="linha-mini"><span>🗑️ Imagem da câmera</span><span class="pill verde">descartada após contar</span></div>
+            <div class="linha-mini"><span>📍 Avisos que você envia</span><span class="pill cinza">guardados 90 dias</span></div>
+            <div class="linha-mini"><span>👤 Seu registro</span><span class="pill verde">anônimo</span></div>
           </div>
           <div class="cartao">
             <p class="app-legenda">A câmera conta pessoas e veículos para saber o quanto a rua está cheia — ela não guarda quem você é.</p>
           </div>
-          <div class="btn-fantasma" id="btn-apagar-registros" style="border-color:var(--vermelho);color:var(--vermelho);width:100%;">Apagar meus registros</div>
+          <div class="cartao">
+            <div class="linha-mini">
+              <span>📡 Localização</span>
+              <span class="pill pill-toque amarelo" id="toggle-localizacao" data-grupo="toggle-localizacao" role="switch" aria-checked="true">ligada — só com missão ativa</span>
+            </div>
+            <p class="app-legenda" style="margin-top:4px;">Fora de uma missão, o app não usa sua localização. Você pode desligar a qualquer momento.</p>
+          </div>
+          <div class="btn-fantasma" id="btn-apagar-registros" style="border-color:var(--vermelho);color:var(--vermelho);width:100%;">Apagar todos os meus dados</div>
         </div>
         <div class="tab-bar">
           <div class="tab-item"><div class="tab-icone"></div>Início</div>
@@ -1017,6 +1162,48 @@
           <div class="tab-item"><div class="tab-icone"></div>Trânsito</div>
           <div class="tab-item"><div class="tab-icone"></div>Campanhas</div>
           <div class="tab-item ativo"><div class="tab-icone"></div>Perfil</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TELA 11 — ROTA E HORÁRIO SUGERIDOS -->
+  <div class="tela-slot" data-tela="11">
+    <div class="tela-numero">11 · Rota sugerida</div>
+    <div class="moldura">
+      <div class="tela">
+        <div class="notch"></div>
+        <div class="status-bar">
+          <span>Operadora</span>
+          <div class="sinais"><span>●●●</span><span>Wi-Fi</span><span class="bar-icone"></span></div>
+        </div>
+        <div class="app-body">
+          <p class="app-topo" data-voltar>← Voltar <span class="etiqueta-mini">protótipo</span></p>
+          <h1 class="app-titulo">Rota e horário sugeridos</h1>
+          <div class="cartao">
+            <div class="linha-mini"><span>🏠 Casa</span><span class="pill cinza">origem</span></div>
+            <div class="linha-mini"><span>🏢 Trabalho</span><span class="pill cinza">destino</span></div>
+          </div>
+          <div class="cartao">
+            <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:6px;">Melhor horário para sair</p>
+            <div class="linha-mini"><span>Saindo agora</span><span class="pill amarelo">28 min</span></div>
+            <div class="linha-mini"><span>Saindo às 7h40</span><span class="pill verde">17 min</span></div>
+            <p class="app-legenda" style="margin-top:4px;">Sair 20 minutos mais cedo evita a fila do Corredor A.</p>
+          </div>
+          <div class="cartao">
+            <p class="app-legenda" style="color:var(--app-texto);font-weight:700;margin-bottom:6px;">Caminho sugerido</p>
+            <div class="linha-mini"><span>1. Corredor B</span><span class="pill verde">livre</span></div>
+            <div class="linha-mini"><span>2. Ponto 3</span><span class="pill cinza">normal</span></div>
+            <div class="linha-mini"><span>3. Corredor A</span><span class="pill amarelo">lento</span></div>
+          </div>
+          <p class="app-legenda">Rota de exemplo — em um piloto real, viria do trajeto que você mais usa.</p>
+        </div>
+        <div class="tab-bar">
+          <div class="tab-item"><div class="tab-icone"></div>Início</div>
+          <div class="tab-item"><div class="tab-icone"></div>Chamados</div>
+          <div class="tab-item ativo"><div class="tab-icone"></div>Trânsito</div>
+          <div class="tab-item"><div class="tab-icone"></div>Campanhas</div>
+          <div class="tab-item"><div class="tab-icone"></div>Perfil</div>
         </div>
       </div>
     </div>
@@ -1031,7 +1218,7 @@
   <div class="liga-grid" style="grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;">
     <div class="liga-caixa">
       <div class="rotulo-caixa">App oficial da cidade</div>
-      <p>Chamado, enquete, campanha e notificação — módulos que já existem, ganham as 10 telas novas.</p>
+      <p>Chamado, enquete, campanha e notificação — módulos que já existem, ganham as telas novas deste protótipo.</p>
     </div>
     <div class="liga-setas">→</div>
     <div class="liga-caixa">
@@ -1055,6 +1242,7 @@
 <div class="bloco-full">
   <h2>Campanhas e missões, em ordem de esforço</h2>
   <div class="desc">Da mais simples de ligar até a que exige mais articulação com terceiros.</div>
+  <div class="tabela-missoes-wrap">
   <table class="tabela-missoes">
     <thead>
       <tr>
@@ -1103,6 +1291,7 @@
       </tr>
     </tbody>
   </table>
+  </div>
 </div>
 
 <!-- ================= BLOCO: O QUE PODE DAR ERRADO ================= -->
@@ -1314,7 +1503,47 @@
   if (btnInicio) btnInicio.addEventListener('click', function(){ abrirTela('1'); });
   if (btnIndice) btnIndice.addEventListener('click', mostrarIndice);
 
+  // ---- tela 10: alternador de localização (liga/desliga) ----
+  var toggleLoc = document.getElementById('toggle-localizacao');
+  if (toggleLoc) {
+    ativar(toggleLoc, function(){
+      var ligado = toggleLoc.getAttribute('aria-checked') === 'true';
+      if (ligado) {
+        toggleLoc.setAttribute('aria-checked', 'false');
+        toggleLoc.classList.remove('amarelo'); toggleLoc.classList.add('cinza');
+        toggleLoc.textContent = 'desligada';
+      } else {
+        toggleLoc.setAttribute('aria-checked', 'true');
+        toggleLoc.classList.remove('cinza'); toggleLoc.classList.add('amarelo');
+        toggleLoc.textContent = 'ligada — só com missão ativa';
+      }
+    });
+  }
+
+  // ---- tela 3: foto opcional (simulada — dado sintético) ----
+  var btnFoto = document.getElementById('btn-foto-via');
+  if (btnFoto) {
+    ativar(btnFoto, function(){
+      if (btnFoto.getAttribute('data-estado') === 'anexada') return;
+      btnFoto.setAttribute('data-estado', 'anexada');
+      btnFoto.textContent = '📷 Foto da via anexada (simulado)';
+      btnFoto.style.opacity = '0.7';
+    });
+  }
+
+  // ---- link "sou gestor": alvo muda conforme publicação estática ou servidor ----
+  var linkGestor = document.getElementById('link-gestor');
+  if (linkGestor) {
+    var estatico = location.protocol === 'file:' || /github\.io$/.test(location.hostname);
+    linkGestor.setAttribute('href', estatico ? 'entrar.html' : '/entrar');
+  }
+
   marcarBotoesFlutuantes();
+
+  // ---- celular de verdade: abre direto no app (tela 0), sem a prancha de índice ----
+  if (window.matchMedia && window.matchMedia('(max-width: 720px)').matches) {
+    abrirTela('0', false);
+  }
 })();
 </script>
 <script src="melhorias.js"></script>

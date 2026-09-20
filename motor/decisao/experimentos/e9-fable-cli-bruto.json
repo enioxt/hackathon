@@ -1,0 +1,52 @@
+[
+ {
+  "ok": true,
+  "api_ms": 1040,
+  "parede_s": 51,
+  "in": 2,
+  "cache_w": 38862,
+  "cache_r": 11042,
+  "out": 8,
+  "usd": 0.7804205000000001
+ },
+ {
+  "ok": true,
+  "api_ms": 1300,
+  "parede_s": 50,
+  "in": 2,
+  "cache_w": 38731,
+  "cache_r": 11042,
+  "out": 7,
+  "usd": 0.7777505000000001
+ },
+ {
+  "ok": true,
+  "api_ms": 1110,
+  "parede_s": 63,
+  "in": 2,
+  "cache_w": 38729,
+  "cache_r": 11042,
+  "out": 8,
+  "usd": 0.7777605000000001
+ },
+ {
+  "ok": true,
+  "api_ms": 1588,
+  "parede_s": 63,
+  "in": 2,
+  "cache_w": 48917,
+  "cache_r": 11042,
+  "out": 11,
+  "usd": 0.9816705
+ },
+ {
+  "ok": true,
+  "api_ms": 1288,
+  "parede_s": 56,
+  "in": 2,
+  "cache_w": 38735,
+  "cache_r": 11042,
+  "out": 8,
+  "usd": 0.7778805
+ }
+]

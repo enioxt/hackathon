@@ -43,3 +43,17 @@ Data: 20/09/2026. Chave carregada do ambiente (`JEV_KEY`), nunca escrita em arqu
 - **Limiar de confiança para decidir sozinho:** os dados de E4 não sustentam um limiar isolado abaixo de 0,95 com erro sob controle (5%); o mais perto que chegamos foi confiança ≥ 0,95, erro de 6,8% no que passa direto e 26% das mensagens indo para revisão humana. Recomendação: usar 0,90 como corte prático (erro de 8,8%, 20,3% para revisão) se o custo de revisão humana for baixo, ou 0,95 se o custo do erro automatizado for mais caro que revisar mais gente — a decisão final de qual dos dois é uma escolha de negócio, não deste experimento.
 - **Perguntas compostas:** juntar tipo + urgência + "precisa de pessoa" numa única chamada (E5, E8) é a forma mais barata de operar — 1,25× o custo de tokens de uma pergunta, mesmo tempo de resposta.
 - **Paralelismo:** operar com até 6 chamadas simultâneas (E6) já dá vazão de ~18 chamadas por segundo sem erro; não há dado nosso sobre o que acontece acima disso.
+
+## E9 — Comparação com um modelo grande (20/09, 00h40; amostra pequena)
+Seis relatos de cidadão classificados pelo modelo grande que o time usa, chamado pela ferramenta de linha de comando (dados brutos em `e9-fable-cli-bruto.json`).
+
+| | Modelo grande, pela ferramenta completa | Modelo de decisão |
+|---|---|---|
+| Acerto | 6 de 6 | 150 de 150 (E8) |
+| Tempo da API | 1,0 a 1,6 s | 0,30 s |
+| Tempo total da chamada | 50 a 63 s | 0,30 s |
+| Tokens por decisão | 38.700 a 59.300 de contexto + 7 a 11 de saída | ~450 de entrada |
+| Custo informado pela ferramenta | US$ 0,78 a 1,19 por decisão | ~US$ 0,00002 (preço NÃO oficial) |
+
+**Leitura honesta:** o custo alto vem de chamar o agente completo, que carrega ~40 mil tokens de contexto a cada chamada; não é o preço do modelo puro. Pela API pura, com o mesmo texto, a ordem de grandeza seria de meio a um centavo de dólar por decisão (ESTIMATIVA derivada, não conferida em tabela oficial). A conclusão que se sustenta: não usar o agente grande para decisão de escolher uma opção; isso é trabalho de regra (números) ou de modelo de decisão (texto).
+**Ressalvas:** 6 casos; preços não conferidos em fonte oficial; assinatura de valor fixo não cobra por chamada.

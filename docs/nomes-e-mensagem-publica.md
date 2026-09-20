@@ -22,7 +22,7 @@ Recomendação para o grupo decidir: **Visão de Rota** como nome (já tem conse
 Pessoal, bom dia.
 
 A gente montou um repositório aberto com tudo que levantamos de dado público sobre mobilidade em Patos, para qualquer time usar:
-github.com/enioxt/hackathon-dados-publicos
+github.com/enioxt/hackathon
 
 O que tem lá: 83 fontes verificadas uma a uma (32 com dado de Patos aberto hoje, 12 que dependem de pedido, com o canal e o prazo de cada uma), 1.100 acidentes de trânsito com coordenada (dado aberto do Estado), licitações de mobilidade do Brasil, os casos onde câmera de segurança já é usada para trânsito no Brasil e no mundo, a base legal (LGPD) para fazer isso do jeito certo, e as técnicas que usamos para achar e provar cada número.
 

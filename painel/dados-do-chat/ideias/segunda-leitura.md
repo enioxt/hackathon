@@ -6,7 +6,7 @@ estagio: conceito
 tema: dados
 pergunta: As câmeras de segurança que Patos já pagou podem contar o trânsito sem virar vigilância?
 precisa: [ACESSO] acordo de cooperação técnica para 1 câmera · [HELP] quem decide sobre o dado (prefeitura, Consep, PM) sentado junto na primeira execução
-contato: github.com/enioxt/hackathon-dados-publicos
+contato: github.com/enioxt/hackathon
 licenca: a definir
 cor: 7
 ---

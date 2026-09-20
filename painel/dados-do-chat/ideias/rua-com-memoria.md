@@ -6,7 +6,7 @@ estagio: prototipo
 tema: dados
 pergunta: A intervenção que a cidade fez (semáforo, binário, linha nova) funcionou? Quanto? Para quem?
 precisa: [DATA] relatórios de maio a julho da operadora (o "antes") · [DATA] contagem por hora do piloto de semáforo da Av. Paracatu
-contato: github.com/enioxt/hackathon-dados-publicos
+contato: github.com/enioxt/hackathon
 licenca: a definir
 cor: 2
 ---

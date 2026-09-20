@@ -38,7 +38,7 @@ Time **Visão de Rota**. Tema: *Mobilidade Urbana Inteligente e Previsível*. Pe
 | Os 24 prompts para gerar o design no ChatGPT (painel, hub, marca e slides) | `docs/design-prompts/PROMPTS-DESIGN.html` (com botão de copiar) e os 3 `.md` |
 | O hub de ideias público, com entrada pelo GitHub | https://enioxt.github.io/hackathon/hub/ |
 
-**Nota atual (20/09):** as duas linhas acima descrevem uma fase de sábado em que o time chegou a manter um repositório separado (`hackathon-dados-publicos`) e um período em que este repositório ficou privado. Hoje existe **um repositório único e público**, `github.com/enioxt/hackathon`, publicado em `https://enioxt.github.io/hackathon/`. O que era `painel/` na fase antiga hoje é servido a partir de `demo/` (site) e `painel/` (código-fonte do app do gestor) — ver [`docs/MAPA-DO-REPOSITORIO.md`](docs/MAPA-DO-REPOSITORIO.md).
+**Nota atual (20/09):** as duas linhas acima descrevem uma fase de sábado em que o time chegou a manter um repositório separado (`hackathon`) e um período em que este repositório ficou privado. Hoje existe **um repositório único e público**, `github.com/enioxt/hackathon`, publicado em `https://enioxt.github.io/hackathon/`. O que era `painel/` na fase antiga hoje é servido a partir de `demo/` (site) e `painel/` (código-fonte do app do gestor) — ver [`docs/MAPA-DO-REPOSITORIO.md`](docs/MAPA-DO-REPOSITORIO.md).
 
 ## 2. As decisões já tomadas (não reabrir sem o grupo)
 1. Só dado público ou entregue ao time. Nenhum dado policial.
@@ -66,7 +66,7 @@ Time **Visão de Rota**. Tema: *Mobilidade Urbana Inteligente e Previsível*. Pe
 - Conversas do grupo de WhatsApp e mensagens de áudio.
 
 ## 5b. Repositório público (histórico: existiu uma separação; hoje é 1 só)
-Na fase inicial do hackathon o time manteve um repositório à parte (`hackathon-dados-publicos`) só com o compartilhável: fontes, dados públicos, técnicas, base legal, parcerias, motor, commons — sem estratégia do time, sem dado da operadora, sem nomes. Essa separação não existe mais: **hoje é um repositório só, `github.com/enioxt/hackathon`, inteiro público**, com as mesmas pastas (`fontes/`, `juridico/`, `tecnicas/`, `commons/`, `motor/`) vivendo lado a lado com o resto.
+Na fase inicial do hackathon o time manteve um repositório à parte (`hackathon`) só com o compartilhável: fontes, dados públicos, técnicas, base legal, parcerias, motor, commons — sem estratégia do time, sem dado da operadora, sem nomes. Essa separação não existe mais: **hoje é um repositório só, `github.com/enioxt/hackathon`, inteiro público**, com as mesmas pastas (`fontes/`, `juridico/`, `tecnicas/`, `commons/`, `motor/`) vivendo lado a lado com o resto.
 
 ## 6. Como um membro (ou a IA dele) contribui
 Abra uma issue com o modelo em `commons/`, ou mande no grupo. Para pedir algo à IA do time no WhatsApp, marque `@egos`. Toda contribuição fica com autoria registrada (`commons/POLITICA.md`).

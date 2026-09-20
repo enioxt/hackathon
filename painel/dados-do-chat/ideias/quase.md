@@ -6,7 +6,7 @@ estagio: conceito
 tema: segurança viária
 pergunta: Onde um acidente está quase acontecendo, antes de alguém se machucar?
 precisa: [DATA] 1 hora de vídeo gravado de 1 cruzamento · [ACESSO] 1 câmera existente para processar na central · [HELP] engenheiro de tráfego para calibrar distância por câmera
-contato: github.com/enioxt/hackathon-dados-publicos
+contato: github.com/enioxt/hackathon
 licenca: a definir
 cor: 1
 ---

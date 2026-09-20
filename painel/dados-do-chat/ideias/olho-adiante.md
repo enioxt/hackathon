@@ -6,7 +6,7 @@ estagio: ideia
 tema: mobilidade urbana
 pergunta: Como o entregador e o motorista escolhem a rota se só descobrem o congestionamento quando já estão nele?
 precisa: [ACESSO] fluxo agregado de câmeras existentes em 5 a 10 vias · [DATA] pontos ociosos onde um painel faria diferença (balões, cruzamentos de espera)
-contato: github.com/enioxt/hackathon-dados-publicos
+contato: github.com/enioxt/hackathon
 licenca: a definir
 cor: 6
 ---

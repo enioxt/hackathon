@@ -6,7 +6,7 @@ estagio: ideia
 tema: acessibilidade
 pergunta: Qual é a rota possível para uma pessoa de 82 anos, uma cadeirante, uma mãe com carrinho?
 precisa: [DATA] calçadas, rampas, iluminação e travessias mapeadas (OpenStreetMap de Patos está pobre nisso) · [HELP] pessoas com mobilidade reduzida para testar
-contato: github.com/enioxt/hackathon-dados-publicos
+contato: github.com/enioxt/hackathon
 licenca: a definir
 cor: 3
 ---

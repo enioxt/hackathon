@@ -6,7 +6,7 @@ estagio: prototipo
 tema: transporte público
 pergunta: Se as maiores empresas e escolas escalonarem a entrada em janelas de 5 min, quanto o pico cai?
 precisa: [DATA] horário de entrada, saída e almoço das 8 maiores empresas (as que dão nome às linhas de ônibus) e das escolas grandes · [HELP] um empregador disposto a testar 2 semanas
-contato: github.com/enioxt/hackathon-dados-publicos
+contato: github.com/enioxt/hackathon
 licenca: a definir
 cor: 4
 ---

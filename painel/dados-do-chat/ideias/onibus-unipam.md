@@ -6,7 +6,7 @@ estagio: conceito
 tema: transporte público
 pergunta: Dezenas de ônibus chegam à UNIPAM no mesmo minuto. E se chegassem com 5 minutos de intervalo, cada um numa vaga fixa?
 precisa: [DATA] grade dos ônibus fretados (origem, horário previsto, onde param hoje) · [ACESSO] 1 câmera no acesso para medir chegada real por minuto · [HELP] setor de transporte da UNIPAM
-contato: github.com/enioxt/hackathon-dados-publicos
+contato: github.com/enioxt/hackathon
 licenca: a definir
 cor: 5
 ---

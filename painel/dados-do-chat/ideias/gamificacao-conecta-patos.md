@@ -6,7 +6,7 @@ estagio: conceito
 tema: participação
 pergunta: Como a população vira sensor e público do resultado, sem app novo?
 precisa: [ACESSO] enquete geolocalizada e exportação no app Conecta Patos (fornecedor AppCidades) · [HELP] 5 embaixadores locais (rádio, escola, igreja, motorista, vereador) · [BOUNTY] prêmios do comércio local
-contato: github.com/enioxt/hackathon-dados-publicos
+contato: github.com/enioxt/hackathon
 licenca: a definir
 cor: 8
 ---

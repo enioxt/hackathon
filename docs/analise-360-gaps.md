@@ -1,7 +1,7 @@
 Visão de Rota — onde estamos, sábado 19/09, 14h
 
 O QUE JÁ TEMOS
-1. Hub de ideias no ar, com entrada pelo GitHub: enioxt.github.io/hackathon-dados-publicos — 9 ideias com dono e estágio, formulário para entrar e para mandar ideia.
+1. Hub de ideias no ar, com entrada pelo GitHub: enioxt.github.io/hackathon — 9 ideias com dono e estágio, formulário para entrar e para mandar ideia.
 2. Repositório público só com dado público: 83 itens verificados, 32 fontes com dado de Patos abertas hoje, 12 que dependem de pedido (com o canal de cada uma), 1.100 ocorrências de trânsito com coordenada (Estado), casos de câmera de segurança usada para trânsito no Brasil e no mundo, base legal (LGPD) com checklist.
 3. Painel do time (fica só com a gente): um mês de viagens do ônibus por bloco de 5 minutos, mapa de calor, simulador de horário escalonado e, novo, simulação de cobertura por câmeras.
 4. Simulação de câmeras (é SIMULAÇÃO, não medição): lendo 10 pontos bem escolhidos, 10% das ocorrências ficam a até 100 m de uma câmera; com 50, 34%; com 100, 52%; com 400, 94%. Ou seja: metade do problema cabe em 100 pontos.

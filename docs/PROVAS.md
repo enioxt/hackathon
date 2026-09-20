@@ -36,7 +36,7 @@ Ele já pegou um erro nosso: dizíamos "1.100 acidentes, 19 fatais". São **18 o
 | A porta de entrada recusa placa, CPF e imagem, e só grava o que é válido | [`motor/entrada-de-dados/api.test.ts`](../motor/entrada-de-dados/api.test.ts) — 11 testes | `cd motor/entrada-de-dados && bun test api.test.ts` |
 | O leitor conta 1 vez por veículo, separa sentidos e não grava imagem | [`motor/leitor-video/test_leitor.py`](../motor/leitor-video/test_leitor.py) — 7 testes | `cd motor/leitor-video && python3 -m pytest -q` |
 | Vídeo → leitor → porta de entrada → estado, de ponta a ponta | feito 1 vez em 19/09, com vídeo de licença livre | comando no [`LEIA.md`](../motor/leitor-video/LEIA.md) |
-| O hub de ideias se atualiza sozinho | [rotina no repositório público](https://github.com/enioxt/hackathon-dados-publicos/blob/main/.github/workflows/hub.yml) | testado com uma ideia de teste, depois removida |
+| O hub de ideias se atualiza sozinho | [rotina no repositório público](https://github.com/enioxt/hackathon/blob/main/.github/workflows/hub.yml) | testado com uma ideia de teste, depois removida |
 
 ## DADO SINTÉTICO — inventado para demonstrar, e está escrito na tela
 Tudo que é fluxo de veículos, fila, tempo de espera, alertas, vagas, frota, parede de monitores e efeito de intervenção. Gerado por fórmula com semente fixa (mesma entrada, mesmo número). **Não é medição e não é previsão.**

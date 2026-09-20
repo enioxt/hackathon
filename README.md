@@ -75,5 +75,8 @@ Se você achar qualquer uma dessas coisas aqui dentro, é erro: avise que a gent
 ## Como isto foi construído tão rápido
 Não foi só IA gerando texto. Por trás há um método e uma base de código que já existiam (regras escritas, testes, moldes, verificadores que barram dado sensível antes de publicar). A IA correu sobre esse trilho; as decisões foram de gente. Boa parte dos textos e telas foi escrita por IA, dirigida e conferida pelo time.
 
+## Quer mudar alguma coisa?
+Clone, crie um ramo, proponha: passo a passo em [`CONTRIBUINDO.md`](CONTRIBUINDO.md). O melhor lugar para começar a cortar escopo é [`docs/REGRAS-E-ACEITE-MVP.md`](docs/REGRAS-E-ACEITE-MVP.md).
+
 ## Time
 Visão de Rota. Contribuições, autoria e como continuar depois do domingo: [`commons/`](commons/).

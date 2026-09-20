@@ -39,6 +39,7 @@ Todo número carrega uma etiqueta: **MEDIDO** (dado real) · **SIMULAÇÃO** (co
 | Ver o que o diretor de mobilidade disse e o que isso muda | [`docs/fala-diretor-mobilidade.md`](docs/fala-diretor-mobilidade.md) |
 | Preço e como a prefeitura contrata | [`docs/pesquisa/precificacao-decisao.md`](docs/pesquisa/precificacao-decisao.md) · [`docs/convencional-x-proposta.md`](docs/convencional-x-proposta.md) |
 | Lei, LGPD, minuta de acordo | [`docs/base-legal-cameras.md`](docs/base-legal-cameras.md) |
+| Levar para outra cidade: as peças, a instalação, o que precisa de IA e o que não | [`docs/COMO-REPLICAR.md`](docs/COMO-REPLICAR.md) |
 | Prazo de implantação (90 dias, por semana) | [`docs/PRAZO-IMPLANTACAO.md`](docs/PRAZO-IMPLANTACAO.md) |
 | Concorrentes e outras cidades | `docs/concorrentes-*.md` · [`docs/cco-modelos-outras-cidades.md`](docs/cco-modelos-outras-cidades.md) |
 | O que fazer até a banca | [`docs/CHECKLIST-PITCH.md`](docs/CHECKLIST-PITCH.md) |

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#031426">
+<title>FILTERS — pitch de mobilidade</title>
+<style>
+  :root{--bg:#031426;--ink:#f7fbff;--muted:#b8c8d8;--cyan:#00d9ff;--line:#1a6688}
+  *{box-sizing:border-box} html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+  body{min-height:100dvh;overflow:hidden}.deck{height:100dvh;position:relative}.slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity .32s ease;display:grid;place-items:center;padding:clamp(16px,3vw,42px) clamp(16px,6vw,96px) 86px}.slide.on{opacity:1;pointer-events:auto}
+  .frame{position:relative;width:min(100%,1600px);height:min(100%,900px);border:1px solid rgba(0,217,255,.25);border-radius:clamp(12px,1.6vw,24px);overflow:hidden;background:#061c31;box-shadow:0 22px 70px #0008}.frame img{width:100%;height:100%;display:block;object-fit:cover}.frame:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#03142699,transparent 40%,transparent 65%,#03142666);pointer-events:none}
+  .intro .frame:after{background:linear-gradient(90deg,#03142666,transparent 55%,#03142666)}.copy{position:absolute;z-index:1;left:clamp(24px,5vw,80px);bottom:clamp(22px,5vw,72px);max-width:min(78%,760px);text-shadow:0 2px 22px #000}.copy .kicker{margin:0 0 8px;color:var(--cyan);font-size:clamp(11px,1vw,15px);font-weight:800;letter-spacing:.16em;text-transform:uppercase}.copy h1{font-size:clamp(31px,5vw,74px);line-height:1.04;margin:0;letter-spacing:-.03em}.copy p{font-size:clamp(16px,1.7vw,25px);line-height:1.35;margin:12px 0 0;color:var(--muted);max-width:680px}.tag{display:inline-block;margin-top:15px;padding:7px 10px;border:1px solid #2ca5c8;border-radius:999px;color:#cbeefa;background:#031426bb;font-size:clamp(11px,1vw,14px)}
+  .brand{position:absolute;z-index:2;top:clamp(18px,3vw,42px);left:clamp(20px,4vw,60px);font-size:clamp(15px,1.8vw,25px);font-weight:900;letter-spacing:.13em;text-shadow:0 2px 16px #000}.brand span{color:var(--cyan)}.status{position:absolute;z-index:2;top:clamp(18px,3vw,42px);right:clamp(20px,4vw,60px);font-size:clamp(10px,1vw,13px);color:#d9e5ee;letter-spacing:.1em;text-transform:uppercase}
+  .nav{position:fixed;z-index:5;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid #2a5b74;border-radius:999px;background:#031426e8;backdrop-filter:blur(12px)}.nav button{appearance:none;border:0;cursor:pointer;min-width:42px;min-height:40px;border-radius:999px;background:#11405a;color:white;font:700 17px/1 inherit}.nav button:hover,.nav button:focus-visible{outline:2px solid var(--cyan);background:#176382}.nav button:disabled{opacity:.35;cursor:default}.dots{display:flex;gap:6px}.dot{width:10px!important;min-width:10px!important;min-height:10px!important;height:10px;border-radius:99px!important;background:#54798d!important}.dot.on{width:28px!important;background:var(--cyan)!important}.counter{font-size:12px;color:var(--muted);min-width:34px;text-align:center}
+  .hint{position:fixed;z-index:4;bottom:18px;right:24px;color:#abc2d0;font-size:12px}@media (max-width:640px){.slide{padding:10px 10px 80px}.frame{height:min(100%,calc(100dvh - 98px));border-radius:14px}.frame img{object-position:center}.copy{left:20px;right:20px;bottom:22px;max-width:none}.copy h1{font-size:clamp(29px,9vw,44px)}.copy p{font-size:16px}.brand{left:20px;top:18px}.status{right:20px;top:20px;font-size:9px}.hint{display:none}.nav{width:calc(100% - 24px);justify-content:center;bottom:max(10px,env(safe-area-inset-bottom));gap:8px}.nav button{min-width:44px}.dots{gap:5px}}
+  @media (prefers-reduced-motion:reduce){.slide{transition:none}}
+</style>
+</head>
+<body>
+<main class="deck" aria-label="Pitch FILTERS">
+  <section class="slide intro on" aria-label="Slide 1: FILTERS">
+    <div class="frame"><img src="assets/filters/capa-filters.jpeg" alt="Marca FILTERS sobre uma cidade conectada à noite"><div class="brand">FILT<span>ERS</span></div><div class="status">Pitch · Patos de Minas</div><div class="copy"><p class="kicker">Mobilidade inteligente</p><h1>Dados dispersos entram.<br>Decisões mais claras saem.</h1><p>Uma leitura integrada da mobilidade, aproveitando a infraestrutura que a cidade já possui.</p><span class="tag">Material de apresentação · conceitos visuais</span></div></div>
+  </section>
+  <section class="slide" aria-label="Slide 2: o problema">
+    <div class="frame"><img src="assets/filters/problema-dados-fragmentados.jpeg" alt="Dados de mobilidade isolados convergem para um alerta"><div class="brand">FILT<span>ERS</span></div><div class="status">02 · o problema</div><div class="copy"><p class="kicker">Hoje</p><h1>A cidade já possui dados.<br><span style="color:var(--cyan)">Mas eles não contam uma história juntos.</span></h1><p>Fontes isoladas reduzem contexto e tornam a decisão mais difícil.</p></div></div>
+  </section>
+  <section class="slide" aria-label="Slide 3: conexão">
+    <div class="frame"><img src="assets/filters/conexoes-cidade.jpeg" alt="Mapa de cidade conectando câmeras, semáforos, GPS, transporte e ocorrências"><div class="brand">FILT<span>ERS</span></div><div class="status">03 · conexão</div><div class="copy"><p class="kicker">A oportunidade</p><h1>E se conectássemos<br>o que a cidade já possui?</h1><p>Câmeras, semáforos, GPS, transporte e ocorrências podem ampliar a leitura do todo.</p></div></div>
+  </section>
+  <section class="slide" aria-label="Slide 4: cobertura analítica">
+    <div class="frame"><img src="assets/filters/cobertura-analitica.jpeg" alt="Comparação visual entre cobertura analítica atual e ampliada"><div class="brand">FILT<span>ERS</span></div><div class="status">04 · cobertura</div><div class="copy"><p class="kicker">Mais contexto</p><h1>Mais cobertura analítica.<br><span style="color:var(--cyan)">Mais capacidade de decisão.</span></h1><p>A imagem explica uma direção desejada; percentuais ilustrativos não são medição da cidade.</p><span class="tag">Simulação visual · não dado operacional</span></div></div>
+  </section>
+  <section class="slide" aria-label="Slide 5: como funciona">
+    <div class="frame"><img src="assets/filters/como-funciona.jpeg" alt="Fluxo de câmeras existentes para API, FILTERS e dados tratados"><div class="brand">FILT<span>ERS</span></div><div class="status">05 · como funciona</div><div class="copy"><p class="kicker">Fluxo</p><h1>Imagem bruta entra.<br><span style="color:var(--cyan)">Informação útil sai.</span></h1><p>Integração por API, filtragem, organização e análise para apoiar quem decide — sem prometer substituir a infraestrutura existente.</p></div></div>
+  </section>
+</main>
+<nav class="nav" aria-label="Navegação do pitch"><button id="prev" aria-label="Slide anterior">←</button><div class="dots" aria-label="Escolher slide"></div><span class="counter" id="counter">1/5</span><button id="next" aria-label="Próximo slide">→</button></nav><span class="hint">setas · espaço · deslize</span>
+<script>
+(() => {const slides=[...document.querySelectorAll('.slide')],dots=document.querySelector('.dots'),prev=document.querySelector('#prev'),next=document.querySelector('#next'),counter=document.querySelector('#counter');let at=0,x=0;slides.forEach((_,i)=>{const b=document.createElement('button');b.className='dot';b.setAttribute('aria-label','Ir ao slide '+(i+1));b.onclick=()=>show(i);dots.append(b)});function show(i){at=Math.max(0,Math.min(slides.length-1,i));slides.forEach((s,n)=>s.classList.toggle('on',n===at));[...dots.children].forEach((d,n)=>d.classList.toggle('on',n===at));prev.disabled=at===0;next.disabled=at===slides.length-1;counter.textContent=(at+1)+'/'+slides.length;history.replaceState(null,'','#slide-'+(at+1))}prev.onclick=()=>show(at-1);next.onclick=()=>show(at+1);addEventListener('keydown',e=>{if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();show(at+1)}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(at-1)}});addEventListener('touchstart',e=>x=e.touches[0].clientX,{passive:true});addEventListener('touchend',e=>{const d=e.changedTouches[0].clientX-x;if(Math.abs(d)>45)show(at+(d<0?1:-1))},{passive:true});const m=/#slide-(\d+)/.exec(location.hash);show(m?Number(m[1])-1:0)})();
+</script>
+</body></html>

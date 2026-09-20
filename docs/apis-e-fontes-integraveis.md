@@ -7,7 +7,7 @@
 
 ## PARTE 1 — Medição local RENAEST (sem rede)
 
-**Fonte:** base nacional aberta de sinistros RENAEST, extração 13/08/2026, `/home/enio/.egos/hackathon/fontes/full.zip` (522 MB, 3 arquivos CSV: `Acidentes` 2,7 GB · `TipoVeiculo` 337 MB · `Vitimas` 1,83 GB). Lido em streaming (Python `zipfile`+`csv`, latin-1, `;`), sem extrair para disco, filtrado por `codigo_ibge=3148004` e cruzado por `num_acidente`.
+**Fonte:** base nacional aberta de sinistros RENAEST, extração 13/08/2026, `(arquivo local do time)` (522 MB, 3 arquivos CSV: `Acidentes` 2,7 GB · `TipoVeiculo` 337 MB · `Vitimas` 1,83 GB). Lido em streaming (Python `zipfile`+`csv`, latin-1, `;`), sem extrair para disco, filtrado por `codigo_ibge=3148004` e cruzado por `num_acidente`.
 
 **Base:** 22.708 sinistros em Patos de Minas (2018–ago/2026), 140 óbitos registrados no campo `qtde_obitos` de Acidentes. Moto/motoneta/ciclomotor presente (confirmado via `TipoVeiculo`, não só o texto do tipo de acidente) em **6.818 sinistros = 30,0%**; automóvel em 63,6% (medição anterior, mantida).
 
@@ -92,7 +92,7 @@ Por dia da semana: moto — Sexta-feira lidera (1.190, 17,5% do total-moto), seg
 
 A base RENAEST **não tem campo de profissão/ocupação da vítima**. Não é possível, com este dado, afirmar quantos sinistros envolveram entregador de aplicativo — isso seria inferência não sustentada pela fonte (violaria P1 — verdade provada). O **melhor proxy honesto** disponível é: **moto + horário de pico de entrega (18h-22h, onde moto tem +4,3 p.p. de concentração relativa a outros veículos)**. Limite desse proxy: motociclista de lazer, de trabalho não-delivery (ex. deslocamento casa-trabalho) e entregador informal (não só apps) todos caem no mesmo balde — o proxy aponta uma correlação plausível, nunca uma contagem de entregadores. Qualquer peça pública deve dizer isso explicitamente, nunca apresentar "moto à noite" como sinônimo de "entregador".
 
-Agregados salvos em `/home/enio/.egos/hackathon/acidentes-motos-patos.json` (ver rodapé deste arquivo para status).
+Agregados salvos em `(arquivo local do time)` (ver rodapé deste arquivo para status).
 
 ---
 

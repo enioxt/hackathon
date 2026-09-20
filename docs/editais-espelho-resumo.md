@@ -1,8 +1,8 @@
 ## 📊 Diagnóstico
 
-**Fonte:** `/home/enio/enio-dev/piloto/eagle-eye/core/data/mirror.db` (tabela `contratacoes`), medido em 2026-09-19.
+**Fonte:** `(arquivo local do time)` (tabela `contratacoes`), medido em 2026-09-19.
 **População:** IBGE API `agregados/6579` (estimativa 2026), `servicodados.ibge.gov.br` — 1 fetch com todos os municípios.
-**Saída:** `/home/enio/.egos/hackathon/editais-espelho.json` (830 KB) + `.csv` (346 KB, 689 linhas) — script reprodutível em `.../scratchpad/mobilidade_analise.py`.
+**Saída:** `(arquivo local do time)` (830 KB) + `.csv` (346 KB, 689 linhas) — script reprodutível em `.../scratchpad/mobilidade_analise.py`.
 
 ### Universo (medido primeiro)
 233.299 contratações · 27 UFs · publicação de 2024-08-01 a 2026-07-20 (espelho cobre ~23 meses). `anoCompra` tem 5 outliers fora de 2020-2027 (ex: "20266") — erro de digitação na fonte, não corrigido, só sinalizado.

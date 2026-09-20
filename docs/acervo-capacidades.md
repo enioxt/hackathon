@@ -1,6 +1,6 @@
 # Inventário — Capacidades EGOS prontas para o hackathon de mobilidade (19/09/2026)
 
-Repo medido: `/home/enio/enio-dev/producao/egos` (branch/worktree correspondente). Todos os comandos abaixo rodaram neste turno.
+Repo medido: `(arquivo local do time)` (branch/worktree correspondente). Todos os comandos abaixo rodaram neste turno.
 
 ## REAL — abri e rodei
 

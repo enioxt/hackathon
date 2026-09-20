@@ -6,15 +6,15 @@ completos e de alta fidelidade. Um prompt por tela. O Enio cola, gera, e usa a i
 visual para o HTML. Cada prompt é autossuficiente (o ChatGPT não vê os outros).
 
 ## Referência visual aprovada pelo Enio (ABRA e olhe antes de escrever)
-- `/home/enio/Downloads/ChatGPT Image 19 de set. de 2026, 11_00_00.png` — os 3 formatos: 1 GALERIA
+- `(arquivo local do time) Image 19 de set. de 2026, 11_00_00.png` — os 3 formatos: 1 GALERIA
   (escura, emocional, foto grande), 2 LAB/ÍNDICE (clara, grade de cards com foto, chips de filtro
   por estágio, etiqueta de estágio em cada card), 3 DOSSIÊ (escura, hero, abas, "por que", aplicações
   com ícone, "como funciona" em 4 passos, linha de status Ideia→Conceito→Protótipo→MVP→Em uso, vídeo,
   "o que vem a seguir", chamada para participar).
-- `/home/enio/Downloads/ChatGPT Image 19 de set. de 2026, 11_00_09 (1).png` — página clara tipo
+- `(arquivo local do time) Image 19 de set. de 2026, 11_00_09 (1).png` — página clara tipo
   portal: hero com foto de paisagem ao amanhecer e pessoa de costas, palavra-chave em cor de
   destaque terrosa, 3 passos numerados, grade de ideias com foto e etiqueta.
-- `/home/enio/Downloads/ChatGPT Image 19 de set. de 2026, 10_59_05 (1).png` — painel de sistema
+- `(arquivo local do time) Image 19 de set. de 2026, 10_59_05 (1).png` — painel de sistema
   escuro: barra lateral com ícones, fileira de 5 cartões de número com mini-gráfico, tabela de
   fila, cartões em grade, gráfico de barras+linha, anel de percentual.
 

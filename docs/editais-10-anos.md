@@ -4,7 +4,7 @@
 
 | Fonte | Cobertura real | Limite declarado |
 |---|---|---|
-| **PNCP (espelho local)** | 233.299 contratações · 27 UFs · publicação 2024-08-01 a 2026-07-20 (~23 meses) | Não é histórico de 10 anos — é uma janela de ~2 anos. 5 registros com `anoCompra` corrompido (ex.: "20266"), sinalizados e não corrigidos. Fonte: `/home/enio/enio-dev/piloto/eagle-eye/core/data/mirror.db` (tabela `contratacoes`), medido 2026-09-19. |
+| **PNCP (espelho local)** | 233.299 contratações · 27 UFs · publicação 2024-08-01 a 2026-07-20 (~23 meses) | Não é histórico de 10 anos — é uma janela de ~2 anos. 5 registros com `anoCompra` corrompido (ex.: "20266"), sinalizados e não corrigidos. Fonte: `(arquivo local do time)` (tabela `contratacoes`), medido 2026-09-19. |
 | **Querido Diário** | ⚪ **NÃO CONSULTADO nesta rodada** | Não rodei essa fonte — não é "cobertura parcial medida", é ausência de execução. Fica como pendência declarada, não como dado. |
 | **Federal / PAC / Avançar Cidades** | Programa Avançar Cidades (Ministério das Cidades/FGTS/Pró-Transporte) confirmado por 9+ notícias oficiais gov.br, listas numeradas da 28ª à 43ª (2025-2026) | PDFs das listas são renderizados em JS — WebFetch só trouxe o esqueleto de navegação, **nenhuma tabela lida**. `compras.dados.gov.br` é licitação federal (compra da própria União), sem filtro de transferência a município — **descartada** para este uso. Portal da Transparência (`api.portaldatransparencia.gov.br/convenios`) e `transferegov.br` **não foram consultados** (a API exige chave). PAC 2 Mobilidade (2011-2018) e as listas 1ª-27ª/30ª-42ª do Avançar Cidades **não foram lidas**. |
 | **Rankings publicados (nacional, mobilidade municipal)** | ⚪ **NENHUM achado** nesta rodada | Não existe, até onde busquei, planilha/CSV consolidado 2016-2023 de nenhuma das 3 fontes pedidas — não confundir "não achei" com "não existe" (ausência de busca ≠ ausência de fato). |
@@ -15,7 +15,7 @@
 
 ## 2. Municípios mais avançados (amostra medida — não é o ranking de 30 completo)
 
-Mostrando 8 dos 30 municípios do ranking (os citados na síntese desta rodada); lista completa dos 30 — com população IBGE 2026 e contratações/100k hab. — está em `ranking_30_por_quantidade` / `ranking_30_por_valor` / `top_15_diversidade_familias` dentro de `/home/enio/.egos/hackathon/editais-espelho.json`.
+Mostrando 8 dos 30 municípios do ranking (os citados na síntese desta rodada); lista completa dos 30 — com população IBGE 2026 e contratações/100k hab. — está em `ranking_30_por_quantidade` / `ranking_30_por_valor` / `top_15_diversidade_familias` dentro de `(arquivo local do time)`.
 
 | Município | UF | Por que entrou (medido) | Valor/posição | Fonte |
 |---|---|---|---|---|

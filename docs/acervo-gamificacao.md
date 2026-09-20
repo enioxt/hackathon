@@ -24,7 +24,7 @@
 - Os 4 canvases gerados (documento técnico, resumo de 1 página, roteiro de vídeo pitch, roteiro de slides) e o ofício ao gabinete **não vieram no export** — ainda PHANTOM em disco, só existem (se existirem) atrás do link do chat.
 
 ### 3. ChatGPT "Arquitetura do Egos App" (18-19/09/2026, sessão que terminou dentro do próprio hackathon) — REAL, mais recente
-- **Caminho:** `/home/enio/.egos/acervo/chatgpt/originais/ChatGPT-Arquitetura do Egos App-20260919-0842.md` (4158 linhas).
+- **Caminho:** `(arquivo local do time) do Egos App-20260919-0842.md` (4158 linhas).
 - **L3719-3763:** recuperou explicitamente MobiPatos+ ("gamificação por embarques/deslocamentos"), classificou como **antecedente/histórico, não sistema implementado**, junto com dois conceitos irmãos do mesmo garimpo: **QUASE** (near-miss/TTC via câmera, sem identificação) e **Rota Humana** (calçadas + ônibus + ciclovias + acessibilidade).
 - **L4154 — última linha do arquivo, sem resposta registrada (sessão cortada dentro do evento):** *"Convidar as pessoas a instalarem o app, compartilharem a localização, para medirmos mais dados das pessoas no trânsito, permitindo que conclua tarefas, gamificação, dentro do app da prefeitura, além de convidar e aumentar o uso dessa forma."* — é o pedido mais novo do Enio sobre o tema (18/09 21:36) e está **em aberto**, ninguém respondeu ainda no export. Mecânica proposta: opt-in de localização + tarefas completáveis + gamificação, hospedada dentro do app municipal (mesma decisão de integração ao Patos Premia de 2025, agora generalizada para "o app da prefeitura").
 - Padrões técnicos que a mesma sessão amarrou ao tema (para o motor de pontos, se vier a existir): GTFS/GTFS-Realtime, GBFS, MDS/CDS, DATEX II, NGSI-LD.

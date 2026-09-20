@@ -1,4 +1,4 @@
-📊 Diagnóstico — o padrão de observabilidade/telemetria/prova-a-um-clique do EGOS, medido em `/home/enio/enio-dev/producao/egos`:
+📊 Diagnóstico — o padrão de observabilidade/telemetria/prova-a-um-clique do EGOS, medido em `(arquivo local do time)`:
 
 **(a) Como um número vira "clicável até a prova"**
 
@@ -39,11 +39,11 @@ Estrutura obrigatória do HTML produzido (`monta()`, linha 508): `<!DOCTYPE html
 
 **(d) CSS/tema reutilizável**
 
-Sim: `/home/enio/enio-dev/producao/egos/templates/human-doc/casa.css` (145L) + `templates/human-doc/casa.js` — é o CSS que `md-para-html.ts` embute (`const CSS = join(RAIZ, "templates/human-doc/casa.css")`, linha 37). Define os tokens de cor/raio/borda usados por toda a família de HTMLs (sidebar, dark mode via classe `.dark` no body, tabelas, blocos de código). Documentos recentes que seguem o padrão: `docs/presentations/2026-09-08_ALEXANDRE_o-que-fazemos-de-verdade.html`, `2026-09-04_LUBRIAUTO_kit-de-visita.html`, `2026-09-02_GUARD-BRASIL_flagship-o-que-temos-e-para-onde-vai.html` — todos com sidebar fixa 240-260px, toggle 🌓 no header, footer com "Fonte: `path.md`" + data.
+Sim: `(arquivo local do time)` (145L) + `templates/human-doc/casa.js` — é o CSS que `md-para-html.ts` embute (`const CSS = join(RAIZ, "templates/human-doc/casa.css")`, linha 37). Define os tokens de cor/raio/borda usados por toda a família de HTMLs (sidebar, dark mode via classe `.dark` no body, tabelas, blocos de código). Documentos recentes que seguem o padrão: `docs/presentations/2026-09-08_ALEXANDRE_o-que-fazemos-de-verdade.html`, `2026-09-04_LUBRIAUTO_kit-de-visita.html`, `2026-09-02_GUARD-BRASIL_flagship-o-que-temos-e-para-onde-vai.html` — todos com sidebar fixa 240-260px, toggle 🌓 no header, footer com "Fonte: `path.md`" + data.
 
 🕳️ O que ficou de fora — não abri o EGOS APP ao vivo no navegador (só código-fonte das rotas/coletores); não medi `~/.egos/heartbeats` porque o diretório real é `~/.egos/heartbeat` (sem "s") e está vazio nesta máquina agora — o motor `check-heartbeats.ts` deriva a lista do crontab, não medi o crontab. Não abri nenhum HTML na tela (R-HTML-010 é regra de apresentação ao Enio, não aplicável a esta tarefa de levantamento textual).
 
-Arquivos relevantes (todos em `/home/enio/enio-dev/producao/egos`):
+Arquivos relevantes (todos em `(arquivo local do time)`):
 - `scripts/orquestra-viva.ts` (rotas /api/*)
 - `scripts/orquestra-viva/rotas-app4.ts` (montarObservabilidade/montarGuardBrasil/montarLeaderboardApi)
 - `scripts/orquestra-viva/blocos-resposta.ts` (semáforo + shas + caminhos clicáveis)

@@ -246,7 +246,7 @@ table.memoria tr:last-child td{border-bottom:0}
 .grade-seletor{display:flex;gap:4px;background:#eef2f8;border-radius:10px;padding:3px}
 .grade-seletor button{border:0;background:transparent;border-radius:8px;min-width:44px;min-height:44px;font-weight:800;font-size:14px;cursor:pointer;color:var(--muted)}
 .grade-seletor button.ativo{background:var(--navy2);color:#fff}
-.cameras-wrap{margin-top:4px;border-radius:10px;overflow:hidden;background:#050d16;height:158px}
+.cameras-wrap{margin-top:4px;border-radius:10px;overflow:hidden;background:#050d16;aspect-ratio:16/9;max-height:72vh;width:100%}
 .cameras-wrap iframe{width:100%;height:100%;border:0;display:block}
 .agora-linha{display:flex;justify-content:space-between;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);font-size:12.5px}
 .agora-linha:last-child{border-bottom:0}
@@ -1103,15 +1103,21 @@ function baseParede(){ return estaticoAtivo() ? "parede.html" : "/parede"; }
 var GRADES_VALIDAS = [2,4,6,8,32];
 function lerGradeSalva(){
   try{
-    var v = Number(localStorage.getItem("vr_grade_cameras_v2"));
-    return GRADES_VALIDAS.indexOf(v) >= 0 ? v : 2;
-  }catch(e){ return 2; }
+    var v = Number(localStorage.getItem("vr_grade_cameras_v3"));
+    return GRADES_VALIDAS.indexOf(v) >= 0 ? v : 4;
+  }catch(e){ return 4; }
 }
-function salvarGradeCameras(v){ try{ localStorage.setItem("vr_grade_cameras_v2", String(v)); }catch(e){ /* localStorage indisponível */ } }
+function salvarGradeCameras(v){ try{ localStorage.setItem("vr_grade_cameras_v3", String(v)); }catch(e){ /* localStorage indisponível */ } }
 var gradeAtualCameras = lerGradeSalva();
+document.addEventListener("DOMContentLoaded", function(){ ajustarMolduraCameras(gradeAtualCameras); });
 function srcParede(grade){ return baseParede() + "?embutido=1&grade=" + grade; }
+/* a moldura acompanha a grade: telas sempre em 16:9, sem cortar o vídeo */
+var PROPORCAO_DA_GRADE = {2:"32/9", 4:"16/9", 6:"24/9", 8:"32/9", 32:"32/9"};
+function ajustarMolduraCameras(v){
+  var w = document.querySelector(".cameras-wrap"); if (w) w.style.aspectRatio = PROPORCAO_DA_GRADE[v] || "16/9";
+}
 function aplicarGrade(v){
-  gradeAtualCameras = v;
+  gradeAtualCameras = v; ajustarMolduraCameras(v);
   salvarGradeCameras(v);
   var ifr = document.getElementById("iframe-parede");
   if (ifr) ifr.src = srcParede(v);

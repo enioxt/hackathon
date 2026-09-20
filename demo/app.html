@@ -201,7 +201,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
     <div class="lateral-fim">
       <div class="perfil-chip">
         <span class="perfil-avatar" aria-hidden="true">G</span>
-        <span class="perfil-nome">Gestor</span>
+        <span class="perfil-nome">Gestor</span><span id="vr-versao" title="data desta versão da página — se a sua for diferente da do colega, recarregue com Ctrl+Shift+R" style="margin-left:auto;font-size:10.5px;color:#93a8c9;white-space:nowrap"></span>
       </div>
       <div class="frase">A mesma câmera. Outra pergunta.</div>
       <a id="link-apresentacao" href="../index.html">← apresentação</a>
@@ -634,6 +634,8 @@ aplicar(inicial.chave, {query: inicial.query});
 if (!location.hash) location.hash = '#/' + inicial.chave;
 
 })();
+
+;(function(){try{var d=new Date(document.lastModified),e=document.getElementById("vr-versao");if(e&&!isNaN(d))e.textContent="versão "+("0"+d.getDate()).slice(-2)+"/"+("0"+(d.getMonth()+1)).slice(-2)+" "+("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2);}catch(x){console.info("versão indisponível",x&&x.message);}})();
 </script>
 </body>
 </html>

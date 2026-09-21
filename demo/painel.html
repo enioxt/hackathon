@@ -372,7 +372,7 @@ table.memoria tr:last-child td{border-bottom:0}
 <details id="mais-telas" style="margin:6px 10px 0"><summary style="cursor:pointer;color:#c9d6e6;font:600 13px system-ui;padding:10px 8px;list-style:none">＋ Mais telas</summary><div style="display:grid;gap:2px;padding:2px 0 8px"><a class="mt-link" href="/camadas" data-local="/camadas" data-estatico="camadas.html">Como a máquina conta</a><a class="mt-link" href="/insights" data-local="/insights" data-estatico="insights.html">Insights das IAs</a><a class="mt-link" href="/operador" data-local="/operador" data-estatico="operador.html">Operador — poucos botões</a><a class="mt-link" href="/ajuda" data-local="/ajuda" data-estatico="ajuda.html">Ajuda e atendimento</a><a class="mt-link" href="/parede" data-local="/parede" data-estatico="parede.html">Parede de câmeras</a><a class="mt-link" href="/participacao" data-local="/participacao" data-estatico="participacao.html">Participação</a><a class="mt-link" href="/observabilidade" data-local="/observabilidade" data-estatico="observabilidade.html">Agentes agora</a><a class="mt-link" href="/app-cidadao" data-local="/app-cidadao" data-estatico="app-cidadao.html">App do cidadão</a><a class="mt-link" href="/entrada" data-local="/entrada" data-estatico="">Entrada de dados</a><a class="mt-link" href="/arquitetura" data-local="/arquitetura" data-estatico="arquitetura.html">Como funciona</a><a class="mt-link" href="/sintetizador" data-local="/sintetizador" data-estatico="sintetizador.html">Mesa de demonstração</a><a class="mt-link" href="/simulador" data-local="/simulador" data-estatico="simulador.html">Simulador de cidade</a><a class="mt-link" href="solucoes.html" data-local="" data-estatico="solucoes.html">O que propomos</a><a class="mt-link" href="o-que-patos-ja-faz.html" data-local="" data-estatico="o-que-patos-ja-faz.html">O que a cidade já fez</a><a class="mt-link" href="/" data-local="/" data-estatico="painel-gestor.html">Versão anterior do painel</a></div></details>
 <style>.mt-link{display:block;padding:9px 12px;border-radius:8px;color:#dbe6f3;text-decoration:none;font:500 14px system-ui}.mt-link:hover{background:rgba(255,255,255,.09)}</style>
 <script>(function(){var est=location.protocol==='file:'||/github\.io$/.test(location.hostname);document.querySelectorAll('.mt-link').forEach(function(a){var d=est?a.dataset.estatico:a.dataset.local;if(d){a.href=d}else{a.remove()}});var v=document.querySelector('.sidebar-footer a[href="/"]');if(v){v.textContent='← apresentação';v.href=est?'../index.html':'/inicio'}})();</script>
-    <div class="menu-off-title">Simuladas — prontas para ligar</div>
+    <div class="menu-off-title">Fontes previstas — integração não validada</div>
     <nav class="off-list" id="off-list">
       <a href="#semaforos" class="off-item clicavel" data-view="semaforos" data-nome="Semáforos">
         <svg class="cadeado" viewBox="0 0 24 24" fill="none"><rect x="5" y="10" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.6"/></svg>
@@ -406,7 +406,7 @@ table.memoria tr:last-child td{border-bottom:0}
     <header class="topo">
       <h1>Visão de Rota — Patos de Minas</h1>
       <p class="sub">Contagem de trânsito por câmera existente, sem rosto e sem placa — medindo antes e depois de cada mudança na via.</p>
-      <p class="legenda-cores"><span class="selo medido">DADO REAL · MEDIDO</span> = dado real: ou registro oficial (anos) ou contado no vídeo (minutos) — cada cartão diz qual. <span class="selo sintetico">DADO SINTÉTICO · exemplo</span> = dado sintético, só exemplo.</p>
+      <p class="legenda-cores"><span class="selo medido">DADO REAL · MEDIDO</span> = observação derivada de fonte real; <b>não significa acurácia validada manualmente</b>. Cada cartão diz a fonte. <span class="selo sintetico">DADO SINTÉTICO · exemplo</span> = número inventado só para mostrar o formato.</p>
       <div class="fila-fontes" id="fila-fontes"></div>
     </header>
 
@@ -481,7 +481,7 @@ table.memoria tr:last-child td{border-bottom:0}
 
         <div class="coluna-direita">
           <div class="acao-card">
-            <div class="rot">Ação recomendada</div>
+            <div class="rot">Hipótese para avaliar</div>
             <h3 id="acao-titulo">Simular ajuste no Ponto 7</h3>
             <p id="acao-desc">Os dados indicam que reduzir o intervalo do ciclo no ponto mais crítico pode reduzir a espera.</p>
             <div class="acao-botoes">
@@ -544,7 +544,7 @@ table.memoria tr:last-child td{border-bottom:0}
           </div>
 
           <div class="acao-card">
-            <div class="rot">Ação recomendada</div>
+            <div class="rot">Hipótese para avaliar</div>
             <h3 id="acao-titulo-ponto">—</h3>
             <p id="acao-desc-ponto">—</p>
             <div class="acao-botoes">
@@ -2108,7 +2108,7 @@ function abrirAnalise(id){
       '<li>Fluxo está '+(d.variacaoPct>=0?"+":"")+d.variacaoPct+'% acima do padrão nesta hora'+seloHTML({texto:"DADO SINTÉTICO",classe:"sintetico"})+'.</li>' +
       '<li>Fila média de '+d.filaAtual+' veículos, acima do limite operacional considerado para o ponto'+seloHTML({texto:"DADO SINTÉTICO",classe:"sintetico"})+'.</li>' +
       '<li>O padrão se repete há '+d.persistenciaMin+' min na mesma janela horária'+seloHTML({texto:"DADO SINTÉTICO",classe:"sintetico"})+'.</li>' +
-      '<li>Ação recomendada: '+(d.status==="vermelho"?"ajuste no ciclo semafórico do sentido mais carregado":"manter monitoramento de rotina")+'.</li>' +
+      '<li>Hipótese para avaliar: '+(d.status==="vermelho"?"ajuste no ciclo semafórico do sentido mais carregado":"manter monitoramento de rotina")+'.</li>' +
     '</ol>';
   document.getElementById("camada-flutuante").appendChild(ov);
   document.getElementById("camada-flutuante").appendChild(painel);

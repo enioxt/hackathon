@@ -14,7 +14,7 @@
 | Como a máquina conta (os 14 números, com o comando que refaz cada um) | [`docs/PROVAS.md`](docs/PROVAS.md) |
 | Código do leitor de vídeo | [`motor/leitor-video/`](motor/leitor-video/) |
 
-> **Direção canônica após o hackathon (21/09/2026):** o produto não é o YOLO nem um CCO completo. É a cadeia auditável **fonte → medição → modelo → validação → intervenção → comparação → prova**. Leia [`docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md`](docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md) e o gate comercial do motor em [`docs/LICENCIAMENTO-MOTOR-VISAO.md`](docs/LICENCIAMENTO-MOTOR-VISAO.md).
+> **Direção canônica após o hackathon (21/09/2026):** o produto não é o YOLO nem um CCO completo. É a cadeia auditável **fonte → processamento → medição → validação → intervenção → prova**. **O vídeo fica na infraestrutura que já existe; levamos o processamento até a fonte e persistimos, por padrão, apenas medidas e proveniência.** Leia [`docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md`](docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md), [`docs/MODELO-OPERACIONAL-NA-FONTE.md`](docs/MODELO-OPERACIONAL-NA-FONTE.md) e [`docs/LICENCIAMENTO-MOTOR-VISAO.md`](docs/LICENCIAMENTO-MOTOR-VISAO.md).
 
 **Como rodar (3 comandos):**
 

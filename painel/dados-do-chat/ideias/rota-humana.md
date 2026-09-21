@@ -1,7 +1,7 @@
 ---
 nome: Rota Humana
 assinatura: A melhor rota não é a mais rápida. É a possível para você.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: ideia
 tema: acessibilidade
 pergunta: Qual é a rota possível para uma pessoa de 82 anos, uma cadeirante, uma mãe com carrinho?

@@ -1,7 +1,7 @@
 ---
 nome: Missão da semana no Conecta Patos
 assinatura: Diga onde você perdeu tempo. A cidade mostra o que mudou.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: conceito
 tema: participação
 pergunta: Como a população vira sensor e público do resultado, sem app novo?

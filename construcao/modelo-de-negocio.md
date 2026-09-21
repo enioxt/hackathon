@@ -1,4 +1,4 @@
-# Visão de Rota — modelo de negócio (pedido do facilitador, 20/09 ~10h15)
+# FILTER — modelo de negócio (pedido do facilitador, 20/09 ~10h15)
 
 > O que ele pediu, nas palavras dele (transcrição da sala, blocos 10:13–10:28): o canvas descreve **criação, entrega e captura de valor**; hoje o foco é o **lado direito** (proposta de valor, clientes, relacionamento, canais) e, no fim, **receita e os custos grandes** — não os miúdos ("energia elétrica não entra"). "Como a empresa de vocês ganha dinheiro: essa pergunta **precisa estar na apresentação**." Desafio público não obriga a ter empresa, mas obriga a mostrar **viabilidade e sustentabilidade financeira**. Os quadros são ligados: relacionamento premium gera atividade, que gera recurso, que gera custo.
 

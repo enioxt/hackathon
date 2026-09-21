@@ -1,4 +1,4 @@
-Visão de Rota — onde estamos, sábado 19/09, 14h
+FILTER — onde estamos, sábado 19/09, 14h
 
 O QUE JÁ TEMOS
 1. Hub de ideias no ar, com entrada pelo GitHub: enioxt.github.io/hackathon — 9 ideias com dono e estágio, formulário para entrar e para mandar ideia.

@@ -1,7 +1,7 @@
 ---
 nome: QUASE
 assinatura: Hoje contamos acidentes. O QUASE conta os que quase aconteceram.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: conceito
 tema: segurança viária
 pergunta: Onde um acidente está quase acontecendo, antes de alguém se machucar?

@@ -1,6 +1,6 @@
 {"titulo":"decisões para o domingo","aberta_em":"2026-09-19T20:53:37-03:00","time":["Enio","Osair","Rafael","Luiz","Gustavo"],
 "perguntas":[
-{"n":1,"texto":"Nome do time na banca","opcoes":{"a":"Visão de Rota","b":"Mobilidade Inteligente","c":"outro (escreva)"}},
+{"n":1,"texto":"Nome do time na banca","opcoes":{"a":"FILTER","b":"Mobilidade Inteligente","c":"outro (escreva)"}},
 {"n":2,"texto":"Cara do painel (o Rafael pediu algo mais elaborado)","opcoes":{"a":"mapa grande primeiro, na linha do desenho do Rafael","b":"manter os cartões de número no topo","c":"os dois, com botão para trocar"}},
 {"n":3,"texto":"Preço na banca","opcoes":{"a":"falar o piloto de 90 dias como sugestão de valor","b":"não falar número, só se perguntarem"}},
 {"n":4,"texto":"Mensagem ao grupo geral do hackathon (rascunho abaixo)","opcoes":{"a":"enviar como está","b":"enviar com ajuste (escreva o ajuste)","c":"não enviar"}},

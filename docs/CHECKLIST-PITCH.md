@@ -1,4 +1,4 @@
-# Checklist do pitch — Visão de Rota (para o time votar no grupo)
+# Checklist do pitch — FILTER (para o time votar no grupo)
 
 Banca: domingo 20/09 · 13h30 pré-pitch · 16h prazo de entrega · 17h banca.
 Como votar: responda no grupo com os números que você acha mais importantes (ex.: "1, 4, 7") e, se quiser, o seu nome ao lado de uma tarefa. Quem marcar @egos recebe o placar atualizado.
@@ -10,7 +10,7 @@ Como votar: responda no grupo com os números que você acha mais importantes (e
 4. **Preencher o canvas no papel** como o facilitador pediu (temos a versão digital para copiar: 7 dores, 11 funcionalidades, 17 ligações). — sem dono
 5. **Pedir à prefeitura 1 hora de vídeo gravado de 1 câmera** (é o nosso pedido nº 1; se vier hoje, vira demonstração real). — sem dono
 6. **Confirmar com o diretor o nome da rua** do semáforo que pode sair (veio de gravação, pode estar errado). — sem dono
-7. **Decidir o nome final do time** (Visão de Rota foi proposto; método "Segunda Leitura"). — votação
+7. **Decidir o nome final do time** (FILTER foi proposto; método "Segunda Leitura"). — votação
 8. **Gerar as imagens da página** com os prompts prontos (14 de imagem e vídeo + 24 de tela). — sem dono
 9. **Testar a demonstração no projetor do local** (painel, parede de monitores e apresentação funcionam sem internet; o chat com IA precisa de internet). — Enio
 10. **Convidar outros times para o hub de ideias** (hoje só tem as nossas 9). — todos

@@ -3,7 +3,7 @@
 
 > **Da imagem à evidência.**
 >
-> Nome atual do produto. “Visão de Rota” e “FILTERS” permanecem apenas como nomes históricos do hackathon.
+> Nome atual do produto. “FILTER” e “FILTER” permanecem apenas como nomes históricos do hackathon.
 
 **O que é, em 3 linhas:** uma **camada auditável de observabilidade da mobilidade**: processa temporariamente vídeo que já existe para extrair medições agregadas, registra de onde cada número veio e compara o antes e o depois de intervenções na rua. No fluxo padrão não há OCR de placa nem reconhecimento facial, e os quadros não são persistidos. Protótipo avançado, ainda não MVP — `MEDIDO` descreve a origem real da observação, não uma promessa de acurácia.
 

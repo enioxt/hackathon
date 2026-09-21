@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Visão de Rota — Centro de controle</title>
+<title>FILTER — Centro de controle</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
   :root{
@@ -839,7 +839,7 @@
     <div class="brand">
       <div class="dot"></div>
       <div>
-        <div class="brand-text">VISÃO DE ROTA</div>
+        <div class="brand-text">FILTER</div>
         <div class="brand-sub">Ruas com memória. Mobilidade com previsibilidade.</div>
       </div>
     </div>
@@ -1296,7 +1296,7 @@
 <div id="painel-lateral-root"></div>
 
 <div id="historia-scrim" class="historia-scrim" hidden></div>
-<div id="historia-overlay" class="historia-overlay" hidden role="dialog" aria-modal="true" aria-label="Modo história — Visão de Rota">
+<div id="historia-overlay" class="historia-overlay" hidden role="dialog" aria-modal="true" aria-label="Modo história — FILTER">
   <div class="historia-progresso"><div class="historia-progresso-fill" id="historia-progresso-fill"></div></div>
   <div class="historia-chrome">
     <span class="historia-passo-lbl" id="historia-passo-lbl">passo <b id="historia-passo-num">1</b> de 7</span>
@@ -1811,7 +1811,7 @@
       entrega:'Coordenada, gravidade e mês de cada ocorrência.', autoriza:'Já é dado público — sem autorização adicional.', proximo:'Atualizar o download em ciclo fixo.' },
     { nome:'Videomonitoramento municipal (Olho Vivo, ~240 câmeras em 140 pontos segundo a imprensa)', estado:'off', texto:'Não conectado — depende de autorização (Prefeitura / Consep / PM)', simulavel:true, camMap:true,
       entrega:'Contagem de fluxo por ponto, sem imagem exportada.', autoriza:'Prefeitura / Consep / Polícia Militar.', proximo:'Pedir reunião de escopo com o operador do sistema.' },
-    { nome:'Sistema Hélios (leitura de placas da Polícia Militar)', estado:'off', texto:'Não conectado — e não é necessário: o Visão de Rota não lê placa', simulavel:true,
+    { nome:'Sistema Hélios (leitura de placas da Polícia Militar)', estado:'off', texto:'Não conectado — e não é necessário: o FILTER não lê placa', simulavel:true,
       entrega:'Nada — fora do escopo do produto por desenho.', autoriza:'Não se aplica.', proximo:'Nenhum — mantido fora por escolha, não por bloqueio.' },
     { nome:'Câmeras privadas em nuvem (ex.: redes de bairro e comércio)', estado:'off', texto:'Não conectado — só com adesão do dono da câmera', simulavel:true, camMap:true,
       entrega:'Contagem local de fluxo, com opt-in de quem instalou.', autoriza:'O dono de cada câmera, individualmente.', proximo:'Desenhar termo de adesão simples.' },
@@ -3908,11 +3908,11 @@
     el.className = 'intro-overlay';
     el.setAttribute('role', 'dialog');
     el.setAttribute('aria-modal', 'true');
-    el.setAttribute('aria-label', 'Como usar o Visão de Rota');
+    el.setAttribute('aria-label', 'Como usar o FILTER');
     el.innerHTML =
       '<div class="intro-card">'+
         '<button type="button" class="intro-fecha" aria-label="Fechar">✕</button>'+
-        '<h3>Visão de Rota lê as câmeras que a cidade já tem para contar o trânsito — sem rosto, sem placa</h3>'+
+        '<h3>FILTER lê as câmeras que a cidade já tem para contar o trânsito — sem rosto, sem placa</h3>'+
         '<button type="button" class="historia-cta historia-cta-intro" id="intro-historia-btn">▶ Ver a história em 1 minuto</button>'+
         '<ol class="intro-passos">'+
           '<li><button type="button" class="chip intro-passo" id="intro-passo-1">1. clique num ponto do mapa</button></li>'+

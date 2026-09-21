@@ -4,7 +4,7 @@
 
 ## Tese
 
-O Visão de Rota **não propõe uma nova infraestrutura de videomonitoramento**. Patos de Minas já possui câmeras, links, armazenamento e centrais para o uso original desses sistemas. Nossa camada existe para transformar janelas de vídeo já disponíveis em medidas auditáveis de mobilidade.
+O FILTER **não propõe uma nova infraestrutura de videomonitoramento**. Patos de Minas já possui câmeras, links, armazenamento e centrais para o uso original desses sistemas. Nossa camada existe para transformar janelas de vídeo já disponíveis em medidas auditáveis de mobilidade.
 
 > **O dado bruto fica onde já está. Nós levamos o processamento até ele.**
 
@@ -27,7 +27,7 @@ Isso muda a pergunta econômica. Não é “quanto custa construir uma central?�
 
 ### Modo A — processamento junto à fonte
 
-VMS/NVR/DVR/arquivo existente → worker de visão na mesma rede → medidas agregadas → banco do Visão de Rota.
+VMS/NVR/DVR/arquivo existente → worker de visão na mesma rede → medidas agregadas → banco do FILTER.
 
 É o modo preferido. O vídeo não precisa atravessar a internet nem ser armazenado novamente.
 

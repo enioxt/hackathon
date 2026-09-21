@@ -1,7 +1,7 @@
 ---
 nome: Horário escalonado
 assinatura: Espalhar a entrada das empresas em blocos de 5 minutos achata o pico da manhã.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: prototipo
 tema: transporte público
 pergunta: Se as maiores empresas e escolas escalonarem a entrada em janelas de 5 min, quanto o pico cai?

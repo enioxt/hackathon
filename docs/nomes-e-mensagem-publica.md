@@ -4,16 +4,16 @@ A inovação declarada: **não instalar nada novo; ligar e ler o que já existe*
 
 | Nome | Leitura | Assinatura | Risco |
 |---|---|---|---|
-| **Visão de Rota** (Rafael) | ver o caminho antes | *Ruas com memória. Mobilidade com previsibilidade.* | não diz "já existe"; forte como marca |
+| **FILTER** (Rafael) | ver o caminho antes | *Ruas com memória. Mobilidade com previsibilidade.* | não diz "já existe"; forte como marca |
 | **Patos Já Tem** | a cidade já tem os olhos e os dados; falta ler | *Inteligência do que já existe.* | informal; bom para pitch, fraco como produto |
 | **Olho Já Vivo** | joga com o nome do sistema que a cidade já paga | *As câmeras já estão lá. Agora elas contam.* | pode soar apropriação do programa da PM |
 | **Ler a Cidade** | extração de inteligência, sem sensor novo | *Nenhum sensor novo. Só leitura.* | genérico fora de Patos |
-| **Rua com Memória** | o que já apareceu ontem | *Cada rua guarda o que aconteceu. A gente lê.* | já usado como assinatura do Visão de Rota |
+| **Rua com Memória** | o que já apareceu ontem | *Cada rua guarda o que aconteceu. A gente lê.* | já usado como assinatura do FILTER |
 | **Reaproveita Patos** | infra existente vira dado | *Câmera, semáforo, ônibus e app que já existem, ligados.* | soa reciclagem |
 | **Segunda Leitura** | a câmera já grava (1ª leitura: segurança); nós fazemos a 2ª (mobilidade) | *A mesma câmera, uma segunda leitura: sem rosto, sem placa, só o trânsito.* | precisa de 1 frase de explicação; é a mais fiel ao que fazemos |
 | **Mesma Câmera** | direto, sem metáfora | *Mesma câmera, outra pergunta.* | curto demais para marca |
 
-Recomendação para o grupo decidir: **Visão de Rota** como nome (já tem consenso do Rafael) e **"Segunda Leitura"** como nome do método/produto dentro dele: *Visão de Rota — segunda leitura das câmeras que Patos já tem.* Assim o nome carrega a inovação sem perder a marca.
+Recomendação para o grupo decidir: **FILTER** como nome (já tem consenso do Rafael) e **"Segunda Leitura"** como nome do método/produto dentro dele: *FILTER — segunda leitura das câmeras que Patos já tem.* Assim o nome carrega a inovação sem perder a marca.
 
 ---
 

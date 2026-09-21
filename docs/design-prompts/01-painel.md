@@ -1,4 +1,4 @@
-# Prompts de design — PAINEL (dashboard) · Visão de Rota
+# Prompts de design — PAINEL (dashboard) · FILTER
 
 > Projeto: Hackathon Cidades Inteligentes, Patos de Minas (MG), 18–20/09/2026.
 > Cole o PROMPT-MÃE uma vez no início da conversa do ChatGPT (gerador de imagem). Depois cole um
@@ -10,7 +10,7 @@
 ## PROMPT-MÃE (colar uma vez no início da conversa)
 
 > Vamos gerar, ao longo desta conversa, uma série de mockups de interface em alta fidelidade para
-> um painel de sistema chamado "VISÃO DE ROTA — Mobilidade Inteligente e Previsível", projeto de
+> um painel de sistema chamado "FILTER — Mobilidade Inteligente e Previsível", projeto de
 > mobilidade urbana para Patos de Minas (MG), cidade média do interior do Brasil (~160 mil
 > habitantes, cerrado, avenidas largas com canteiro central, ônibus urbano, muita moto — nunca
 > desenhe metrópole, arranha-céu ou cidade estrangeira). Estilo visual fixo para todas as telas:
@@ -39,7 +39,7 @@
 > Crie um mockup de interface em alta fidelidade, painel de sistema escuro, proporção 16:10,
 > seguindo a identidade visual combinada (azul-marinho #0B1B2B, âmbar #E8A33D, verde #2E9E6B,
 > vermelho #D6453D, cinza #9AA5B1, tipografia sem serifa geométrica). Layout de cima para baixo:
-> topo com barra superior fina mostrando o nome "VISÃO DE ROTA" à esquerda e um sino de notificação
+> topo com barra superior fina mostrando o nome "FILTER" à esquerda e um sino de notificação
 > discreto à direita. Abaixo, barra lateral esquerda estreita com ícones e 6 grupos de navegação em
 > texto pequeno, nesta ordem exata: "Time e roteiro", "O que o dado prova", "Mapa e simulações",
 > "Câmeras", "Fontes e dinheiro", "Próximos passos" — o segundo grupo "O que o dado prova" destacado
@@ -55,7 +55,7 @@
 > de calor sobrepostas em tons de âmbar e vermelho indicando concentração de passageiros e
 > ocorrências, sem nomes de rua legíveis; à direita um bloco de texto com título "O que ficou de
 > fora" e três linhas curtas descrevendo limitações declaradas dos dados. Rodapé simples com o nome
-> "VISÃO DE ROTA" e a palavra "v0.1". Proporção final 16:10, fundo predominante azul-marinho escuro.
+> "FILTER" e a palavra "v0.1". Proporção final 16:10, fundo predominante azul-marinho escuro.
 
 **Se sair errado, peça:** "corrija a ortografia de 'passageiros transportados'"; "os 6 grupos da barra lateral precisam estar na ordem exata pedida"; "a bolinha do cartão '06:20' precisa ser âmbar, não verde".
 
@@ -200,7 +200,7 @@
 > Crie um mockup de interface em alta fidelidade, painel de sistema escuro, versão mobile em
 > proporção 9:19 (tela alta e estreita de celular), mesma identidade visual combinada (azul-marinho
 > #0B1B2B, âmbar #E8A33D, verde #2E9E6B, vermelho #D6453D, cinza #9AA5B1, tipografia sem serifa
-> geométrica). No topo, uma barra fina com o nome "VISÃO DE ROTA" à esquerda e um ícone de menu
+> geométrica). No topo, uma barra fina com o nome "FILTER" à esquerda e um ícone de menu
 > hambúrguer à direita (a navegação lateral de 6 grupos fica escondida atrás desse ícone, não precisa
 > aparecer expandida). Abaixo, microtítulo em caixa alta "AGOSTO DE 2026 · PATOS DE MINAS" e título
 > "Verdade operacional do trânsito" em fonte um pouco menor que a versão desktop. Logo abaixo, os 5
@@ -209,7 +209,7 @@
 > passageiros transportados" (verde), "[número do relatório da operadora, fora deste repositório] viagens realizadas" (verde), "06:20 pior bloco de 5
 > min" (âmbar), "34.694 horas de atraso acumuladas" (âmbar), "1.100 ocorrências com coordenada"
 > (cinza). Abaixo dos cartões, um mini-mapa de calor estilizado ocupando a largura total, mais baixo
-> que largo. Rodapé simples com o nome "VISÃO DE ROTA". Fundo azul-marinho escuro em toda a tela,
+> que largo. Rodapé simples com o nome "FILTER". Fundo azul-marinho escuro em toda a tela,
 > proporção final 9:19, elementos com bastante espaço de toque entre si.
 
 **Se sair errado, peça:** "os 5 cartões precisam estar empilhados um embaixo do outro, não em grade"; "a proporção final precisa ser alta e estreita (9:19), não quadrada"; "corrija a ortografia de 'ocorrências'".

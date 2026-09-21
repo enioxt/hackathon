@@ -1,7 +1,7 @@
 ---
-nome: Visão de Rota
+nome: FILTER
 assinatura: Ruas com memória. Mobilidade com previsibilidade.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: prototipo
 tema: mobilidade urbana
 pergunta: Onde as pessoas estão perdendo tempo na mobilidade de Patos, e como transformar isso em ação e informação previsível?

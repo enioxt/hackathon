@@ -6,7 +6,7 @@
 
 ## 1. O produto
 
-O detector não é o produto. YOLO, RT-DETR, YOLOX ou outro modelo são backends substituíveis do sensor. O ativo do Visão de Rota é a cadeia de evidência:
+O detector não é o produto. YOLO, RT-DETR, YOLOX ou outro modelo são backends substituíveis do sensor. O ativo do FILTER é a cadeia de evidência:
 
 **fonte → processamento → medição → modelo/versão → validação → intervenção humana → comparação → evidência → decisão humana**
 
@@ -14,7 +14,7 @@ O sistema não deve comandar semáforo, multar, identificar pessoa/veículo ou a
 
 ## 2. Princípio de localidade — o dado fica na fonte
 
-A arquitetura padrão é **source-local / near-source**. Patos já possui captação, transmissão, visualização e armazenamento para a finalidade original das câmeras. O Visão de Rota não deve duplicar essa infraestrutura por padrão.
+A arquitetura padrão é **source-local / near-source**. Patos já possui captação, transmissão, visualização e armazenamento para a finalidade original das câmeras. O FILTER não deve duplicar essa infraestrutura por padrão.
 
 **Regra:** levar o processamento ao ambiente do dado, não levar o acervo de vídeo para outro ambiente.
 

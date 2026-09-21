@@ -1,4 +1,4 @@
-title = "Visão de Rota — exceções de varredura"
+title = "FILTER — exceções de varredura"
 
 [[allowlists]]
 description = "URL pública de incorporação do Power BI, verificada em 2026-09-19; não é credencial de Grafana."

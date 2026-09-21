@@ -4,7 +4,7 @@
 > **Nada aqui é medição de Patos de Minas.** Todo número na tela é gerado pelo próprio código.
 
 Marca no rodapé da página: **Alavanc Tech** · "Mobilidade em Evidência".
-O nome do time no restante deste repositório é **Visão de Rota**. A unificação (ou não)
+O nome do time no restante deste repositório é **FILTER**. A unificação (ou não)
 das duas marcas é decisão do grupo — ver `REGRAS.md`, regra 10.
 
 ## O que é

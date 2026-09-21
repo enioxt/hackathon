@@ -1,7 +1,7 @@
 ---
 nome: Rua com Memória
 assinatura: Toda rua ganha memória. Cada mudança, um antes e um depois.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: prototipo
 tema: dados
 pergunta: A intervenção que a cidade fez (semáforo, binário, linha nova) funcionou? Quanto? Para quem?

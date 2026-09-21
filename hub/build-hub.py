@@ -53,7 +53,7 @@ def linha_do_tempo():
         for q, o, k in marcos
     )
     return f"""<h2>Linha do tempo — como um projeto andou em 48 horas</h2>
-<p class=muted style="font-size:14px">Marcos do nosso projeto (Visão de Rota), incluindo os erros que achamos e corrigimos — para outros times aprenderem com o que já erramos. Sem nome de pessoa, sem conversa de grupo: só o que mudou e a prova.</p>
+<p class=muted style="font-size:14px">Marcos do nosso projeto (FILTER), incluindo os erros que achamos e corrigimos — para outros times aprenderem com o que já erramos. Sem nome de pessoa, sem conversa de grupo: só o que mudou e a prova.</p>
 <ul class=linha-do-tempo>{itens}</ul>"""
 gerado = os.environ.get('HUB_DATA') or time.strftime('%d/%m/%Y %H:%M')
 BASE = f"""<style>{CSS}

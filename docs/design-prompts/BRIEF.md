@@ -1,4 +1,4 @@
-# Brief — prompts de design para o ChatGPT (geração de imagem), projeto Visão de Rota
+# Brief — prompts de design para o ChatGPT (geração de imagem), projeto FILTER
 
 ## O que se pede
 Escrever PROMPTS prontos para colar no ChatGPT (gerador de imagem) que produzam mockups de tela
@@ -24,7 +24,7 @@ real (nunca ilustração infantil nem 3D de banco de imagem), muito respiro, azu
 escuro e branco-gelo no claro.
 
 ## Identidade do projeto
-- Nome: VISÃO DE ROTA. Subtítulo: Mobilidade Inteligente e Previsível.
+- Nome: FILTER. Subtítulo: Mobilidade Inteligente e Previsível.
 - Assinatura: "Ruas com memória. Mobilidade com previsibilidade."
 - Método: "Segunda Leitura" — a mesma câmera que a cidade já tem, uma segunda leitura: sem rosto,
   sem placa, só o trânsito.
@@ -52,7 +52,7 @@ escuro e branco-gelo no claro.
   etiqueta "SIMULAÇÃO" visível, separada do que é "MEDIDO".
 - Simulação de câmeras: cenários 10 · 50 · 100 · 400 · 600 câmeras lidas. Os resultados ainda não
   foram calculados: nas telas, use "—" ou barras sem número e a etiqueta SIMULAÇÃO. Não invente percentuais.
-- 9 ideias no hub: Visão de Rota · Segunda Leitura · Horário Escalonado · Ônibus da UNIPAM · Quase
+- 9 ideias no hub: FILTER · Segunda Leitura · Horário Escalonado · Ônibus da UNIPAM · Quase
   (quase-acidentes) · Rua com Memória · Rota Humana · Olho Adiante · Missão da semana no app da cidade.
 
 ## Regras duras do texto que vai DENTRO da imagem

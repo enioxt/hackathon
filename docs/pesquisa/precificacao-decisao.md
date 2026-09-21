@@ -1,4 +1,4 @@
-# Precificação — a peça que fecha a decisão (Visão de Rota, hackathon mobilidade Patos de Minas)
+# Precificação — a peça que fecha a decisão (FILTER, hackathon mobilidade Patos de Minas)
 
 > **STATUS PÓS-HACKATHON — 21/09/2026:** este arquivo permanece como **pesquisa histórica e conjunto de âncoras**, não como tabela comercial vigente. As hipóteses de Jetson, “central mínima”, assinatura por câmera e preços fechados não devem orientar implantação antes do inventário do ambiente real de Patos. A direção canônica agora é **processamento na fonte**, sem duplicar vídeo/streaming por padrão, e economia baseada em RTF, volume processado, integração, calibração, governança e suporte. Ver [MODELO-OPERACIONAL-NA-FONTE.md](../MODELO-OPERACIONAL-NA-FONTE.md).
 

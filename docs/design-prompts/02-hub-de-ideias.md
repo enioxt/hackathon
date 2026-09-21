@@ -1,10 +1,10 @@
-# Prompts de design — HUB DE IDEIAS (Visão de Rota / Hackathon Patos de Minas)
+# Prompts de design — HUB DE IDEIAS (FILTER / Hackathon Patos de Minas)
 
 > Prompts prontos para colar no ChatGPT (gerador de imagem), um por tela. Cole o PROMPT-MÃE
 > primeiro, uma vez, no início da conversa; depois cole cada prompt numerado em mensagens
 > separadas. Referência visual seguida: os 3 formatos (galeria escura / lab claro / dossiê escuro)
 > e o portal claro com foto de paisagem. Este hub é ABERTO A TODOS OS
-> TIMES do hackathon, não só ao time Visão de Rota — por isso a página LAB/ÍNDICE mostra as 9
+> TIMES do hackathon, não só ao time FILTER — por isso a página LAB/ÍNDICE mostra as 9
 > ideias do hub com dono e estágio, não só as do próprio time.
 
 ## PROMPT-MÃE (colar uma vez no início da conversa)
@@ -41,7 +41,7 @@
 > câmeras que já existem, e um jeito de medir antes de prometer.", e dois botões: "Ver todas as
 > ideias" (preenchido em âmbar #E8A33D) e "Como participar" (contorno branco). Abaixo do hero, seção
 > "Ideia em destaque" com um card grande à esquerda mostrando foto de um cruzamento com pequenas
-> caixas de contagem discretas sobre veículos (sem rosto, sem placa), título "Visão de Rota",
+> caixas de contagem discretas sobre veículos (sem rosto, sem placa), título "FILTER",
 > etiqueta "PROTÓTIPO" em verde, e a frase "Ruas com memória. Mobilidade com previsibilidade."; à
 > direita, uma grade menor com 4 outras ideias, cada uma com foto temática pequena, título curto e
 > etiqueta de estágio colorida (verde protótipo, azul conceito, âmbar ideia). Mais abaixo, uma faixa
@@ -70,7 +70,7 @@ cada uma precisa.
 > trânsito, celular com enquete), título e etiqueta de estágio colorida no canto (verde para
 > protótipo, azul para conceito, âmbar para ideia), mais pequenas etiquetas cinza opcionais
 > "[ACESSO]" "[HELP]" "[BOUNTY]" abaixo do título quando a ideia precisa disso. Use exatamente estes
-> 9 títulos, um por card: "Visão de Rota" (protótipo), "Segunda Leitura" (conceito, ACESSO, HELP),
+> 9 títulos, um por card: "FILTER" (protótipo), "Segunda Leitura" (conceito, ACESSO, HELP),
 > "Horário Escalonado" (protótipo, HELP), "Chegada Escalonada dos Ônibus da UNIPAM" (conceito,
 > ACESSO, HELP), "QUASE" (conceito, ACESSO, HELP), "Rua com Memória" (protótipo), "Rota Humana"
 > (ideia, HELP), "Olho Adiante" (ideia, ACESSO), "Missão da Semana no Conecta Patos" (conceito,
@@ -194,7 +194,7 @@ pelo link no evento.
 > roláveis: "Todos (9)" selecionado, "Ideia (2)", "Conceito (4)", "Protótipo (3)", "MVP (0)". Abaixo,
 > lista vertical de cards em coluna única (não grade), cada card ocupando a largura da tela, com foto
 > temática pequena à esquerda e, à direita, título, etiqueta de estágio colorida e uma etiqueta cinza
-> pequena quando aplicável ("ACESSO", "HELP" ou "BOUNTY"). Use os mesmos 9 títulos: "Visão de Rota",
+> pequena quando aplicável ("ACESSO", "HELP" ou "BOUNTY"). Use os mesmos 9 títulos: "FILTER",
 > "Segunda Leitura", "Horário Escalonado", "Chegada Escalonada dos Ônibus da UNIPAM", "QUASE", "Rua
 > com Memória", "Rota Humana", "Olho Adiante", "Missão da Semana no Conecta Patos". No fim da lista,
 > uma faixa curta "83 itens verificados · 32 fontes abertas". Barra inferior fixa com botão âmbar de

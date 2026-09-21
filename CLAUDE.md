@@ -7,7 +7,7 @@ Este arquivo é o gate de contexto para qualquer sessão de Claude Code/Codex/IA
 - **Nome público:** FILTER
 - **Slogan:** **Da imagem à evidência.**
 - **Definição:** uma camada auditável de observabilidade da mobilidade que transforma vídeo já existente em medições e registra se uma intervenção na rua realmente melhorou alguma coisa.
-- **Origem histórica:** o projeto nasceu no hackathon com o nome Visão de Rota e chegou a usar FILTERS. Esses nomes podem aparecer em arquivos históricos, mas **não devem voltar para superfícies públicas novas**.
+- **Origem histórica:** o projeto nasceu no hackathon com o nome FILTER e chegou a usar FILTER. Esses nomes podem aparecer em arquivos históricos, mas **não devem voltar para superfícies públicas novas**.
 
 ## Verdade operacional
 

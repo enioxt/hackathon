@@ -42,7 +42,7 @@
 
   var barra = document.createElement('header'); barra.id = 'vr-barra'; barra.setAttribute('role', 'banner');
   var marca = document.createElement('a'); marca.className = 'marca'; marca.href = estatico ? '../index.html' : '/entrar';
-  marca.appendChild(document.createElement('i')); var nm = document.createElement('span'); nm.textContent = 'Visão de Rota'; marca.appendChild(nm);
+  marca.appendChild(document.createElement('i')); var nm = document.createElement('span'); nm.textContent = 'FILTER'; marca.appendChild(nm);
   var nav = document.createElement('nav'); nav.setAttribute('aria-label', 'Telas do aplicativo');
   ITENS.forEach(function (it) {
     var a = document.createElement('a'); a.textContent = it[0]; a.href = estatico ? it[2] : it[1];

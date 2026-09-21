@@ -1,4 +1,4 @@
-# O que já temos pronto e onde encaixa no Visão de Rota
+# O que já temos pronto e onde encaixa no FILTER
 Levantado em 19/09 por varredura de `~/egos` (docs/legal, docs/governance, templates, central-egos, packages). Conferido por mim: os 2 padrões de placa, os 7 arquivos de contrato, o playbook, o adendo de dados, o molde de proposta e a ausência do molde de relatório de impacto. O resto é leitura do agente, ainda não reaberta.
 
 | Peça pronta | Onde está | Encaixa em | Esforço |

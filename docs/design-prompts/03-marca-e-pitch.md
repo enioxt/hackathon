@@ -1,6 +1,6 @@
 # Marca e pitch — prompts de design para o ChatGPT (geração de imagem)
 
-Projeto: VISÃO DE ROTA — Hackathon Cidades Inteligentes, Patos de Minas (MG), 18–20/09/2026.
+Projeto: FILTER — Hackathon Cidades Inteligentes, Patos de Minas (MG), 18–20/09/2026.
 Cole o PROMPT-MÃE uma vez no início da conversa do ChatGPT, depois cole cada prompt numerado,
 um por vez, para gerar cada peça. Cada prompt abaixo também é autossuficiente — se você abrir
 uma conversa nova para cada peça, funciona sozinho.
@@ -10,7 +10,7 @@ uma conversa nova para cada peça, funciona sozinho.
 ## PROMPT-MÃE (colar uma vez no início da conversa)
 
 > Vamos gerar, nesta conversa, uma série de peças de marca e slides de pitch para o projeto
-> "VISÃO DE ROTA — Mobilidade Inteligente e Previsível", de um hackathon de cidades inteligentes
+> "FILTER — Mobilidade Inteligente e Previsível", de um hackathon de cidades inteligentes
 > em Patos de Minas (MG), cidade média do interior do Brasil, cerrado, ~160 mil habitantes,
 > avenidas largas com canteiro central, ônibus urbano, muita moto — nunca desenhe metrópole,
 > arranha-céu ou cidade estrangeira. Identidade: azul-marinho profundo #0B1B2B, branco-gelo
@@ -27,7 +27,7 @@ uma conversa nova para cada peça, funciona sozinho.
 
 ---
 
-### 1. Marca — logotipo "VISÃO DE ROTA" (prancha com 3 variações) — formato: prancha 4:3
+### 1. Marca — logotipo "FILTER" (prancha com 3 variações) — formato: prancha 4:3
 **Para que serve:** fixar o logotipo em três formas de uso (horizontal, empilhado, ícone) antes de aplicar em qualquer peça.
 **Prompt (colar no ChatGPT):**
 > Crie um mockup de interface em alta fidelidade de uma prancha de apresentação de logotipo, em
@@ -38,7 +38,7 @@ uma conversa nova para cada peça, funciona sozinho.
 > mesma linha contínua, em um olho aberto — sugerindo "uma rota que vira linha do tempo" e "um
 > olho feito de curva de rua" ao mesmo tempo; o traço principal em âmbar-semáforo #E8A33D sobre
 > o fundo escuro e em azul-marinho #0B1B2B sobre o fundo claro. As 3 variações, com a legenda
-> pequena abaixo de cada uma: "horizontal" (símbolo à esquerda + "VISÃO DE ROTA" ao lado, com
+> pequena abaixo de cada uma: "horizontal" (símbolo à esquerda + "FILTER" ao lado, com
 > "Mobilidade Inteligente e Previsível" em caixa alta espaçada, bem menor, abaixo do nome),
 > "empilhada" (símbolo acima, nome centralizado abaixo) e "ícone" (só o símbolo, dentro de um
 > quadrado com cantos arredondados discretos). Tipografia geométrica sem serifa, peso forte no
@@ -83,7 +83,7 @@ uma conversa nova para cada peça, funciona sozinho.
 > Canto superior esquerdo: microtítulo em caixa alta espaçada, cor âmbar-semáforo #E8A33D, com o
 > texto "HACKATHON CIDADES INTELIGENTES · PATOS DE MINAS". Centro-esquerda, por cima do degradê:
 > título enorme em branco-gelo #F6F8FA, fonte geométrica sem serifa, peso forte, com o texto
-> "VISÃO DE ROTA" em duas linhas se precisar; logo abaixo, em corpo menor, "Mobilidade Inteligente
+> "FILTER" em duas linhas se precisar; logo abaixo, em corpo menor, "Mobilidade Inteligente
 > e Previsível"; abaixo disso, em itálico ou peso leve, a assinatura "Ruas com memória.
 > Mobilidade com previsividade." (escreva exatamente "Ruas com memória. Mobilidade com
 > previsibilidade."). Canto inferior direito: um pequeno ícone do símbolo da marca (linha de rota

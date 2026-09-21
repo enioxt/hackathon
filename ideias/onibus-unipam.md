@@ -1,7 +1,7 @@
 ---
 nome: Chegada escalonada dos ônibus da UNIPAM
 assinatura: Cada ônibus com sua vaga e seu minuto. Cinco minutos entre um e outro.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: conceito
 tema: transporte público
 pergunta: Dezenas de ônibus chegam à UNIPAM no mesmo minuto. E se chegassem com 5 minutos de intervalo, cada um numa vaga fixa?

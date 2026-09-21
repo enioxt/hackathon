@@ -1,7 +1,7 @@
 ---
 nome: Segunda Leitura
 assinatura: A mesma câmera, uma segunda leitura: sem rosto, sem placa, só o trânsito.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: conceito
 tema: dados
 pergunta: As câmeras de segurança que Patos já pagou podem contar o trânsito sem virar vigilância?

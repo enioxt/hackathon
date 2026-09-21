@@ -1,4 +1,4 @@
-# Regras de negócio e Critérios de aceite do MVP — Visão de Rota
+# Regras de negócio e Critérios de aceite do MVP — FILTER
 
 Pedido de hoje: as regras de negócio, e o que falta para o MVP ficar pronto — critérios de aceite, e cumprir eles. Isto substitui as duas perguntas por um documento só. Banca amanhã 17h.
 

@@ -1,6 +1,6 @@
 # O contrato de dados — em linguagem simples
 
-O produto "Visão de Rota" conta veículos e pessoas passando na frente de uma
+O produto "FILTER" conta veículos e pessoas passando na frente de uma
 câmera. Ele NUNCA lê placa, rosto ou qualquer coisa que identifique uma
 pessoa — só o número de cada tipo, numa janela de tempo.
 

@@ -365,9 +365,9 @@ def main():
                 if args.mostrar:
                     resumo = "  ".join(f"{k}:{v}" for k, v in contagens.items() if v) or "aguardando cruzar a linha vermelha"
                     cv2.rectangle(frame, (0, 0), (frame.shape[1], 46), (20, 20, 20), -1)
-                    cv2.putText(frame, "Visao de Rota - so numeros saem daqui; nada e gravado (q fecha)", (8, 17), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255), 1)
+                    cv2.putText(frame, "FILTER - so numeros saem daqui; nada e gravado (q fecha)", (8, 17), cv2.FONT_HERSHEY_SIMPLEX, 0.45, (255, 255, 255), 1)
                     cv2.putText(frame, resumo, (8, 38), cv2.FONT_HERSHEY_SIMPLEX, 0.55, (80, 200, 255), 1)
-                    cv2.imshow("Visao de Rota - leitor", frame)
+                    cv2.imshow("FILTER - leitor", frame)
                     if (cv2.waitKey(1) & 0xFF) == ord("q"):
                         break
 

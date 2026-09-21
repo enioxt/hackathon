@@ -1,4 +1,4 @@
-# Visão de Rota — roteiro do pitch (2 vozes, 8 slides, ~4:30)
+# FILTER — roteiro do pitch (2 vozes, 8 slides, ~4:30)
 
 > **Não é texto para decorar.** É o que não pode faltar em cada slide — diga do seu jeito. Formato: **A** e **B** conversam como quem relembra o que acabou de viver ("lembra de hoje de manhã, quando a gente gravou a rua com dois celulares?") — cada lembrança termina numa utilidade ("e isso serve pra…"). Cada fala de A termina na pergunta que o slide seguinte responde — é a cadeia lógica do deck: o problema (sinistro) leva ao buraco (não se mede se mexer na rua funcionou) leva à proposta (ler a câmera que já existe) leva ao como (roda local, sem guardar imagem) leva à prova (funciona hoje, em Patos). **A** conduz abertura, o problema, o buraco e faz a pergunta do dinheiro antes da banca precisar. **B** mostra a proposta de valor, como funciona, as capacidades e a demonstração. Troca de voz nas viradas de slide, nunca mais de 4 trocas. Tempo total: **~4:30**, com folga até o limite de 4:40 pedido e até o limite duro de 5:00 do facilitador.
 
@@ -12,10 +12,10 @@
 
 **Ponto que precisa ficar:** a câmera do poste já existe; a gente muda só a pergunta que ela responde.
 
-**"Essa câmera aí, no poste — a gente circulou o zoom pra vocês verem. Ela já está em Patos, gravando agora. Hoje ela só responde uma pergunta: o que aconteceu ali? A gente veio fazer outra pergunta pra mesma câmera. Isso é a Visão de Rota."**
+**"Essa câmera aí, no poste — a gente circulou o zoom pra vocês verem. Ela já está em Patos, gravando agora. Hoje ela só responde uma pergunta: o que aconteceu ali? A gente veio fazer outra pergunta pra mesma câmera. Isso é a FILTER."**
 
 **Tempo-alvo:** 20 s. **Se atrasar, corte:** a segunda frase — deixe só o nome do projeto.
-**Saída de emergência:** "Deixa eu recomeçar — Visão de Rota: outra pergunta pra mesma câmera."
+**Saída de emergência:** "Deixa eu recomeçar — FILTER: outra pergunta pra mesma câmera."
 
 ---
 
@@ -48,9 +48,9 @@ Fecha com a pergunta que o próximo slide responde (deixa para B, escrita): "...
 
 ## Slide 4 — Proposta de valor (1:35–2:05) · fala: A → deixa para B
 
-**Ponto que precisa ficar:** a proposta de valor em 1 frase, e por que criamos a Visão de Rota.
+**Ponto que precisa ficar:** a proposta de valor em 1 frase, e por que criamos a FILTER.
 
-**"Ajudamos a secretaria de mobilidade a decidir onde mexer — e a provar se funcionou — lendo as câmeras que a cidade já tem. Por isso criamos a Visão de Rota."**
+**"Ajudamos a secretaria de mobilidade a decidir onde mexer — e a provar se funcionou — lendo as câmeras que a cidade já tem. Por isso criamos a FILTER."**
 "Três coisas que isso muda: número o ano inteiro, não só 3 dias; sem comprar câmera nova; sem rosto e sem placa."
 
 **Deixa para B (escrita):** "...e isso, na prática, como é que a máquina faz? Deixa eu te mostrar."

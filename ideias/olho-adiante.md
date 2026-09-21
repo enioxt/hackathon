@@ -1,7 +1,7 @@
 ---
 nome: Olho adiante
 assinatura: Uma esquina antes, você já sabe o que vem.
-time: Visão de Rota (Patos de Minas)
+time: FILTER (Patos de Minas)
 estagio: ideia
 tema: mobilidade urbana
 pergunta: Como o entregador e o motorista escolhem a rota se só descobrem o congestionamento quando já estão nele?

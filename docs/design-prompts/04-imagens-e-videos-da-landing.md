@@ -1,4 +1,4 @@
-# Prompts de design — IMAGENS E VÍDEOS da landing page · Visão de Rota
+# Prompts de design — IMAGENS E VÍDEOS da landing page · FILTER
 
 > Projeto: Hackathon Cidades Inteligentes, Patos de Minas (MG), 18–20/09/2026.
 > Este arquivo é só de fotografia, ilustração e vídeo de fundo/seção para a landing pública —
@@ -11,7 +11,7 @@
 ## PROMPT-MÃE (colar uma vez no início da conversa)
 
 > Vamos gerar, ao longo desta conversa, uma série de fotografias e ilustrações para a landing
-> page pública do projeto "Visão de Rota", mobilidade urbana para Patos de Minas (MG), cidade
+> page pública do projeto "FILTER", mobilidade urbana para Patos de Minas (MG), cidade
 > média do interior do Brasil, cerca de 160 mil habitantes, região de cerrado, avenidas largas
 > com canteiro central, ônibus urbano, muita moto — nunca desenhe metrópole, arranha-céu ou
 > cidade estrangeira; a referência é uma cidade média brasileira real. Estilo fixo: fotografia
@@ -161,7 +161,7 @@
 ---
 
 ### 9. "As três mesas" · 16:9
-**Para que serve:** explicar o posicionamento do produto como a terceira frente do centro de controle (zona azul, semáforos, Visão de Rota).
+**Para que serve:** explicar o posicionamento do produto como a terceira frente do centro de controle (zona azul, semáforos, FILTER).
 **Prompt (colar):**
 > Ilustração gráfica plana e limpa, não fotográfica, proporção 16:9, fundo branco-gelo #F6F8FA.
 > Três formas simples de mesa vistas em perspectiva isométrica leve, enfileiradas da esquerda para

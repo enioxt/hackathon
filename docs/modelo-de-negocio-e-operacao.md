@@ -1,4 +1,4 @@
-## Hipóteses de negócio e operação — Visão de Rota (para validar, não para vender ainda)
+## Hipóteses de negócio e operação — FILTER (para validar, não para vender ainda)
 
 > Escrito sábado 19/09 11:00. Tudo aqui é HIPÓTESE até ter um cliente dizendo sim. O princípio que organiza tudo: **o mínimo possível, usando o que já existe, processando a imagem na máquina onde ela já está.** Nada de vídeo subindo para nuvem. Esse é o pulo do gato: a câmera continua da cidade, a imagem não sai da central, e o que viaja é um evento de 200 bytes (carro, moto, hora, zona, velocidade).
 

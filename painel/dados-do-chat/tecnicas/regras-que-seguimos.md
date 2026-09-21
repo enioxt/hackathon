@@ -1,4 +1,4 @@
-# Regras do time Visão de Rota
+# Regras do time FILTER
 
 1. **Só dado público ou entregue ao time.** Nada de dado policial, nem agregado dele. Acidentes vêm do Estado (SEJUSP-MG, dados abertos).
 2. **Todo número com origem.** Fonte, data, arquivo ou comando. Número sem origem não entra em slide nem em fala.

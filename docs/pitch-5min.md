@@ -1,4 +1,4 @@
-# Visão de Rota — PITCH DE 4 MINUTOS (HISTÓRICO DO HACKATHON)
+# FILTER — PITCH DE 4 MINUTOS (HISTÓRICO DO HACKATHON)
 
 > Cerca de 480 palavras faladas. Frases curtas. O que está entre colchetes é origem do número: não se fala, serve para responder pergunta. Os slides citados são os do Rafael (imagens das 08:50).
 
@@ -37,7 +37,7 @@ Custos (320 mil, 6 milhões, 49 mil), dispensa de licitação, os 22.708 sinistr
 
 ---
 
-# Visão de Rota — roteiro do pitch
+# FILTER — roteiro do pitch
 
 > **SÃO 5 MINUTOS, não 3** (corte do Enio, 19/09 18h30). O roteiro abaixo foi escrito para 3 min (~400 palavras faladas). **Sobram ~2 minutos** — o plano para preenchê-los está no fim deste arquivo, em "COMO VIRAR 5 MINUTOS".
 
@@ -62,7 +62,7 @@ Não precisa ler a cidade inteira. Precisa ler os pontos certos."
 "Instalar 50 câmeras novas: 1,2 milhão. Ler as 50 que já existem: 49 mil reais o piloto de 90 dias — o preço de 4 câmeras. E cabe na dispensa de licitação, cujo teto este ano é 65 mil: a prefeitura contrata sem edital. Depois do piloto, 290 reais por câmera lida por mês. [nosso preço é ESTIMATIVA do time, sem cotação, com as premissas abertas na calculadora; o teto de R$ 65.492,11 é do decreto federal, conferido] É uma mesa. A terceira mesa do centro de controle que a secretaria já desenhou: a zona azul na primeira, os semáforos na segunda, e nós na terceira, auditando, processando e medindo."
 
 ## 2:40 — O pedido (20 s)
-"O que pedimos à cidade são três coisas pequenas: uma hora de vídeo gravado de uma câmera; a lista dos pontos; e um corredor para medir, por 90 dias, o antes e o depois de uma mudança. Pode ser o estacionamento de um lado de uma rua do centro. Ruas com memória. Mobilidade com previsibilidade. Visão de Rota."
+"O que pedimos à cidade são três coisas pequenas: uma hora de vídeo gravado de uma câmera; a lista dos pontos; e um corredor para medir, por 90 dias, o antes e o depois de uma mudança. Pode ser o estacionamento de um lado de uma rua do centro. Ruas com memória. Mobilidade com previsibilidade. FILTER."
 
 ---
 

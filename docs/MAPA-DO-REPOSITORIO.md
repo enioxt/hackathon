@@ -1,4 +1,4 @@
-# Mapa do repositório — Visão de Rota
+# Mapa do repositório — FILTER
 
 Gerado em 20/09/2026 por varredura manual (`find`, `md5sum`, grep) sobre o commit `0ccf6c4`. Serve para quem chega agora e precisa entender o repositório em 2 minutos, e para a IA que for mexer nele.
 

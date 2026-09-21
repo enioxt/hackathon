@@ -8,7 +8,7 @@
 Pergunta central (Rafael, 09:20): *quais dados precisamos coletar para descobrir onde as pessoas estão perdendo tempo e como transformar isso em ação e informação previsível?*
 
 ### 2. Nome
-Proposta do Rafael (09:46): **VISÃO DE ROTA — Mobilidade Inteligente e Previsível**. Assinatura: *Ruas com memória. Mobilidade com previsibilidade.*
+Proposta do Rafael (09:46): **FILTER — Mobilidade Inteligente e Previsível**. Assinatura: *Ruas com memória. Mobilidade com previsibilidade.*
 Para o grupo decidir: fica assim? Alternativas que apareceram ontem: QUASE · Rua com Memória · Rota Humana. Regra de bolso: nome que cabe na primeira frase do pitch e um morador entende.
 
 ### 2b. O que o time já fechou na mesa (atas de 9h e 10h, pelo Rafael)

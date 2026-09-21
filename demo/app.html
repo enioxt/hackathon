@@ -202,7 +202,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
     <div class="rotulo-grupo">Inteligência</div>
     <div class="menu" data-grupo="inteligencia"></div>
 
-    <div class="rotulo-grupo">Fontes simuladas</div>
+    <div class="rotulo-grupo">Fontes previstas</div>
     <div class="menu" data-grupo="simuladas"></div>
 
     <div class="rotulo-grupo">Mais</div>
@@ -286,7 +286,7 @@ var DESTINOS = [
 var MAPA = {}; DESTINOS.forEach(function(d){ MAPA[d.chave] = d; });
 // rótulo só de exibição na lateral (não altera d.rotulo — cabeçalho/migalha/title seguem completos)
 var ROTULOS_CURTOS = { historico: 'Antes e depois' };
-var GRUPO_ROTULO = {operacao:'Operação', inteligencia:'Inteligência', simuladas:'Fontes simuladas', mais:'Mais'};
+var GRUPO_ROTULO = {operacao:'Operação', inteligencia:'Inteligência', simuladas:'Fontes previstas', mais:'Mais'};
 
 // ---------- estado ----------
 var telas = {};       // chave -> {wrap, iframe, carregada, origem}

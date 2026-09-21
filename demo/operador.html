@@ -171,7 +171,12 @@ function rngPara(offset){ return mulberry32(SEMENTE_BASE + offset); }
 /* =================== base da API =================== */
 var PORTA_API = 8787;
 var MESMA_ORIGEM = (location.protocol !== "file:") && (String(location.port) === String(PORTA_API) || location.hostname === "127.0.0.1" && String(location.port) === String(PORTA_API));
-var API_BASE = (location.protocol === "file:") ? null
+/* Só fala com a API quando a própria página veio de uma máquina local. Publicado no
+   GitHub Pages, o navegador do visitante tentava http://127.0.0.1:8787 — a máquina DELE,
+   não a nossa: chamada que nunca dá certo, erro no console e uma sondagem na rede de quem
+   só queria ver a demonstração. Fora de localhost, a tela usa a leitura de referência. */
+var LOCAL = /^(localhost|127.0.0.1|[::1])$/.test(location.hostname);
+var API_BASE = (location.protocol === "file:" || !LOCAL) ? null
   : (String(location.port) === String(PORTA_API) ? "" : "http://127.0.0.1:" + PORTA_API);
 var CORS_BARRADO = false; // vira true na primeira falha de rede a uma chamada absoluta — some assistente sabe que a rota /operador ainda não está ligada
 

@@ -112,7 +112,6 @@ Todo número carrega uma etiqueta: **MEDIDO** (dado real) · **SIMULAÇÃO** (co
 | Prazo de implantação (90 dias, por semana) | [`docs/PRAZO-IMPLANTACAO.md`](docs/PRAZO-IMPLANTACAO.md) |
 | Concorrentes e outras cidades | `docs/concorrentes-*.md` · [`docs/cco-modelos-outras-cidades.md`](docs/cco-modelos-outras-cidades.md) |
 | O que fazer até a banca | [`docs/CHECKLIST-PITCH.md`](docs/CHECKLIST-PITCH.md) |
-| Nunca fez hackathon | [`docs/COMECE-AQUI.html`](docs/COMECE-AQUI.html) |
 
 ## Para IAs (ChatGPT, Claude, Gemini, Codex, Cursor, Antigravity)
 Entregue à sua IA o arquivo [`PARA-A-IA.md`](PARA-A-IA.md) e peça:

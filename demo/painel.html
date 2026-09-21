@@ -80,6 +80,13 @@ header.topo{margin-bottom:6px}
 .selo.medido{background:#16803c;color:#fff}
 .selo.simulacao{background:var(--amber-bg);color:#93670c}
 .selo.sintetico{background:#c0392b;color:#fff}
+/* tarja de painel MISTO: usada onde uma camada é real e outra é inventada
+   dentro da mesma imagem, caso do mapa e da parede de câmeras */
+.tarja-misto{display:flex;align-items:flex-start;gap:8px;margin:2px 0 10px;padding:8px 10px;
+  border-radius:10px;background:var(--amber-bg);border:1px solid #e2a129;font-size:11.5px;line-height:1.45;color:#6b4d0c}
+.tarja-misto .rot{flex:none;font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:10px;
+  background:#93670c;color:#fff;padding:2px 7px;border-radius:999px;margin-top:1px}
+.tarja-misto b{color:#4a3407}
 /* ---- duas zonas: o que foi medido x o que é demonstração ---- */
 .zona{border-radius:16px;padding:12px;margin:0 0 14px;border:1.5px solid}
 .zona-medido{background:#f4faf6;border-color:#bfe6cf}
@@ -458,6 +465,10 @@ table.memoria tr:last-child td{border-bottom:0}
               <button type="button" class="btn secundario" id="btn-expandir-cameras">Expandir</button>
             </div>
           </div>
+          <div class="tarja-misto">
+            <span class="rot">Misto</span>
+            <span>Os <b>8 primeiros quadros são vídeo real</b> gravado em Patos de Minas e lido pelo contador. Nas grades maiores, os quadros restantes aparecem escuros e marcados <b>DADO SINTÉTICO</b> — são espaços de câmeras que a cidade tem, mas às quais ainda não temos acesso.</span>
+          </div>
           <div class="cameras-wrap">
             <iframe id="iframe-parede" title="Parede de câmeras" loading="lazy"></iframe>
           </div>
@@ -480,6 +491,10 @@ table.memoria tr:last-child td{border-bottom:0}
               <p class="h-sub">12 pontos de leitura · <span id="geral-atualizado">atualizado há 0 s</span></p>
             </div>
           </div>
+          <div class="tarja-misto">
+            <span class="rot">Misto</span>
+            <span>Esta imagem tem <b>duas camadas sobrepostas</b>. A mancha de concentração é <b>real</b> — 1.100 ocorrências com endereço, dado aberto da SEJUSP-MG. Os <b>12 pontos de leitura são inventados</b>: servem para mostrar como seria a tela quando houver câmera ligada. Dá para ligar e desligar cada camada nos botões abaixo.</span>
+          </div>
           <div class="mapa-real-controles" role="group" aria-label="Camadas do mapa">
             <button type="button" class="mapa-toggle on" id="mt-calor" aria-pressed="true"><span class="ponto-sw"></span>Concentração <span class="selo medido" style="margin-left:2px">MEDIDO</span></button>
             <button type="button" class="mapa-toggle on" id="mt-pontos" aria-pressed="true"><span class="ponto-sw"></span>Pontos de leitura <span class="selo sintetico" style="margin-left:2px">SINTÉTICO</span></button>
@@ -497,7 +512,7 @@ table.memoria tr:last-child td{border-bottom:0}
             <div class="item" style="color:#9aa7ba">Calor: onde os registros se concentram — dado aberto estadual, 2025 e início de 2026</div>
             <div class="item" style="color:#9aa7ba">Clique num ponto para abrir o detalhe.</div>
           </div>
-          <p class="frase-mapa-real" id="frase-mapa-real">Cerca de 4 em cada 10 registros com coordenada caem em 5 quadrantes de 1 km (de uns 90). É por aí que a leitura começa.</p>
+          <p class="frase-mapa-real" id="frase-mapa-real">Cerca de 4 em cada 10 registros com coordenada caem em 5 quadrantes de 1 km (de uns 90). É por aí que a leitura começa. <a class="fonte-link" href="../dados/index.html#ocorrencias" target="_blank" rel="noopener">conferir a fonte</a></p>
         </div>
 
       </div>

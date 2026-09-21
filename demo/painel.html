@@ -440,7 +440,7 @@ table.memoria tr:last-child td{border-bottom:0}
         <div class="coluna-direita">
           <div class="painel">
             <h2>O que já medimos</h2>
-            <p class="h-sub">3 números reais, conferidos hoje</p>
+            <p class="h-sub">contado pela máquina nos vídeos gravados em Patos de Minas — nenhum número estimado</p>
             <div id="agora-card"></div>
           </div>
           <div class="painel">
@@ -1058,11 +1058,49 @@ var DADOS_REAIS_HOJE = {
   ocorrenciasGraves: 132,
   ocorrenciasFatais: 18,
   fonteSejusp: "SEJUSP-MG, dado aberto estadual · 2025–início 2026",
-  videosContagem: {automovel:37, pedestre:3, moto:2, onibus:2, bicicleta:0, caminhao:0},
-  videosTotal: 44,
-  videosJanelaS: 345,
-  fonteVideos: "leitura da máquina nos vídeos de hoje (patos-3 a patos-8) · 1 vídeo conferido à mão"
+  /* os números do vídeo NÃO ficam escritos aqui: são lidos das trilhas em camadas/*.trilhas.json,
+     que é o resultado da máquina lendo os vídeos. Ver lerContagemDosVideos(). */
+  fonteVideos: "leitura do nosso contador nas trilhas geradas a partir dos vídeos"
 };
+
+/* ============ contagem real, lida das trilhas dos vídeos ============
+   Nada de número digitado à mão: se um vídeo entrar ou sair de camadas/clipes.json,
+   o painel muda sozinho. "contagem" = objetos distintos que a máquina identificou no vídeo. */
+var st_contagemVideos = null;
+function lerContagemDosVideos(cb){
+  if (st_contagemVideos){ cb(st_contagemVideos); return; }
+  carregarClipesCompletos(function(lista){
+    var tocaveis = (lista||[]).filter(function(c){ return c && c.clipe && c.trilhas && !c.continuo; });
+    if (!tocaveis.length){ cb(st_contagemVideos = null); return; }
+    var pendentes = tocaveis.length, lidos = [];
+    tocaveis.forEach(function(c){
+      fetch(c.trilhas).then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(t){ if (t) lidos.push({clipe:c, trilhas:t}); })
+        .catch(function(){})
+        .then(function(){ if (--pendentes === 0) fechar(lidos); });
+    });
+  });
+  function fechar(lidos){
+    if (!lidos.length){ cb(st_contagemVideos = null); return; }
+    var r = {videos:lidos.length, total:0, segundos:0, porTipo:{}, maior:null, itens:lidos};
+    lidos.forEach(function(x){
+      var c = x.trilhas.contagem || {}, n = 0;
+      for (var k in c) if (Object.prototype.hasOwnProperty.call(c,k)){ n += (c[k]||0); r.porTipo[k] = (r.porTipo[k]||0) + (c[k]||0); }
+      var q = x.trilhas.quadros, dur = (q && q.length) ? q[q.length-1].t : 0;
+      r.total += n; r.segundos += dur;
+      if (!r.maior || n > r.maior.n) r.maior = {n:n, seg:dur, nome:x.clipe.nome};
+    });
+    cb(st_contagemVideos = r);
+  }
+}
+var NOME_TIPO = {automovel:["automóvel","automóveis"], moto:["moto","motos"], onibus:["ônibus","ônibus"], caminhao:["caminhão","caminhões"], bicicleta:["bicicleta","bicicletas"], pedestre:["pedestre","pedestres"]};
+function listarTipos(porTipo){
+  var partes = [];
+  ["automovel","pedestre","moto","onibus","caminhao","bicicleta"].forEach(function(k){
+    if (porTipo[k]) partes.push(porTipo[k] + " " + NOME_TIPO[k][porTipo[k] === 1 ? 0 : 1]);
+  });
+  return partes.join(" · ");
+}
 
 /* =================== KPIs visão geral =================== */
 function montarKPIsGeral(){
@@ -1088,8 +1126,15 @@ function montarKPIsGeral(){
   /* duas origens diferentes de dado real — nunca misturar: registro oficial (anos) x o que a máquina contou no vídeo (minutos) */
   var seloOficial = seloHTML({texto:"DADO REAL · registro oficial",classe:"medido"});
   var seloVideo = seloHTML({texto:"DADO REAL · contado no vídeo",classe:"medido"});
-  var min = Math.floor(r.videosJanelaS/60), seg = r.videosJanelaS%60;
-  wrap.appendChild(card("g", icoSino, "A máquina contou, nos vídeos gravados hoje em Patos", String(r.videosTotal)+' <span class="un">em '+min+' min '+seg+' s de vídeo</span>'+seloVideo, r.videosContagem.automovel+" automóveis · "+r.videosContagem.pedestre+" pedestres · "+r.videosContagem.moto+" motos · "+r.videosContagem.onibus+" ônibus — 6 vídeos curtos de celular", "leitura do nosso contador · só 1 dos 6 vídeos foi conferido à mão (4 carros e 1 moto, igual à máquina)"));
+  var cartaoVideo = card("g", icoSino, "A máquina contou, nos vídeos gravados em Patos", '<span class="un">lendo as contagens…</span>', "…", r.fonteVideos);
+  wrap.appendChild(cartaoVideo);
+  lerContagemDosVideos(function(v){
+    var num = cartaoVideo.querySelector(".kpi-num"), nota = cartaoVideo.querySelector(".kpi-nota");
+    if (!v){ num.innerHTML = '<span class="un">sem vídeo lido disponível</span>'; return; }
+    var min = Math.floor(v.segundos/60), seg = Math.round(v.segundos%60);
+    num.innerHTML = String(v.total) + ' <span class="un">em ' + min + ' min ' + seg + ' s de vídeo</span>' + seloVideo;
+    if (nota) nota.innerHTML = listarTipos(v.porTipo) + " — " + v.videos + " vídeos gravados pelo time";
+  });
   wrap.appendChild(card("b", icoCarro, "Acidentes de trânsito registrados em Patos — em 8 anos", r.sinistros.toLocaleString("pt-BR")+seloOficial, "não vem do vídeo: é o registro público de 2018 a ago/2026", r.fonteRenaest));
   wrap.appendChild(card("r", icoAlerta, "Desses acidentes, com moto envolvida", r.sinistrosComMotoPct+'% <span class="un">('+r.sinistrosComMoto.toLocaleString("pt-BR")+')</span>'+seloOficial, "não vem do vídeo: mesma base pública", r.fonteRenaest));
   wrap.appendChild(card("a", icoOcorr, "Ocorrências com endereço no mapa — 2025 e início de 2026", r.ocorrenciasGeo.toLocaleString("pt-BR")+seloOficial, r.ocorrenciasGraves+" graves ou fatais · "+r.ocorrenciasFatais+" fatais — não vem do vídeo", r.fonteSejusp));
@@ -1250,10 +1295,65 @@ function montarAgora(){
   var wrap = document.getElementById("agora-card");
   if (!wrap) return;
   var seloR = seloHTML({texto:"DADO REAL · MEDIDO",classe:"medido"});
-  wrap.innerHTML =
-    '<div class="agora-linha"><span>Área mais concentrada</span><b>5 áreas de 1 km reúnem ~4 em cada 10 ocorrências (39,5% · 435 de 1.100)'+seloR+'</b></div>' +
-    '<div class="agora-linha"><span>Vídeo com mais movimento</span><b>avenida filmada do alto — 12 veículos e pessoas em 68 s'+seloR+'</b></div>' +
-    '<div class="agora-linha"><span>Conferência pessoa × máquina</span><b>4 carros e 1 moto — bateu nos dois'+seloR+'</b></div>';
+  wrap.innerHTML = '<div class="agora-linha"><span>lendo as contagens dos vídeos…</span><b></b></div>';
+  // Tudo aqui sai das trilhas geradas pela leitura dos vídeos reais (camadas/*.trilhas.json).
+  // Nada é digitado à mão: se um vídeo entrar ou sair, o número muda sozinho.
+  carregarClipesCompletos(function(lista){
+    var tocaveis = (lista||[]).filter(function(c){ return c && c.clipe && c.trilhas && !c.continuo; });
+    if (!tocaveis.length){ wrap.innerHTML = '<div class="agora-linha"><span>Sem vídeo lido disponível</span><b>—</b></div>'; return; }
+    var pendentes = tocaveis.length, lidos = [];
+    tocaveis.forEach(function(c){
+      fetch(c.trilhas).then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(t){ if (t) lidos.push({clipe:c, trilhas:t}); })
+        .catch(function(){})
+        .then(function(){ if (--pendentes === 0) desenhar(lidos); });
+    });
+  });
+  function soma(cont){ var n = 0; for (var k in cont) if (Object.prototype.hasOwnProperty.call(cont,k)) n += (cont[k]||0); return n; }
+  function duracao(t){ var q = t.quadros; return (q && q.length) ? q[q.length-1].t : 0; }
+  function desenhar(lidos){
+    if (!lidos.length){ wrap.innerHTML = '<div class="agora-linha"><span>Sem vídeo lido disponível</span><b>—</b></div>'; return; }
+    var totalObjetos = 0, totalSegundos = 0, porTipo = {}, maior = null;
+    lidos.forEach(function(x){
+      var c = x.trilhas.contagem || {}, n = soma(c);
+      totalObjetos += n; totalSegundos += duracao(x.trilhas);
+      for (var k in c) if (Object.prototype.hasOwnProperty.call(c,k)) porTipo[k] = (porTipo[k]||0) + (c[k]||0);
+      if (!maior || n > maior.n) maior = {n:n, seg:duracao(x.trilhas), nome:x.clipe.nome};
+    });
+    wrap.innerHTML =
+      '<div class="agora-linha"><span>Vídeos de Patos de Minas já lidos</span><b>' + lidos.length + ' vídeos, ' + Math.round(totalSegundos) + ' s de imagem' + seloR + '</b></div>' +
+      '<div class="agora-linha"><span>Tudo o que a máquina contou</span><b>' + totalObjetos + ' — ' + listarTipos(porTipo) + seloR + '</b></div>' +
+      '<div class="agora-linha"><span>Vídeo com mais movimento</span><b>' + maior.n + ' em ' + Math.round(maior.seg) + ' s — ' + maior.nome + seloR + '</b></div>' +
+      '<div class="agora-linha" id="agora-concentracao"><span>Área mais concentrada</span><b><span class="un">calculando…</span></b></div>';
+    concentracaoDeOcorrencias();
+  }
+  /* Concentração: sai do dado aberto da SEJUSP-MG (dados/acidentes-...json), somado aqui em
+     quadrados de ~1 km. Não é número digitado — recalcula a cada abertura da página. */
+  function concentracaoDeOcorrencias(){
+    fetch("../dados/acidentes-patos-sejusp-mg-2025-2026.json").then(function(r){ return r.ok ? r.json() : null; })
+      .then(function(d){
+        var linha = document.getElementById("agora-concentracao");
+        if (!linha) return;
+        var oc = d && d.ocorrencias;
+        if (!oc || !oc.length){ linha.parentNode.removeChild(linha); return; }
+        var celulas = {};
+        oc.forEach(function(o){
+          if (typeof o.lat !== "number" || typeof o.lon !== "number") return;
+          var k = Math.round(o.lat/0.009) + "_" + Math.round(o.lon/0.0095);  // ~1 km x ~1 km
+          celulas[k] = (celulas[k]||0) + 1;
+        });
+        var ordenadas = Object.keys(celulas).map(function(k){ return celulas[k]; }).sort(function(a,b){ return b-a; });
+        var topo = ordenadas.slice(0,5).reduce(function(a,b){ return a+b; }, 0);
+        var pct = 100*topo/oc.length;
+        linha.querySelector("b").innerHTML =
+          '5 áreas de 1 km reúnem ' + pct.toFixed(1).replace(".",",") + '% das ocorrências (' +
+          topo.toLocaleString("pt-BR") + ' de ' + oc.length.toLocaleString("pt-BR") + ')' + seloR;
+      })
+      .catch(function(){
+        var linha = document.getElementById("agora-concentracao");
+        if (linha && linha.parentNode) linha.parentNode.removeChild(linha);
+      });
+  }
 }
 
 /* =================== render: visão geral =================== */

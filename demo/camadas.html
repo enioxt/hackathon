@@ -151,8 +151,8 @@ table.matriz th{background:#eef1f6}
     <div class="sb-texto" id="sb-atribuicao">carregando…</div>
     <div class="sb-spacer"></div>
     <div class="sb-foot">
-      <div class="frase" style="color:#c7d7f0;font-weight:700;margin-bottom:4px">Nada disto é câmera de Patos de Minas.</div>
-      Vídeo aberto usado só para provar o pipeline.
+      <div class="frase" style="color:#c7d7f0;font-weight:700;margin-bottom:4px">Vídeo gravado em Patos de Minas pelo próprio time.</div>
+      Não é transmissão ao vivo: o trecho repete em loop. Pessoas e placas borradas.
     </div>
   </aside>
 
@@ -161,7 +161,8 @@ table.matriz th{background:#eef1f6}
       <div>
         <h1>Como a máquina conta</h1>
         <div class="badges">
-          <span class="badge">MEDIDO — vídeo de outra cidade, não é de Patos de Minas</span>
+          <span class="badge">MEDIDO — vídeo real de Patos de Minas</span>
+          <span class="badge mut">em repetição contínua (loop)</span>
           <span class="badge mut" id="badge-fps">processado depois, a … quadros por segundo nesta máquina</span>
         </div>
       </div>
@@ -175,7 +176,7 @@ table.matriz th{background:#eef1f6}
     <div class="stage">
       <div class="video-col">
         <div class="video-wrap" id="video-wrap">
-          <video id="video" muted playsinline preload="auto"></video>
+          <video id="video" muted loop playsinline preload="auto"></video>
           <canvas id="tela"></canvas>
           <div id="selos-camada" style="position:absolute;inset:0;pointer-events:none"></div>
           <div class="flash-mais1" id="flash">+1</div>
@@ -478,7 +479,7 @@ function carregarListaClipes(cb){
     })
     .catch(function(){ fallback(); cb(); });
   function fallback(){
-    st.clipes = [{nome:"Chicago — Jane M. Byrne Interchange (demo)", cidade:"Chicago, EUA", publicador:"Wikimedia Commons", clipe:"camadas/clipe.mp4", trilhas:"camadas/trilhas.json"}];
+    st.clipes = [{nome:"Patos de Minas — filmado do alto pelo time (6)", cidade:"Patos de Minas, MG", publicador:"time Visão de Rota", clipe:"camadas/patos-6.mp4", trilhas:"camadas/patos-6.trilhas.json", gravado_em:"20/09/2026", credito:"vídeo do próprio time, 20/09/2026; pessoas e placas borradas"}];
   }
 }
 
@@ -528,7 +529,7 @@ function atualizarLegendaRodape(){
     var r = document.getElementById("rodape-legenda"); r.textContent = "";
     var bb = document.createElement("b"); bb.textContent = c.nome; r.appendChild(bb);
     r.appendChild(document.createTextNode(" — " + c.credito + (/patos/i.test(c.cidade||"") ? ". " : " (não é Patos de Minas). ")));
-    var g = document.createElement("b"); g.textContent = "GRAVADO" + (c.gravado_em ? " em " + c.gravado_em : "") + " — não é transmissão. "; r.appendChild(g);
+    var g = document.createElement("b"); g.textContent = "GRAVADO" + (c.gravado_em ? " em " + c.gravado_em : "") + (c.gravado_hora ? ", às " + c.gravado_hora : "") + " — não é transmissão; o trecho repete em loop. "; r.appendChild(g);
     if (c.url_origem && /^https:\/\//.test(c.url_origem)){ var l = document.createElement("a"); l.href = c.url_origem; l.target = "_blank"; l.rel = "noopener"; l.textContent = "abrir a transmissão original →"; l.id = "link-origem"; r.appendChild(l); }
     var sc = document.getElementById("seletor-clipe"); if (sc) sc.value = String(st.clipeAtual||0);
     return;

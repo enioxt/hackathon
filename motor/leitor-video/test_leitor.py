@@ -123,7 +123,7 @@ class TestSaidaSoNumeros(unittest.TestCase):
                 linhas = [json.loads(l) for l in f if l.strip()]
             self.assertGreaterEqual(len(linhas), 1)
             for reg in linhas:
-                for chave in ("fonte_id", "camera_id", "ts", "janela_s", "contagens", "velocidade_media_kmh", "origem"):
+                for chave in ("fonte_id", "camera_id", "ts", "janela_s", "contagens", "velocidade_media_kmh", "origem", "validacao", "modelo"):
                     self.assertIn(chave, reg)
                 self.assertNotIn("imagem", reg)
                 self.assertNotIn("frame", reg)

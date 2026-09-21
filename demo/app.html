@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Visão de Rota — aplicativo</title>
+<title>FILTER — aplicativo</title>
 <style>
 :root{
   --navy:#0b2a4a; --navy2:#12335e; --navy3:#173e73;
@@ -191,8 +191,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
     <div class="marca">
       <span class="marca-icone" aria-hidden="true"><i></i></span>
       <span class="marca-texto">
-        <div class="marca-nome">Visão de Rota</div>
-        <div class="marca-sub">Mobilidade · Patos de Minas</div>
+        <div class="marca-nome">FILTER</div>
+        <div class="marca-sub">Da imagem à evidência · Patos de Minas</div>
       </span>
     </div>
 
@@ -213,7 +213,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
         <span class="perfil-avatar" aria-hidden="true">G</span>
         <span class="perfil-nome">Gestor</span><span id="vr-versao" title="data desta versão da página — se a sua for diferente da do colega, recarregue com Ctrl+Shift+R" style="margin-left:auto;font-size:10.5px;color:#93a8c9;white-space:nowrap"></span>
       </div>
-      <div class="frase">A mesma câmera. Outra pergunta.</div>
+      <div class="frase">Da imagem à evidência.</div>
       <a id="link-apresentacao" href="../index.html">← apresentação</a>
     </div>
   </nav>
@@ -227,7 +227,7 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--focus);outline-offs
       <span class="titulo-atual" id="titulo-atual">Visão geral</span>
       <span class="migalha" id="migalha">Operação · Visão geral</span>
       <span class="espaco"></span>
-      <span class="selo">demonstração · o que está marcado LENDO AGORA é vídeo público de outra cidade</span>
+      <span class="selo">protótipo · vídeos marcados como MEDIDO foram gravados em Patos; fontes previstas ainda não estão integradas</span>
       <span class="relogio" id="relogio">--:--:--</span>
       <nav class="cabecalho-acoes" aria-label="Ações">
         <a id="cab-apresentar" class="cab-link" href="../index.html">Apresentar</a>
@@ -512,7 +512,7 @@ function atualizarCabecalho(chave){
   var d = MAPA[chave];
   document.getElementById('titulo-atual').textContent = d.rotulo;
   document.getElementById('migalha').textContent = GRUPO_ROTULO[d.grupo] + ' · ' + d.rotulo;
-  document.title = d.rotulo + ' — Visão de Rota';
+  document.title = d.rotulo + ' — FILTER';
   document.querySelectorAll('.item').forEach(function(el){
     el.classList.toggle('ativo', el.getAttribute('data-chave') === chave);
   });

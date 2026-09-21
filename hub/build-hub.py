@@ -29,7 +29,7 @@ def md(s):
         else: out.append(f'<p>{linkify(esc(chr(10).join(linhas)))}</p>')
     return ''.join(out)
 ideias = []
-for f in sorted(glob.glob(os.path.join(R, 'ideias', '*.md')), key=lambda x: (not x.endswith('visao-de-rota.md'), x)):
+for f in sorted(glob.glob(os.path.join(R, 'ideias', '*.md')), key=lambda x: (not x.endswith('filter.md'), x)):
     if os.path.basename(f).startswith('_'): continue
     meta, corpo = fm(open(f).read()); meta['slug'] = os.path.basename(f)[:-3]; meta['corpo'] = corpo; ideias.append(meta)
 

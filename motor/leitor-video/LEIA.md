@@ -3,8 +3,10 @@
 Este programa olha um vídeo (de celular, webcam ou câmera de rua) e **conta**
 quantos carros, motos, ônibus, caminhões, bicicletas e pessoas passaram por
 uma linha imaginária que você desenha na tela — separando quem foi para um
-lado e quem foi para o outro. Ele não grava nenhuma imagem por padrão: só
-número, por minuto (ou pelo intervalo que você escolher).
+lado e quem foi para o outro. Os quadros são processados temporariamente em
+memória; por padrão não são persistidos. A saída é numérica e agora carrega
+também o `modelo` usado e `validacao: nao_validado`, porque dado real e dado
+validado são coisas diferentes.
 
 ## Como filmar amanhã
 
@@ -42,6 +44,17 @@ de vídeo. Ajustes úteis:
 - `--conferir calibracao.mp4` — grava um vídeo de conferência (baixa
   resolução, rosto/placa borrados) só para comparar com a contagem manual.
   **Esse arquivo é para a equipe, nunca para publicar ou mandar pra fora.**
+
+## Licença do backend atual — leia antes de uso pago
+
+O protótipo atual importa `ultralytics` e tenta `yolo11n.pt`/`yolov8n.pt`. A Ultralytics publica código e modelos sob **AGPL-3.0** e oferece licença **Enterprise** para uso comercial/proprietário sem as obrigações de código aberto da AGPL. AGPL permite uso comercial, mas traz obrigações de disponibilização de código-fonte em cenários cobertos pela licença, inclusive interação pela rede. Portanto:
+
+- protótipo/pesquisa: pode continuar usando o backend atual respeitando a AGPL;
+- produto aberto AGPL: pode monetizar implantação, suporte, operação, calibração e análise, mantendo as obrigações de fonte;
+- produto proprietário/fechado: obter licença Enterprise **ou** trocar o detector por backend permissivo validado;
+- não tratar separação em microserviço/processo como “atalho jurídico” sem confirmação escrita.
+
+Decisão e alternativas: [`../../docs/LICENCIAMENTO-MOTOR-VISAO.md`](../../docs/LICENCIAMENTO-MOTOR-VISAO.md).
 
 ## "Precisa treinar o modelo?"
 

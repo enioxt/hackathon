@@ -99,10 +99,12 @@ Antes de novas grandes telas, priorizar:
 Leia nesta ordem:
 1. llms.txt
 2. docs/POSICIONAMENTO-FILTER.md
-3. docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md
-4. docs/MODELO-OPERACIONAL-NA-FONTE.md
-5. docs/LICENCIAMENTO-MOTOR-VISAO.md
-6. docs/PROVAS.md
+3. docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md
+4. docs/STACK-E-RADAR-TECNOLOGICO.md
+5. docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md
+6. docs/MODELO-OPERACIONAL-NA-FONTE.md
+7. docs/LICENCIAMENTO-MOTOR-VISAO.md
+8. docs/PROVAS.md
 
 Arquivos de hackathon, pesquisa, pitch antigo e construcao/ são evidência histórica. Não copiar números, preços ou afirmações deles para a interface atual sem reconferir.
 
@@ -116,5 +118,6 @@ Antes de publicar ou commitar mudança pública, pergunte:
 - Estou movendo/duplicando vídeo sem necessidade?
 - Estou prometendo integração, precisão, causalidade, LGPD ou preço sem prova?
 - Há teste ou forma objetiva de conferir a mudança?
+- Estou escolhendo um provider por benchmark ou apenas porque é novidade?
 
 Se qualquer resposta for problemática, corrija antes do push.

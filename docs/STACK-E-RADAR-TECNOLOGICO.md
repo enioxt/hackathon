@@ -99,6 +99,17 @@ O ganho **não** é maior inteligência geral. O Jev abre mão de geração livr
 - não substitui humano em decisão sensível;
 - termos, SLA, residência de dados, segurança e contrato precisam ser avaliados antes de uso institucional.
 
+## 3b. Referência atual de preço — não é benchmark
+
+Em 21/09/2026, as páginas oficiais publicam:
+
+| Provider | Entrada | Saída | Observação |
+|---|---:|---:|---|
+| TypeSafe Jev | US$ 0,042 / 1M tokens | sem cobrança separada publicada | modelo especializado em decisão |
+| OpenAI GPT-5.6 Luna | US$ 0,20 / 1M tokens | US$ 1,20 / 1M tokens | LLM pequeno/generalista para alto volume |
+
+A tarifa de entrada do Jev é, portanto, cerca de **4,8× menor** que a tarifa padrão de entrada do Luna. Isso **não significa 4,8× menor custo total nem maior qualidade**: os modelos fazem coisas diferentes, o Luna também gera texto/raciocina, e ainda não executamos os dois no mesmo contrato com o mesmo dataset.
+
 ## 4. Outras opções relevantes
 
 ### A. LLM pequeno + Structured Outputs

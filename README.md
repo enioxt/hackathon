@@ -108,6 +108,8 @@ Todo número carrega uma etiqueta: **MEDIDO** (dado real) · **SIMULAÇÃO** (co
 | Você quer… | Abra |
 |---|---|
 | Entender a proposta | [`docs/pitch-5min.md`](docs/pitch-5min.md) · [`docs/canvas.html`](docs/canvas.html) |
+| Entender quem somos, como trabalhamos e o que podemos oferecer | [`docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md`](docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md) |
+| Ver Jev, alternativas e critérios de adoção | [`docs/STACK-E-RADAR-TECNOLOGICO.md`](docs/STACK-E-RADAR-TECNOLOGICO.md) |
 | Saber o que é protótipo, o que é MVP e o que falta | [`docs/REGRAS-E-ACEITE-MVP.md`](docs/REGRAS-E-ACEITE-MVP.md) |
 | Ver o que o diretor de mobilidade disse e o que isso muda | [`docs/fala-diretor-mobilidade.md`](docs/fala-diretor-mobilidade.md) |
 | Preço e como a prefeitura contrata | [`docs/pesquisa/precificacao-decisao.md`](docs/pesquisa/precificacao-decisao.md) · [`docs/convencional-x-proposta.md`](docs/convencional-x-proposta.md) |
@@ -148,5 +150,7 @@ Se você achar qualquer uma dessas coisas aqui dentro, é erro: avise que a gent
 ## Quer mudar alguma coisa?
 Clone, crie um ramo, proponha: passo a passo em [`CONTRIBUINDO.md`](CONTRIBUINDO.md). O melhor lugar para começar a cortar escopo é [`docs/REGRAS-E-ACEITE-MVP.md`](docs/REGRAS-E-ACEITE-MVP.md).
 
-## Time
-FILTER. Contribuições, autoria e como continuar depois do domingo: [`commons/`](commons/).
+## Time e método
+FILTER é o primeiro case de uma capacidade mais ampla: investigar um problema real, medir o ambiente existente, escolher a abordagem adequada, validar e deixar a cadeia de evidência auditável.
+
+Leia [`docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md`](docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md). Contribuições, autoria e continuidade: [`commons/`](commons/).

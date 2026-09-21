@@ -80,6 +80,26 @@ header.topo{margin-bottom:6px}
 .selo.medido{background:#16803c;color:#fff}
 .selo.simulacao{background:var(--amber-bg);color:#93670c}
 .selo.sintetico{background:#c0392b;color:#fff}
+/* ---- duas zonas: o que foi medido x o que é demonstração ---- */
+.zona{border-radius:16px;padding:12px;margin:0 0 14px;border:1.5px solid}
+.zona-medido{background:#f4faf6;border-color:#bfe6cf}
+.zona-demo{background:#fdf6ef;border-color:#eec9a4}
+.zona-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:2px 2px 10px}
+.zona-head .faixa{display:inline-flex;align-items:center;gap:7px;font-size:11.5px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px;color:#fff}
+.zona-medido .faixa{background:#16803c}
+.zona-demo .faixa{background:#c0392b}
+.zona-head .exp{font-size:12.5px;color:var(--muted);line-height:1.4;flex:1 1 280px;min-width:0}
+.zona-head .exp b{color:var(--text)}
+.zona .painel{border-color:var(--border2)}
+/* dentro da demonstração, verde daria a impressão de "conferido": vira neutro */
+.zona-demo .acao-card{background:#fff;border-color:#eec9a4}
+.zona-demo .acao-card .rot{color:#a8551a}
+.zona-demo .acao-card p{color:var(--muted)}
+@media (max-width:760px){.zona{padding:10px 8px}}
+/* fonte a um clique: o pé de cada cartão vira link para o arquivo que prova o número */
+.fonte-link{color:#1d4ed8;text-decoration:none;border-bottom:1px dotted #93b0f2}
+.fonte-link:hover{color:#16803c;border-bottom-color:#16803c}
+.fonte-link::after{content:" ↗";font-size:.9em;opacity:.75}
 .legenda-cores{font-size:12px;color:var(--muted);margin:2px 0 10px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .legenda-cores .selo{margin-left:0}
 .kpi-fonte{font-size:10.5px;color:var(--muted);margin-top:3px;line-height:1.3}
@@ -412,6 +432,12 @@ table.memoria tr:last-child td{border-bottom:0}
 
     <!-- ===================== VISÃO GERAL ===================== -->
     <section id="view-geral">
+
+      <div class="zona zona-medido">
+        <div class="zona-head">
+          <span class="faixa">Medido</span>
+          <span class="exp">Tudo daqui saiu de um <b>arquivo público</b> ou de um <b>vídeo gravado em Patos</b>. Cada cartão traz o link do arquivo que prova o número — dá para conferir a conta.</span>
+        </div>
       <div class="kpis kpis-compact" id="kpis-geral"></div>
 
       <div class="grade-cameras">
@@ -443,15 +469,10 @@ table.memoria tr:last-child td{border-bottom:0}
             <p class="h-sub">contado pela máquina nos vídeos gravados em Patos de Minas — nenhum número estimado</p>
             <div id="agora-card"></div>
           </div>
-          <div class="painel">
-            <h2>Exemplo de alertas (SIMULAÇÃO)</h2>
-            <p class="h-sub">Últimos eventos — DADO SINTÉTICO, para mostrar o formato</p>
-            <div id="lista-alertas"></div>
-          </div>
         </div>
       </div>
 
-      <div class="grade" style="margin-top:12px">
+      <div style="margin-top:12px">
         <div class="painel" id="mapa-real-parent">
           <div class="painel-head">
             <div>
@@ -479,6 +500,20 @@ table.memoria tr:last-child td{border-bottom:0}
           <p class="frase-mapa-real" id="frase-mapa-real">Cerca de 4 em cada 10 registros com coordenada caem em 5 quadrantes de 1 km (de uns 90). É por aí que a leitura começa.</p>
         </div>
 
+      </div>
+      </div><!-- /zona-medido -->
+
+      <div class="zona zona-demo">
+        <div class="zona-head">
+          <span class="faixa">Demonstração</span>
+          <span class="exp">Nada daqui é número de Patos de Minas. São valores <b>inventados</b>, só para mostrar o formato da tela e o que apareceria quando as fontes forem ligadas. <b>Não usar para decidir nada.</b></span>
+        </div>
+        <div class="grade">
+          <div class="painel">
+            <h2>Exemplo de alertas</h2>
+            <p class="h-sub">Últimos eventos — dado sintético, para mostrar o formato</p>
+            <div id="lista-alertas"></div>
+          </div>
         <div class="coluna-direita">
           <div class="acao-card">
             <div class="rot">Hipótese para avaliar</div>
@@ -494,6 +529,7 @@ table.memoria tr:last-child td{border-bottom:0}
       </div>
 
       <div class="graficos" id="graficos-geral"></div>
+      </div><!-- /zona-demo -->
     </section>
 
     <!-- ===================== DETALHE DO PONTO ===================== -->
@@ -1093,6 +1129,11 @@ function lerContagemDosVideos(cb){
     cb(st_contagemVideos = r);
   }
 }
+/* O pé de cada cartão vira link para a ficha do arquivo que prova o número.
+   Abre em aba nova porque o painel roda dentro de um iframe na casca. */
+function linkFonte(texto, ancora){
+  return '<a class="fonte-link" href="../dados/index.html#' + ancora + '" target="_blank" rel="noopener">' + texto + ' — conferir a fonte</a>';
+}
 var NOME_TIPO = {automovel:["automóvel","automóveis"], moto:["moto","motos"], onibus:["ônibus","ônibus"], caminhao:["caminhão","caminhões"], bicicleta:["bicicleta","bicicletas"], pedestre:["pedestre","pedestres"]};
 function listarTipos(porTipo){
   var partes = [];
@@ -1126,7 +1167,7 @@ function montarKPIsGeral(){
   /* duas origens diferentes de dado real — nunca misturar: registro oficial (anos) x o que a máquina contou no vídeo (minutos) */
   var seloOficial = seloHTML({texto:"DADO REAL · registro oficial",classe:"medido"});
   var seloVideo = seloHTML({texto:"DADO REAL · contado no vídeo",classe:"medido"});
-  var cartaoVideo = card("g", icoSino, "A máquina contou, nos vídeos gravados em Patos", '<span class="un">lendo as contagens…</span>', "…", r.fonteVideos);
+  var cartaoVideo = card("g", icoSino, "A máquina contou, nos vídeos gravados em Patos", '<span class="un">lendo as contagens…</span>', "…", linkFonte(r.fonteVideos, "videos"));
   wrap.appendChild(cartaoVideo);
   lerContagemDosVideos(function(v){
     var num = cartaoVideo.querySelector(".kpi-num"), nota = cartaoVideo.querySelector(".kpi-nota");
@@ -1135,9 +1176,9 @@ function montarKPIsGeral(){
     num.innerHTML = String(v.total) + ' <span class="un">em ' + min + ' min ' + seg + ' s de vídeo</span>' + seloVideo;
     if (nota) nota.innerHTML = listarTipos(v.porTipo) + " — " + v.videos + " vídeos gravados pelo time";
   });
-  wrap.appendChild(card("b", icoCarro, "Acidentes de trânsito registrados em Patos — em 8 anos", r.sinistros.toLocaleString("pt-BR")+seloOficial, "não vem do vídeo: é o registro público de 2018 a ago/2026", r.fonteRenaest));
-  wrap.appendChild(card("r", icoAlerta, "Desses acidentes, com moto envolvida", r.sinistrosComMotoPct+'% <span class="un">('+r.sinistrosComMoto.toLocaleString("pt-BR")+')</span>'+seloOficial, "não vem do vídeo: mesma base pública", r.fonteRenaest));
-  wrap.appendChild(card("a", icoOcorr, "Ocorrências com endereço no mapa — 2025 e início de 2026", r.ocorrenciasGeo.toLocaleString("pt-BR")+seloOficial, r.ocorrenciasGraves+" graves ou fatais · "+r.ocorrenciasFatais+" fatais — não vem do vídeo", r.fonteSejusp));
+  wrap.appendChild(card("b", icoCarro, "Acidentes de trânsito registrados em Patos — em 8 anos", r.sinistros.toLocaleString("pt-BR")+seloOficial, "não vem do vídeo: é o registro público de 2018 a ago/2026", linkFonte(r.fonteRenaest, "renaest")));
+  wrap.appendChild(card("r", icoAlerta, "Desses acidentes, com moto envolvida", r.sinistrosComMotoPct+'% <span class="un">('+r.sinistrosComMoto.toLocaleString("pt-BR")+')</span>'+seloOficial, "não vem do vídeo: mesma base pública", linkFonte(r.fonteRenaest, "renaest")));
+  wrap.appendChild(card("a", icoOcorr, "Ocorrências com endereço no mapa — 2025 e início de 2026", r.ocorrenciasGeo.toLocaleString("pt-BR")+seloOficial, r.ocorrenciasGraves+" graves ou fatais · "+r.ocorrenciasFatais+" fatais — não vem do vídeo", linkFonte(r.fonteSejusp, "ocorrencias")));
 }
 
 /* =================== lista de alertas (visão geral) =================== */
@@ -1324,7 +1365,11 @@ function montarAgora(){
       '<div class="agora-linha"><span>Vídeos de Patos de Minas já lidos</span><b>' + lidos.length + ' vídeos, ' + Math.round(totalSegundos) + ' s de imagem' + seloR + '</b></div>' +
       '<div class="agora-linha"><span>Tudo o que a máquina contou</span><b>' + totalObjetos + ' — ' + listarTipos(porTipo) + seloR + '</b></div>' +
       '<div class="agora-linha"><span>Vídeo com mais movimento</span><b>' + maior.n + ' em ' + Math.round(maior.seg) + ' s — ' + maior.nome + seloR + '</b></div>' +
-      '<div class="agora-linha" id="agora-concentracao"><span>Área mais concentrada</span><b><span class="un">calculando…</span></b></div>';
+      '<div class="agora-linha" id="agora-concentracao"><span>Área mais concentrada</span><b><span class="un">calculando…</span></b></div>' +
+      '<p style="margin:10px 0 0;font-size:11px;color:var(--muted);line-height:1.5">' +
+        'Os três primeiros saem das trilhas dos vídeos; o último, do arquivo da SEJUSP-MG. ' +
+        linkFonte("Contagem dos vídeos", "videos") + ' · ' + linkFonte("Ocorrências", "ocorrencias") +
+      '</p>';
     concentracaoDeOcorrencias();
   }
   /* Concentração: sai do dado aberto da SEJUSP-MG (dados/acidentes-...json), somado aqui em

@@ -1,4 +1,4 @@
-# Visão de Rota — PITCH DE 4 MINUTOS (versão de domingo 20/09, 09h20 — esta é a que vale)
+# Visão de Rota — PITCH DE 4 MINUTOS (HISTÓRICO DO HACKATHON)
 
 > Cerca de 480 palavras faladas. Frases curtas. O que está entre colchetes é origem do número: não se fala, serve para responder pergunta. Os slides citados são os do Rafael (imagens das 08:50).
 
@@ -32,6 +32,8 @@ Custos (320 mil, 6 milhões, 49 mil), dispensa de licitação, os 22.708 sinistr
 ### Dois cuidados com os slides do Rafael
 1. Nas telas dele aparecem seis fontes "Online". Na fala, só câmera é nossa hoje; as outras são previstas, com integração ainda não validada. Se a banca perguntar, a resposta é essa.
 2. A imagem da câmera dele mostra placa legível. Trocar pela nossa imagem anotada, ou cortar a imagem, antes de projetar a frase "não lê placa".
+
+> **Histórico.** A marca atual é **FILTER — Da imagem à evidência.** Este roteiro preserva a fala da banca e não deve ser usado como fonte atual de preços, estado de validação ou arquitetura. Para posicionamento atual, use `docs/POSICIONAMENTO-FILTER.md`.
 
 ---
 

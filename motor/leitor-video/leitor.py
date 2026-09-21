@@ -271,6 +271,9 @@ def main():
             "contagens": dict(contagens),
             "velocidade_media_kmh": None,
             "origem": "medido",
+            # "medido" = veio de uma fonte real; não significa acurácia validada.
+            "validacao": "nao_validado",
+            "modelo": str(nome_modelo),
         }
         saida_f.write(json.dumps(leitura, ensure_ascii=False) + "\n")
         saida_f.flush()

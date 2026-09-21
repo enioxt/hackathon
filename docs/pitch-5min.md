@@ -9,7 +9,7 @@
 "A mesma câmera. Outra pergunta. Quantos passam aqui? De que tipo? Quanto tempo esperam? O que mudou depois que a prefeitura mexeu nesta rua? A câmera vira contagem. A contagem vira memória. E a rua passa a ter história."
 
 ## 0:55 — O limite que é a nossa marca (25 s)
-"A gente conta. A gente não identifica. O sistema não guarda rosto e não lê placa. Não é borrar depois: é não capturar. Sai da câmera um número: doze carros, três motos, um ônibus, fila de quarenta metros."
+"A gente conta. A gente não identifica. O sistema não guarda rosto e não lê placa. O quadro é lido para extrair o número e descartado — não é borrar depois, é não reter. Sai da câmera um número: doze carros, três motos, um ônibus, fila de quarenta metros."
 
 ## 1:20 — Mostrar (70 s) · TELA: visão geral → um ponto → antes e depois
 "Esta é a cidade vista pelo gestor. Cada ponto tem fluxo, fila e espera." (clicar num ponto) "Aqui o ponto por dentro: o que passou no último minuto, por tipo, por sentido." (abrir o histórico) "E aqui o que interessa: a prefeitura mudou o tempo do semáforo neste cruzamento. Antes, trinta e dois segundos de espera. Depois, dezoito. Melhorou, e agora está escrito. Tudo o que vocês veem nesta tela está marcado: medido, simulação ou dado de demonstração."
@@ -30,7 +30,7 @@
 Custos (320 mil, 6 milhões, 49 mil), dispensa de licitação, os 22.708 sinistros, participação com créditos, avisos entre órgãos, câmera na viatura. Tudo isso fica para pergunta da banca — as respostas curtas continuam mais abaixo neste arquivo.
 
 ### Dois cuidados com os slides do Rafael
-1. Nas telas dele aparecem seis fontes "Online". Na fala, só câmera é nossa hoje; as outras são "prontas para ligar". Se a banca perguntar, a resposta é essa.
+1. Nas telas dele aparecem seis fontes "Online". Na fala, só câmera é nossa hoje; as outras são previstas, com integração ainda não validada. Se a banca perguntar, a resposta é essa.
 2. A imagem da câmera dele mostra placa legível. Trocar pela nossa imagem anotada, ou cortar a imagem, antes de projetar a frase "não lê placa".
 
 ---

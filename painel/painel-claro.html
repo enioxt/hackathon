@@ -646,7 +646,7 @@ function montarFilaFontes(){
   var ativa = el("div","fonte-badge ativa",'<span class="dot"></span> Câmeras — demonstração');
   wrap.appendChild(ativa);
   ["Semáforos","Transporte coletivo","Estacionamento rotativo","Ocorrências"].forEach(function(n){
-    wrap.appendChild(el("div","fonte-badge inativa",'<span class="dot"></span> '+n+' — pronta para ligar'));
+    wrap.appendChild(el("div","fonte-badge inativa",'<span class="dot"></span> '+n+' — integração não validada'));
   });
 }
 
@@ -1348,7 +1348,7 @@ document.addEventListener("click", function(ev){
   else if (acao === "registrar") abrirRegistro(id);
 });
 
-/* =================== itens "prontas para ligar" (não clicáveis, mas com feedback acessível) =================== */
+/* =================== itens "integração não validada" (não clicáveis, mas com feedback acessível) =================== */
 document.getElementById("off-list").addEventListener("click", function(ev){
   var b = ev.target.closest ? ev.target.closest(".off-item") : null;
   if (!b) return;

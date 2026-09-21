@@ -764,7 +764,12 @@ var CORES = {verde:"#1f9d55", ambar:"#e2a129", vermelho:"#d6444a"};
 function pontoPorId(id){ return PONTOS.filter(function(p){ return p.id === Number(id); })[0] || PONTOS[6]; }
 
 /* =================== fontes de dados =================== */
-var API_BASE = (location.protocol === "file:") ? null : "";
+/* Publicado (GitHub Pages) ou aberto como arquivo, não existe servidor: /api/estado cairia
+   na raiz do domínio e voltaria 404 a cada abertura. O teste é o mesmo que a página já usa
+   para decidir a rota — assim uma instalação de verdade, em domínio próprio, continua
+   falando com a API normalmente. */
+var SEM_SERVIDOR = location.protocol === "file:" || /github.io$/.test(location.hostname);
+var API_BASE = SEM_SERVIDOR ? null : "";
 var estadoAPI = null; // {cameras:[...]} se a API responder
 
 function origemParaSelo(origem){

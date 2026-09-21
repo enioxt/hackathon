@@ -395,7 +395,18 @@ function rastroVotos(id){
   for(var i=0;i<arr.length;i++){ if(arr[i].rastro === id) return arr[i]; }
   return null;
 }
+/* Mesmo caso do painel: no site publicado não há servidor de votação, e perguntar só
+   produz 404 no console. Numa instalação de verdade, em domínio próprio, continua ligado. */
+function semServidorDeVotos(){
+  return location.protocol === "file:" || /github.io$/.test(location.hostname);
+}
 function buscarResumoVotos(){
+  if(semServidorDeVotos()){
+    st.votosDisponivel = false; st.votosResumo = null;
+    if(st.votosPoll){ clearInterval(st.votosPoll); st.votosPoll = null; }
+    atualizarPainelRevisao();
+    return;
+  }
   fetch("/votos?clipe=" + encodeURIComponent(clipeIdAtual()))
     .then(function(r){ if(!r.ok) throw new Error("http "+r.status); return r.json(); })
     .then(function(resumo){

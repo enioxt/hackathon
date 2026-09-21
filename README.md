@@ -3,7 +3,7 @@
 
 > *Ruas com memória. Mobilidade com previsibilidade.*
 
-**O que é, em 3 linhas:** lê as câmeras que a cidade já tem para **contar** o trânsito — sem rosto, sem placa, sem guardar imagem — e mede o antes e o depois de cada mudança na rua. Cada número que aparece numa tela carrega a etiqueta de onde veio (dado real medido, simulação sobre dado real, ou dado sintético). Protótipo avançado, ainda não MVP — o que já roda e o que falta estão em [`docs/REGRAS-E-ACEITE-MVP.md`](docs/REGRAS-E-ACEITE-MVP.md).
+**O que é, em 3 linhas:** uma **camada auditável de observabilidade da mobilidade**: processa temporariamente vídeo que já existe para extrair medições agregadas, registra de onde cada número veio e compara o antes e o depois de intervenções na rua. No fluxo padrão não há OCR de placa nem reconhecimento facial, e os quadros não são persistidos. Protótipo avançado, ainda não MVP — `MEDIDO` descreve a origem real da observação, não uma promessa de acurácia.
 
 **Os 4 links que importam:**
 
@@ -13,6 +13,8 @@
 | Entrar como gestor | https://enioxt.github.io/hackathon/demo/entrar.html |
 | Como a máquina conta (os 14 números, com o comando que refaz cada um) | [`docs/PROVAS.md`](docs/PROVAS.md) |
 | Código do leitor de vídeo | [`motor/leitor-video/`](motor/leitor-video/) |
+
+> **Direção canônica após o hackathon (21/09/2026):** o produto não é o YOLO nem um CCO completo. É a cadeia auditável **fonte → medição → modelo → validação → intervenção → comparação → prova**. Leia [`docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md`](docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md) e o gate comercial do motor em [`docs/LICENCIAMENTO-MOTOR-VISAO.md`](docs/LICENCIAMENTO-MOTOR-VISAO.md).
 
 **Como rodar (3 comandos):**
 
@@ -43,7 +45,7 @@ Os números abaixo vêm de `docs/ficha-tecnica-medida.json` e podem ser refeitos
 
 | Parte | Tecnologia | Por quê |
 |---|---|---|
-| Leitura de vídeo | Python · YOLO11n (detecção) · ByteTrack (rastreio) · OpenCV | modelo pequeno, roda em CPU comum |
+| Leitura de vídeo | Python · Ultralytics YOLO11n (detecção) · ByteTrack (rastreio) · OpenCV | backend atual do protótipo; uso comercial/produção passa por gate de licença e pode trocar de detector |
 | Porta de entrada e dados | Bun + TypeScript · SQLite · validação de esquema · verificador de dado pessoal | recusa o que tiver placa, nome ou documento |
 | Decisão | regra escrita para número · classificador de texto (Jev) só para relato livre · dúvida vai para pessoa | número decide por regra, não por modelo |
 | Tela e publicação | HTML/CSS/JS sem framework · SVG · GitHub Pages · GitHub Actions | abre em qualquer navegador, sem instalar |
@@ -66,12 +68,13 @@ Os números abaixo vêm de `docs/ficha-tecnica-medida.json` e podem ser refeitos
 | Respostas dos assistentes de IA na construção | 6.605, em 60 agentes |
 | Sala gravada e transcrita | 200 min · 18.510 palavras |
 | Velocidade do leitor nesta máquina (só CPU) | 1,6 quadro/s em 1920 px com rastreio · 5,8 em 1280 px só detecção |
+| Primeira conferência manual em vídeo de Patos | vídeo 3: carro 4 manual / 4 leitor; moto 1 / 1; ônibus 1 / 0 — **amostra pequena, não é taxa de acurácia do sistema** |
 
 **O que temos**: leitor que conta por tipo · porta de entrada que recusa dado pessoal · antes e depois por ponto · origem marcada em todo número · provas recalculáveis · código aberto.
 
-**O que ainda não temos**: acesso às câmeras da cidade · contagem conferida à mão num vídeo de Patos · ligação com semáforo, ônibus e estacionamento · medição de erro por tipo de veículo · operação contínua fora de um notebook · acordo com os donos das imagens.
+**O que ainda não temos**: acesso às câmeras da cidade · amostra de validação grande o bastante para publicar acurácia por tipo/condição · integrações reais validadas com semáforo, ônibus e estacionamento · operação contínua fora de um notebook · instrumento jurídico para acesso às imagens · decisão de licença/backend para produção comercial.
 
-O sistema analisa vídeo **já gravado**, com atraso, de propósito: contar trânsito e medir antes e depois pede a mesma hora de muitos dias, não o instante. Não transmite imagem e não guarda rosto nem placa.
+O sistema analisa vídeo **já gravado**, com atraso, de propósito: contar trânsito e medir antes e depois pede a mesma hora de muitos dias, não o instante. O processo recebe e analisa os quadros temporariamente; no fluxo padrão, não faz OCR/reconhecimento de identidade e não persiste os quadros. A primeira conferência manual existe, mas ainda é pequena demais para sustentar uma promessa de acurácia.
 
 ## Veja tudo em 1 minuto (abre no celular)
 

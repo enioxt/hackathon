@@ -76,7 +76,7 @@ export function validarLeitura(l: unknown): Resultado {
   if (pessoal) return { ok: false, motivo: pessoal };
   if (!l || typeof l !== "object") return { ok: false, motivo: "leitura não é um objeto" };
   const o = l as Record<string, unknown>;
-  const permitidos = new Set(["fonte_id", "camera_id", "ts", "janela_s", "contagens", "fila_m", "velocidade_media_kmh", "origem"]);
+  const permitidos = new Set(["fonte_id", "camera_id", "ts", "janela_s", "contagens", "fila_m", "velocidade_media_kmh", "origem", "validacao", "modelo"]);
   for (const k of Object.keys(o)) if (!permitidos.has(k)) return { ok: false, motivo: `campo não permitido: ${k}` };
   if (typeof o.fonte_id !== "string" || !o.fonte_id) return { ok: false, motivo: "fonte_id ausente ou vazio" };
   if (typeof o.camera_id !== "string" || !o.camera_id) return { ok: false, motivo: "camera_id ausente ou vazio" };
@@ -94,6 +94,8 @@ export function validarLeitura(l: unknown): Resultado {
   if (o.fila_m != null && (typeof o.fila_m !== "number" || o.fila_m < 0)) return { ok: false, motivo: "fila_m deve ser número ≥ 0" };
   if (o.velocidade_media_kmh != null && (typeof o.velocidade_media_kmh !== "number" || o.velocidade_media_kmh < 0 || o.velocidade_media_kmh > 200)) return { ok: false, motivo: "velocidade_media_kmh deve ser número entre 0 e 200" };
   if (o.origem !== "medido" && o.origem !== "sintetico") return { ok: false, motivo: 'origem deve ser "medido" ou "sintetico"' };
+  if (o.validacao != null && o.validacao !== "nao_validado" && o.validacao !== "amostra_manual" && o.validacao !== "validado") return { ok: false, motivo: 'validacao deve ser "nao_validado", "amostra_manual" ou "validado"' };
+  if (o.modelo != null && (typeof o.modelo !== "string" || o.modelo.length < 1 || o.modelo.length > 160)) return { ok: false, motivo: "modelo deve ser string de 1 a 160 caracteres" };
   return { ok: true };
 }
 

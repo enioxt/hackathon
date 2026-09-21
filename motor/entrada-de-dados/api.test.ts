@@ -41,6 +41,7 @@ function get(caminho: string): Promise<Response> {
 const leituraBase = () => ({
   fonte_id: FONTE_ID, camera_id: "cam-teste-01", ts: "2026-09-19T20:00:00Z",
   janela_s: 60, contagens: { automovel: 10, moto: 3 }, origem: "medido" as const,
+  validacao: "nao_validado" as const, modelo: "yolo11n.pt",
 });
 
 test("aceita leitura válida", async () => {
@@ -113,6 +114,8 @@ test("/api/estado muda depois de um POST", async () => {
   const depois = await (await get("/api/estado")).json();
   expect(depois.cameras.length).toBe(1);
   expect(depois.cameras[0].ultima_leitura.automovel).toBe(10);
+  expect(depois.cameras[0].ultima_leitura.validacao).toBe("nao_validado");
+  expect(depois.cameras[0].ultima_leitura.modelo).toBe("yolo11n.pt");
 });
 
 test("embaralhar a ordem do lote não muda o agregado", async () => {

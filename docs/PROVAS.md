@@ -36,15 +36,16 @@ Ele já pegou um erro nosso: dizíamos "1.100 acidentes, 19 fatais". São **18 o
 | A porta de entrada recusa placa, CPF e imagem, e só grava o que é válido | [`motor/entrada-de-dados/api.test.ts`](../motor/entrada-de-dados/api.test.ts) — 11 testes | `cd motor/entrada-de-dados && bun test api.test.ts` |
 | O leitor conta 1 vez por veículo, separa sentidos e não grava imagem | [`motor/leitor-video/test_leitor.py`](../motor/leitor-video/test_leitor.py) — 7 testes | `cd motor/leitor-video && python3 -m pytest -q` |
 | Vídeo → leitor → porta de entrada → estado, de ponta a ponta | feito 1 vez em 19/09, com vídeo de licença livre | comando no [`LEIA.md`](../motor/leitor-video/LEIA.md) |
+| Primeira comparação pessoa × máquina em vídeo de Patos | [`demo/patos-real/relatorio.html`](../demo/patos-real/relatorio.html): carro 4/4, moto 1/1, ônibus 1/0 | é **amostra inicial**, não taxa de acurácia; ampliar antes de qualquer promessa |
 | O hub de ideias se atualiza sozinho | [rotina no repositório público](https://github.com/enioxt/hackathon/blob/main/.github/workflows/hub.yml) | testado com uma ideia de teste, depois removida |
 
 ## DADO SINTÉTICO — inventado para demonstrar, e está escrito na tela
-Tudo que é fluxo de veículos, fila, tempo de espera, alertas, vagas, frota, parede de monitores e efeito de intervenção. Gerado por fórmula com semente fixa (mesma entrada, mesmo número). **Não é medição e não é previsão.**
+No **painel de demonstração**, os cenários de fluxo/fila/espera, alertas, vagas, frota e efeito de intervenção continuam sendo gerados por fórmula com semente fixa quando marcados como sintéticos. Os vídeos reais de Patos e as medições publicadas em `demo/patos-real/` são outra classe de evidência. **Sintético não é medição nem previsão.**
 
 ## O que AINDA NÃO tem prova — e não entra no pitch como fato
 | Afirmação | Situação |
 |---|---|
-| Qualidade da contagem do leitor de vídeo | não medida com vídeo de rua; falta filmar e contar à mão |
+| Qualidade da contagem do leitor de vídeo | existe uma primeira amostra manual pequena em vídeo de Patos (4/4 carros, 1/1 moto, 1/0 ônibus); ainda falta amostra maior, múltiplos horários/ângulos e erro por classe antes de publicar acurácia |
 | Número de câmeras da cidade | três versões: 240 (imprensa), 300 e 700 (ditas em reunião). Nenhum documento resolve |
 | "R$ 120 mil por radar" | não encontrado em contrato público; provável confusão com R$ 150 a 200 mil por cruzamento inteligente, dito pelo diretor |
 | Custo de um centro de controle completo "da ordem de R$ 320 mil/mês" | fala do diretor, estimativa futura, transcrição automática; não é documento |

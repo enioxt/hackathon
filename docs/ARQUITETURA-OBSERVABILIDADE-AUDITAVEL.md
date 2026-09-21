@@ -12,6 +12,25 @@ O detector não é o produto. YOLO, RT-DETR, YOLOX ou outro modelo são backends
 
 O sistema não deve comandar semáforo, multar, identificar pessoa/veículo ou afirmar causalidade automaticamente. Ele observa, mede, compara e mostra limites.
 
+## 2. Princípio de localidade — o dado fica na fonte
+
+A arquitetura padrão é **source-local / near-source**. Patos já possui captação, transmissão, visualização e armazenamento para a finalidade original das câmeras. O Visão de Rota não deve duplicar essa infraestrutura por padrão.
+
+**Regra:** levar o processamento ao ambiente do dado, não levar o acervo de vídeo para outro ambiente.
+
+Modos aceitos:
+
+1. processar gravação diretamente no VMS/NVR/DVR ou armazenamento existente;
+2. executar worker na mesma rede/central e buscar apenas a janela necessária;
+3. consumir stream já existente quando for a única interface disponível, mesmo que o processamento aconteça com atraso;
+4. exportar temporariamente um trecho apenas quando a integração in-place não for possível, apagando a cópia de trabalho após o processamento.
+
+Não há requisito de tempo real. O parâmetro técnico central é o **RTF (tempo de processamento ÷ duração do vídeo)** e o SLA do caso de uso.
+
+Se uma câmera possui retenção curta, priorizar seu agendamento antes da sobrescrita; não transformar automaticamente isso em novo armazenamento permanente.
+
+Ver: `MODELO-OPERACIONAL-NA-FONTE.md`.
+
 ## 2. Taxonomia de evidência
 
 Não usar um selo único para responder perguntas diferentes. Cada número deve carregar três dimensões:
@@ -75,7 +94,7 @@ Antes de produção paga, escolher explicitamente uma rota: Ultralytics Enterpri
 | G3 · integração | pelo menos uma fonte municipal real integrada e monitorada |
 | G4 · intervenção | um antes/depois real com baseline e limitações documentadas |
 | G5 · segurança | autenticação, autorização, identidade de fonte, anti-replay e auditoria |
-| G6 · economia | custo por hora de vídeo + suporte + licença medidos; preço fecha a conta |
+| G6 · economia | RTF, volume processado, recursos, suporte e licença medidos no ambiente real; preço fecha a conta |
 
 ## 8. Próxima sprint
 
@@ -85,6 +104,7 @@ Antes de produção paga, escolher explicitamente uma rota: Ultralytics Enterpri
 2. separar origem de validação em toda a interface;
 3. escolher e benchmarkar um backend permissivo contra o backend atual;
 4. fechar o gate de licença comercial;
-5. integrar uma fonte real, não mais um mock;
-6. registrar uma intervenção real e seu baseline;
-7. publicar relatório de erro, custo e proveniência.
+5. inventariar VMS/NVR, retenção, interfaces e capacidade disponível em uma fonte real;
+6. processar uma janela sem criar armazenamento/streaming paralelo;
+7. registrar RTF, recursos, erro e proveniência;
+8. registrar uma intervenção real e seu baseline.

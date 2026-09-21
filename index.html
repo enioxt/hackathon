@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>FILTERS — a mesma câmera, outra pergunta</title>
-<meta name="description" content="Hackathon Cidades Inteligentes de Patos de Minas 2026. A cidade já tem as câmeras; a gente faz a segunda leitura do que elas veem — sem rosto, sem placa.">
+<title>FILTER — Da imagem à evidência</title>
+<meta name="description" content="FILTER: da imagem à evidência. Uma camada auditável que transforma vídeo já existente em medições de mobilidade, com processamento próximo da fonte e sem duplicar o acervo por padrão.">
 <style>
   :root{
     --bg:#0B1B2B;
@@ -388,7 +388,7 @@ section[id],div[id]{scroll-margin-top:96px}
 
 <header class="top">
   <div class="top-inner">
-    <div class="brand">FILT<span>ERS</span></div>
+    <div class="brand">FILT<span>ER</span></div>
     <nav class="top-links">
       <a href="#numeros">O problema</a>
       <a href="#patos-real">Patos real</a>
@@ -451,9 +451,9 @@ section[id],div[id]{scroll-margin-top:96px}
     </svg>
   </div>
   <div class="wrap hero-content">
-    <p class="kicker fade">Hackathon Cidades Inteligentes · Patos de Minas · 2026</p>
+    <p class="kicker fade">FILTER · Da imagem à evidência.</p>
     <h1 class="hero-title fade">A mesma câmera. Outra pergunta.</h1>
-    <p class="hero-sub fade">A cidade já tem câmeras. O protótipo faz uma segunda leitura: quantos passam, quanto de fila, onde há conflito de tráfego — sem identificar rosto ou placa.</p>
+    <p class="hero-sub fade">A cidade já tem câmeras e armazenamento. O FILTER acrescenta uma segunda leitura: transforma janelas de vídeo já existentes em medidas auditáveis, sem OCR de placa nem reconhecimento facial.</p>
 
     <div class="painel-hero fade">
       <div class="painel-hero-txt">
@@ -464,7 +464,7 @@ section[id],div[id]{scroll-margin-top:96px}
           <p class="lbl">ou entre por outro caminho</p>
           <div class="linha">
             <a class="layout-btn" href="demo/apresentar.html">O fluxo inteiro, em 6 passos</a>
-            <a class="layout-btn" href="demo/filters.html">O pitch FILTERS</a>
+            <a class="layout-btn" href="demo/filters.html">O pitch FILTER</a>
             <a class="layout-btn" href="demo/solucoes.html">O que propomos, frente por frente</a>
             <a class="layout-btn" href="demo/ficha-tecnica.html">Ficha técnica: stack, modelos de IA e custo</a>
           </div>
@@ -493,15 +493,15 @@ section[id],div[id]{scroll-margin-top:96px}
         <video src="demo/camadas/patos-6.mp4"
                autoplay muted loop playsinline preload="metadata"
                style="width:100%;max-width:560px;display:block;margin:0 auto;border-radius:14px;background:#000;box-shadow:0 8px 30px rgba(0,0,0,.35)"></video>
-        <p class="lede" style="font-size:.85rem;margin-top:10px;text-align:center">Avenida filmada do alto pelo time. Caixa, tipo, linha de contagem e placar são desenhados pela nossa máquina; pessoas e placas saem borradas.</p>
+        <p class="lede" style="font-size:.85rem;margin-top:10px;text-align:center">Avenida filmada do alto pelo time. Caixa, tipo, linha de contagem e placar são desenhados pela máquina; o vídeo publicado para demonstração foi preparado com pessoas e placas borradas.</p>
       </div>
       <div>
         <div class="quote-nums" style="margin-bottom:20px;">
-          <div class="mini-num"><b>44</b><span>veículos e pessoas contados em 5 min 45 s de vídeo (6 vídeos) <span class="tag tag-medido" style="margin:6px 0 0;display:inline-block">Contado no vídeo</span></span></div>
-          <div class="mini-num"><b>4 + 1</b><span>carros e moto: a pessoa contou à mão, a máquina contou igual (1 vídeo conferido) <span class="tag tag-medido" style="margin:6px 0 0;display:inline-block">Conferido</span></span></div>
-          <div class="mini-num"><b>6,5 a 10 q/s</b><span>quadros por segundo do leitor, num notebook sem placa de vídeo <span class="tag tag-medido" style="margin:6px 0 0;display:inline-block">Medido</span></span></div>
+          <div class="mini-num"><b>118</b><span>trilhas/objetos distintos identificados pela máquina em 6 min 12 s de vídeo (8 vídeos) <span class="tag tag-medido" style="margin:6px 0 0;display:inline-block">Derivado de vídeo real</span></span></div>
+          <div class="mini-num"><b>1 amostra</b><span>no vídeo 3, pessoa e máquina coincidiram em 4 carros e 1 moto; 1 ônibus visto pela pessoa não foi contado pela máquina <span class="tag tag-medido" style="margin:6px 0 0;display:inline-block">Validação inicial</span></span></div>
+          <div class="mini-num"><b>RTF</b><span>tempo de processamento ÷ duração do vídeo: é a próxima métrica a medir no ambiente real antes de dimensionar hardware ou preço <span class="tag" style="margin:6px 0 0;display:inline-block">Próximo gate</span></span></div>
         </div>
-        <p class="lede" style="margin-bottom:14px;">É uma amostra curta, de celular na mão. Serve para mostrar que o leitor funciona aqui — não é contagem de tráfego.</p>
+        <p class="lede" style="margin-bottom:14px;">É uma amostra curta, gravada pelo time. Serve para provar o pipeline e expor erros; ainda não sustenta uma taxa de acurácia para o trânsito de Patos.</p>
         <p class="lede" style="margin-bottom:20px;">O leitor aceita vídeo deitado ou em pé, de câmera fixa ou de celular, em vários formatos de arquivo — o que interessa é a imagem.</p>
         <a class="btn btn-amber" href="demo/patos-real/relatorio.html">Ver o relatório completo →</a>
       </div>
@@ -513,26 +513,26 @@ section[id],div[id]{scroll-margin-top:96px}
   <div class="wrap">
     <p class="eyebrow">Segurança e guarda dos dados</p>
     <h2>O dado fica onde está</h2>
-    <p class="lede">Não copiamos o acervo de imagens da cidade. O leitor roda ao lado do gravador que já existe, lê o vídeo ali mesmo e devolve só o número — tipo, quantidade, janela de tempo. Nada de imagem viaja, nada fica guardado em dobro.</p>
+    <p class="lede">A arquitetura preferida não copia o acervo da cidade: o processamento roda no mesmo ambiente ou o mais perto possível do VMS/NVR existente, lê apenas as janelas necessárias e persiste medidas e proveniência. Exportação temporária de vídeo é exceção quando a integração local não for possível.</p>
 
     <div class="flow-diagram fade" role="img" aria-label="Câmera e gravador da cidade, já existentes, ligam ao leitor; o leitor devolve tipo, quantidade e janela de tempo ao painel">
       <div class="flow-step"><b>Câmera + gravador</b>já existem na cidade</div>
       <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       <div class="flow-step"><b>Leitor</b>roda ao lado do gravador</div>
       <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
-      <div class="flow-step"><b>Sai só</b>tipo · quantidade · janela de tempo</div>
+      <div class="flow-step"><b>Persistimos</b>medidas · modelo · validação · tempo</div>
       <div class="flow-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
       <div class="flow-step"><b>Painel</b>do gestor</div>
     </div>
     <div class="flow-no fade">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4l16 16M4 20L20 4"/></svg>
-      <span>O que não sai do gravador: <s>imagem</s> · <s>rosto</s> · <s>placa</s></span>
+      <span>O que não precisa ser duplicado por padrão: <s>acervo de vídeo</s> · <s>recortes de rosto</s> · <s>recortes de placa</s></span>
     </div>
 
     <div class="selos-row fade">
       <div class="selo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
-        <b>Não guarda imagem</b>o desenho é ler e descartar, não acumular.
+        <b>Não duplica vídeo por padrão</b>o desenho é processar perto da fonte e persistir medidas, não outro acervo.
       </div>
       <div class="selo">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
@@ -793,7 +793,7 @@ section[id],div[id]{scroll-margin-top:96px}
       <p class="pergunta-resposta" id="resp-camera" hidden><b>Precisa de câmera nova?</b> Não pede câmera nova. O piloto usa uma câmera que a cidade já tem, com a rua e o horário definidos junto com a secretaria.</p>
       <p class="pergunta-resposta" id="resp-imagens" hidden><b>Onde ficam as imagens?</b> Ficam onde sempre ficaram: no gravador da cidade. O leitor roda ao lado, lê e devolve só o número — não copia o acervo de vídeo.</p>
       <p class="pergunta-resposta" id="resp-funciona" hidden><b>O que já funciona hoje?</b> O leitor de vídeo conta por tipo e já processou vídeo de Patos gravado pelo time. Existe uma primeira conferência manual pequena, ainda insuficiente para prometer acurácia. A porta de entrada valida e recusa dado pessoal em payloads numéricos. O painel demonstra antes e depois; as provas públicas continuam recalculáveis.</p>
-      <p class="pergunta-resposta" id="resp-falta" hidden><b>O que ainda falta?</b> Acesso às câmeras da cidade, contagem conferida à mão num vídeo local, ligação com semáforo, ônibus e estacionamento, e operação contínua fora do notebook do time.</p>
+      <p class="pergunta-resposta" id="resp-falta" hidden><b>O que ainda falta?</b> Inventariar um VMS/NVR real da cidade, medir retenção e RTF, ampliar a validação humana por classe/condição, resolver o backend/licença para produção e testar uma integração municipal real sem criar armazenamento ou streaming paralelo.</p>
     </div>
   </div>
 </section>
@@ -801,8 +801,8 @@ section[id],div[id]{scroll-margin-top:96px}
 
 <footer>
   <div class="wrap">
-    <div class="fbrand">FILTERS · filtragem e análise inteligente de dados de mobilidade</div>
-    <p class="motto">Ruas com memória. Mobilidade com previsibilidade.</p>
+    <div class="fbrand">FILTER · Da imagem à evidência.</div>
+    <p class="motto">O vídeo já existe. O FILTER transforma o que a cidade já vê em medidas auditáveis.</p>
     <p>Dados abertos: SEJUSP-MG (ocorrências de trânsito) · demais fontes listadas no hub e no repositório.</p>
     <p>Projeto do Hackathon Cidades Inteligentes de Patos de Minas, 2026 — em desenvolvimento, não é serviço em produção da prefeitura.</p>
     <p><a href="demo/index.html" style="color:var(--amber);">Ver todas as telas do protótipo →</a></p>

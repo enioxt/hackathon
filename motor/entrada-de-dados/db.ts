@@ -10,6 +10,8 @@ export type LeituraEntrada = {
   fonte_id: string; camera_id: string; ts: string; janela_s: number;
   contagens: Contagens; fila_m?: number; velocidade_media_kmh?: number;
   origem: "medido" | "sintetico";
+  validacao?: "nao_validado" | "amostra_manual" | "validado";
+  modelo?: string;
 };
 
 export type EventoEntrada = {
@@ -49,6 +51,8 @@ export function abrirBanco(caminho: string): Database {
       fila_m REAL,
       velocidade_media_kmh REAL,
       origem TEXT NOT NULL,
+      validacao TEXT NOT NULL DEFAULT 'nao_validado',
+      modelo TEXT,
       recebido_em TEXT NOT NULL
     );
     CREATE INDEX IF NOT EXISTS idx_leituras_camera_ts ON leituras(camera_id, ts);
@@ -73,20 +77,26 @@ export function abrirBanco(caminho: string): Database {
     );
     CREATE INDEX IF NOT EXISTS idx_recusas_fonte_recebido ON recusas(fonte_id, recebido_em);
   `);
+
+  // Migração aditiva para bancos criados antes da separação origem × validação.
+  const colunasLeituras = db.query("PRAGMA table_info(leituras)").all() as Array<{ name: string }>;
+  if (!colunasLeituras.some((c) => c.name === "validacao")) db.exec("ALTER TABLE leituras ADD COLUMN validacao TEXT NOT NULL DEFAULT 'nao_validado'");
+  if (!colunasLeituras.some((c) => c.name === "modelo")) db.exec("ALTER TABLE leituras ADD COLUMN modelo TEXT");
   return db;
 }
 
 /** recebidoEm: parâmetro só para teste (simular fonte que recebeu há muito tempo); em produção nunca é passado — usa o relógio real. */
 export function inserirLeitura(db: Database, l: LeituraEntrada, recebidoEm?: string): void {
   db.query(`
-    INSERT INTO leituras (fonte_id, camera_id, ts, janela_s, automovel, moto, onibus, caminhao, bicicleta, pedestre, fila_m, velocidade_media_kmh, origem, recebido_em)
-    VALUES ($fonte_id, $camera_id, $ts, $janela_s, $automovel, $moto, $onibus, $caminhao, $bicicleta, $pedestre, $fila_m, $velocidade_media_kmh, $origem, $recebido_em)
+    INSERT INTO leituras (fonte_id, camera_id, ts, janela_s, automovel, moto, onibus, caminhao, bicicleta, pedestre, fila_m, velocidade_media_kmh, origem, validacao, modelo, recebido_em)
+    VALUES ($fonte_id, $camera_id, $ts, $janela_s, $automovel, $moto, $onibus, $caminhao, $bicicleta, $pedestre, $fila_m, $velocidade_media_kmh, $origem, $validacao, $modelo, $recebido_em)
   `).run({
     $fonte_id: l.fonte_id, $camera_id: l.camera_id, $ts: l.ts, $janela_s: l.janela_s,
     $automovel: l.contagens.automovel ?? 0, $moto: l.contagens.moto ?? 0, $onibus: l.contagens.onibus ?? 0,
     $caminhao: l.contagens.caminhao ?? 0, $bicicleta: l.contagens.bicicleta ?? 0, $pedestre: l.contagens.pedestre ?? 0,
     $fila_m: l.fila_m ?? null, $velocidade_media_kmh: l.velocidade_media_kmh ?? null,
-    $origem: l.origem, $recebido_em: recebidoEm ?? new Date().toISOString(),
+    $origem: l.origem, $validacao: l.validacao ?? "nao_validado", $modelo: l.modelo ?? null,
+    $recebido_em: recebidoEm ?? new Date().toISOString(),
   });
 }
 
@@ -115,7 +125,8 @@ export function registrarRecusa(db: Database, fonte_id: string | null, tipo: str
 type LinhaLeitura = {
   fonte_id: string; camera_id: string; ts: string; janela_s: number;
   automovel: number; moto: number; onibus: number; caminhao: number; bicicleta: number; pedestre: number;
-  fila_m: number | null; velocidade_media_kmh: number | null; origem: string; recebido_em: string;
+  fila_m: number | null; velocidade_media_kmh: number | null; origem: string;
+  validacao: string; modelo: string | null; recebido_em: string;
 };
 
 function totalVeiculos(l: { automovel: number; moto: number; onibus: number; caminhao: number }): number {

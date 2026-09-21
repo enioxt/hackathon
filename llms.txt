@@ -1,5 +1,7 @@
-# Visão de Rota
+# FILTER
 
+> **Da imagem à evidência.** Nome público atual: FILTER. “Visão de Rota” e “FILTERS” são nomes históricos.
+>
 > Projeto de hackathon de cidades inteligentes (Patos de Minas, MG, setembro de 2026). Direção atual: **camada auditável de observabilidade da mobilidade**. Processa temporariamente vídeo para extrair números agregados, registra proveniência/estado de validação e mede o antes e o depois de intervenções. No fluxo padrão não faz OCR de placa nem reconhecimento facial e não persiste quadros.
 
 Estado honesto: protótipo. O leitor já processou vídeos de Patos gravados pelo time e existe uma primeira conferência manual pequena (carro 4/4, moto 1/1, ônibus 1/0); isso **não** é acurácia validada do sistema. Telas de semáforo, ônibus, estacionamento e ocorrências continuam sendo simulação marcada; integrações reais não foram validadas.
@@ -10,6 +12,7 @@ Estado honesto: protótipo. O leitor já processou vídeos de Patos gravados pel
 - [Para uma IA que vai ler o repositório](https://github.com/enioxt/hackathon/blob/main/PARA-A-IA.md)
 - [Provas: cada número e o script que o recalcula](https://github.com/enioxt/hackathon/blob/main/docs/PROVAS.md)
 - [Mapa do repositório: o que tem em cada pasta, duplicatas, links](https://github.com/enioxt/hackathon/blob/main/docs/MAPA-DO-REPOSITORIO.md)
+- [Posicionamento canônico do FILTER](https://github.com/enioxt/hackathon/blob/main/docs/POSICIONAMENTO-FILTER.md)
 - [Arquitetura canônica: observabilidade auditável](https://github.com/enioxt/hackathon/blob/main/docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md)
 - [Licenciamento do motor de visão e opções comercializáveis](https://github.com/enioxt/hackathon/blob/main/docs/LICENCIAMENTO-MOTOR-VISAO.md)
 

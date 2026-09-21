@@ -3,7 +3,7 @@
 
 > **Da imagem à evidência.**
 >
-> Nome atual do produto. “FILTER” e “FILTER” permanecem apenas como nomes históricos do hackathon.
+> Nome atual do produto. **Visão de Rota** e **FILTERS** são nomes históricos do hackathon; podem permanecer em URLs/arquivos antigos para preservar a história e não quebrar links.
 
 **O que é, em 3 linhas:** uma **camada auditável de observabilidade da mobilidade**: processa temporariamente vídeo que já existe para extrair medições agregadas, registra de onde cada número veio e compara o antes e o depois de intervenções na rua. No fluxo padrão não há OCR de placa nem reconhecimento facial, e os quadros não são persistidos. Protótipo avançado, ainda não MVP — `MEDIDO` descreve a origem real da observação, não uma promessa de acurácia.
 
@@ -88,7 +88,7 @@ O sistema analisa vídeo **já gravado**, com atraso, de propósito: contar trâ
 | Parede de monitores | https://enioxt.github.io/hackathon/demo/parede.html |
 | Mesa de controle (gire os botões) | https://enioxt.github.io/hackathon/demo/sintetizador.html |
 | Os agentes, onde rodam e quanto custam | https://enioxt.github.io/hackathon/demo/arquitetura.html |
-| Simulador de custo para qualquer cidade | https://enioxt.github.io/hackathon/demo/simulador.html |
+| Dimensionamento atual (processamento na fonte) | https://enioxt.github.io/hackathon/demo/custos.html |
 | App do cidadão (10 telas) | https://enioxt.github.io/hackathon/demo/app-cidadao.html |
 | Hub de ideias de todos os times | https://enioxt.github.io/hackathon/hub/ |
 

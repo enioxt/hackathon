@@ -26,7 +26,9 @@
         },
         "fila_m": { "type": "number", "minimum": 0, "description": "opcional — comprimento estimado da fila, em metros" },
         "velocidade_media_kmh": { "type": "number", "minimum": 0, "maximum": 200, "description": "opcional" },
-        "origem": { "type": "string", "enum": ["medido", "sintetico"] }
+        "origem": { "type": "string", "enum": ["medido", "sintetico"], "description": "medido = derivado de fonte real; não implica validação manual" },
+        "validacao": { "type": "string", "enum": ["nao_validado", "amostra_manual", "validado"], "description": "estado epistemológico da medição" },
+        "modelo": { "type": "string", "minLength": 1, "maxLength": 160, "description": "modelo/backend que produziu a medição, quando aplicável" }
       }
     },
     "evento": {

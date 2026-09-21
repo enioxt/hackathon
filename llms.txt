@@ -13,6 +13,8 @@ Estado honesto: protótipo. O leitor já processou vídeos de Patos gravados pel
 - [Provas: cada número e o script que o recalcula](https://github.com/enioxt/hackathon/blob/main/docs/PROVAS.md)
 - [Mapa do repositório: o que tem em cada pasta, duplicatas, links](https://github.com/enioxt/hackathon/blob/main/docs/MAPA-DO-REPOSITORIO.md)
 - [Posicionamento canônico do FILTER](https://github.com/enioxt/hackathon/blob/main/docs/POSICIONAMENTO-FILTER.md)
+- [Quem somos, método e oferta](https://github.com/enioxt/hackathon/blob/main/docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md)
+- [Stack e radar tecnológico: Jev, regras, LLMs e classificadores](https://github.com/enioxt/hackathon/blob/main/docs/STACK-E-RADAR-TECNOLOGICO.md)
 - [Arquitetura canônica: observabilidade auditável](https://github.com/enioxt/hackathon/blob/main/docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md)
 - [Modelo operacional: processamento na fonte](https://github.com/enioxt/hackathon/blob/main/docs/MODELO-OPERACIONAL-NA-FONTE.md)
 - [Licenciamento do motor de visão e opções comercializáveis](https://github.com/enioxt/hackathon/blob/main/docs/LICENCIAMENTO-MOTOR-VISAO.md)
@@ -32,7 +34,7 @@ Estado honesto: protótipo. O leitor já processou vídeos de Patos gravados pel
 ## Motor (código)
 - [Leitor de vídeo](https://github.com/enioxt/hackathon/tree/main/motor/leitor-video): YOLO11n + ByteTrack, contagem por cruzamento de linha
 - [Porta de entrada de dados](https://github.com/enioxt/hackathon/tree/main/motor/entrada-de-dados): valida e recusa dado pessoal
-- [Decisão por regra](https://github.com/enioxt/hackathon/tree/main/motor/decisao)
+- [Decisão tipada / Jev / regras e experimentos](https://github.com/enioxt/hackathon/tree/main/motor/decisao): benchmark medido e provider semântico substituível
 - [Servidor e telas](https://github.com/enioxt/hackathon/tree/main/painel)
 - [Como replicar](https://github.com/enioxt/hackathon/blob/main/docs/COMO-REPLICAR.md)
 

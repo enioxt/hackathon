@@ -1,5 +1,8 @@
 # Precificação — a peça que fecha a decisão (Visão de Rota, hackathon mobilidade Patos de Minas)
 
+> **STATUS PÓS-HACKATHON — 21/09/2026:** este arquivo permanece como **pesquisa histórica e conjunto de âncoras**, não como tabela comercial vigente. As hipóteses de Jetson, “central mínima”, assinatura por câmera e preços fechados não devem orientar implantação antes do inventário do ambiente real de Patos. A direção canônica agora é **processamento na fonte**, sem duplicar vídeo/streaming por padrão, e economia baseada em RTF, volume processado, integração, calibração, governança e suporte. Ver [MODELO-OPERACIONAL-NA-FONTE.md](../MODELO-OPERACIONAL-NA-FONTE.md).
+
+
 Gravado 19/09/2026 (America/Sao_Paulo), banca 20/09. Rede instável — gravando incrementalmente por bloco,
 sem re-pesquisar o que já está em `precificacao-pesquisa.md` e `cco-modelos-outras-cidades.md` (lidos
 integralmente antes de escrever este arquivo). REAL = vi na lei/contrato/tabela · CONCEPT = declarado em

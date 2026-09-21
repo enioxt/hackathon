@@ -409,6 +409,11 @@ function buscarResumoVotos(){
       if(st.votosDisponivel !== false){ console.info("votação desligada nesta cópia — seus votos ficam só neste navegador"); }
       st.votosDisponivel = false;
       st.votosResumo = null;
+      /* Sem servidor de votação (caso do site publicado), a consulta falhava de 5 em 5
+         segundos para sempre: um 404 novo no console a cada tentativa, em toda aba, pelo
+         tempo que a página ficasse aberta. Falhou uma vez, para de perguntar — o voto
+         continua funcionando só neste navegador, como o plano B já previa. */
+      if(st.votosPoll){ clearInterval(st.votosPoll); st.votosPoll = null; }
       atualizarPainelRevisao();
     });
 }

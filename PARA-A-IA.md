@@ -2,10 +2,12 @@
 
 > Escrito às 10:55 de sábado 19/09/2026, dia 2 do Hackathon Cidades Inteligentes de Patos de Minas (MG). Este arquivo é o índice de tudo que o time discutiu e produziu até agora, com o caminho de cada coisa. Leia nesta ordem. Tudo aqui é dado público ou entregue ao time; nada de dado policial, nada de dado pessoal.
 
+> **ATENÇÃO — arquivo histórico.** O nome público atual é **FILTER**, slogan **“Da imagem à evidência.”** Este diário preserva decisões, preços, gaps e nomes antigos do hackathon; não trate essas linhas como estado atual sem reconferir. Para trabalho novo, siga `CLAUDE.md`, `llms.txt` e `docs/POSICIONAMENTO-FILTER.md`.
+
 **Comece por [`llms.txt`](llms.txt)** — índice curto e atual, com link direto para apresentação, aplicativo, provas e código. Este arquivo (`PARA-A-IA.md`) é o diário do time durante o hackathon (sábado e domingo); útil para contexto de como as decisões foram tomadas, mas alguns caminhos e nomes de repositório abaixo são de uma fase anterior — ver nota em cada seção desatualizada. Estrutura atual e inventário medido: [`docs/MAPA-DO-REPOSITORIO.md`](docs/MAPA-DO-REPOSITORIO.md).
 
 ## 0. Em 5 linhas
-Time **Visão de Rota**. Tema: *Mobilidade Urbana Inteligente e Previsível*. Pergunta central: **quais dados precisamos coletar para descobrir onde as pessoas perdem tempo na mobilidade, e como transformar isso em ação e informação previsível?** Produto fechado na mesa às 10h: **análise das imagens das câmeras que a cidade já tem + consultoria que interpreta**, sem sensor novo, sem app novo. Entrega: domingo 20/09, 16h; banca 17h.
+Nome histórico do time/projeto: **Visão de Rota**. Nome público atual do produto: **FILTER**. Tema: *Mobilidade Urbana Inteligente e Previsível*. Pergunta central: **quais dados precisamos coletar para descobrir onde as pessoas perdem tempo na mobilidade, e como transformar isso em ação e informação previsível?** Produto fechado na mesa às 10h: **análise das imagens das câmeras que a cidade já tem + consultoria que interpreta**, sem sensor novo, sem app novo. Entrega: domingo 20/09, 16h; banca 17h.
 
 ## 1. Onde está cada coisa
 

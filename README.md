@@ -1,7 +1,9 @@
-# Visão de Rota
+# FILTER
 ### Hackathon Cidades Inteligentes · Patos de Minas (MG) · 18 a 20/09/2026
 
-> *Ruas com memória. Mobilidade com previsibilidade.*
+> **Da imagem à evidência.**
+>
+> Nome atual do produto. “Visão de Rota” e “FILTERS” permanecem apenas como nomes históricos do hackathon.
 
 **O que é, em 3 linhas:** uma **camada auditável de observabilidade da mobilidade**: processa temporariamente vídeo que já existe para extrair medições agregadas, registra de onde cada número veio e compara o antes e o depois de intervenções na rua. No fluxo padrão não há OCR de placa nem reconhecimento facial, e os quadros não são persistidos. Protótipo avançado, ainda não MVP — `MEDIDO` descreve a origem real da observação, não uma promessa de acurácia.
 
@@ -144,4 +146,4 @@ Se você achar qualquer uma dessas coisas aqui dentro, é erro: avise que a gent
 Clone, crie um ramo, proponha: passo a passo em [`CONTRIBUINDO.md`](CONTRIBUINDO.md). O melhor lugar para começar a cortar escopo é [`docs/REGRAS-E-ACEITE-MVP.md`](docs/REGRAS-E-ACEITE-MVP.md).
 
 ## Time
-Visão de Rota. Contribuições, autoria e como continuar depois do domingo: [`commons/`](commons/).
+FILTER. Contribuições, autoria e como continuar depois do domingo: [`commons/`](commons/).

@@ -270,7 +270,7 @@ var ICONES = {
 var DESTINOS = [
   {chave:'geral',          grupo:'operacao',     rotulo:'Visão geral',              ico:'geral',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'geral'},
   {chave:'cameras',        grupo:'operacao',     rotulo:'Câmeras',                  ico:'cam',     local:'/parede',          arquivo:'parede.html'},
-  {chave:'publicas',       grupo:'operacao',     rotulo:'Câmeras públicas',         ico:'cam',     local:'/cameras-publicas', arquivo:'cameras-publicas.html'},
+  {chave:'publicas',       grupo:'operacao',     rotulo:'Câmeras públicas',         ico:'cam',     local:'/cameras-publicas', arquivo:'cameras-publicas.html', oculto:true},
   {chave:'camadas',        grupo:'operacao',     rotulo:'Como a máquina conta',     ico:'camadas', local:'/camadas',         arquivo:'camadas.html'},
   {chave:'ponto',          grupo:'operacao',     rotulo:'Detalhe do ponto',         ico:'ponto',   local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'ponto-7'},
   {chave:'historico',      grupo:'operacao',     rotulo:'Histórico (antes e depois)', ico:'hist',  local:'/claro',           arquivo:'painel.html',           painel:true, innerHash:'historico'},
@@ -305,9 +305,16 @@ function urlCasca(dest, extra){
 
 // ---------- monta a lateral ----------
 var palco = document.getElementById('palco');
+function criarTela(d){
+  var wrap = document.createElement('div');
+  wrap.className = 'tela'; wrap.id = 'tela-' + d.chave;
+  palco.appendChild(wrap);
+  telas[d.chave] = {wrap: wrap, iframe: null, carregada: false};
+}
 ['operacao','inteligencia','simuladas','mais'].forEach(function(grupo){
   var host = document.querySelector('.menu[data-grupo="' + grupo + '"]');
   DESTINOS.filter(function(d){ return d.grupo === grupo; }).forEach(function(d){
+    if (d.oculto) { criarTela(d); return; }   // oculto:true tira o item da lateral; a tela continua existindo para link direto
     var a = document.createElement('button');
     a.type = 'button'; a.className = 'item'; a.id = 'item-' + d.chave;
     a.setAttribute('data-chave', d.chave);
@@ -318,10 +325,7 @@ var palco = document.getElementById('palco');
     a.addEventListener('click', function(){ navegarPara(d.chave); fecharGaveta(); });
     host.appendChild(a);
 
-    var wrap = document.createElement('div');
-    wrap.className = 'tela'; wrap.id = 'tela-' + d.chave;
-    palco.appendChild(wrap);
-    telas[d.chave] = {wrap: wrap, iframe: null, carregada: false};
+    criarTela(d);
   });
 });
 document.getElementById('link-apresentacao').href = ESTATICO

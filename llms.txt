@@ -1,6 +1,6 @@
 # FILTER
 
-> **Da imagem à evidência.** Nome público atual: FILTER. “FILTER” e “FILTER” são nomes históricos.
+> **Da imagem à evidência.** Nome público atual: **FILTER**. **Visão de Rota** e **FILTERS** são nomes históricos do hackathon.
 >
 > Projeto de hackathon de cidades inteligentes (Patos de Minas, MG, setembro de 2026). Direção atual: **camada auditável de observabilidade da mobilidade**. Processa temporariamente vídeo para extrair números agregados, registra proveniência/estado de validação e mede o antes e o depois de intervenções. No fluxo padrão não faz OCR de placa nem reconhecimento facial e não persiste quadros.
 
@@ -14,13 +14,14 @@ Estado honesto: protótipo. O leitor já processou vídeos de Patos gravados pel
 - [Mapa do repositório: o que tem em cada pasta, duplicatas, links](https://github.com/enioxt/hackathon/blob/main/docs/MAPA-DO-REPOSITORIO.md)
 - [Posicionamento canônico do FILTER](https://github.com/enioxt/hackathon/blob/main/docs/POSICIONAMENTO-FILTER.md)
 - [Arquitetura canônica: observabilidade auditável](https://github.com/enioxt/hackathon/blob/main/docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md)
+- [Modelo operacional: processamento na fonte](https://github.com/enioxt/hackathon/blob/main/docs/MODELO-OPERACIONAL-NA-FONTE.md)
 - [Licenciamento do motor de visão e opções comercializáveis](https://github.com/enioxt/hackathon/blob/main/docs/LICENCIAMENTO-MOTOR-VISAO.md)
 
 ## Aplicativo (demonstração)
 - [Entrar como gestor](https://enioxt.github.io/hackathon/demo/entrar.html)
 - [Aplicativo do gestor](https://enioxt.github.io/hackathon/demo/app.html)
 - [Como a máquina conta](https://enioxt.github.io/hackathon/demo/camadas.html): caixas, confiança, identidade, trajetória, linha de contagem, votação humana
-- [Câmeras públicas que já achamos](https://enioxt.github.io/hackathon/demo/cameras-publicas.html)
+- [Laboratório histórico de câmeras públicas (fora da navegação principal)](https://enioxt.github.io/hackathon/demo/cameras-publicas.html)
 - [Insights e recomendações](https://enioxt.github.io/hackathon/demo/insights.html)
 - [Operador: poucos botões](https://enioxt.github.io/hackathon/demo/operador.html)
 - [Aplicativo do cidadão](https://enioxt.github.io/hackathon/demo/app-cidadao.html)

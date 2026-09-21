@@ -49,9 +49,13 @@ Os números abaixo vêm de `docs/ficha-tecnica-medida.json` e podem ser refeitos
 |---|---|---|
 | Leitura de vídeo | Python · Ultralytics YOLO11n (detecção) · ByteTrack (rastreio) · OpenCV | backend atual do protótipo; uso comercial/produção passa por gate de licença e pode trocar de detector |
 | Porta de entrada e dados | Bun + TypeScript · SQLite · validação de esquema · verificador de dado pessoal | recusa o que tiver placa, nome ou documento |
-| Decisão | regra escrita para número · classificador de texto (Jev) só para relato livre · dúvida vai para pessoa | número decide por regra, não por modelo |
+| Decisão | regras para número · contrato tipado + Jev para texto livre · revisão humana por limiar | escolhemos o motor por benchmark; provider semântico é substituível |
 | Tela e publicação | HTML/CSS/JS sem framework · SVG · GitHub Pages · GitHub Actions | abre em qualquer navegador, sem instalar |
 | Construção | assistentes de IA (Claude Fable 5.1, Sonnet 5, Opus 5) sob revisão humana · transcrição por Whisper large-v3 | o registro da construção faz parte da entrega |
+
+**Como escolhemos tecnologia**
+
+Usamos abordagens diferentes conforme a tarefa e medimos antes de padronizar. Veja [`docs/STACK-E-RADAR-TECNOLOGICO.md`](docs/STACK-E-RADAR-TECNOLOGICO.md) e [`docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md`](docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md).
 
 **O que medimos**
 

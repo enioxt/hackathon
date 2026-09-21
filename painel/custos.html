@@ -1,114 +1,170 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Visão de Rota — quanto custa a central mínima</title><style>
-:root{--n:#0B1B2B;--c:#12273B;--b:#27425c;--t:#F6F8FA;--a:#E8A33D;--v:#2E9E6B;--z:#9AA5B1}
-*{box-sizing:border-box}body{margin:0;background:var(--n);color:var(--t);font:15px/1.5 system-ui,sans-serif}
-header{padding:22px 5vw 8px}header small{letter-spacing:.14em;color:var(--z)}h1{margin:4px 0 6px;font-size:28px}h2{font-size:18px;margin:0 0 10px}
-.faixa{background:var(--a);color:#111;padding:8px 5vw;font-weight:600}
-main{padding:18px 5vw 110px;display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
-section{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:16px}
-label{display:grid;grid-template-columns:1fr 120px;gap:10px;align-items:center;margin:7px 0;font-size:14px}label span small{display:block;color:var(--z);font-size:12px}
-input{background:var(--n);border:1px solid var(--b);color:var(--t);border-radius:8px;padding:7px;text-align:right;font:inherit;width:100%}
-.res{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}
-.k{background:var(--n);border:1px solid var(--b);border-radius:12px;padding:14px}.k b{display:block;font-size:26px;color:var(--a)}.k small{color:var(--z)}
-ul{margin:6px 0 0;padding-left:18px}li{margin:4px 0}.tag{display:inline-block;background:var(--a);color:#111;border-radius:6px;padding:1px 8px;font-size:12px;font-weight:700}
-.med{background:var(--v);color:#fff}a{color:var(--a)}table{width:100%;border-collapse:collapse;font-size:14px}td{padding:5px 4px;border-bottom:1px solid var(--b)}td:last-child{text-align:right}
-</style></head><body>
-<header><small>VISÃO DE ROTA · FERRAMENTA DE MODELAGEM</small><h1>Quanto custa, no mínimo, a central que lê a cidade</h1>
-<div>Mude qualquer premissa e o resultado recalcula. <a href="/">← centro de controle</a></div></header>
-<div class=faixa>ESTIMATIVA — todo valor em R$ abaixo é premissa do time para discutir, não cotação. Troque pelo orçamento real antes de levar à Prefeitura. Os valores do que a cidade já gastou vêm de imprensa, ata e do site da prefeitura; o link direto só foi conferido onde aparece o ↗.</div>
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Visão de Rota — dimensionar leitura sobre o que já existe</title>
+<style>
+:root{--bg:#0b1b2b;--card:#12273b;--line:#27425c;--text:#f6f8fa;--muted:#9aa5b1;--accent:#e8a33d;--ok:#2e9e6b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,sans-serif}
+header{padding:26px 5vw 14px;max-width:1280px;margin:auto}header small{color:var(--muted);letter-spacing:.12em}h1{font-size:30px;line-height:1.1;margin:6px 0 9px}h2{font-size:18px;margin:0 0 10px}h3{font-size:15px;margin:16px 0 6px;color:var(--accent)}
+.lede{max-width:900px;color:#d9e0e7}.faixa{background:var(--accent);color:#17130a;padding:10px 5vw;font-weight:650}
+main{max-width:1280px;margin:auto;padding:20px 5vw 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:17px}.wide{grid-column:1/-1}
+label{display:grid;grid-template-columns:1fr 125px;gap:12px;align-items:center;margin:9px 0}label small{display:block;color:var(--muted);font-size:12px}
+input{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:8px;text-align:right;font:inherit}
+.res{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.k{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px}.k b{display:block;color:var(--accent);font-size:25px;line-height:1.2}.k small{color:var(--muted)}
+table{width:100%;border-collapse:collapse}td,th{padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top}th{text-align:left;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.05em}td:last-child{text-align:left}
+ul,ol{padding-left:20px;margin:8px 0}li{margin:6px 0}.tag{display:inline-block;border-radius:6px;padding:1px 7px;font-size:11px;font-weight:750;background:var(--ok)}.warn{background:var(--accent);color:#111}
+a{color:var(--accent)}code{background:var(--bg);padding:2px 5px;border-radius:5px}.rule{border-left:3px solid var(--accent);padding-left:12px}
+</style>
+</head>
+<body>
+<header>
+<small>VISÃO DE ROTA · DIMENSIONAMENTO PÓS-HACKATHON</small>
+<h1>Quanto custa acrescentar leitura ao que Patos já tem?</h1>
+<p class="lede">A pergunta não é mais “quanto custa montar uma central?”. Patos já capta, transmite, exibe e armazena vídeo para as finalidades atuais. O que precisamos medir é <b>quanto processamento, integração, validação e governança</b> são necessários para extrair indicadores de mobilidade sem criar outro acervo de imagens.</p>
+</header>
+<div class="faixa">REGRA DE ARQUITETURA — o vídeo fica na fonte. Por padrão, o Visão de Rota persiste medidas e proveniência, não uma cópia do vídeo.</div>
 <main>
-<section><h2>1 · Câmeras fixas que já existem</h2>
-<label><span>Câmeras lidas<small>cenários do painel: 10 · 50 · 100 · 400</small></span><input id=cam type=number value=50></label>
-<label><span>Fluxos de vídeo por máquina<small>premissa conservadora; benchmark publicado de equipamento de borda fala em 10 a 40 câmeras a 5–15 quadros/s — medir no primeiro teste</small></span><input id=fpm type=number value=8></label>
-<label><span>Máquina de processamento (R$)<small>computador com placa de vídeo intermediária — varejo, pesquisa de 19/09 (R$ 6.469), reconferir</small></span><input id=maq type=number value=6500></label>
-<label><span>Instalar 1 câmera NOVA (R$)<small><span class=tag style="background:#d9c46a">imprensa e ata</span> valor dito em reunião do conselho de segurança, abr/2025</small></span><input id=nova type=number value=25000></label></section>
-<section><h2>2 · Veículos da frota como sensor</h2>
-<label><span>Veículos equipados<small>viaturas de trânsito, fiscalização, coleta, ônibus</small></span><input id=vei type=number value=3></label>
-<label><span>Kit por veículo (R$)<small>câmera veicular com GPS + suporte + cartão</small></span><input id=kit type=number value=1200></label>
-<label><span>Km rodados por veículo por dia</span><input id=kmd type=number value=60></label>
-<label><span>Parte do trajeto que é rua nova (%)<small>o resto é repetição da rota de sempre</small></span><input id=novo type=number value=35></label>
-<label><span>Malha urbana a cobrir (km)<small>⚪ não medido — tirar do mapa aberto da cidade</small></span><input id=malha type=number value=900></label>
-<label><span>Dias úteis por mês</span><input id=dias type=number value=22></label></section>
-<section><h2>3 · Central e operação</h2>
-<label><span>Rede, nobreak, disco, tela (R$)<small>uma vez</small></span><input id=infra type=number value=5500></label>
-<label><span>Instalação e calibração por câmera fixa (R$)<small>definir zona de contagem, 1 vez</small></span><input id=calib type=number value=150></label>
-<label><span>Pessoa que opera e interpreta (R$/mês)<small>meio período; pode ser servidor já existente = 0</small></span><input id=pes type=number value=4000></label>
-<label><span>Energia e internet (R$/mês)</span><input id=ene type=number value=450></label>
-<label><span>Software, suporte e relatório (R$/mês)<small>⚪ a definir pelo time — decisão comercial</small></span><input id=sw type=number value=0></label></section>
-<div class=res id=res></div>
-<section style="grid-column:1/-1"><h2>Quanto cobrar — três camadas <span class=tag>PROPOSTA para o time decidir</span></h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:16px">
-<div><h2 style="font-size:16px;color:var(--a)">1 · Piloto de 90 dias (porta de entrada)</h2>
-<label><span>Horas de consultoria e implantação</span><input id=ph type=number value=200></label>
-<label><span>Valor da hora (R$)<small>faixa defensável pela pesquisa: R$ 120 a 185</small></span><input id=pvh type=number value=150></label>
-<label><span>Câmeras lidas no piloto</span><input id=pcam type=number value=10></label>
-<label><span>Equipamento que fica com a cidade (R$)</span><input id=phw type=number value=8000></label>
-<label><span>Margem sobre o custo (%)</span><input id=pmg type=number value=25></label>
-<div class=k style="margin-top:8px"><small>Preço do piloto</small><b id=oPil>—</b><small id=oPilN></small></div></div>
-<div><h2 style="font-size:16px;color:var(--a)">2 · Assinatura depois do piloto</h2>
-<label><span>Preço por câmera lida por mês (R$)</span><input id=apc type=number value=290></label>
-<label><span>Câmeras contratadas</span><input id=acam type=number value=50></label>
-<label><span>Horas de análise por mês incluídas</span><input id=ah type=number value=20></label>
-<div class=k style="margin-top:8px"><small>Receita por mês · por ano</small><b id=oAss>—</b><small id=oAssN></small></div>
-<table style="margin-top:8px"><tr><td>Analítico de vídeo genérico, só software (internacional)</td><td>R$ 15 a 77 /câmera/mês</td></tr>
-<tr><td>Contagem de tráfego dedicada (fabricante dos EUA)</td><td>R$ 427 /cruzamento/mês + R$ 58,6 mil de equipamento</td></tr>
-<tr><td>Videomonitoramento completo de capital (conta nossa sobre contrato público)</td><td>≈ R$ 460 /câmera/mês</td></tr></table>
-<p style="color:var(--z);font-size:12.5px">Âncoras da pesquisa de hoje, não reconferidas por nós; a primeira é só software, as outras incluem equipamento e rede.</p></div>
-<div><h2 style="font-size:16px;color:var(--a)">3 · Êxito (só onde o ganho é medido em R$)</h2>
-<label><span>Ganho anual medido (R$)<small>ex.: diferença achada na auditoria do repasse da zona azul</small></span><input id=eg type=number value=0></label>
-<label><span>Percentual de êxito (%)<small>faixa usual: 10 a 25</small></span><input id=ep type=number value=15></label>
-<div class=k style="margin-top:8px"><small>Êxito no ano</small><b id=oEx>—</b><small>só com o ponto de partida assinado ANTES; sem isso, cobra-se hora</small></div></div></div>
-<h2 style="margin-top:16px">Os limites legais que decidem o formato</h2>
-<table><tr><td>Dispensa de licitação para serviços e compras em 2026 <a class="tag med" style="text-decoration:none" target=_blank rel=noopener href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2025/decreto/D12807.htm">decreto federal ↗ conferido</a></td><td>até R$ 65.492,11</td></tr>
-<tr><td>Contrato público de solução inovadora (lei federal das startups): teste <span class=tag style="background:#d9c46a">pesquisa — reconferir</span></td><td>até R$ 1,6 milhão · 24 meses</td></tr>
-<tr><td>Fornecimento depois do teste, sem nova licitação <span class=tag style="background:#d9c46a">pesquisa — reconferir</span></td><td>até R$ 8 milhões · 48 meses</td></tr>
-<tr><td>Lei mineira de solução inovadora <a class="tag med" style="text-decoration:none" target=_blank rel=noopener href="https://www.almg.gov.br/legislacao-mineira/texto/LEI/23793/2021/">texto da lei ↗ conferido</a> — vale para contratação do ESTADO, serve de referência para o município</td><td>reembolso até R$ 200 mil · teste de 6 + 6 meses</td></tr></table>
-<p id=oLegal style="font-weight:600;margin:10px 0 0"></p></section>
-<section style="grid-column:1/-1"><h2>Por que não precisa de investimento alto <span class=tag>SIMULAÇÃO sobre dado MEDIDO</span></h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;align-items:start"><div><svg viewBox="0 0 640 220" style="width:100%;max-width:640px"><polyline points="20.0,192.8 21.2,190.5 22.5,188.5 23.7,186.6 24.9,184.8 26.2,183.1 27.4,181.3 28.6,179.7 29.9,178.1 31.1,176.5 32.3,175.0 33.6,173.4 34.8,171.9 36.0,170.7 37.3,169.4 38.5,168.3 39.8,167.2 41.0,166.0 42.2,164.9 43.5,163.8 44.7,162.7 45.9,161.6 47.2,160.5 48.4,159.5 49.6,158.6 50.9,157.6 52.1,156.7 53.3,155.7 54.6,154.8 55.8,153.8 57.0,152.8 58.3,151.9 59.5,150.9 60.7,150.0 62.0,149.0 63.2,148.1 64.4,147.1 65.7,146.2 66.9,145.2 68.1,144.2 69.4,143.3 70.6,142.5 71.9,141.7 73.1,140.9 74.3,140.1 75.6,139.3 76.8,138.5 78.0,137.7 79.3,136.9 80.5,136.1 81.7,135.3 83.0,134.5 84.2,133.8 85.4,133.0 86.7,132.2 87.9,131.4 89.1,130.6 90.4,129.9 91.6,129.3 92.8,128.7 94.1,128.0 95.3,127.4 96.5,126.8 97.8,126.1 99.0,125.5 100.2,124.8 101.5,124.2 102.7,123.6 104.0,122.9 105.2,122.3 106.4,121.7 107.7,121.0 108.9,120.4 110.1,119.8 111.4,119.1 112.6,118.5 113.8,117.8 115.1,117.2 116.3,116.6 117.5,115.9 118.8,115.3 120.0,114.7 121.2,114.0 122.5,113.4 123.7,112.8 124.9,112.1 126.2,111.5 127.4,110.8 128.6,110.2 129.9,109.6 131.1,108.9 132.3,108.3 133.6,107.7 134.8,107.2 136.0,106.7 137.3,106.2 138.5,105.8 139.8,105.3 141.0,104.8 142.2,104.3 143.5,103.8 144.7,103.4 145.9,102.9 147.2,102.4 148.4,101.9 149.6,101.5 150.9,101.0 152.1,100.5 153.3,100.0 154.6,99.5 155.8,99.1 157.0,98.6 158.3,98.1 159.5,97.6 160.7,97.2 162.0,96.7 163.2,96.2 164.4,95.7 165.7,95.3 166.9,94.8 168.1,94.3 169.4,93.8 170.6,93.3 171.9,92.9 173.1,92.4 174.3,91.9 175.6,91.4 176.8,91.0 178.0,90.5 179.3,90.0 180.5,89.5 181.7,89.0 183.0,88.6 184.2,88.1 185.4,87.6 186.7,87.1 187.9,86.7 189.1,86.2 190.4,85.7 191.6,85.2 192.8,84.8 194.1,84.4 195.3,84.1 196.5,83.8 197.8,83.5 199.0,83.2 200.2,82.8 201.5,82.5 202.7,82.2 204.0,81.9 205.2,81.6 206.4,81.2 207.7,80.9 208.9,80.6 210.1,80.3 211.4,80.0 212.6,79.7 213.8,79.3 215.1,79.0 216.3,78.7 217.5,78.4 218.8,78.1 220.0,77.8 221.2,77.4 222.5,77.1 223.7,76.8 224.9,76.5 226.2,76.2 227.4,75.8 228.6,75.5 229.9,75.2 231.1,74.9 232.3,74.6 233.6,74.3 234.8,73.9 236.0,73.6 237.3,73.3 238.5,73.0 239.8,72.7 241.0,72.3 242.2,72.0 243.5,71.7 244.7,71.4 245.9,71.1 247.2,70.8 248.4,70.4 249.6,70.1 250.9,69.8 252.1,69.5 253.3,69.2 254.6,68.8 255.8,68.5 257.0,68.2 258.3,67.9 259.5,67.6 260.7,67.2 262.0,66.9 263.2,66.6 264.4,66.3 265.7,66.0 266.9,65.7 268.1,65.3 269.4,65.0 270.6,64.7 271.9,64.4 273.1,64.1 274.3,63.8 275.6,63.4 276.8,63.1 278.0,62.8 279.3,62.5 280.5,62.2 281.7,61.8 283.0,61.5 284.2,61.2 285.4,60.9 286.7,60.6 287.9,60.2 289.1,59.9 290.4,59.6 291.6,59.3 292.8,59.0 294.1,58.8 295.3,58.7 296.5,58.5 297.8,58.3 299.0,58.2 300.2,58.0 301.5,57.9 302.7,57.7 304.0,57.5 305.2,57.4 306.4,57.2 307.7,57.1 308.9,56.9 310.1,56.8 311.4,56.6 312.6,56.4 313.8,56.3 315.1,56.1 316.3,56.0 317.5,55.8 318.8,55.6 320.0,55.5 321.2,55.3 322.5,55.2 323.7,55.0 324.9,54.8 326.2,54.7 327.4,54.5 328.6,54.4 329.9,54.2 331.1,54.0 332.3,53.9 333.6,53.7 334.8,53.6 336.0,53.4 337.3,53.2 338.5,53.1 339.8,52.9 341.0,52.8 342.2,52.6 343.5,52.5 344.7,52.3 345.9,52.1 347.2,52.0 348.4,51.8 349.6,51.7 350.9,51.5 352.1,51.3 353.3,51.2 354.6,51.0 355.8,50.9 357.0,50.7 358.3,50.5 359.5,50.4 360.7,50.2 362.0,50.1 363.2,49.9 364.4,49.8 365.7,49.6 366.9,49.4 368.1,49.3 369.4,49.1 370.6,49.0 371.9,48.8 373.1,48.6 374.3,48.5 375.6,48.3 376.8,48.2 378.0,48.0 379.3,47.8 380.5,47.7 381.7,47.5 383.0,47.4 384.2,47.2 385.4,47.0 386.7,46.9 387.9,46.7 389.1,46.6 390.4,46.4 391.6,46.2 392.8,46.1 394.1,45.9 395.3,45.8 396.5,45.6 397.8,45.5 399.0,45.3 400.2,45.1 401.5,45.0 402.7,44.8 404.0,44.7 405.2,44.5 406.4,44.3 407.7,44.2 408.9,44.0 410.1,43.9 411.4,43.7 412.6,43.5 413.8,43.4 415.1,43.2 416.3,43.1 417.5,42.9 418.8,42.8 420.0,42.6 421.2,42.4 422.5,42.3 423.7,42.1 424.9,42.0 426.2,41.8 427.4,41.6 428.6,41.5 429.9,41.3 431.1,41.2 432.3,41.0 433.6,40.8 434.8,40.7 436.0,40.5 437.3,40.4 438.5,40.2 439.8,40.0 441.0,39.9 442.2,39.7 443.5,39.6 444.7,39.4 445.9,39.2 447.2,39.1 448.4,38.9 449.6,38.8 450.9,38.6 452.1,38.5 453.3,38.3 454.6,38.1 455.8,38.0 457.0,37.8 458.3,37.7 459.5,37.5 460.7,37.3 462.0,37.2 463.2,37.2 464.4,37.0 465.7,36.9 466.9,36.7 468.1,36.5 469.4,36.4 470.6,36.2 471.9,36.1 473.1,35.9 474.3,35.8 475.6,35.6 476.8,35.4 478.0,35.3 479.3,35.1 480.5,35.0 481.7,34.8 483.0,34.6 484.2,34.5 485.4,34.3 486.7,34.2 487.9,34.0 489.1,33.8 490.4,33.7 491.6,33.5 492.8,33.4 494.1,33.2 495.3,33.0 496.5,32.9 497.8,32.7 499.0,32.6 500.2,32.4 501.5,32.2 502.7,32.1 504.0,31.9 505.2,31.8 506.4,31.6 507.7,31.5 508.9,31.3 510.1,31.1 511.4,30.8 512.6,30.8 513.8,30.7 515.1,30.5 516.3,30.3 517.5,30.2 518.8,30.0 520.0,29.9 521.2,29.7 522.5,29.5 523.7,29.4 524.9,29.2 526.2,29.1 527.4,28.9 528.6,28.8 529.9,28.6 531.1,28.4 532.3,28.3 533.6,28.1 534.8,28.0 536.0,27.8 537.3,27.6 538.5,27.5 539.8,27.3 541.0,27.2 542.2,27.0 543.5,26.8 544.7,26.7 545.9,26.5 547.2,26.4 548.4,26.2 549.6,26.0 550.9,25.9 552.1,25.7 553.3,25.6 554.6,25.4 555.8,25.2 557.0,25.1 558.3,24.9 559.5,24.8 560.7,24.6 562.0,24.5 563.2,24.3 564.4,24.1 565.7,24.0 566.9,23.8 568.1,23.7 569.4,23.5 570.6,23.3 571.9,23.2 573.1,23.0 574.3,22.9 575.6,22.7 576.8,22.5 578.0,22.4 579.3,22.2 580.5,22.1 581.7,21.9 583.0,21.8 584.2,21.6 585.4,21.4 586.7,21.3 587.9,21.1 589.1,21.0 590.4,20.8 591.6,20.6 592.8,20.5 594.1,20.3 595.3,20.2 596.5,20.2 597.8,20.2 599.0,20.2 600.2,20.2 601.5,20.2 602.7,20.2 604.0,20.2 605.2,20.2 606.4,20.2 607.7,20.2 608.9,20.2 610.1,20.2 611.4,20.2 612.6,20.2 613.8,20.2 615.1,20.2 616.3,20.2 617.5,20.2 618.8,20.2 620.0,20.2" fill="none" stroke="#E8A33D" stroke-width="2.5"/><line x1="20" y1="195" x2="620" y2="195" stroke="#27425c"/><circle cx="59.5" cy="150.9" r="5" fill="#E8A33D"/><text x="67.5" y="166.9" fill="#F6F8FA" font-size="12">33 → 25%</text><circle cx="134.8" cy="107.2" r="5" fill="#E8A33D"/><text x="142.8" y="123.2" fill="#F6F8FA" font-size="12">94 → 50%</text><circle cx="274.3" cy="63.8" r="5" fill="#E8A33D"/><text x="282.3" y="79.8" fill="#F6F8FA" font-size="12">207 → 75%</text><circle cx="459.5" cy="37.5" r="5" fill="#E8A33D"/><text x="467.5" y="53.5" fill="#F6F8FA" font-size="12">357 → 90%</text><text x="20" y="214" fill="#9AA5B1" font-size="11">posições de câmera lidas (1 a 487)</text><text x="20" y="14" fill="#9AA5B1" font-size="11">% das 1.100 ocorrências a até 100 m</text></svg>
-<p style="color:var(--z);font-size:13px">As ocorrências de trânsito se concentram. As primeiras 25 posições rendem em média 9,2 ocorrências cada; da 101ª à 400ª, 1,5 cada. Ler tudo custa muito e acrescenta pouco: <b style="color:var(--t)">94 posições alcançam metade das ocorrências; para chegar a 90% são 357.</b> Posição é célula de 100 m escolhida por cálculo, não câmera existente — a lista real dos pontos substitui esta curva.</p></div>
-<div><table>
-<tr><td>Instalar 1 câmera nova <span class=tag style="background:#d9c46a">imprensa e ata — link a conferir</span></td><td>R$ 25 mil</td></tr>
-<tr><td>Total já investido no videomonitoramento, somando só o que tem link <span class=tag style="background:#d9c46a">pesquisa de hoje — reconferir</span></td><td>≈ R$ 4,1 milhões</td></tr>
-<tr><td>Expansão anunciada em jul/2025 (meta de 295 câmeras) <a class="tag med" style="text-decoration:none" target=_blank rel=noopener href="https://www.patosdeminas.mg.gov.br/portal/noticias/0/3/2323/patos-de-minas-tera-maior-area-videomonitorada-do-estado-com-295--cameras">site da prefeitura ↗</a></td><td>R$ 1,5 milhão</td></tr>
-<tr><td>Emenda estadual 2024–26 para o videomonitoramento <span class=tag style="background:#d9c46a">imprensa e ata — link a conferir</span></td><td>R$ 1,8 milhão</td></tr>
-<tr><td>Centro de controle completo, pelo benchmark da secretaria <span class=tag style="background:var(--z)">dito pelo diretor de mobilidade, 19/09</span></td><td>R$ 320 mil/mês</td></tr>
-<tr><td>Rede de 40 semáforos inteligentes, só a parte física <span class=tag style="background:var(--z)">dito pelo diretor, 19/09</span></td><td>R$ 6 milhões</td></tr>
-<tr><td>1 cruzamento inteligente <span class=tag style="background:var(--z)">dito pelo diretor, 19/09</span></td><td>R$ 150 a 200 mil</td></tr>
-<tr><td><b>Ler o que já existe — início (com as premissas acima)</b> <span class=tag>estimativa</span></td><td><b id=cmpIni>—</b></td></tr>
-<tr><td><b>Ler o que já existe — por mês</b> <span class=tag>estimativa</span></td><td><b id=cmpMes>—</b></td></tr>
-<tr><td>Isso equivale a quantas câmeras novas</td><td id=cmpCam>—</td></tr>
-<tr><td>E a quanto do custo mensal de um centro completo</td><td id=cmpPct>—</td></tr></table>
-<p style="color:var(--z);font-size:13px">A cidade já pagou pela câmera, pelo poste, pelo link e pela sala. O que falta é a leitura. A proposta não pede obra nem equipamento de rua: pede acesso ao que já está ligado.</p></div></div></section>
-<section><h2>O que a frota enxerga rodando</h2><ul><li>Buraco e remendo solto, com coordenada e foto do chão</li><li>Calçada fora do padrão, degrau, rampa ausente</li><li>Árvore ou galho caído, poda invadindo a via</li><li>Placa encoberta, torta ou pichada; faixa de pedestre apagada</li><li>Entulho, lixo e veículo abandonado</li><li>Poste apagado (rota noturna)</li><li>Ponto de ônibus sem abrigo ou sem sinalização</li></ul>
-<p style="color:var(--z);font-size:13px">O vídeo é processado quando o veículo volta ao pátio, pelo wi-fi: sem plano de dados por veículo. Rosto e placa são borrados antes de qualquer imagem ser guardada.</p></section>
-<section><h2>O que as câmeras fixas medem</h2><ul><li>Contagem por tipo: carro, moto, ônibus, caminhão, bicicleta, pedestre</li><li>Fluxo e fila por bloco de 5 minutos</li><li>Conversão proibida e contramão, como contagem</li><li>Quase-acidente: duas trajetórias que quase se cruzam</li><li>Antes e depois de cada mudança na via</li></ul>
-<p style="color:var(--z);font-size:13px">Um lugar só para tudo: cada registro entra com origem, hora, local e o que o gerou. É isso que permite comparar e provar.</p></section>
-<section><h2>O que este cálculo não inclui</h2><ul><li>Autorização de acesso às câmeras (é decisão, não custo)</li><li>Desenvolvimento do software até ficar pronto para uso diário</li><li>Parecer jurídico e relatório de impacto de privacidade</li><li>Troca de câmera antiga que não entrega vídeo pela rede</li><li>Manutenção dos veículos e tempo dos motoristas (já existem)</li></ul></section>
+
+<section class="wide">
+<h2>O ponto de partida real em Patos</h2>
+<table>
+<tr><th>O que já existe</th><th>Consequência para o produto</th></tr>
+<tr><td><b>240 câmeras em 140 pontos</b>, segundo publicação oficial de 2026</td><td>O primeiro passo é inventariar quais delas servem ao caso de mobilidade; não comprar câmeras.</td></tr>
+<tr><td>Central/estrutura de videomonitoramento já opera para segurança</td><td>Não propomos outra parede de monitores nem outro streaming para substituir o atual.</td></tr>
+<tr><td>Semáforos inteligentes estão em fase experimental em pontos da cidade</td><td>Há decisões reais de mobilidade que podem ganhar baseline e antes/depois.</td></tr>
+<tr><td>Na conversa com a equipe, o diretor apontou falta de capacidade para <b>tratar a massa de dados</b></td><td>Nosso problema é transformar vídeo existente em medida útil e auditável.</td></tr>
+</table>
+<p><a target="_blank" rel="noopener" href="https://www.patosdeminas.mg.gov.br/portal/noticias/0/3/2487/prefeitura-amplia-olho-vivo-e-leva-tecnologia-de-reconhecimento-facial-para-areas-urbanas-e-rurais-de-patos-de-minas">Fonte oficial das 240 câmeras / 140 pontos ↗</a> · <a target="_blank" rel="noopener" href="https://www.patosdeminas.mg.gov.br/portal/noticias/0/3/2533/mudanca-em-cruzamentos-da-rua-major-gote-serao-adotadas-para-aumentar-fluidez-no-transito">Semáforos inteligentes experimentais ↗</a></p>
+</section>
+
+<section>
+<h2>1 · Janela que queremos analisar</h2>
+<label><span>Pontos/câmeras selecionados<small>começar pequeno e por pergunta concreta</small></span><input id="pontos" type="number" min="1" value="3"></label>
+<label><span>Minutos por ponto em cada coleta<small>ex.: mesma hora antes/depois</small></span><input id="minutos" type="number" min="1" value="60"></label>
+<label><span>Coletas por mês<small>ex.: 8 = duas janelas por semana</small></span><input id="coletas" type="number" min="1" value="8"></label>
+<label><span>FPS analisado<small>não precisa ser igual ao FPS gravado; medir efeito na qualidade</small></span><input id="fps" type="number" min=".1" step=".1" value="5"></label>
+</section>
+
+<section>
+<h2>2 · Capacidade medida do worker</h2>
+<label><span>FPS processado por worker<small>5,42 é a média já registrada em vídeos de Patos nesta máquina; deve ser refeito no ambiente real</small></span><input id="throughput" type="number" min=".1" step=".01" value="5.42"></label>
+<label><span>Workers em paralelo<small>começar com 1; aumentar só se o SLA exigir</small></span><input id="workers" type="number" min="1" value="1"></label>
+<label><span>Horas humanas de implantação<small>inventário, integração, calibração e segurança</small></span><input id="hh" type="number" min="0" value="20"></label>
+<label><span>Valor/hora para modelagem interna (R$)<small>não é preço público; serve para conhecer custo</small></span><input id="vh" type="number" min="0" value="150"></label>
+</section>
+
+<div class="res" id="res"></div>
+
+<section class="wide">
+<h2>Como ler o resultado</h2>
+<p class="rule"><b>Não precisamos chegar a RTF ≤ 1.</b> Se uma hora de vídeo levar duas horas para processar, isso ainda pode atender perfeitamente um relatório diário, uma medição semanal ou um estudo antes/depois. Tempo real só vira requisito quando uma decisão concreta exigir.</p>
+<table>
+<tr><th>Métrica</th><th>Uso</th></tr>
+<tr><td><b>Horas de vídeo/mês</b></td><td>volume bruto que já existe na fonte e que escolhemos analisar.</td></tr>
+<tr><td><b>Frames analisados</b></td><td>carga real do detector; mudar FPS altera custo e pode alterar qualidade.</td></tr>
+<tr><td><b>Horas de processamento</b></td><td>quanto tempo computacional a agenda escolhida exige.</td></tr>
+<tr><td><b>RTF</b></td><td>tempo de processamento ÷ duração do vídeo. É a métrica central para dimensionar hardware/SLA.</td></tr>
+<tr><td><b>Cópia permanente de vídeo</b></td><td><b>0 GB por arquitetura padrão.</b> Se houver exceção, ela precisa de justificativa e política própria.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>3 · Primeiro inventário técnico</h2>
+<ol>
+<li>Qual VMS/NVR/DVR armazena cada grupo de câmeras?</li>
+<li>Qual é a retenção real por grupo?</li>
+<li>Há playback, RTSP, ONVIF, SDK, API ou exportação?</li>
+<li>Qual resolução, FPS e codec?</li>
+<li>Podemos rodar um worker na mesma rede/central?</li>
+<li>Existe CPU/GPU disponível sem afetar a operação?</li>
+<li>Como autenticar o worker sem ampliar a superfície da rede de câmeras?</li>
+<li>Quem autoriza a análise e quem acessa os resultados?</li>
+</ol>
+</section>
+
+<section>
+<h2>4 · Câmera com pouca retenção</h2>
+<p>Ela pode ser uma ótima candidata inicial. A resposta não precisa ser “vamos guardar o vídeo em outro lugar”. Pode ser:</p>
+<ul>
+<li>agendar a janela antes da sobrescrita;</li>
+<li>processar na própria central/rede;</li>
+<li>persistir apenas as medidas, modelo, parâmetros e proveniência;</li>
+<li>se necessário, guardar apenas evidência excepcional sob regra explícita.</li>
+</ul>
+</section>
+
+<section>
+<h2>5 · Custos que entram</h2>
+<ul>
+<li>inventário e integração;</li>
+<li>calibração/ground truth;</li>
+<li>capacidade computacional, <b>somente se a existente não bastar</b>;</li>
+<li>licença do backend de visão, se aplicável;</li>
+<li>segurança, credenciais e auditoria;</li>
+<li>governança/LGPD;</li>
+<li>suporte, monitoramento e revalidação;</li>
+<li>análise humana/relatório quando contratados.</li>
+</ul>
+</section>
+
+<section>
+<h2>6 · Custos que não presumimos</h2>
+<ul>
+<li>câmera nova;</li>
+<li>novo CCO;</li>
+<li>novo streaming paralelo;</li>
+<li>segundo armazenamento permanente de vídeo;</li>
+<li>operação 24×7 de segurança pública;</li>
+<li>substituição do VMS existente.</li>
+</ul>
+<p>Se algum deles se mostrar necessário no inventário, vira uma decisão explícita — não uma premissa escondida.</p>
+</section>
+
+<section class="wide">
+<h2>Modelo econômico que faz sentido agora</h2>
+<table>
+<tr><th>Fase</th><th>O que entregamos</th><th>O que mede o custo</th></tr>
+<tr><td><b>Diagnóstico técnico</b></td><td>inventário de uma fonte/central + benchmark de uma janela + mapa de barreiras</td><td>horas técnicas + processamento medido</td></tr>
+<tr><td><b>Piloto de evidência</b></td><td>poucos pontos, baseline, validação humana e uma pergunta concreta de mobilidade</td><td>integração + RTF/volume + calibração + governança</td></tr>
+<tr><td><b>Operação</b></td><td>processamento recorrente e relatório/indicadores conforme SLA</td><td>volume real + recursos + suporte + licença + análise humana</td></tr>
+</table>
+<p><b>Preço por câmera pode existir comercialmente depois.</b> Mas primeiro precisamos descobrir quanto aquela câmera realmente custa para integrar, processar e validar. A unidade econômica nasce do ambiente; não o contrário.</p>
+</section>
+
+<section class="wide">
+<h2>Critério de sucesso do próximo teste</h2>
+<p class="rule">“Este vídeo já existia nesta infraestrutura. Sem criar outro armazenamento e sem criar outro streaming, processamos <b>X minutos</b> em <b>Y minutos</b>, usando <b>Z recursos</b>, com erro medido <b>E</b>, e geramos estas medidas auditáveis.”</p>
+<p>Quando conseguimos preencher X, Y, Z e E com um ponto real de Patos, temos a primeira base confiável para engenharia e preço.</p>
+</section>
+
 </main>
 <script>
-const $=i=>+document.getElementById(i).value||0,R=v=>'R$ '+Math.round(v).toLocaleString('pt-BR');
-function calc(){const maqs=Math.ceil($('cam')/Math.max(1,$('fpm')));
-const inicial=maqs*$('maq')+$('infra')+$('cam')*$('calib')+$('vei')*$('kit'),mensal=$('pes')+$('ene')*Math.max(1,maqs/2)+$('sw');
-const kmNovoDia=$('vei')*$('kmd')*$('novo')/100,diasVolta=kmNovoDia?Math.ceil($('malha')/kmNovoDia):0,voltasMes=diasVolta?($('dias')/diasVolta):0;
-const novas=$('cam')*$('nova');
-document.getElementById('res').innerHTML=[
-['Investimento inicial',R(inicial),maqs+' máquina(s) · '+$('cam')+' câmeras calibradas · '+$('vei')+' veículo(s)'],
-['Custo por mês',R(mensal),'pessoa + energia/internet + software'],
-['Primeiro ano',R(inicial+12*mensal),'inicial + 12 meses'],
-['Por câmera lida, por mês',$('cam')?R((mensal+inicial/24)/$('cam')):'—','com o inicial diluído em 24 meses'],
-['Instalar as mesmas '+$('cam')+' câmeras novas',R(novas),'só o equipamento, pelo valor dito em ata'],
-['Cidade inteira percorrida em',diasVolta?diasVolta+' dias úteis':'—',voltasMes?voltasMes.toFixed(1).replace('.',',')+' volta(s) por mês':'']
-].map(k=>`<div class=k><small>${k[0]}</small><b>${k[1]}</b><small>${k[2]}</small></div>`).join('');
-
-const TETO=65492.11,custoPil=$('ph')*$('pvh')+$('phw')+$('pcam')*$('calib'),precoPil=custoPil*(1+$('pmg')/100);
-document.getElementById('oPil').textContent=R(precoPil);document.getElementById('oPilN').textContent=$('ph')+' h × '+R($('pvh'))+' + equipamento + calibração de '+$('pcam')+' câmeras, com margem';
-const recM=$('apc')*$('acam');document.getElementById('oAss').textContent=R(recM)+' · '+R(recM*12);
-const custoM=$('pes')+$('ene')+$('ah')*$('pvh')*0;document.getElementById('oAssN').textContent='custo mensal estimado acima: '+R(mensal)+' → sobra '+R(recM-mensal)+' por mês antes de imposto e de desenvolvimento';
-document.getElementById('oEx').textContent=$('eg')?R($('eg')*$('ep')/100):'—';
-document.getElementById('oLegal').innerHTML=(precoPil<=TETO?'🟢 O piloto de '+R(precoPil)+' cabe na dispensa de licitação (sobra '+R(TETO-precoPil)+').':'🔴 O piloto de '+R(precoPil)+' passa do teto da dispensa em '+R(precoPil-TETO)+': ou reduz, ou vai por contrato de solução inovadora.')+' '+(recM*12<=TETO?'A assinatura anual também cabe.':'A assinatura de '+R(recM*12)+' por ano NÃO cabe na dispensa: precisa de contrato de solução inovadora ou licitação.');
-document.getElementById('cmpIni').textContent=R(inicial);document.getElementById('cmpMes').textContent=R(mensal);document.getElementById('cmpCam').textContent=(inicial/Math.max(1,$('nova'))).toFixed(1).replace('.',',')+' câmeras';document.getElementById('cmpPct').textContent=(mensal/320000*100).toFixed(1).replace('.',',')+'%';}
-document.querySelectorAll('input').forEach(i=>i.addEventListener('input',calc));calc();
-</script><script src="melhorias.js"></script>
-<script src="tour.js"></script>
+const n=id=>Math.max(0,Number(document.getElementById(id).value)||0);
+const br=v=>new Intl.NumberFormat('pt-BR',{maximumFractionDigits:2}).format(v);
+const money=v=>'R$ '+new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0}).format(v);
+function calc(){
+  const pontos=n('pontos'), minutos=n('minutos'), coletas=n('coletas'), fps=n('fps');
+  const throughput=Math.max(.01,n('throughput')), workers=Math.max(1,n('workers'));
+  const videoH=pontos*minutos*coletas/60;
+  const frames=videoH*3600*fps;
+  const procH=frames/(throughput*3600*workers);
+  const rtf=videoH?procH/videoH:0;
+  const porHora=60*rtf;
+  const setup=n('hh')*n('vh');
+  const cards=[
+    ['Vídeo escolhido / mês',br(videoH)+' h','não é vídeo novo: é janela do acervo/stream existente'],
+    ['Frames analisados',Math.round(frames).toLocaleString('pt-BR'),fps+' frame(s)/s analisados'],
+    ['Processamento necessário',br(procH)+' h','com '+workers+' worker(s) no throughput informado'],
+    ['RTF',br(rtf)+'×',br(porHora)+' min de processamento para cada 60 min de vídeo'],
+    ['Armazenamento de cópia de vídeo','0 GB','arquitetura padrão: dado bruto permanece na fonte'],
+    ['Custo humano de implantação',money(setup),n('hh')+' h × '+money(n('vh'))+'; modelagem interna, não preço final']
+  ];
+  document.getElementById('res').innerHTML=cards.map(c=>'<div class="k"><small>'+c[0]+'</small><b>'+c[1]+'</b><small>'+c[2]+'</small></div>').join('');
+}
+document.querySelectorAll('input').forEach(x=>x.addEventListener('input',calc));calc();
+</script>
 </body></html>

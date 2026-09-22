@@ -107,6 +107,7 @@ Leia nesta ordem:
 8. docs/PROVAS.md
 9. docs/ESTADO-E-ROTEIRO.md — estado medido e roteiro vivo (substitui o checklist do pitch)
 10. docs/DESEMPENHO-E-DUAS-PISTAS.md — RTF medido, o limite do tempo real, o dimensionamento para N câmeras
+11. docs/HANDOFF-21-09-2026.md — estado da sessão de 21/09: os dois repositórios, o que está no ar, o que está aberto
 
 Arquivos de hackathon, pesquisa, pitch antigo e construcao/ são evidência histórica. Não copiar números, preços ou afirmações deles para a interface atual sem reconferir.
 

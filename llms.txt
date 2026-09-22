@@ -11,6 +11,8 @@ Estado honesto: protótipo. O leitor já processou vídeos de Patos gravados pel
 - [README](https://github.com/enioxt/hackathon/blob/main/README.md): o que usamos, o que medimos, o que temos e o que falta
 - [Para uma IA que vai ler o repositório](https://github.com/enioxt/hackathon/blob/main/PARA-A-IA.md)
 - [Provas: cada número e o script que o recalcula](https://github.com/enioxt/hackathon/blob/main/docs/PROVAS.md)
+- [Estado medido e roteiro vivo](https://github.com/enioxt/hackathon/blob/main/docs/ESTADO-E-ROTEIRO.md)
+- [Desempenho medido (RTF 8,3x) e a proposta das duas pistas](https://github.com/enioxt/hackathon/blob/main/docs/DESEMPENHO-E-DUAS-PISTAS.md)
 - [Mapa do repositório: o que tem em cada pasta, duplicatas, links](https://github.com/enioxt/hackathon/blob/main/docs/MAPA-DO-REPOSITORIO.md)
 - [Posicionamento canônico do FILTER](https://github.com/enioxt/hackathon/blob/main/docs/POSICIONAMENTO-FILTER.md)
 - [Quem somos, método e oferta](https://github.com/enioxt/hackathon/blob/main/docs/QUEM-SOMOS-E-COMO-TRABALHAMOS.md)

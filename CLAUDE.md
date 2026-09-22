@@ -105,6 +105,8 @@ Leia nesta ordem:
 6. docs/MODELO-OPERACIONAL-NA-FONTE.md
 7. docs/LICENCIAMENTO-MOTOR-VISAO.md
 8. docs/PROVAS.md
+9. docs/ESTADO-E-ROTEIRO.md — estado medido e roteiro vivo (substitui o checklist do pitch)
+10. docs/DESEMPENHO-E-DUAS-PISTAS.md — RTF medido, o limite do tempo real, o dimensionamento para N câmeras
 
 Arquivos de hackathon, pesquisa, pitch antigo e construcao/ são evidência histórica. Não copiar números, preços ou afirmações deles para a interface atual sem reconferir.
 

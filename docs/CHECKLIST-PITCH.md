@@ -1,5 +1,9 @@
 # Checklist do pitch — FILTER (para o time votar no grupo)
 
+> **ARQUIVO HISTÓRICO.** Este era o roteiro até a banca do hackathon, encerrada em
+> 20/09/2026. Não é o estado atual nem a lista de tarefas de hoje.
+> O roteiro vivo é [`ESTADO-E-ROTEIRO.md`](ESTADO-E-ROTEIRO.md).
+
 Banca: domingo 20/09 · 13h30 pré-pitch · 16h prazo de entrega · 17h banca.
 Como votar: responda no grupo com os números que você acha mais importantes (ex.: "1, 4, 7") e, se quiser, o seu nome ao lado de uma tarefa. Quem marcar @egos recebe o placar atualizado.
 

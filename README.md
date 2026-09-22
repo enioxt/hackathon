@@ -16,6 +16,13 @@
 | Como a máquina conta (os 14 números, com o comando que refaz cada um) | [`docs/PROVAS.md`](docs/PROVAS.md) |
 | Código do leitor de vídeo | [`motor/leitor-video/`](motor/leitor-video/) |
 
+> **Fase atual (a partir de 21/09/2026): levar a tecnologia a prefeituras e parceiros em
+> reuniões.** O que importa mudou — não é mais convencer uma banca em 3 minutos, é
+> sustentar uma conversa técnica de 40 minutos em que a pergunta é *"de onde veio esse
+> número e eu consigo refazer a conta?"*. Estado atual, o que está provado, o que tem
+> ressalva e o que vem pela frente: **[`docs/ESTADO-E-ROTEIRO.md`](docs/ESTADO-E-ROTEIRO.md)**
+> — é o roteiro vivo, e substitui o checklist do pitch, que virou histórico.
+
 > **Direção canônica após o hackathon (21/09/2026):** o produto não é o YOLO nem um CCO completo. É a cadeia auditável **fonte → processamento → medição → validação → intervenção → prova**. **O vídeo fica na infraestrutura que já existe; levamos o processamento até a fonte e persistimos, por padrão, apenas medidas e proveniência.** Leia [`docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md`](docs/ARQUITETURA-OBSERVABILIDADE-AUDITAVEL.md), [`docs/MODELO-OPERACIONAL-NA-FONTE.md`](docs/MODELO-OPERACIONAL-NA-FONTE.md) e [`docs/LICENCIAMENTO-MOTOR-VISAO.md`](docs/LICENCIAMENTO-MOTOR-VISAO.md).
 
 **Como rodar (3 comandos):**
@@ -74,11 +81,12 @@ Usamos abordagens diferentes conforme a tarefa e medimos antes de padronizar. Ve
 | Respostas dos assistentes de IA na construção | 6.605, em 60 agentes |
 | Sala gravada e transcrita | 200 min · 18.510 palavras |
 | Velocidade do leitor nesta máquina (só CPU) | 1,6 quadro/s em 1920 px com rastreio · 5,8 em 1280 px só detecção |
+| **RTF — tempo de processamento ÷ duração do vídeo** | **8,3× em média** nos 8 vídeos de Patos (3,83 quadro/s). Varia de 3,0× a 19,9× conforme resolução e rastreio — **não serve para dimensionar**. Conta e consequências: [`docs/DESEMPENHO-E-DUAS-PISTAS.md`](docs/DESEMPENHO-E-DUAS-PISTAS.md) |
 | Primeira conferência manual em vídeo de Patos | vídeo 3: carro 4 manual / 4 leitor; moto 1 / 1; ônibus 1 / 0 — **amostra pequena, não é taxa de acurácia do sistema** |
 
 **O que temos**: leitor que conta por tipo · porta de entrada que recusa dado pessoal · antes e depois por ponto · origem marcada em todo número · provas recalculáveis · código aberto.
 
-**O que ainda não temos**: acesso às câmeras da cidade · amostra de validação grande o bastante para publicar acurácia por tipo/condição · integrações reais validadas com semáforo, ônibus e estacionamento · operação contínua fora de um notebook · instrumento jurídico para acesso às imagens · decisão de licença/backend para produção comercial.
+**O que ainda não temos**: medição do leitor em GPU (sem ela, qualquer número de servidores para N câmeras é chute) · acesso às câmeras da cidade · amostra de validação grande o bastante para publicar acurácia por tipo/condição · integrações reais validadas com semáforo, ônibus e estacionamento · operação contínua fora de um notebook · instrumento jurídico para acesso às imagens · decisão de licença/backend para produção comercial.
 
 O sistema analisa vídeo **já gravado**, com atraso, de propósito: contar trânsito e medir antes e depois pede a mesma hora de muitos dias, não o instante. O processo recebe e analisa os quadros temporariamente; no fluxo padrão, não faz OCR/reconhecimento de identidade e não persiste os quadros. A primeira conferência manual existe, mas ainda é pequena demais para sustentar uma promessa de acurácia.
 

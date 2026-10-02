@@ -1,3 +1,8 @@
+> **MIGRAÇÃO EGOS — 2026-10-01**
+> Este repositório é um produto próprio (FILTER, hackathon de Patos de Minas) e **não é uma unidade canônica do EGOS**.
+> A parte pública e compartilhável do EGOS vive em [github.com/enioxt/cinco](https://github.com/enioxt/cinco) ([cinco.ia.br](https://cinco.ia.br)); o núcleo é privado.
+> O que está abaixo descreve só este projeto e seu estado na data do último commit.
+
 # FILTER
 ### Hackathon Cidades Inteligentes · Patos de Minas (MG) · 18 a 20/09/2026
 

@@ -1,3 +1,9 @@
+<!-- MUDOU-PARA-O-CINCO 2026-10-15 -->
+> **Este repositório mudou para o cinco (15/10/2026).** O projeto Visão de Rota terminou com o hackathon de setembro; a página continua no ar em enioxt.github.io/hackathon e o que segue vivo do EGOS público está no cinco.
+> Endereço novo: **https://github.com/enioxt/cinco**
+> Este aqui fica arquivado, só para leitura: o histórico continua inteiro aqui e nada foi apagado.
+> O EGOS agora tem dois repositórios: o **cinco** (público, github.com/enioxt/cinco) e o núcleo privado.
+
 > **MIGRAÇÃO EGOS — 2026-10-01**
 > Este repositório é um produto próprio (FILTER, hackathon de Patos de Minas) e **não é uma unidade canônica do EGOS**.
 > A parte pública e compartilhável do EGOS vive em [github.com/enioxt/cinco](https://github.com/enioxt/cinco) ([cinco.ia.br](https://cinco.ia.br)); o núcleo é privado.

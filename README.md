@@ -1,22 +1,18 @@
-<!-- MUDOU-PARA-O-CINCO 2026-10-15 -->
-> **Este repositório mudou para o cinco (15/10/2026).** O projeto Visão de Rota terminou com o hackathon de setembro; a página continua no ar em enioxt.github.io/hackathon e o que segue vivo do EGOS público está no cinco.
-> Endereço novo: **https://github.com/enioxt/cinco**
-> Este aqui fica arquivado, só para leitura: o histórico continua inteiro aqui e nada foi apagado.
-> O EGOS agora tem dois repositórios: o **cinco** (público, github.com/enioxt/cinco) e o núcleo privado.
-
-> **MIGRAÇÃO EGOS — 2026-10-01**
-> Este repositório é um produto próprio (FILTER, hackathon de Patos de Minas) e **não é uma unidade canônica do EGOS**.
-> A parte pública e compartilhável do EGOS vive em [github.com/enioxt/cinco](https://github.com/enioxt/cinco) ([cinco.ia.br](https://cinco.ia.br)); o núcleo é privado.
-> O que está abaixo descreve só este projeto e seu estado na data do último commit.
+> O EGOS público mora em [github.com/enioxt/cinco](https://github.com/enioxt/cinco). Este repositório guarda o FILTER.
 
 # FILTER
 ### Hackathon Cidades Inteligentes · Patos de Minas (MG) · 18 a 20/09/2026
 
-> **Da imagem à evidência.**
->
-> Nome atual do produto. **Visão de Rota** e **FILTERS** são nomes históricos do hackathon; podem permanecer em URLs/arquivos antigos para preservar a história e não quebrar links.
+**Da imagem à evidência.**
 
-**O que é, em 3 linhas:** uma **camada auditável de observabilidade da mobilidade**: processa temporariamente vídeo que já existe para extrair medições agregadas, registra de onde cada número veio e compara o antes e o depois de intervenções na rua. No fluxo padrão não há OCR de placa nem reconhecimento facial, e os quadros não são persistidos. Protótipo avançado, ainda não MVP — `MEDIDO` descreve a origem real da observação, não uma promessa de acurácia.
+O FILTER conta o trânsito com as câmeras que a cidade já tem e mede o antes e o depois de cada mudança na via. No fluxo padrão, não lê placa nem rosto e não guarda os quadros. Serve a prefeituras e equipes de mobilidade que precisam provar se uma mudança funcionou.
+
+**Como começar:**
+1. Abra a [apresentação](https://enioxt.github.io/hackathon/). Leva 1 minuto e funciona no celular.
+2. Veja de onde vem cada número em [`docs/PROVAS.md`](docs/PROVAS.md).
+3. Refaça a conta no seu computador: `python3 motor/provar.py`.
+
+Nomes antigos do projeto: Visão de Rota e FILTERS. Mais sobre o EGOS: [egos.ia.br](https://egos.ia.br).
 
 **Os 4 links que importam:**
 
